@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ponto G++.</title>
-    <link>http://jbake-fidano.rhcloud.com/</link>
-    <atom:link href="http://jbake-fidano.rhcloud.com/feed.xml" rel="self" type="application/rss+xml" />
+    <link>http://ja-gaeta.github.io/</link>
+    <atom:link href="http://ja-gaeta.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>For future use?</description>
     <language>en</language>
-    <pubDate>Sáb, 7 mar 2015 22:08:02 -0300</pubDate>
-    <lastBuildDate>Sáb, 7 mar 2015 22:08:02 -0300</lastBuildDate>
+    <pubDate>Dom, 8 mar 2015 10:14:10 -0300</pubDate>
+    <lastBuildDate>Dom, 8 mar 2015 10:14:10 -0300</lastBuildDate>
 
       <item>
         <title>Curso de Java - Aula 2</title>
-        <link>http://jbake-fidano.rhcloud.com2014/curso-de-java-aula-002.html</link>
+        <link>http://ja-gaeta.github.io2014/curso-de-java-aula-002.html</link>
         <pubDate>Sáb, 22 nov 2014 00:00:00 -0200</pubDate>
         <guid isPermaLink="false">2014/curso-de-java-aula-002.html</guid>
         <description>
@@ -212,7 +212,7 @@ public class OlaMundoUnicode {
       </item>
       <item>
         <title>Curso de Java - Aula 1</title>
-        <link>http://jbake-fidano.rhcloud.com2014/curso-de-java-aula-001.html</link>
+        <link>http://ja-gaeta.github.io2014/curso-de-java-aula-001.html</link>
         <pubDate>Sex, 21 nov 2014 00:00:00 -0200</pubDate>
         <guid isPermaLink="false">2014/curso-de-java-aula-001.html</guid>
         <description>
