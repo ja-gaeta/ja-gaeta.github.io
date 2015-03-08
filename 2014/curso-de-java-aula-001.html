@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+    Ponto G++
+        - Curso de Java - Aula 1
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="J.A. Gaeta Mendes">
+    <meta name="description" content="Static blog generated with JBake">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/cosmo/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/base.css">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav icon -->
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/img/favicon.png" type="image/x-icon">
+      
+    <!-- SyntaxHighlighter -->
+    <script type="text/javascript" src="/js/shCore.js"></script>
+    <script type="text/javascript" src="/js/shBrushJava.js"></script>
+    
+    <link href="/css/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+      
+  </head>
+  <body>      
+    <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Ponto G++</a>
+        </div>
+        
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="/pages/about.html">Sobre</a></li>
+          <!--  <li><a href="/pages/contact.html">Contact</a></li> -->
+          </ul>
+        
+        <!-- Right navigation -->
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/archive.html"><i class="fa fa-list"></i> Arquivo</a></li>
+          <li><a href="/feed.xml" title="Rss"><i class="fa fa-rss"></i> Feed</a></li>
+        </ul>
+        <!-- Right navigation end -->
+
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav><!-- /.navbar -->
+
+    <!-- Begin page content -->
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-md-12">
+          <article>
+            <div class="page-header"><h1>Curso de Java - Aula 1</h1>
+              <ol class="breadcrumb tagsbar">
+                <li><a href="/tags/cursos.html">cursos</a></li>
+                <li><a href="/tags/java.html">java</a></li>
+              </ol>
+            </div>
+          <p class="post-meta">
+            <i class="fa fa-calendar"></i>&nbsp;21 Novembro 2014&nbsp;&nbsp;
+            <i class="fa fa-user"></i>&nbsp;J.A. Gaeta Mendes&nbsp;&nbsp;
+          </p>
+              <p><p style="text-align: center;"><iframe src="https://www.youtube.com/embed/-6p1ZjDVxCE" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></p>
+<h2>Introdução —</h2><p>Esta é a primeira aula publicada no <em>YouTube</em> do meu Curso de Java: uma despretenciosa introdução à programação usando essa linguagem madura, robusta e amplamente difundida pelas suas excepcionais características. O objetivo principal é desenvolver essas aulas de uma maneira bem humorada, mas sem descuidar do provimento de uma formação sólida e extensa da variada tecnologia Java.</p><p>Aqui no Ponto G++, além do <em>link</em> para a vídeo-aula, você encontrará extenso material de apoio para cada lição e <em>links</em> para matéria correlata aos assuntos tratados, possibilitando-lhe aprofundar-se ainda mais nos estudos. Há também um <em>link</em> para acessar todo o código-fonte apresentado nas aulas, disponível no GitHub.</p><p>Tudo o que aprendi foi por esforço próprio, de forma auto-didática, ao longo de muitos anos de dedicação ao estudo. Agora que estou aposentado, disponho do tempo e dos recursos para compartilhar tudo que aprendi, de uma forma muito altruísta.</p><p>Desejo-lhe boa sorte nos estudos. Esteja certo de que o seu sucesso será minha maior recompensa.</p>
+<!-- more -->
+<h3>Programa da aula:</h3>
+<ul>
+	<li>Introdução ao Curso:
+<ul>
+	<li><a href="#header1">Por que Java?</a></li>
+	<li>Java Development Kit (JDK) e Java Runtime Environment (JRE):
+<ul>
+	<li><a href="#header2">O que são.</a></li>
+	<li><a href="#header3">Instalação.</a></li>
+</ul>
+</li>
+	<li>Eclipse IDE (Integrated Development Environment):
+<ul>
+	<li><a href="#header4">O que é.</a></li>
+	<li><a href="#header5">Instalação.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="header1">Por que Java?</h2><p>Se quiser conhecer a história e o desenvolvimento da linguagem Java desde sua criação até os dias atuais, consulte <a href="/programacao/java-como-tudo-comecou/">este artigo</a>, publicado aqui mesmo no Ponto G++. Mas, antes de mais nada, acho que a melhor maneira para se ter uma ideia geral da linguagem de programação Java, é analisar as diretrizes que nortearam o seu projeto, conforme está definido no clássico <a href="http://www.oracle.com/technetwork/java/intro-141325.html" target="_blank"><em>The Java Language Environment</em></a>, nas palavras do seu principal criador, James Gosling. Nesta tradução, você vai observar que deixei os termos técnicos de uso corriqueiro na sua forma original, em inglês. Adotarei essa metodologia de forma consistente, ao longo destas aulas.<br/><blockquote>"Os requisitos do projeto da linguagem de programação Java foram estabelecidos com base na natureza dos ambientes de computação nos quais os programas são executados.</p><p>O enorme crescimento da Internet e da <em>World-Wide Web</em> nos levou a uma forma inteiramente nova de enxergar o desenvolvimento e distribuição de programas. Para conviver no mundo do comércio eletrônico e da distribuição, a tecnologia Java precisava ser capaz de desenvolver aplicativos seguros, de alta performance, e extremamente robustos, sobre múltiplas plataformas em redes distribuídas.</p><p>A operação sobre múltiplas plataformas em redes heterogêneas invalida os esquemas tradicionais de distribuição binária, <em>release</em>, <em>upgrade</em>, <em>patch</em>, etc. Para sobreviver nessa selva, a linguagem de programação Java precisava ser neutra à arquitetura, transportável, e dinamicamente adaptável.</p><p>O sistema que emergiu para ir de encontro a essas necessidades é simples, de forma que pode ser programado com facilidade pela maioria dos desenvolvedores; familiar, para que os desenvolvedores atuais possam aprender a linguagem de programação Java sem sacrifício; orientada a objeto, para tirar proveito das metodologias modernas para desenvolvimento de programas e se ajustar com os aplicativos distribuídos num ambiente cliente-servidor; <em>multithreaded</em>, para alta performance nos aplicativos que precisem executar atividades de múltipla concorrência, tais como multimídia; e interpretada, para maximizar sua capacidade dinâmica e de portabilidade."</blockquote></p><p>Nestes poucos parágrafos estão condensados os conceitos fundamentais da linguagem de programação Java, responsáveis pelo seu tremendo sucesso nas décadas seguintes à sua criação. Estes conceitos podem ser assim resumidos:</p>
+<ul>
+	<li>Simples;</li>
+	<li>Orientada a Objeto;</li>
+	<li>Computação Distribuída;</li>
+	<li>Execução encadeada (<em>multithreading</em>);</li>
+	<li>Dinâmica;</li>
+	<li>Indiferente à arquitetura do <em>hardware</em>;</li>
+	<li>Transportável;</li>
+	<li>Alta performance;</li>
+	<li>Robusta;</li>
+	<li>Segura.</li>
+</ul><p>Vamos examiná-los com um pouco mais de profundidade.</p><p><strong>Simples</strong> – Simplicidade aqui não significa trivialidade, mas a característica de Java incorporar uma sintaxe moderna, parecida com a de outras linguagens largamente usadas, principalmente C e C++. Isso a torna familiar para os desenvolvedores, que podem atingir um elevado nível de produtividade num lapso de tempo muito curto.</p><p><strong>Orientada a Objeto</strong> – Este é o último estágio de desenvolvimento das linguagens de programação, implementado para possibilitar o projeto de programas grandes e complexos, no qual é normal trabalharem grandes equipes simultaneamente. Neste sistema, o programa é desenvolvido em torno dos “objetos” que manipula, ao invés das ações que executa, diferentemente da técnica procedural anterior. Como veremos mais adiante, os conceitos-chave da Orientação a Objetos (OO) são o <a href="http://www.devmedia.com.br/encapsulamento-polimorfismo-heranca-em-java/12991" target="_blank">encapsulamento</a>, que permite esconder e proteger dados e métodos de forma a facilitar o desenvolvimento compartilhado do programa, e a <a href="http://www.devmedia.com.br/encapsulamento-polimorfismo-heranca-em-java/12991" target="_blank">herança</a>, que possibilita o reaproveitamento do código.</p><p><strong>Computação Distribuída</strong> – Na sua forma mais genérica, a computação distribuída pode ser entendida como qualquer processamento que envolva múltiplos computadores, remotos em relação uns aos outros, em que cada um tem um papel na computação de um problema ou processamento de informação.</p><p><strong>Execução Encadeada (<em>Multithreading</em>)</strong> – Java é a primeira linguagem de programação a incluir explicitamente o conceito de <em>Threads</em> na própria linguagem. Há uma excelente definição de <em>multithreading</em> na Wikipédia:</p>
+<blockquote>"Linha ou Encadeamento de execução (em inglês: <em>Thread</em>), é uma forma de um processo dividir a si mesmo em duas ou mais tarefas que podem ser executadas concorrencialmente. O suporte à <em>thread</em> é fornecido pelo próprio sistema operacional, no caso da linha de execução ao nível do núcleo (em inglês: <em>Kernel-Level Thread</em> (KLT)), ou implementada através da biblioteca de uma determinada linguagem, no caso de uma <em>User-Level Thread</em> (ULT)."</blockquote><p>Se você já escreveu algum programa em Java então já fez um programa <em>multithreaded</em>. Todo programa em Java possui pelo menos uma <em>thread</em>: a <em>thread</em> <code>main</code>. Além dessa, a máquina virtual mantém algumas outras que realizam tarefas como coleta de lixo ou finalização de objetos. Algumas classes disponíveis na API de Java também utilizam <em>threads</em> em suas implementações. Como exemplo, podemos citar as classes de Java Swing ou as classes da implementação de RMI (<em>Remote Method Invocation</em>). Em Java é possível lançar várias linhas de execução do mesmo programa. Chamamos a isso de <em>Threads</em> ou <em>Multithreading</em>. A diferença com os processos e programas acima é que Java é interpretada. Quem cuida dos vários <em>Threads</em> de um programa é o próprio interpretador Java. Algumas vantagens em relação aos processos:</p>
+<ol>
+	<li>O chaveamento entre as <em>threads</em> é mais rápido que o chaveamento entre processos;</li>
+	<li>A troca de mensagens entre as <em>threads</em> também é mais eficiente.</li>
+</ol><p><strong>Dinâmica</strong> – Não confundir esta característica ora apresentada com a <em>tipagem</em> da linguagem, que em Java é <em>estática</em>. O termo "dinâmica", é aqui empregado com relação à <em>linkagem</em> do código-executável. Em linguagens como C e C++, todo o código tem que ser compilado para que possa ser executado na forma de um programa. Em Java, as classes são compiladas a medida em que são necessárias. Se uma classe não é necessária durante a fase de execução, ela sequer será compilada num <em>bytecode</em>. Essa característica vem a calhar, especialmente na programação em redes, onde não sabemos de antemão qual código será executado. Um programa em execução pode carregar classes do sistema de arquivos ou de um servidor remoto. Isso também torna teoricamente possível que um programa Java altere seu próprio código durante a execução, como se de certa forma implementasse inteligência artificial. Seria mais realístico imaginar, contudo, que um programa Java gera o código antes da execução e, então, o executa. Com algum mecanismo de <em>feedback</em>, o código gerado pode ir melhorando com o tempo.</p><p><strong>Indiferente à arquitetura do hardware</strong> – A grande pretensão da linguagem de programação Java sempre foi, sem dúvida, a neutralidade à arquitetura de <em>hardware</em> – daí o famoso <em>slogan</em> da Sun: “<em>write once, run anywhere</em>” (“escreva uma vez, execute em qualquer lugar”). Para conseguir isso, a técnica foi usar uma máquina virtual interpretada como camada intermediária entre o aplicativo e o sistema operacional, produzindo programas que rodavam mais lentamente do que seus equivalentes compilados integralmente, na forma tradicional, usando um compilador C++, por exemplo. Isso trouxe para Java a má reputação de produzir programas lentos. Mas desde há muito tempo que a Máquina Virtual Java produz programas que rodam muito mais rápido. O compilador <em>just-in-time</em> (JIT), compila o <em>bytecode</em> Java em código nativo quando o programa é executado, e mantém o código compilado para usar sempre que necessário. Máquinas Virtuais mais sofisticadas usam até mesmo a <em>dynamic recompilation</em>, na qual a Máquina Virtual pode, após analisar o comportamento do programa em execução, recompilá-lo seletivamente e otimizar suas partes críticas. Essas duas técnicas permitem que o programa tire proveito da velocidade do código nativo, sem sacrificar sua portabilidade.</p><p><strong>Transportável</strong> – A portabilidade é tecnicamente uma meta difícil de atingir, e o sucesso de Java em conseguir isso é, de certa forma, matéria de controvérsia. Embora seja possível, de fato, escrever programas que se comportem de forma consistente através de muitas plataformas hospedeiras, uma grande variedade delas contendo pequenos erros ou inconsistências, levou alguns a parodiarem jocosamente o <em>slogan</em> mencionado acima com a versão: “<em>write once, debug everywhere</em>” – acho que nem precisa de tradução. :)</p><p><strong>Alta Performance</strong> – No seu <em>paper</em>, Gosling afirma que a performance sempre esteve em mira durante o desenvolvimento de Java. Segundo ele:</p>
+<blockquote>"(...) a plataforma Java alcança uma performance superior adotando um esquema no qual o interpretador pode rodar a plena velocidade sem precisar verificar o ambiente de execução. O <em>garbage collector</em> automático é executado numa <em>thread</em> de baixa prioridade em <em>background</em>, assegurando uma alta probabilidade de que a memória esteja disponível quando solicitada, o que leva a melhorar a performance. Aplicativos que requeiram grande uso de CPU podem ser projetados de tal forma que as seções de computação intensiva possam ser reescritas em código nativo da máquina como requerido e interfaceadas com a plataforma Java. Em geral, os usuários percebem que os aplicativos interativos respondem rapidamente a despeito de serem interpretados."</blockquote><p>Na prática, todavia, há diferenças. Encontramos na <a href="http://en.wikipedia.org/wiki/Java_performance" target="_blank">Wikipedia</a> um interessante comparativo entre a performance de Java e a de outras linguagens também muito utilizadas atualmente, o qual transcrevo a seguir.</p>
+<blockquote>"A comparação objetiva da performance de um programa Java com um equivalente escrito em outra linguagem, como C++, requer que um <em>benchmark</em> seja inteiramente construído com muito cuidado para comparar programas expressando algorítimos escritos de uma maneira tão idêntica quanto seja tecnicamente possível. A plataforma-alvo do <em>bytecode</em> Java é a plataforma Java, e o <em>bytecode</em> pode ser interpretado ou compilado em código nativo de máquina pela JVM. Outros compiladores têm como alvo, quase sempre, uma plataforma de <em>hardware</em> ou <em>software</em> específica, produzindo um código de máquina que ficará virtualmente imutável durante sua execução. Cenários muito diferentes e difíceis de comparar emergem dessas duas abordagens distintas: compilações estáticas contra compilações dinâmicas e recompilações, além da disponibilidade de informação precisa sobre o ambiente de execução, entre outras variáveis. Java é compilada, quase sempre, <em>just-in-time</em> (JIT) em tempo de execução pela JVM, mas também pode ser compilada <em>ahead-of-time</em> (AOT), tal como C++. Quando é compilada <em>just-in-time</em>, sua performance, em pequenos <em>benchmarks</em> é geralmente:
+<ul>
+	<li>mais lenta do que linguagens compiladas similares como C ou C++,</li>
+	<li>idêntica a outras linguagens compiladas <em>just-in-time</em>, como C#,</li>
+	<li>muito mais rápida do que linguagens sem compilador de código nativo (JIT ou AOT), tais como Perl, Ruby, PHP e Python.</li>
+</ul>
+</blockquote><p><strong>Robusta</strong> – James Gosling afirma que “a linguagem de programação Java foi projetada para criar programas altamente confiáveis, efetua uma extensiva verificação em tempo de compilação, seguida por um segundo nível de verificação durante a execução e suas características induzem bons hábitos de programação.” Ademais, analisando o desenvolvimento consistente da tecnologia Java ao longo dessas quase duas décadas passadas desde sua criação, podemos confirmar sua evolução constante, incorporando sempre o que há de mais moderno na tecnologia das linguagens de programação.</p><p><strong>Segura</strong> – De acordo com a <a href="http://www.oracle.com/technetwork/java/javase/tech/index-jsp-136007.html" target="_blank">Oracle</a>, “a tecnologia de segurança de Java inclui um vasto conjunto de APIs, ferramentas e implementações dos mais usados algorítimos de segurança, mecanismos e protocolos. As APIs de segurança de Java se espalham por uma larga área, incluindo criptografia, infraestrutura para chaves públicas, comunicação segura, autenticação e controle de acesso. A tecnologia Java fornece ao desenvolvedor um abrangente <em>framework</em> de segurança para elaborar aplicativos, bem como dá ao usuário e ao administrador um conjunto de ferramentas para gerenciar seguramente os aplicativos.” A <a href="http://en.wikipedia.org/wiki/Java_security" target="_blank">Wikipedia</a>, contudo, faz críticas à vulnerabilidade do gerenciador de segurança da plataforma Java aos <em>malwares</em>, especialmente em <em>plugins</em> para navegadores Web que executem <em>applets </em>baixados de <em>sites</em> públicos, informalmente conhecidos como “<em>Java in the browser</em>”. O esforço da Oracle para eliminar essas vulnerabilidades, aliás, teria sido responsável pelo atraso no lançamento de Java 8.</p>
+<h2 id="header2">Diferenciação entre JVM, JRE e JDK</h2><p>No "fantástico mundo de Java" é comum nos depararmos com um cipoal de siglas, a maioria delas começando com a letra "J". Logo de cara, ao iniciarmos nosso estudo dessa linguagem de programação, somos apresentados às três mais importantes dessas siglas: JVM, JRE e JDK.</p><p>A representação gráfica na figura a seguir dá uma ideia geral da sua integração:</p>
+<p style="text-align: center;"><img style="border: 1px solid #021a40;" alt="jvm_jre_jdk" src="http://pontogpp.com.br/wp-content/uploads/2015/02/jvm_jre_jdk.png" width="586" height="494"></p>
+<h3>JVM</h3><p>A sigla JVM significa "<em>Java Virtual Machine</em>", ou seja, a <em>Máquina Virtual Java</em>, que, como o próprio nome já indica, é uma "máquina" abstrata, cuja finalidade é prover o ambiente no qual o <em>bytecode</em> possa ser executado. Podemos conceber a JVM como o motor fundamental do ambiente de execução dos programas Java, cumprindo as seguintes tarefas:</p>
+<ul>
+	<li>Carregar o código do programa.</li>
+	<li>Verificar a consistência do código.</li>
+	<li>Executar o código.</li>
+	<li>Implementar o ambiente em tempo de execução.</li>
+</ul>
+<h3>JRE</h3><p>JRE, por sua vez, é abreviatura de "<em>Java Runtime Environment</em>", que podemos traduzir como <em>Ambiente de Execução Java</em>. Sendo fisicamente a implementação da JVM, é ele que contém o conjunto de bibliotecas e demais arquivos que serão usados pela JVM durante a execução do programa Java.</p>
+<h3>JDK</h3><p>O JDK é a sigla de "<em>Java Development Kit</em>", ou seja, o <em>kit para desenvolvimento de programas Java</em>. Como podemos observar na figura acima, contém, além do JRE/JVM, ferramentas para desenvolvimento, incluindo, entre outras, um compilador. Atualmente, ele é apresentado em três versões:</p>
+<ul>
+	<li><strong>Java ME</strong> — <em>Java Mobile Edition</em>: Kit de desenvolvimento para aplicações de dispositivos portáteis, tais como celulares, por exemplo.</li>
+	<li><strong>Java SE</strong> — <em>Java Standard Edition</em>: Utilizado para desenvolvimento <em>Desktop</em> e Cliente/Servidor.</li>
+	<li><strong>Java EE</strong> — <em>Java Enterprise Edition</em>: Desenvolvimento de aplicativos de uso corporativo. Esclarecendo um pouco melhor: as aplicações Web atuais possuem regras de negócio bem complicadas. Além dessas regras, conhecidas como requisitos funcionais, existem outros requisitos a serem atingidos através da infraestrutura do aplicativo, tais como persistência em banco de dados, transação, acesso remoto, <em>web services</em>, gerenciamento de <em>threads</em>, gerenciamento de conexões HTTP, cache de objetos, gerenciamento da sessão Web, balanceamento de carga e outros mais, chamados requisitos não-funcionais. É exatamente para dar suporte à implementação desses requisitos que foi desenvolvida a Java EE, que consiste de uma série de especificações bem detalhadas, dando uma receita de como deve ser implementado um <em>software</em> que execute cada um desses serviços de infraestrutura.</li>
+</ul>
+<h2 id="header3">Qual versão do JDK instalar?</h2><p>Para estudar a linguagem de programação Java, portanto, a primeira coisa que precisaremos providenciar é a instalação do JDK no nosso computador.</p><p>Para um aprendizado básico da linguagem, vamos utilizar a versão SE de Java 8, disponibilizada pela <a href="http://www.oracle.com/index.html" target="_blank">Oracle</a>, que você encontra <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html?ssSourceSiteId=otnpt" target="_blank">neste repositório</a>. Abaixo, estão os links de tutoriais com um passo-a-passo para sua instalação nos principais sistemas operacionais em uso atualmente.</p>
+<ul>
+	<li><a href="/programacao/instalacao-do-jdk-no-linux/">Instalação no Linux</a></li>
+	<li><a href="/programacao/instalacao-do-jdk-no-mac-os-x/">Instalação no Mac OS X</a></li>
+	<li><a href="/programacao/instalacao-do-jdk-no-windows/">Instalação no Windows</a></li>
+</ul>
+<h2 id="header4">O que é um IDE?</h2><p>Segundo a <a href="http://pt.wikipedia.org/wiki/Ambiente_de_desenvolvimento_integrado" target="_blank">Wikipédia</a> um "IDE, do inglês <em>Integrated Development Environment</em> ou Ambiente Integrado de Desenvolvimento, é um programa de computador que reúne características e ferramentas de apoio ao desenvolvimento de software com o objetivo de agilizar este processo."</p><p>Geralmente os IDE facilitam a técnica de RAD (de <em>Rapid Application Development</em>, ou "Desenvolvimento Rápido de Aplicativos"), que visa a maior produtividade dos desenvolvedores.</p>
+<h3>O IDE Eclipse</h3><p>Este fantástico IDE é hoje o mais utilizado no mundo todo para desenvolvimento em Java, embora suporte também outras linguagens tais como C/C++, PHP e Python, entre outras, mediante a instalação de <em>plugins</em> (módulos de extensão). Hoje em dia, também é muito usada para desenvolvimento de programas para a plataforma Android.</p><p>Tendo em vista a sua enorme utilização pela indústria de software, além da sua inquestionável flexibilidade e seus recursos avançados para desenvolvimento, será este o IDE que iremos utilizar na maior parte do Curso de Java do Ponto G++. Não poderia, contudo, deixar de mencionar dois outros IDEs excelentes para desenvolvimento Java: o NetBeans, distribuído pela própria Oracle, e o IntelliJIDEA, este último a única versão comercial (paga) dos três, embora exista uma versão <em>open-source</em> muito boa, mantida pela comunidade.</p>
+<h2 id="header5">Instalação</h2><p>Como o IDE Eclipse é desenvolvido em Java, sua instalação, em qualquer plataforma, é a coisa mais simples que existe. Basta baixar o programa do seu <a href="https://eclipse.org/downloads/" target="_blank">site oficial</a>, conforme a sua plataforma (Windows/Linux/Mac OS X), descompactar o arquivo e iniciar o executável. Crie um atalho para a pasta descompactada a fim de facilitar a utilização do programa e mãos à obra...</p>
+<p style="text-align: center;"><img alt="eclipse_download" src="http://pontogpp.com.br/wp-content/uploads/2014/11/eclipse_download.png" width="800" height="474"></p><p>Não vou abordar aqui detalhes da utilização do IDE Eclipse, pois isso foge ao escopo deste curso. Considerando, contudo, a amplitude da sua utilização, qualquer dúvida poderá ser virtualmente esclarecida na Internet ou na própria documentação oficial. Sugiro que você dedique parte do seu tempo ao estudo do programa, para alcançar o máximo de produtividade.</p><p>Irá constatar que este IDE possui realmente recursos extraordinários para facilitar sua vida de desenvolvedor Java, explicando o porquê do seu tremendo sucesso.</p>
+<p style="text-align: center;"><img alt="java-logo" src="http://pontogpp.com.br/wp-content/uploads/2014/11/java-logo.jpg" width="256" height="256"></p></p>
+      <div class="share">
+        <div class="social">
+  <!-- Facebook -->
+          <span class="facebook">
+            <iframe src="//www.facebook.com/plugins/like.php?href=http://http://jbake-fidano.rhcloud.com2014/curso-de-java-aula-001.html&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+          </span>
+  <!-- Google+ -->
+          <span class="google">
+            <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+            <g:plusone size="medium" href="http://jbake-fidano.rhcloud.com2014/curso-de-java-aula-001.html"></g:plusone>
+          </span>
+  <!-- Twitter -->
+          <span class="twitter">
+            <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jbake-fidano.rhcloud.com2014/curso-de-java-aula-001.html">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </span>
+        </div>
+      </div>
+            </article>
+        </div> <!-- /.col-md-12 -->
+      </div> <!-- /.row -->
+        
+      </div><!-- /.container -->
+
+    <footer>
+      <div class="container">
+        <hr>
+        <div class="row">
+          <div class="col-xs-10">
+            <p class="text-muted credit">&copy; Ponto G++ 2015 <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/br/"><img src="/img/creative_commons_88x31.png"></a> | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.3.2</a> | <i title="Linux" class="fa fa-linux"></i></p>
+          </div>
+          <div class="col-xs-2 gotop">
+            <a href="#"><i class="fa fa-arrow-circle-up"> topo</i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
+
+
+          <script type="text/javascript">
+        SyntaxHighlighter.all()
+    </script>
+  </body>
+</html>
