@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+    Ponto G++
+        - Java & Raspberry Pi - Parte 3
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="J.A. Gaeta Mendes">
+    <meta name="description" content="Static blog generated with JBake">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/cosmo/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/base.css">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav icon -->
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/img/favicon.png" type="image/x-icon">
+      
+    <!-- SyntaxHighlighter -->
+    <script type="text/javascript" src="/js/shCore.js"></script>
+    <script type="text/javascript" src="/js/shBrushJava.js"></script>
+    
+    <link href="/css/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+      
+  </head>
+  <body>      
+    <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Ponto G++</a>
+        </div>
+        
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="/pages/about.html">Sobre</a></li>
+          <!--  <li><a href="/pages/contact.html">Contact</a></li> -->
+          </ul>
+        
+        <!-- Right navigation -->
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/archive.html"><i class="fa fa-list"></i> Arquivo</a></li>
+          <li><a href="/feed.xml" title="Rss"><i class="fa fa-rss"></i> Feed</a></li>
+        </ul>
+        <!-- Right navigation end -->
+
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav><!-- /.navbar -->
+
+    <!-- Begin page content -->
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-md-12">
+          <article>
+            <div class="page-header"><h1>Java & Raspberry Pi - Parte 3</h1>
+              <ol class="breadcrumb tagsbar">
+                <li><a href="/tags/eletrônica.html">eletrônica</a></li>
+                <li><a href="/tags/java.html">java</a></li>
+                <li><a href="/tags/bluej.html">bluej</a></li>
+                <li><a href="/tags/raspberry-pi.html">raspberry-pi</a></li>
+              </ol>
+            </div>
+          <p class="post-meta">
+            <i class="fa fa-calendar"></i>&nbsp;02 Dezembro 2014&nbsp;&nbsp;
+            <i class="fa fa-user"></i>&nbsp;J.A. Gaeta Mendes&nbsp;&nbsp;
+              <i class="fa fa-comment"></i>&nbsp;<span class="badge"><a href="http://ja-gaeta.github.io2014/java-e-raspberry-pi-parte-3.html#disqus_thread"></a></span>
+          </p>
+              <p><p>Para operar seu Raspberry Pi remotamente, é preciso saber o seu endereço IP — isso é basicamente como se fosse o endereço onde ele reside e permite que o computador hospedeiro o encontre na rêde. Em condições padrão, o roteador fornece automaticamente um endereço IP ao Raspberry Pi (chamado IP dinâmico e representado pela sigla DHCP), quando você o conecta à rêde. Todavia, isso pode mudar sempre que você remover o Pi da rêde.</p>
+<!--more-->
+<p style="text-align: center;"><a href="http://imgur.com/TagxKLn"><img src="http://i.imgur.com/TagxKLn.png" title="source: imgur.com" /></a></p><h3>Dando um endereço IP estático ao Raspberry Pi</h3><p>Possuir um endereço estático não é essencial, mas tornará a repetição de acesso ao Raspberry Pi através do SSH muito mais simples, uma vez que você poderá confiar que ele terá sempre o mesmo endereço. Imagine o trabalho que o carteiro teria se sua casa mudasse constantemente de localização.</p><p>Este tutorial presume que você tem a versão oficial do <strong>Sistema Operacional Raspian</strong> instalada, disponível na distribuição NOOBS conforme ensinei no meu <a href="/2014/java-e-raspberry-pi-parte-2.html">artigo anterior</a>. Presume-se, também, que a conexão com o Pi seja numa rêde via <em>ethernet</em>. Caso você, como eu, pretenda se conectar ao Pi remotamente na maior parte do tempo, sugiro que o instale próximo ao roteador e utilize a porta <em>ethernet</em> para acesso à Internet, usufruindo assim da velocidade máxima de sua conexão.</p>
+<hr/><h4>A. Verificando a Configuração</h4><p>Depois do <em>login</em> no Pi, precisamos listar a interface de rêde que temos disponível no momento. Digite o comando:</p><p><code>cat /etc/network/interfaces</code></p>
+<p style="text-align: center;"><a href="http://imgur.com/rYazLRf"><img src="http://i.imgur.com/rYazLRf.png" title="source: imgur.com" /></a></p><p>A linha</p><p><code>iface eth0 inet dhcp</code></p><p>...quer dizer que, no momento, estamos obtendo o endereço IP via DHCP, ou seja, que ele está sendo registrado dinamicamente pelo roteador. E é exatamente isso que queremos mudar.</p>
+<hr/><h4>B. Coletando Informações</h4><p>A primeira coisa que precisamos fazer é coletar algumas informações do nosso roteador e do Pi. Há um par de comandos que devemos executar para obter essas informações. Tenha lápis e papel à mão...</p><p><code>ifconfig</code></p>
+<p style="text-align: center;"><a href="http://imgur.com/IjpcPG2"><img src="http://i.imgur.com/IjpcPG2.png" title="source: imgur.com" /></a></p><p>Esse comando exibe a informação do seu roteador, e a parte que precisamos é o que vem depois de <code>eth0</code> (a conexão ethernet)...</p>
+<pre><code>    eth0    Link encap:Ethernet  HWaddr b8:27:eb:b3:fc:2c
+    inet addr:192.168.1.81   Bcast:192.168.1.255   Mask:255.255.255.0
+</code></pre><p>Anote as seguintes informações, substituindo-as, evidentemente, pelos resultados que você obtiver na sua máquina:</p>
+<pre><code>    inet addr - 192.168.1.81 (Endereço IP atual do Pi)
+    Bcast –  192.168.1.255 (O intervalo IP de transmissão)
+    Mask –  255.255.255.0 (Endereço da máscara de sub-rêde)
+</code></pre><p>Precisamos de um pouco mais de informação antes de continuar. Use o comando:</p><p><code>netstat -nr</code></p><p>(o comando <code>route -n</code> dá o mesmo resultado):</p>
+<p style="text-align: center;"><a href="http://imgur.com/eXObbdT"><img src="http://i.imgur.com/eXObbdT.png" title="source: imgur.com" /></a></p><p>As informações que precisamos são:</p>
+<pre><code>&#39;Gateway&#39; – 192.168.1.254
+&#39;Destination&#39; – 192.168.1.0
+</code></pre>
+<hr/><h4>C. Editando a Configuração da Rêde</h4><p>Vamos precisar agora inserir essas informações no arquivo de configuração de rêde do Pi usando um editor de texto. Vamos usar o <strong>nano</strong>, mas fique à vontade se você é um daqueles "vi-maníacos": tem uma versão dele no Raspian...</p><p><code>sudo nano /etc/network/interfaces</code></p>
+<p style="text-align: center;"><a href="http://imgur.com/wQqntKK"><img src="http://i.imgur.com/wQqntKK.png" title="source: imgur.com" /></a></p><p>Basta mudar a linha onde se lê:</p>
+<pre><code>iface eth0 inet dhcp
+</code></pre><p>para</p>
+<pre><code>iface eth0 inet static
+</code></pre><p>Então, imediatamente abaixo desta linha, digite o seguinte: </p>
+<pre><code>address 192.168.1.81
+netmask 255.255.255.0
+network 192.168.1.0
+broadcast 192.168.1.255
+gateway 192.168.1.254
+</code></pre><p><span style="background-color: #FFFF00">**Atenção:** você deve usar os seus próprios endereços, obtidos na Parte B acima.</span></p><p>Para deixar tudo bem claro, cada item significa o seguinte:</p>
+<ul>
+  <li><strong>address -</strong> O endereço que você quer dar ao Pi, o qual poderá ser qualquer IP dentro do alcance da rêde, mas normalmente aconselha-se escolher números mais altos ao invés de mais baixos, para não correr o risco de alocar dispositivos diferentes ao mesmo IP! Escolhemos aqui 192.168.1.81, pois já estávamos registrados nesse endereço (de acordo com o <code>inet addr</code>), mas poderia ser qualquer endereço no limite de 192.168.1.1 até 192.168.1.255.</li>
+  <li><strong>netmask -</strong> O endereço da <code>Mask</code> que anotamos antes.</li>
+  <li><strong>network -</strong> O endereço IP do roteador, que é o endereço <code>Destination</code> obtido anteriormente.</li>
+  <li><strong>broadcast -</strong> O endereço <code>Bcast</code> que também anotamos acima.</li>
+  <li><strong>gateway -</strong> Este é o endereço do <code>Gateway</code>, obtido da mesma forma.</li>
+</ul>
+<p style="text-align: center;"><a href="http://imgur.com/uqKwwbE"><img src="http://i.imgur.com/uqKwwbE.png" title="source: imgur.com" /></a></p><p>Devemos ficar com um texto parecido com o exibido acima, diferindo apenas os valores, que serão os seus próprios! Lembre-se de salvar <kbd>Ctrl-O</kbd>, antes de sair <kbd>Ctrl-X</kbd>.</p>
+<hr/><h4>D. Conferindo a Configuração Estática</h4><p>Precisamos reiniciar para verificar as mudanças...</p><p><code>sudo reboot</code></p><p>Registre-se novamente e execute...</p><p><code>ifconfig</code></p><p>...o qual deve mostrar suas novas configurações:</p>
+<p style="text-align: center;"><a href="http://imgur.com/23tYKVB"><img src="http://i.imgur.com/23tYKVB.png" title="source: imgur.com" /></a></p><p>Para confirmar que tudo está funcionando como deveria, <em>ping</em> o endereço do seu 'Gateway'...</p><p><code>ping 192.168.1.254 -c 10</code></p><p>(o argumento <code>-c 10</code> apenas indica que você quer <em>pingar</em> 10 vezes. Se esquecer de colocar essa opção, ficará "pingando" aquele endereço continuamente. Se isso acontecer, o <em>ping</em> pode ser parado com <kbd>Ctrl-C</kbd>.</p>
+<p style="text-align: center;"><a href="http://imgur.com/cG7mShp"><img src="http://i.imgur.com/cG7mShp.png" title="source: imgur.com" /></a></p><p>O <em>ping</em> deve ser bem sucedido e todos os pacotes recebidos. Se alguma coisa não correr bem, verifique novamente todos os seus endereços IP e assegure-se de estar dando <em>ping</em> no endereço certo. Lembre-se que você sempre poderá voltar ao DHCP revertendo esses passos. O endereço 'network' do roteador às vezes é um pouco complicado, de forma que é bom verificar se está apresentando problemas.</p><p>Espero, no entanto, que seu Raspberry Pi esteja configurado agora com um endereço IP estático, como o meu.</p><h3>Verificando a Instalação do JDK/JRE</h3><p>Vamos conectar o Pi remotamente, com o comando:</p><p><code>ssh 192.168.1.150 -l pi</code></p><p>(use o seu endereço IP e substitua <strong>pi</strong> se modificou o nome do usuário)</p><p>...digite a senha:</p><p><code>raspberry</code></p><p>(se também não mudou).</p><p>Aproveitando a conexão remota com o Pi, podemos confirmar se o JDK/JRE já estão instalados no sistema, com os comandos:</p><p><code>java -version</code> (JRE)<br/><code>javac -version</code> (JDK)</p><p>A tela abaixo mostra o resultado no meu Raspberry Pi, significando que está tudo pronto para seguir adiante!</p>
+<p style="text-align: center;"><a href="http://imgur.com/ni3kQMD"><img src="http://i.imgur.com/ni3kQMD.png" title="source: imgur.com" /></a></p><h3>SSH no Windows</h3><p>Nos exemplos acima, usamos o SO Linux, usando o Terminal e a linha de comando. No Windows, um bom cliente para SSH é o PuTTY. Nesse caso, os dados para a conexão são inseridos numa caixa de diálogo, como na imagem a seguir:</p>
+<p style="text-align: center;"><a href="http://imgur.com/1c83wfL"><img src="http://i.imgur.com/1c83wfL.png" title="source: imgur.com" /></a></p><p>Uma vez estabelecida a conexão, abre-se uma janela emulando um terminal, onde se procede o <em>login</em> normalmente, conforme abaixo:</p>
+<p style="text-align: center;"><a href="http://imgur.com/lHrYQW3"><img src="http://i.imgur.com/lHrYQW3.png" title="source: imgur.com" /></a></p><h3>Acessando o Pi Remotamente, em Modo Gráfico</h3><p>Para acessar nosso Pi remotamente no modo gráfico vamos precisar instalar nele um servidor VNC (*Virtual Network Computing*), que é um protocolo específico para possibilitar interfaces gráficas remotas. Recomendo instalar o <em>tightvncserver</em>, bem leve, na medida certa para o Raspberry Pi. Basta, no Pi, digitar o comando:</p><p><code>sudo apt-get install tightvncserver</code></p><p>Depois de instalá-lo, o servidor pode ser inicializado com o comando:</p><p><code>vncserver :0 -geometry 1920x1080 -depth 24</code></p><p>Será solicitada uma senha, que você deve anotar com cuidado, pois vai ser necessária na conexão do cliente. Para maiores esclarecimentos, consulte as páginas <code>man</code> de <em>vncserver</em> e <em>xtightvnc</em>.</p><p>Como cliente, no Linux, eu uso o <em>tigervnc</em>, que é uma versão de código-aberto do <em>TightVNC</em>. Para o Windows, podemos usar o próprio <em>TightVNC</em>, cuja caixa de diálogo para a conexão, idêntica à do <em>tigervnc</em> do Linux é a seguinte:</p>
+<p style="text-align: center;"><a href="http://imgur.com/fVAUYb9"><img src="http://i.imgur.com/fVAUYb9.png" title="source: imgur.com" /></a></p><p>Uma vez estabelecida a conexão, abre-se a janela com a interface gráfica que configuramos no Pi, com resolução de 1920x1080:</p>
+<p style="text-align: center;"><a href="http://imgur.com/hMJbH0V"><img src="http://i.imgur.com/hMJbH0V.png" title="source: imgur.com" /></a></p><p>Vamos deixar para o <a href="/eletronica/java-raspberry-pi-parte-4/">próximo artigo</a> a instalação e teste do BlueJ no nosso Raspberry Pi, que agora já está devidamente pronto para recebê-lo com todas as honras.</p>
+<hr/></p>
+      <div class="share">
+        <div class="social">
+  <!-- Facebook -->
+          <span class="facebook">
+            <iframe src="//www.facebook.com/plugins/like.php?href=http://http://ja-gaeta.github.io2014/java-e-raspberry-pi-parte-3.html&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+          </span>
+  <!-- Google+ -->
+          <span class="google">
+            <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+            <g:plusone size="medium" href="http://ja-gaeta.github.io2014/java-e-raspberry-pi-parte-3.html"></g:plusone>
+          </span>
+  <!-- Twitter -->
+          <span class="twitter">
+            <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ja-gaeta.github.io2014/java-e-raspberry-pi-parte-3.html">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </span>
+        </div>
+      </div>
+<hr>
+<section class="comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+  
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>            </article>
+        </div> <!-- /.col-md-12 -->
+      </div> <!-- /.row -->
+        
+      </div><!-- /.container -->
+
+    <footer>
+      <div class="container">
+        <hr>
+        <div class="row">
+          <div class="col-xs-10">
+            <p class="text-muted credit">&copy; Ponto G++ 2015 <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/br/"><img src="/img/creative_commons_88x31.png"></a> | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.3.2</a> | <i title="Linux" class="fa fa-linux"></i></p>
+          </div>
+          <div class="col-xs-2 gotop">
+            <a href="#"><i class="fa fa-arrow-circle-up"> topo</i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
+
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+    </script>
+
+          <script type="text/javascript">
+        SyntaxHighlighter.all()
+    </script>
+  </body>
+</html>

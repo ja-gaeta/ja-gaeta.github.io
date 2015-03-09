@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+    Ponto G++
+        - Java & Raspberry Pi - Parte 1
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="J.A. Gaeta Mendes">
+    <meta name="description" content="Static blog generated with JBake">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/cosmo/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/base.css">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav icon -->
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/img/favicon.png" type="image/x-icon">
+      
+    <!-- SyntaxHighlighter -->
+    <script type="text/javascript" src="/js/shCore.js"></script>
+    <script type="text/javascript" src="/js/shBrushJava.js"></script>
+    
+    <link href="/css/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+      
+  </head>
+  <body>      
+    <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Ponto G++</a>
+        </div>
+        
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="/pages/about.html">Sobre</a></li>
+          <!--  <li><a href="/pages/contact.html">Contact</a></li> -->
+          </ul>
+        
+        <!-- Right navigation -->
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/archive.html"><i class="fa fa-list"></i> Arquivo</a></li>
+          <li><a href="/feed.xml" title="Rss"><i class="fa fa-rss"></i> Feed</a></li>
+        </ul>
+        <!-- Right navigation end -->
+
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav><!-- /.navbar -->
+
+    <!-- Begin page content -->
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-md-12">
+          <article>
+            <div class="page-header"><h1>Java & Raspberry Pi - Parte 1</h1>
+              <ol class="breadcrumb tagsbar">
+                <li><a href="/tags/eletrônica.html">eletrônica</a></li>
+                <li><a href="/tags/java.html">java</a></li>
+                <li><a href="/tags/bluej.html">bluej</a></li>
+                <li><a href="/tags/raspberry-pi.html">raspberry-pi</a></li>
+              </ol>
+            </div>
+          <p class="post-meta">
+            <i class="fa fa-calendar"></i>&nbsp;27 Novembro 2014&nbsp;&nbsp;
+            <i class="fa fa-user"></i>&nbsp;J.A. Gaeta Mendes&nbsp;&nbsp;
+              <i class="fa fa-comment"></i>&nbsp;<span class="badge"><a href="http://ja-gaeta.github.io2014/java-e-raspberry-pi-parte-1.html#disqus_thread"></a></span>
+          </p>
+              <p><p><a href="http://www.oraclejavamagazine-digital.com/javamagazine/november_december_2014#pg36"><em>Baseado num artigo de MICHAEL KÖLLING, Oracle Java Magazine</em></a></p><p>A revista Java Magazine da Oracle, na sua edição do último bimestre de 2014, dá início a uma série de artigos muito interessantes, abordando a nova plataforma <a href="http://www.bluej.org/" target="_blank"><strong>BlueJ</strong></a>, que permite o desenvolvimento de programas com a Java <abbr title="Standard Edition">SE</abbr> 8, diretamente no <a href="http://www.raspberrypi.org/" target="_blank">Raspberry Pi</a>.</p>
+<!--more-->
+<p style="text-align: center;"><a href="http://imgur.com/jSOf0J2"><img src="http://i.imgur.com/jSOf0J2.png" title="source: imgur.com" /></a></p><p>Acredito que atualmente todos já ouviram falar do pequeno computador do tamanho de um cartão de crédito, que custa a bagatela de US$ 40, o equivalente ao câmbio de hoje (27/11/2014) a R$ 100,00. Mas isso para os afortunados americanos, pois aqui em terras tupiniquins o brinquedinho fica bem mais caro, por conta do famoso “custo-Brasil”. Para nós, o modelo B+ básico, com 512MB, fica em torno dos R$ 240,00, ou seja, mais do que o dobro… Como diria o Boris Casoy, “isso é uma vergonha”! Destinado à experimentação e aprendizado, o Raspberry Pi deveria ser isento de impostos e até mesmo distribuído de graça nas escolas públicas… mas isso é uma coisa que é melhor esperar sentado!</p><p>Ainda assim, em vista da tecnologia embutida no “bichinho” e o custo comparado ao dos demais computadores, vamos e venhamos que é uma pechincha.</p><p>Essa característica de baixo custo foi cuidadosamente observada no desenvolvimento do Raspberry Pi, concebido para ser usado na experimentação em projetos de eletrônica e no aprendizado de programação, e tem muita coisa fantástica por aí criada por marmanjos, embora o objetivo original do projeto Raspberry Pi fosse desenvolver um computador para inspirar as crianças no estudo da tecnologia.</p><p><span style="float: left; padding: 10px"><a href="http://imgur.com/7V9MncM"><img src="http://i.imgur.com/7V9MncM.png" title="source: imgur.com" /></a></span>Meu filho me presenteou com o modelo B exibido na foto ao lado, logo no seu lançamento na Inglaterra, e já gastei muitas horas felizes brincando com ele e o Linux. Agora, o artigo da Java Magazine, meu Curso de Programação Java em andamento e meu Raspberry Pi precisando de novos desafios, criaram o clima perfeito para novas e excitantes experimentações.</p><p>No seu artigo, Kölling observa que, nos primeiros dias do Raspberry Pi, podia-se instalar e rodar o OpenJDK, mas ele não estava otimizado muito bem para a plataforma <abbr title="Advanced RISC Machine">ARM</abbr> e isso prejudicava bastante sua performance. Afinal, o Raspberry tem recursos muito limitados, mesmo comparado a um PC comum dos mais básicos.</p><p>No outono de 2013, a Oracle liberou uma versão do <abbr title="Java Development Kit">JDK</abbr> otimizada para a plataforma <abbr title="Advanced RISC Machine">ARM</abbr> do Raspberry Pi. Ela roda muito bem (dentro das restrições da plataforma), e a <em>Raspberry Pi Foundation</em> começou a incluir o <abbr title="Java Development Kit">JDK</abbr> da Oracle no seu pacote de programas: as imagens <strong><span style="color: #808080;">Raspbian</span></strong> distribuídas para rodar como padrão no Raspberry Pi.</p><p>Tudo pronto então para o desenvolvimento em Java? Bem, nem tanto assim. Acontece que, na sua concepção original, o Raspberry Pi era uma solução barata para a experimentação por crianças. Assim, nenhum problema se elas apagassem, por descuido, todo o sistema operacional. Era só reinstalá-lo e começar a brincar de novo.</p><p>Essa grande tirada, porém, não funciona bem em Java. Seu desenvolvimento normalmente é feito em <abbr title="Integrated Development Environment">IDE</abbr>s como Eclipse, NetBeans, IntelliJ IDEA, o outros programas do gênero. Nenhum deles funciona bem no Raspberry. São muito grandes e consomem muitos recursos, não tendo uma execução aceitável no pequeno dispositivo.</p><p>Por essa razão, até agora o desenvolvimento em Java para o Raspberry Pi era feito num <em>notebook</em> normal e, uma vez completado, o executável era transferido para rodar no Raspberry Pi. Embora isso fosse aceitável para <em>hobistas</em> e entusiastas, fugia da concepção original. Ao invés de ser capaz de usar o Raspberry Pi para substituir um computador normal, era preciso um outro computador, ou seja, mais e não menos <em>hardware</em>.</p><p>Para mudar tudo isso, foi liberado agora o BlueJ para o Raspberry Pi. Sua última versão, com o auspicioso número 3.14, foi otimizada para executar sem problemas diretamente no pequeno computador. Inclui também uma biblioteca-padrão, a <span style="color: #808080;"><strong>Pi4</strong></span>, que permite acessar diretamente os componentes de <em>hardware</em> do Raspberry Pi.</p><p>Portanto, com o BlueJ instalado, você já pode programar no Raspberry Pi usando a Java <abbr title="Standard Edition">SE</abbr> 8 e todos os exemplos-padrão Java/BlueJ que antes eram disponíveis apenas para os <em>desktops </em>normais. Seu Raspberry Pi pode finalmente substituir o <em>desktop</em>.</p><p>Mas você poderá fazer muito mais do que isso. Poderá criar objetos interativos que representem componentes de <em>hardware</em> conectados ao Raspberry Pi, tais como botões e <abbr title="Light Emitting Diode">LED</abbr>s, e ter uma experiência mais interativa e de maior configuração experimental para este tipo de desenvolvimento como jamais se conseguiu antes.</p><p>No próximo artigo desta série, vou esmiuçar os passos que devem ser seguidos para deixar seu Raspberry Pi pronto para a instalação do BlueJ.</p></p>
+      <div class="share">
+        <div class="social">
+  <!-- Facebook -->
+          <span class="facebook">
+            <iframe src="//www.facebook.com/plugins/like.php?href=http://http://ja-gaeta.github.io2014/java-e-raspberry-pi-parte-1.html&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+          </span>
+  <!-- Google+ -->
+          <span class="google">
+            <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+            <g:plusone size="medium" href="http://ja-gaeta.github.io2014/java-e-raspberry-pi-parte-1.html"></g:plusone>
+          </span>
+  <!-- Twitter -->
+          <span class="twitter">
+            <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ja-gaeta.github.io2014/java-e-raspberry-pi-parte-1.html">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </span>
+        </div>
+      </div>
+<hr>
+<section class="comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+  
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>            </article>
+        </div> <!-- /.col-md-12 -->
+      </div> <!-- /.row -->
+        
+      </div><!-- /.container -->
+
+    <footer>
+      <div class="container">
+        <hr>
+        <div class="row">
+          <div class="col-xs-10">
+            <p class="text-muted credit">&copy; Ponto G++ 2015 <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/br/"><img src="/img/creative_commons_88x31.png"></a> | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.3.2</a> | <i title="Linux" class="fa fa-linux"></i></p>
+          </div>
+          <div class="col-xs-2 gotop">
+            <a href="#"><i class="fa fa-arrow-circle-up"> topo</i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
+
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+    </script>
+
+          <script type="text/javascript">
+        SyntaxHighlighter.all()
+    </script>
+  </body>
+</html>

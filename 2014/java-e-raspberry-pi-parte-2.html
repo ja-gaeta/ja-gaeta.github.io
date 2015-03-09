@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+    Ponto G++
+        - Java & Raspberry Pi - Parte 2
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="J.A. Gaeta Mendes">
+    <meta name="description" content="Static blog generated with JBake">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/cosmo/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/base.css">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav icon -->
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/img/favicon.png" type="image/x-icon">
+      
+    <!-- SyntaxHighlighter -->
+    <script type="text/javascript" src="/js/shCore.js"></script>
+    <script type="text/javascript" src="/js/shBrushJava.js"></script>
+    
+    <link href="/css/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+      
+  </head>
+  <body>      
+    <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Ponto G++</a>
+        </div>
+        
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="/pages/about.html">Sobre</a></li>
+          <!--  <li><a href="/pages/contact.html">Contact</a></li> -->
+          </ul>
+        
+        <!-- Right navigation -->
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/archive.html"><i class="fa fa-list"></i> Arquivo</a></li>
+          <li><a href="/feed.xml" title="Rss"><i class="fa fa-rss"></i> Feed</a></li>
+        </ul>
+        <!-- Right navigation end -->
+
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav><!-- /.navbar -->
+
+    <!-- Begin page content -->
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-md-12">
+          <article>
+            <div class="page-header"><h1>Java & Raspberry Pi - Parte 2</h1>
+              <ol class="breadcrumb tagsbar">
+                <li><a href="/tags/eletrônica.html">eletrônica</a></li>
+                <li><a href="/tags/java.html">java</a></li>
+                <li><a href="/tags/bluej.html">bluej</a></li>
+                <li><a href="/tags/raspberry-pi.html">raspberry-pi</a></li>
+              </ol>
+            </div>
+          <p class="post-meta">
+            <i class="fa fa-calendar"></i>&nbsp;29 Novembro 2014&nbsp;&nbsp;
+            <i class="fa fa-user"></i>&nbsp;J.A. Gaeta Mendes&nbsp;&nbsp;
+              <i class="fa fa-comment"></i>&nbsp;<span class="badge"><a href="http://ja-gaeta.github.io2014/java-e-raspberry-pi-parte-2.html#disqus_thread"></a></span>
+          </p>
+              <p><p>O sistema operacional do Raspberry Pi é armazenado num cartão de memória <abbr title="Secure Digital Card">SD</abbr>. Para a instalação que vou fazer, usando o <abbr title="New Out Of the Box Software">NOOBS</abbr>, o tamanho mínimo é de 8 GB. Se for um micro-<abbr title="Secure Digital Card">SD</abbr>, talvez seja preciso também um adaptador, que normalmente vem junto, mas é bom conferir, pois, conforme o modelo, o <em>slot</em> do Raspberry pode suportar apenas <abbr title="Secure Digital Card">SD</abbr> de tamanho padrão. A classe não importa muito, podendo partir da 4, pois a diferença de desempenho entre um cartão classe 4 e um classe 10 é praticamente imperceptível.</p>
+<!--more-->
+<p style="text-align: center;"><a href="http://imgur.com/HgZqjfT"><img src="http://i.imgur.com/HgZqjfT.jpg" title="source: imgur.com" /></a></p>
+<h3>Baixe o <abbr title="New Out Of the Box Software">NOOBS</abbr></h3><p>A primeira coisa a fazer é gravar uma imagem do Sistema Operacional no cartão de memória <abbr title="Secure Digital Card">SD</abbr>. Atualmente esse procedimento é uma barbada, pois podemos contar com um gerenciador para instalação do sistema operacional especificamente desenvolvido para o Raspberry Pi: o NOOBS (<em>New Out Of the Box Software</em> - “Novo Software Pronto para Uso”), que pode ser baixado <a href="http://www.raspberrypi.org/downloads/" target="_blank">aqui</a>. Uma vez concluído o <em>download</em>, descompacte-o numa pasta temporária.</p>
+<h3>Formate o cartão <abbr title="Secure Digital Card">SD</abbr></h3><p>A próxima coisa a fazer é formatar o cartão. No Windows e Mac, o programa <em>SD Formatter </em>simplifica muito essa tarefa. No Linux o programa mais recomendado é o <a href="http://gparted.org/" target="_blank">gparted</a> ou, para quem gosta de trabalhar na linha de comando, o <a href="http://www.gnu.org/software/parted/manual/html_chapter/parted_2.html" target="_blank">parted</a>.</p><p>Na página da <a href="http://www.sdcard.org/home/">SD Association</a> pode ser baixado o programa <a href="http://www.sdcard.org/downloads/formatter_4/">SD Formatter 4.0</a>. O programa de instalação vem compactado. Após extraí-lo num diretório temporário, é só executá-lo e seguir os passos do instalador.</p>
+<h3>Cópia dos arquivos do NOOBS para o cartão SD</h3><p>Agora é só arrastar os arquivos do <abbr title="New Out Of the Box Software">NOOBS</abbr> para o diretório raiz do cartão <abbr title="Secure Digital Card">SD</abbr>. Concluída a transferência, ejete o cartão com segurança, insira-o com cuidado no <em>slot</em> da parte inferior do Raspberry Pi, e ele estará pronto para o primeiro <em>boot</em>.</p>
+<h3>Cabeamento</h3>
+<p style="text-align: center;"><a href="http://imgur.com/v5jRgIv"><img src="http://i.imgur.com/v5jRgIv.jpg" title="source: imgur.com" /></a></p><p>As ligações físicas são bem simples e podem ser vistas na foto acima. Há duas entradas <abbr title="Universal Serial Bus">USB</abbr>, portanto uma pode ser usada para o mouse e outra para o teclado. No meu caso, possuo um teclado sem fio Logitech K260, que possui um único controlador <abbr title="Universal Serial Bus">USB</abbr> para o teclado e mouse. Isso é muito bom, pois permite economizar uma porta <abbr title="Universal Serial Bus">USB</abbr>.</p><p>O ideal para a conexão de vídeo é usar um cabo <abbr title="High Definition Multimedia Interface">HDMI</abbr>, para usufruir de uma interface digital de altíssima resolução.</p><p>É muito importante usar uma fonte de alimentação de boa qualidade, que forneça uma tensão de saída de 5V<sub>cc</sub>, com um conector micro-USB. A corrente vai depender muito da parafernália que você pretende “pendurar” nas saídas do Raspberry Pi. Um mínimo de 1200mA serão suficientes para a maioria das aplicações. A minha é de 2A e sempre aguentou o tranco, se bem que quando uso mais do que duas portas <abbr title="Universal Serial Bus">USB</abbr>, utilizo um pequeno <em>Hub</em> que pode ser visto na foto abaixo (visão traseira e frontal), o qual transforma uma única porta <abbr title="Universal Serial Bus">USB</abbr> em outras sete na saída e acrescenta mais 1A na potência.</p>
+<p style="text-align: center;"><a href="http://imgur.com/eHlJXre"><img src="http://i.imgur.com/eHlJXre.jpg" title="source: imgur.com" /></a></p><p>O Raspberry Pi não tem um botão para ligar/desligar. Basta conectar a fonte de alimentação na entrada, tendo o cuidado de não usar força excessiva, para não danificar os contatos.</p><p>A tela de inicialização do <abbr title="New Out Of the Box Software">NOOBS</abbr> exibida na imagem abaixo é bem parecida com a da versão distribuída na data em que escrevo este artigo (v1.3.10 de setembro de 2014), cuja maior diferença é que apenas o Raspbian é instalado por padrão e há uma opção para criar uma partição de 512MB separada para dados. As outras versões do Linux podem ser instaladas através de uma conexão de rêde, que é outra forma de instalação.</p>
+<p style="text-align: center;"><a href="http://imgur.com/iwH9KwU"><img src="http://i.imgur.com/iwH9KwU.png" title="source: imgur.com" /></a></p><p>Na versão mostrada na imagem, há uma janela para selecionar a língua. Na atual, há também a opção de escolher o teclado. Só tem disponível português de Portugal e, eu particularmente, achei melhor deixar em inglês britânico mesmo, pois vamos configurar isso mais tarde. Quanto ao teclado, já pode ser selecionado o “br”, se bem que será preciso alterar a configuração depois, para o padrão <abbr title="Associação Brasileira de Normas Técnicas">ABNT</abbr>2<a><a href="#note1"><sup>1</sup></a>, ou qualquer outro que você porventura utilize. Veremos isso mais adiante.</p><p>A instalação vai demorar um pouco. São 2.241 MB a 1,1 MB/seg e deve levar cerca de meia hora para terminar. Aproveite para ir lendo as mensagens durante a instalação. Ficará sabendo, por exemplo, que para o “login” no Raspbian, o nome do usuário é “pi” e a senha é “raspberry” ― bem criativo, não é mesmo?!</p><p>Terminada a cópia dos arquivos, o <abbr title="New Out Of the Box Software">NOOBS</abbr> entra no programa de configuração básica do Raspian, cuja tela é apresentada a seguir:</p>
+<p style="text-align: center;"><a href="http://imgur.com/IEsDg6v"><img src="http://i.imgur.com/IEsDg6v.png" title="source: imgur.com" /></a></p><p>Vejamos as opções disponíveis:</p>
+<ul>
+	<li><strong>Opção 1:</strong> <em>Expand Files System</em> - a versão atual já faz isso automaticamente; pode pular;</li>
+	<li><strong>Opção 2:</strong> <em>Change User Password</em> - muda a senha do usuário default (pi);</li>
+	<li><strong>Opção 3:</strong> <em>Enable Boot to Desktop/Scratch</em> - Permite optar pela forma de <em>boot</em>. O <em>Scratch</em> é um aplicativo para ensinar programação para crianças e iniciantes básicos. Podemos pular esta opção e deixar como está, para um <em>boot</em> em linha de comando.</li>
+	<li><strong>Opção 4:</strong> <em>Internationalisation Options</em> - Aqui podemos ajustar nossa configuração para o português do Brasil. Eu uso “pt-BR.UTF-8”.</li>
+	<li><strong>Opção 5:</strong> <em>Enable Camera</em> - para habilitar a câmera do Raspberry Pi. Ainda não possuo uma dessas. Vou colocar na lista…</li>
+	<li><strong>Opção 6:</strong> <em>Add to Rastrack</em> - adiciona este Pi ao Mapeamento do Raspberry Pi (<em>Rastrack</em>). Faça isso, se não tem medo do “<em>Big Brother</em>“.</li>
+	<li><strong>Opção 7:</strong> <em>Overclock</em> - vamos deixar isso para uma outra ocasião, pois é preciso alguma experimentação a fim de evitar instabilidades.</li>
+	<li><strong>Opção 8:</strong> <em>Advanced Options</em> - entre nesta opção, apenas para habilitar o <abbr title="Secure Shell">SSH</abbr>, a fim de que possamos operar nosso Pi remotamente.</li>
+</ul><p>Podemos encerrar o programa de configurações, pois as outras iremos ajustar adiante nos arquivos de configuração do próprio sistema operacional Linux, de uma forma mais avançada, aproveitando para aprender mais um pouco.</p><p>Para navegar pelos “botões” do programa de configuração, use a tecla TAB. Selecione “<em>Finish</em>“, para encerrar e o programa perguntará se você deseja reinicializar ou não. Como estamos configurando pela primeira vez, vamos reinicializar.</p><p>Aprecie o <em>boot</em> do Raspberry Pi. A foto abaixo registra o momento histórico do meu!</p>
+<p style="text-align: center;"><a href="http://imgur.com/LgTMsmi"><img src="http://i.imgur.com/LgTMsmi.png" title="source: imgur.com" /></a></p><p>Antes de encerrar, vamos aproveitar para configurar o teclado para o padrão <abbr title="Associação Brasileira de Normas Técnicas">ABNT</abbr>2. Digite o seguinte no <em>prompt</em> de comando (é preciso usar <strong>sudo</strong> para obter privilégios de <strong>root</strong>); ao ser solicitada a senha, entre “raspberry” (se não a modificou durante a configuração inicial):</p><p><code>sudo nano /etc/default/keyboard</code></p><p>Deixe o arquivo de configuração do teclado (<em>keyboard</em>), conforme abaixo:</p>
+<p style="text-align: center;"><a href="http://imgur.com/C8OygIK"><img src="http://i.imgur.com/C8OygIK.png" title="source: imgur.com" /></a></p><p>Para salvar, tecle <kbd>Ctrl-O</kbd> e ; para encerrar, tecle <kbd>Ctrl-X</kbd>.</p><p>Para uma saída com estilo, limpa e serena, vamos desligar o Pi com o comando:</p><p><code>sudo shutdown -h now</code></p><p>Meu objetivo principal foi focalizar a configuração do Raspberry Pi e, não, ensinar o sistema operacional GNU/Linux. Creio que você não teve nenhum problema até aqui, pois os comandos que usamos foram bem básicos. Contudo, se encontrou alguma dificuldade por não estar habituado com este sistema operacional, sugiro que faça uma pesquisa “on-line” no Google velho de guerra, e certamente encontrará material abundante na Internet sobre o Linux para estudar.</p><p>No próximo artigo, vamos configurar o Raspberry Pi para uso remoto numa rêde doméstica sem fio e instalar o <strong>BlueJ</strong> para começar a programar em Java nele.</p>
+<hr/><p><a name="note1"><sup>1</sup></a> A diferença entre o padrão <abbr title="Associação Brasileira de Normas Técnicas">ABNT</abbr>1 e o <abbr title="Associação Brasileira de Normas Técnicas">ABNT</abbr>2, é que este último possui uma tecla a mais, a <kbd>Alt Gr</kbd> que permite o uso de caracteres especiais como ª, º, § e outros.</p>
+<hr/></p>
+      <div class="share">
+        <div class="social">
+  <!-- Facebook -->
+          <span class="facebook">
+            <iframe src="//www.facebook.com/plugins/like.php?href=http://http://ja-gaeta.github.io2014/java-e-raspberry-pi-parte-2.html&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+          </span>
+  <!-- Google+ -->
+          <span class="google">
+            <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+            <g:plusone size="medium" href="http://ja-gaeta.github.io2014/java-e-raspberry-pi-parte-2.html"></g:plusone>
+          </span>
+  <!-- Twitter -->
+          <span class="twitter">
+            <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ja-gaeta.github.io2014/java-e-raspberry-pi-parte-2.html">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </span>
+        </div>
+      </div>
+<hr>
+<section class="comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+  
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>            </article>
+        </div> <!-- /.col-md-12 -->
+      </div> <!-- /.row -->
+        
+      </div><!-- /.container -->
+
+    <footer>
+      <div class="container">
+        <hr>
+        <div class="row">
+          <div class="col-xs-10">
+            <p class="text-muted credit">&copy; Ponto G++ 2015 <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/br/"><img src="/img/creative_commons_88x31.png"></a> | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.3.2</a> | <i title="Linux" class="fa fa-linux"></i></p>
+          </div>
+          <div class="col-xs-2 gotop">
+            <a href="#"><i class="fa fa-arrow-circle-up"> topo</i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
+
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+    </script>
+
+          <script type="text/javascript">
+        SyntaxHighlighter.all()
+    </script>
+  </body>
+</html>
