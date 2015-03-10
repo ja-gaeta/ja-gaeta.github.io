@@ -3,7 +3,7 @@
   <head>
     <title>
     Ponto G++
-        - Instalação do JDK no Linux
+        - Atualizações...
     </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,46 +70,36 @@
       <div class="row">
         <div class="col-md-12">
           <article>
-            <div class="page-header"><h1>Instalação do JDK no Linux</h1>
+            <div class="page-header"><h1>Atualizações...</h1>
               <ol class="breadcrumb tagsbar">
-                <li><a href="/tags/programação.html">programação</a></li>
+                <li><a href="/tags/desenvolvimento-web.html">desenvolvimento-web</a></li>
                 <li><a href="/tags/java.html">java</a></li>
-                <li><a href="/tags/tutoriais.html">tutoriais</a></li>
+                <li><a href="/tags/cursos.html">cursos</a></li>
               </ol>
             </div>
           <p class="post-meta">
-            <i class="fa fa-calendar"></i>&nbsp;29 Dezembro 2014&nbsp;&nbsp;
+            <i class="fa fa-calendar"></i>&nbsp;10 Março 2015&nbsp;&nbsp;
             <i class="fa fa-user"></i>&nbsp;J.A. Gaeta Mendes&nbsp;&nbsp;
-              <i class="fa fa-comment"></i>&nbsp;<span class="badge"><a href="http://ja-gaeta.github.io2014/instalacao-do-jdk-no-linux.html#disqus_thread"></a></span>
+              <i class="fa fa-comment"></i>&nbsp;<span class="badge"><a href="http://ja-gaeta.github.io2015/atualizacoes.html#disqus_thread"></a></span>
           </p>
-              <p><p>As distribuições do sistema operacional GNU/Linux costumam vir com o <a href="http://openjdk.java.net/" target="_blank">OpenJDK</a> já pré-instalado. O OpenJDK é a versão <em>open-source</em> do JDK e nada impede usá-lo para o aprendizado da linguagem de programação Java. Aliás, o OpenJDK é, desde 2010, a implementação de referência para a linguagem Java. Todavia, como vamos usar o JDK 8 da Oracle no Curso de Java do Ponto G++, é melhor adotar esta versão, para evitar qualquer eventual incompatibilidade com os exemplos das aulas. Para entender a diferença entre o OpenJDK e o JDK da Oracle, consulte <a href="/2014/oracle-jdk-vs-openjdk.html">este artigo</a>.</p>
-<!--more--><p>Vou fornecer abaixo um passo-a-passo para instalação do JDK 8 no <strong><span style="color: #808080;">Ubuntu</span></strong> e derivados, que são as distribuições mais usadas atualmente. Quem usa <strong><span style="color: #808080;">Archlinux</span></strong> (como eu), dificilmente precisará de um tutorial para instalação de programas, pois dispõem do poderoso <em>Pacman</em>, mas aproveito para informar que poderá instalar o JDK da Oracle a partir do repositório AUR, cujo pacote encontrará neste <a href="https://aur.archlinux.org/packages/jdk" target="_blank">link</a>.</p>
-<h3>1º Passo - Instalação da Java SE 8 (JDK 8)</h3><p>Adicione o repositório <code>ppa webupd8team/java</code> no seu sistema e instale a Java SE 8 da Oracle, usando o seguinte conjunto de comandos:</p>
-<pre><code>$ sudo add-apt-repository ppa:webupd8team/java
-$ sudo apt-get update
-$ sudo apt-get install oracle-java8-installer
-</code></pre>
-<h3>2º Passo - Verificação da Versão do JRE Instalada</h3><p>Depois de instalar o JDK da Oracle seguindo o passo acima, verifique a versão do JRE instalada usando o comando <code>java -version</code>:</p>
-<p style="text-align: center;"><img src="http://i.imgur.com/fGukY2L.png" title="source: imgur.com" /></p>
-<h3>3º Passo - Ajuste do Ambiente Java</h3><p>O pessoal do <strong><span style="color: #808080;">Webupd8team</span></strong> está fornecendo um pacote para ajustar as variáveis de ambiente para o JDK 8. Instale este pacote usando o comando:</p><p><code>$ sudo apt-get install oracle-java8-set-default</code></p>
-<h3>4º Passo - Verificação da Versão do JDK Instalada</h3><p>Depois de fazer o ajuste do ambiente Java, conforme o passo anterior, definindo o JDK 8 como default, verifique a versão, com o comando: <code>javac -version</code>.</p>
-<p style="text-align: center;"><img src="http://i.imgur.com/WADZfhu.png" title="source: imgur.com" /></p><p>Os felizes usuários da distribuição <strong><span style="color: #808080;">Archlinux</span></strong> contam também com o <em>script</em> <code>archlinux-java</code>, que facilita o ajuste das variáveis de ambiente para as diversas versões do JDK instalados na máquina. Confira sua funcionalidade no <em>snapshot</em> abaixo:</p>
-<p style="text-align: center;"><img src="http://i.imgur.com/LouzASF.png" title="source: imgur.com" /></p>
+              <p><h2>Atualização do Ponto G++</h2>
+<p style="text-align: center;"><img src="http://i.imgur.com/NhMa6IW.png" title="source: imgur.com" /></p><p>Já faz um tempão que não atualizava o Ponto G++, mas não estive parado. Pelo contrário, mantive bastante atividade nestes últimos dois meses, preparando uma atualização completa do <em>site</em>, usando agora a plataforma <a href="https://br.wordpress.org/">WordPress</a>, em substituição à plataforma <a href="http://www.drupal.org.br/">Drupal</a> que vinha usando até então. O motivo: simplificar a manutenção do site, para poder dedicar-me mais à elaboração de conteúdo.</p>
+<!--more--><p>O Drupal é um <abbr title="Content Management System">CMS</abbr> excelente, mas para a finalidade que tenho em mente no momento, é uma ferramenta muito pesada — um canhão para matar moscas!</p><p>O WordPress, por outro lado, tem manutenção mais simples, embora mantenha poder de fogo suficiente para a elaboração de <em>sites</em> muito profissionais. Não é a toa que se tornou o lider mundial na sua categoria.</p><p>Para o desenvolvimento do Ponto G++, optei por um tema baseado no <a href="http://getbootstrap.com/getting-started/">Bootstrap</a>, para assegurar a excelente responsividade <em>front-end</em> garantida por este <em>framework</em> que praticamente se tornou padrão para o desenvolvimento <em>web</em> de olho nos dispositivos <em>mobile</em>.</p><p>Um outro CMS que andei <em>namorando</em> foi o <a href="http://modx.com/">MODX</a>, que possui uma flexibilidade incrível para a criação de <em>sites</em> bem profissionais, sem o "peso" dos CMS similares. Todavia, essa flexibilidade acaba sacrificando a simplicidade de manutenção, além de exigir muito mais trabalho de programação, tanto <em>back-end</em> como <em>front-end</em>. Mas meu <em>namoro</em> com o MODX continua e, quem sabe, talvez ainda venha a usá-lo mais tarde.</p><p>Mudando completamente o enfoque, estudei também a possibilidade de usar um gerador de <em>sites</em> estáticos, muito em voga atualmente para o desenvolvimento de Blogs, documentação, portfólios e até mesmo <em>sites</em> de pequenos negócios, possibilitando sua publicação não apenas em qualquer provedor pago, mas também no <a href="https://pages.github.com/">GitHub</a> ou outros provedores gratuitos semelhantes.</p><p>A grande vantagem desse tipo de desenvolvimento é a sua simplicidade, facilidade de manutenção, rapidez de acesso ao conteúdo e segurança. Ademais, existe atualmente uma gama enorme de <em>frameworks</em> geradores de <em>sites</em> estáticos altamente eficientes, sendo o mais famoso deles o <a href="http://jekyllrb.com/">Jekyll</a>, embora a lista seja enorme — consulte este <a href="https://www.staticgen.com/">link</a>, para uma relação mais abrangente.</p><p>Experimentei vários: o já mencionado Jekyll; o <a href="http://jekyllbootstrap.com/">Jekyll com Bootstrap</a>; o <a href="http://gohugo.io/">Hugo</a> — baseado na linguagem de programação <a href="http://golang.org/">Go</a>, talvez seja o mais rápido deles, tanto para a geração do <em>site</em> estático, como para o carregamento das páginas, pois é focado em velocidade e performance; o <a href="http://sysgears.com/grain/">Grain</a>, que é um interessante projeto usando a linguagem de programação <a href="http://groovy-lang.org/">Groovy</a>; e o <a href="http://jbake.org/">JBake</a>, um projeto em franco desenvolvimento usando a linguagem de programação Java, o qual, por este motivo, foi o que escolhi para testar, clonando o Ponto G++ num <em>site</em> hospedado no GitHub. <a href="http://ja-gaeta.github.io/">Veja o resultado</a>. Funciona muito bem e, como agora estou editando meus artigos em <a href="http://pt.wikipedia.org/wiki/Markdown">Markdown</a>, a publicação no site <em>oficial</em> usando WordPress, hospedado no HostGator, e o <em>clone</em>, hospedado no GitHub, pode ser feita simultaneamente.</p><p>Bom, acho que isso lhes dá uma visão geral do que andei fazendo para a atualização do Ponto G++. Ainda irei voltar ao assunto em artigos específicos na categoria "desenvolvimento Web".</p><h2>Atualização do Curso de Java</h2><p>Outra coisa que tem ocupado meu tempo é a atualização do "Curso de Java", cujos vídeos venho publicando no <a href="https://www.youtube.com/channel/UCSXZ98kaD6xA05IeK__FUkQ">meu canal do YouTube</a>. O vídeo da aula 1 foi editado para retirada de material com restrição de <em>copyright</em> e inclusão de <em>capa</em> personalizada, além da atualização da vinheta de encerramento. Essas duas últimas edições, aliás, também estão sendo feitas com relação aos vídeos das demais aulas.</p><p>A mudança mais significativa, contudo, é a inclusão do material de apoio que eu estava publicando inicialmente sob a forma de um "livro", no <em>post</em> correspondente a cada aula. Isso torna bem mais fácil correlacionar a vídeo-aula com o texto.</p><p>Espero que apreciem as mudanças.</p>
 <hr/></p>
       <div class="share">
         <div class="social">
   <!-- Facebook -->
           <span class="facebook">
-            <iframe src="//www.facebook.com/plugins/like.php?href=http://http://ja-gaeta.github.io2014/instalacao-do-jdk-no-linux.html&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+            <iframe src="//www.facebook.com/plugins/like.php?href=http://http://ja-gaeta.github.io2015/atualizacoes.html&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
           </span>
   <!-- Google+ -->
           <span class="google">
             <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-            <g:plusone size="medium" href="http://ja-gaeta.github.io2014/instalacao-do-jdk-no-linux.html"></g:plusone>
+            <g:plusone size="medium" href="http://ja-gaeta.github.io2015/atualizacoes.html"></g:plusone>
           </span>
   <!-- Twitter -->
           <span class="twitter">
-            <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ja-gaeta.github.io2014/instalacao-do-jdk-no-linux.html">Tweet</a>
+            <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ja-gaeta.github.io2015/atualizacoes.html">Tweet</a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
           </span>
         </div>
