@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+    Ponto G++
+        - Garbage Collection em Java (1)
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="J.A. Gaeta Mendes">
+    <meta name="description" content="Static blog generated with JBake">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/cosmo/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/base.css">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav icon -->
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/img/favicon.png" type="image/x-icon">
+      
+    <!-- SyntaxHighlighter -->
+    <script type="text/javascript" src="/js/shCore.js"></script>
+    <script type="text/javascript" src="/js/shBrushJava.js"></script>
+    
+    <link href="/css/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+      
+  </head>
+  <body>      
+    <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Ponto G++</a>
+        </div>
+        
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="/pages/about.html">Sobre</a></li>
+          <!--  <li><a href="/pages/contact.html">Contact</a></li> -->
+          </ul>
+        
+        <!-- Right navigation -->
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/archive.html"><i class="fa fa-list"></i> Arquivo</a></li>
+          <li><a href="/feed.xml" title="Rss"><i class="fa fa-rss"></i> Feed</a></li>
+        </ul>
+        <!-- Right navigation end -->
+
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav><!-- /.navbar -->
+
+    <!-- Begin page content -->
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-md-12">
+          <article>
+            <div class="page-header"><h1>Garbage Collection em Java (1)</h1>
+              <ol class="breadcrumb tagsbar">
+                <li><a href="/tags/programação.html">programação</a></li>
+                <li><a href="/tags/java.html">java</a></li>
+              </ol>
+            </div>
+          <p class="post-meta">
+            <i class="fa fa-calendar"></i>&nbsp;01 Janeiro 2015&nbsp;&nbsp;
+            <i class="fa fa-user"></i>&nbsp;J.A. Gaeta Mendes&nbsp;&nbsp;
+              <i class="fa fa-comment"></i>&nbsp;<span class="badge"><a href="http://ja-gaeta.github.io2015/garbage-collection-em-java-1.html#disqus_thread"></a></span>
+          </p>
+              <p><p>Este é o primeiro de uma série de artigos sobre <em>Garbage Collection em Java</em>, traduzidos dos originais publicados por <a href="http://insightfullogic.com/about/" target="_blank">Richard Warburton</a> no seu <a href="http://insightfullogic.com/blog/2013/feb/20/garbage-collection-java-1/" target="_blank">blog</a>. (<em>Tradução e publicação autorizadas pelo autor</em>.)</p>
+<!--more-->
+<h2>Visão geral da Heap</h2><p>Espero ser capaz de cobrir um pouco da teoria e analisar todos os coletores mais importantes na máquina virtual <em>hotspot</em>,<a><a href="#note1"><sup>1</sup></a></a> ao longo desta série. Este artigo explica apenas o que é <em>garbage collection</em> e os elementos comuns aos diferentes coletores.</p>
+<h3>Por que devo me preocupar?</h3><p>Sua máquina virtual Java gerencia a memória para você – o que é muito conveniente –, mas ela pode não vir regulada por padrão no ponto de seu melhor desempenho. Ao compreender um pouco da teoria por trás da <em>garbage collection</em> você poderá ajustar o seu coletor mais facilmente. Uma preocupação comum é com a eficiência do coletor, ou seja, quanto tempo o programa gasta executando o código, em relação ao tempo dispendido na coleta de lixo. Outra preocupação usual é quanto ao tempo em que o aplicativo fica parado.</p><p>Além disso, existem muitas lendas e boatos envolvendo <em>garbage collection</em>, de forma que a compreensão dos algorítimos um pouco mais detalhadamente ajuda a não cair nas ciladas e armadilhas costumeiras. Além disso, para qualquer um que se interesse em aprender como são aplicados e utilizados na prática os princípios da ciência da computação, é muito compensador examinar as entranhas da <abbr title="Java Virtual Machine">JVM</abbr>.</p>
+<h3>O que significa “parar o mundo”?</h3><p>Seu programa (ou <em>mutator</em> usando a terminologia <abbr title="Garbage Collection">GC</abbr>) está sempre criando objetos à medida em que é executado. Em algum ponto a <em>heap</em> precisa ser coletada e todos os coletores na <em>hotspot</em> param o aplicativo. O termo “parar o mundo” significa que todas as <em>threads</em> do <em>mutator</em> são pausadas.</p><p>É possível implementar um <em>garbage collector</em> que não precise efetuar pausas. A <a href="http://www.azulsystems.com/" target="_blank">Azul Systems</a> implementou efetivamente um coletor que não precisa de pausas na sua máquina virtual Zing. Não vou explicar aqui como ele funciona, mas há um <a href="http://www.azulsystems.com/sites/default/files/images/c4_paper_acm.pdf" target="_blank"><em>whitepaper</em></a> muito interessante, caso você queira se aprofundar no assunto.</p>
+<h3>A Hipótese Geracional Jovem Fraca</h3><p>Trocando em miúdos: <em>A maioria dos objetos alocados morrem jovens</em><a><a href="#note2"><sup>2</sup></a></a>. Este conceito foi demonstrado empiricamente analisando a alocação de memória e os padrões de sobrevida de um grande grupo de programas durante a década de 1980. O que os pesquisadores descobriram foi não apenas que a maioria dos objetos morrem jovens, mas também que, uma vez ultrapassada certa idade, tendem a ter uma sobrevida longa. O gráfico abaixo foi tirado de um estudo da SUN/Oracle observando a vida útil dos objetos na forma de um histograma.</p>
+<p style="text-align: center;"><img src="http://i.imgur.com/hRJJwPp.gif" title="source: imgur.com" /></p>
+<h3>Como é organizada a <em>Heap</em>?</h3><p>A hipótese geracional jovem deu origem à ideia de <em>garbage collection</em> geracional na qual a <em>heap</em> é dividida em várias regiões, e a colocação dos objetos dentro de cada região corresponde à sua idade. Um elemento que é comum a todos os <em>garbage collectors</em> mencionados acima (todos menos o G1)<a><a href="#note3"><sup>3</sup></a></a> é a maneira como a <em>heap</em> é organizada em diferentes espaços.</p>
+<p style="text-align: center;"><img src="http://i.imgur.com/uZJjTVi.png" title="source: imgur.com" /></p><p>Quando os objetos são inicialmente alocados, se couberem eles são armazenados no espaço do<em>Eden</em>. Caso o objeto sobreviva a uma coleta passa então para o espaço <em>Survivor</em>. Se ele sobreviver algumas vezes (o limiar de <em>tenuring</em>), passa então para o espaço <em>Tenured</em> (vitalício). As especificidades dos algorítimos para coletar esses espaços diferem de acordo com o coletor e, assim sendo, vou analisá-los separadamente num artigo futuro.</p><p>Esta divisão é benéfica porque permite usar diferentes algorítimos em espaços diferentes. Alguns algorítimos <abbr title="Garbage Collection">GC</abbr> são mais eficientes se a maioria dos seus objetos estiver morta e outros são mais eficientes se a maioria deles estiver viva. Em razão da hipótese geracional, normalmente, quando chega a hora de coletar, a maioria dos objetos nos espaços <em>Eden</em> e <em>Survivor</em> estão mortos, e a maioria dos objetos em <em>Tenured</em> estão vivos.</p><p>Há ainda a <strong>Permgen</strong> – ou geração permanente. Esta é uma geração especial que mantém os objetos relacionados à própria linguagem Java. As informações sobre as classes carregadas, por exemplo, são mantidas ali. Historicamente, <em>Strings</em> que tenham sido internadas ou sejam constantes, também são lá mantidas. A geração permanente está sendo trocada pelo <a href="http://java.dzone.com/articles/java-8-permgen-metaspace" target="_blank"><em>metaspace</em></a>.</p>
+<h3>Múltiplos Coletores</h3><p>A máquina virtual <em>hotspot</em> tem, na verdade, uma diversidade de <em>Garbage Collectors</em>. Cada um possui um conjunto diferente de características de desempenho e é mais (ou menos) adequado para diferentes tarefas. Os <em>Garbage Collectors</em> chave que vou examinar são:</p>
+<ul>
+	<li><strong>Parallel Scavenge</strong> (PS) [Limpador Paralelo]: o coletor <em>default</em> nas edições recentes das <abbr title="Java Virtual Machine">JVM</abbr>. Eles param o mundo para poder coletar, mas o fazem em paralelo (i.e. usando <em>threads</em> múltiplos).</li>
+	<li><strong>Concurrent Mark Sweep</strong> (CMS) [Marcador de Varrição Concorrente]: este coletor tem diversas fases, algumas das quais param o mundo, mas também rodam concorrentemente com o programa em várias de suas fases.</li>
+	<li><strong>Incremental Concurrent Mark Sweep</strong> (iCMS) [ Marcador de Varrição Concorrente Incremental]: uma variante do <abbr title="Concurrent Mark Sweep">CMS</abbr>, projetado para pausas menores. Algumas vezes ele consegue fazer isso!</li>
+	<li><strong>Garbage First</strong> (G1) [Primeiro Lixeiro]: um novo coletor que recentemente se tornou mais estável e cujo uso vem aumentando aos poucos.</li>
+</ul>
+<h3>Conclusões</h3><p>Apresentei alguns tópicos para reflexão introdutória sobre <em>garbage collection</em>. No próximo artigo vou analisar o coletor <em>Parallel Scavenge</em> – que é atualmente o coletor padrão. Gostaria também de fornecer um <a href="http://www.jclarity.com/" target="_blank"><em>link</em></a> para o meu empregador, que tem um <a href="http://www.jclarity.com/censum/" target="_blank"><em>GC log analyser</em></a> (analisador do log dos <abbr title="Garbage Collection">GC</abbr>), o qual acreditamos possa ser muito útil.</p>
+<hr/>
+<h3><em>Notas: </em></h3><p><a name="note1"><sup>1</sup></a> <em>hotspot</em> é o nome dado à base de código comum por trás do <a href="http://openjdk.java.net/" target="_blank">openjdk</a> e da <abbr title="Java Virtual Machine">JVM</abbr> oficial da Oracle. A partir de Java 7, o openjdk é a implementação de referência para a Java <abbr title="Standard Edition">SE</abbr>.</p><p><a name="note2"><sup>2</sup></a> Tecnicamente o que eu descrevi acima é a “hipótese geracional fraca” cuja validação é empírica. Há também uma variante forte, que pode ser assim declarada: “o tempo médio de vida de um objeto criado na <em>heap</em> é igual à quantidade média do meio de armazenamento disponível”. Isso na verdade pode ser provado matematicamente usando a <a href="http://en.wikipedia.org/wiki/Little%27s_law" target="_blank">Lei de Little</a> e considerando λ igual a 1. Prova muito simples!</p><p><a name="note3"><sup>3</sup></a> Explicarei a forma como a <em>heap</em> é organizada dentro do <abbr title="Garbage First">G1</abbr> num artigo específico sobre o tema.</p>
+<hr/></p>
+      <div class="share">
+        <div class="social">
+  <!-- Facebook -->
+          <span class="facebook">
+            <iframe src="//www.facebook.com/plugins/like.php?href=http://http://ja-gaeta.github.io2015/garbage-collection-em-java-1.html&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+          </span>
+  <!-- Google+ -->
+          <span class="google">
+            <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+            <g:plusone size="medium" href="http://ja-gaeta.github.io2015/garbage-collection-em-java-1.html"></g:plusone>
+          </span>
+  <!-- Twitter -->
+          <span class="twitter">
+            <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ja-gaeta.github.io2015/garbage-collection-em-java-1.html">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </span>
+        </div>
+      </div>
+<hr>
+<section class="comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+  
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>            </article>
+        </div> <!-- /.col-md-12 -->
+      </div> <!-- /.row -->
+        
+      </div><!-- /.container -->
+
+    <footer>
+      <div class="container">
+        <hr>
+        <div class="row">
+          <div class="col-xs-10">
+            <p class="text-muted credit">&copy; Ponto G++ 2015 <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/br/"><img src="/img/creative_commons_88x31.png"></a> | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.3.2</a> | <i title="Linux" class="fa fa-linux"></i></p>
+          </div>
+          <div class="col-xs-2 gotop">
+            <a href="#"><i class="fa fa-arrow-circle-up"> topo</i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
+
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+    </script>
+
+          <script type="text/javascript">
+        SyntaxHighlighter.all()
+    </script>
+  </body>
+</html>

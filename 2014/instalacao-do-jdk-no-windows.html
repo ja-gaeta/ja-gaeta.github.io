@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+    Ponto G++
+        - Instalação do JDK no Windows
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="J.A. Gaeta Mendes">
+    <meta name="description" content="Static blog generated with JBake">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/cosmo/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/base.css">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav icon -->
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/img/favicon.png" type="image/x-icon">
+      
+    <!-- SyntaxHighlighter -->
+    <script type="text/javascript" src="/js/shCore.js"></script>
+    <script type="text/javascript" src="/js/shBrushJava.js"></script>
+    
+    <link href="/css/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+      
+  </head>
+  <body>      
+    <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Ponto G++</a>
+        </div>
+        
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="/pages/about.html">Sobre</a></li>
+          <!--  <li><a href="/pages/contact.html">Contact</a></li> -->
+          </ul>
+        
+        <!-- Right navigation -->
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/archive.html"><i class="fa fa-list"></i> Arquivo</a></li>
+          <li><a href="/feed.xml" title="Rss"><i class="fa fa-rss"></i> Feed</a></li>
+        </ul>
+        <!-- Right navigation end -->
+
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav><!-- /.navbar -->
+
+    <!-- Begin page content -->
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-md-12">
+          <article>
+            <div class="page-header"><h1>Instalação do JDK no Windows</h1>
+              <ol class="breadcrumb tagsbar">
+                <li><a href="/tags/programação.html">programação</a></li>
+                <li><a href="/tags/java.html">java</a></li>
+                <li><a href="/tags/tutoriais.html">tutoriais</a></li>
+              </ol>
+            </div>
+          <p class="post-meta">
+            <i class="fa fa-calendar"></i>&nbsp;26 Dezembro 2014&nbsp;&nbsp;
+            <i class="fa fa-user"></i>&nbsp;J.A. Gaeta Mendes&nbsp;&nbsp;
+              <i class="fa fa-comment"></i>&nbsp;<span class="badge"><a href="http://ja-gaeta.github.io2014/instalacao-do-jdk-no-windows.html#disqus_thread"></a></span>
+          </p>
+              <p><p>Forneço neste artigo um passo-a-passo para instalação do <strong><span style="color: #808080;"><abbr title="Java Development Kit">JDK</abbr>/<abbr title="Java Runtime Environment">JRE</abbr> - Java <abbr title="Standard Edition">SE</abbr> 8</span></strong> — no <strong><span style="color: #808080;">Windows 8.1</span></strong>. Para outras versões do Windows ou do <abbr title="Java Development Kit">JDK</abbr>/<abbr title="Java Runtime Environment">JRE</abbr>, consulte a documentação do seu sistema operacional e/ou a documentação da <a href="http://docs.oracle.com/javase/8/" target="_blank">Oracle</a>.</p>
+<!--more-->
+<h3>1º Passo:</h3><p>Efetue o download do arquivo executável de instalação no site da Oracle, neste <a href="http://www.oracle.com/technetwork/pt/java/javase/downloads/index.html" target="_blank">link</a>. Selecione "<em>JDK Download"</em>. Ao instalar o <abbr title="Java Development Kit">JDK</abbr>, o <abbr title="Java Runtime Environment">JRE</abbr> correspondente também é instalado. Veja a imagem a seguir:</p>
+<p style="text-align: center;"><img src="http://i.imgur.com/BMN2Neg.png" title="source: imgur.com" /></p><p>Na página seguinte, aceite o acordo de licença e selecione o arquivo correspondente (para o Windows 8.1, no momento em que escrevo esta instrução, o arquivo do último <em>update </em>disponível é o <code>jdk-8u25-windows-x64.exe</code>). Veja a imagem seguinte:</p>
+<p style="text-align: center;"><img src="http://i.imgur.com/1QvtJRj.png" title="source: imgur.com" /></p>
+<h3>2º Passo:</h3><p>Aguarde o final do download, que pode demorar um pouco, dependendo da velocidade de sua conexão com a Internet, pois o tamanho do arquivo mencionado é de 170 MB, e execute o arquivo de instalação. O processo é praticamente automático.</p><p>Para conferir a instalação, abra o <em>Prompt de Comando</em> do Windows, e digite: <code>java -version</code>. Deverão ser exibidas as <em>strings</em> de controle de versão do <abbr title="Java Runtime Environment">JRE</abbr>, conforme a figura abaixo.</p>
+<p style="text-align: center;"><img src="http://i.imgur.com/zsstzjX.png" title="source: imgur.com" /></p>
+<h3>3º Passo:</h3><p>Vamos agora incluir o <em>path</em> do <abbr title="Java Development Kit">JDK</abbr> nas variáveis de ambiente. Para isso, clique com o botão direito do mouse no menu iniciar do Windows, conforme a imagem abaixo e selecione "<em>Sistema"</em>.</p>
+<p style="text-align: center;"><img src="http://i.imgur.com/zSH9cB2.png" title="source: imgur.com" /></p><p>Na janela seguinte, selecione "<em>Configurações avançadas do sistema"</em>.</p>
+<p style="text-align: center;"><img src="http://i.imgur.com/F06oPPj.png" title="source: imgur.com" /></p><p>Na próxima janela, selecione o último botão — "<em>Variáveis de Ambiente…"</em>:</p>
+<p style="text-align: center;"><img src="http://i.imgur.com/c2UXY7H.png" title="source: imgur.com" /></p><p>Na janela de <em>Variáveis de Ambiente</em>, vamos incluir uma nova variável. Para isso, selecione o botão "<em>Novo…"</em>, no painel inferior:</p>
+<p style="text-align: center;"><img src="http://i.imgur.com/A8KKh2Q.png" title="source: imgur.com" /></p><p>Digite "JAVA_HOME" para nome da variável e o <em>path</em> para o diretório onde está instalada sua versão do <abbr title="Java Development Kit">JDK</abbr> como valor da variável; em seguida, clique no botão "OK". Veja na figura seguinte a minha configuração:</p>
+<p style="text-align: center;"><img src="http://i.imgur.com/8Qvpof3.png" title="source: imgur.com" /></p><p>De volta à janela de <em>Variáveis de Ambiente</em>, localize a variável <code>Path</code> e clique no botão "Editar".</p>
+<p style="text-align: center;"><img src="http://i.imgur.com/TmVp4yj.png" title="source: imgur.com" /></p><p>Com muito cuidado para não apagar o que já está contido no valor desta variável, vá até o final da <em>string</em>, coloque um ponto-e-vírgula (;) se ainda não existir, e acrescente a variável que criamos (JAVA_HOME), com a seguinte sintaxe: <code>%JAVA_HOME%\bin;</code> —</p>
+<p style="text-align: center;"><img src="http://i.imgur.com/xDpc5z3.png" title="source: imgur.com" /></p>
+<h3>4º Passo:</h3><p>Para finalizar, feche todas as janelas e vamos conferir a instalação. Abra o <em>Prompt de Comando</em> do Windows e digite: <code>javac -version</code>. Se tudo estiver certo, será exibida a <em>string</em> de controle de versão do compilador Java do <abbr title="Java Development Kit">JDK</abbr>, conforme abaixo:</p>
+<p style="text-align: center;"><img src="http://i.imgur.com/flWeW4A.png" title="source: imgur.com" /></p><p>Parabéns, o <abbr title="Java Development Kit">JDK</abbr> e o <abbr title="Java Runtime Environment">JRE</abbr> estão devidamente instalados na sua máquina e você já pode começar a desenvolver em Java!</p>
+<hr/></p>
+      <div class="share">
+        <div class="social">
+  <!-- Facebook -->
+          <span class="facebook">
+            <iframe src="//www.facebook.com/plugins/like.php?href=http://http://ja-gaeta.github.io2014/instalacao-do-jdk-no-windows.html&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+          </span>
+  <!-- Google+ -->
+          <span class="google">
+            <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+            <g:plusone size="medium" href="http://ja-gaeta.github.io2014/instalacao-do-jdk-no-windows.html"></g:plusone>
+          </span>
+  <!-- Twitter -->
+          <span class="twitter">
+            <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ja-gaeta.github.io2014/instalacao-do-jdk-no-windows.html">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </span>
+        </div>
+      </div>
+<hr>
+<section class="comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+  
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>            </article>
+        </div> <!-- /.col-md-12 -->
+      </div> <!-- /.row -->
+        
+      </div><!-- /.container -->
+
+    <footer>
+      <div class="container">
+        <hr>
+        <div class="row">
+          <div class="col-xs-10">
+            <p class="text-muted credit">&copy; Ponto G++ 2015 <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/br/"><img src="/img/creative_commons_88x31.png"></a> | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.3.2</a> | <i title="Linux" class="fa fa-linux"></i></p>
+          </div>
+          <div class="col-xs-2 gotop">
+            <a href="#"><i class="fa fa-arrow-circle-up"> topo</i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
+
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+    </script>
+
+          <script type="text/javascript">
+        SyntaxHighlighter.all()
+    </script>
+  </body>
+</html>
