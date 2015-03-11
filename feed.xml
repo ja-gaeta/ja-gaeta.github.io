@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ponto G++.</title>
-    <link>http://ja-gaeta.github.io/</link>
-    <atom:link href="http://ja-gaeta.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <link>http://ja-gaeta.github.io//</link>
+    <atom:link href="http://ja-gaeta.github.io//feed.xml" rel="self" type="application/rss+xml" />
     <description>For future use?</description>
     <language>en</language>
-    <pubDate>Qua, 11 mar 2015 18:17:38 -0300</pubDate>
-    <lastBuildDate>Qua, 11 mar 2015 18:17:38 -0300</lastBuildDate>
+    <pubDate>Qua, 11 mar 2015 18:49:36 -0300</pubDate>
+    <lastBuildDate>Qua, 11 mar 2015 18:49:36 -0300</lastBuildDate>
 
       <item>
         <title>Atualizações...</title>
-        <link>http://ja-gaeta.github.io2015/atualizacoes.html</link>
+        <link>http://ja-gaeta.github.io/2015/atualizacoes.html</link>
         <pubDate>Ter, 10 mar 2015 00:00:00 -0300</pubDate>
         <guid isPermaLink="false">2015/atualizacoes.html</guid>
         <description>
@@ -23,7 +23,7 @@
       </item>
       <item>
         <title>O Formato Asciidoc</title>
-        <link>http://ja-gaeta.github.io2015/formato_asciidoc.html</link>
+        <link>http://ja-gaeta.github.io/2015/formato_asciidoc.html</link>
         <pubDate>Ter, 10 mar 2015 00:00:00 -0300</pubDate>
         <guid isPermaLink="false">2015/formato_asciidoc.html</guid>
         <description>
@@ -172,7 +172,7 @@ public class HelloWorld { // (2)
 &lt;/table&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Estão disponíveis também algumas funcionalidades que ainda estão na fase experimental, mas já podemos constatar que acrescentam requintes de formatação muito interessantes. Veja uma demonstração abaixo:&lt;/p&gt;
+&lt;p&gt;Estão disponíveis também algumas funcionalidades que ainda se encontram na fase experimental, mas já podemos constatar que acrescentam requintes de formatação muito interessantes. Veja uma demonstração abaixo:&lt;/p&gt;
 &lt;/div&gt;
 &lt;table class=&quot;tableblock frame-all grid-all spread&quot;&gt;
 &lt;caption class=&quot;title&quot;&gt;Atalhos de teclado comuns nos navegadores&lt;/caption&gt;
@@ -239,7 +239,7 @@ public class HelloWorld { // (2)
       </item>
       <item>
         <title>Garbage Collection em Java (1)</title>
-        <link>http://ja-gaeta.github.io2015/garbage-collection-em-java-1.html</link>
+        <link>http://ja-gaeta.github.io/2015/garbage-collection-em-java-1.html</link>
         <pubDate>Qui, 1 jan 2015 00:00:00 -0200</pubDate>
         <guid isPermaLink="false">2015/garbage-collection-em-java-1.html</guid>
         <description>
@@ -267,7 +267,7 @@ public class HelloWorld { // (2)
       </item>
       <item>
         <title>Instalação do JDK no Mac OS X</title>
-        <link>http://ja-gaeta.github.io2014/instalacao-do-jdk-no-mac-os-x.html</link>
+        <link>http://ja-gaeta.github.io/2014/instalacao-do-jdk-no-mac-os-x.html</link>
         <pubDate>Ter, 30 dez 2014 00:00:00 -0200</pubDate>
         <guid isPermaLink="false">2014/instalacao-do-jdk-no-mac-os-x.html</guid>
         <description>
@@ -282,7 +282,7 @@ public class HelloWorld { // (2)
       </item>
       <item>
         <title>Instalação do JDK no Linux</title>
-        <link>http://ja-gaeta.github.io2014/instalacao-do-jdk-no-linux.html</link>
+        <link>http://ja-gaeta.github.io/2014/instalacao-do-jdk-no-linux.html</link>
         <pubDate>Seg, 29 dez 2014 00:00:00 -0200</pubDate>
         <guid isPermaLink="false">2014/instalacao-do-jdk-no-linux.html</guid>
         <description>
@@ -304,7 +304,7 @@ $ sudo apt-get install oracle-java8-installer
       </item>
       <item>
         <title>Instalação do JDK no Windows</title>
-        <link>http://ja-gaeta.github.io2014/instalacao-do-jdk-no-windows.html</link>
+        <link>http://ja-gaeta.github.io/2014/instalacao-do-jdk-no-windows.html</link>
         <pubDate>Sex, 26 dez 2014 00:00:00 -0200</pubDate>
         <guid isPermaLink="false">2014/instalacao-do-jdk-no-windows.html</guid>
         <description>
@@ -330,7 +330,7 @@ $ sudo apt-get install oracle-java8-installer
       </item>
       <item>
         <title>Java: Como Tudo Começou</title>
-        <link>http://ja-gaeta.github.io2014/java-como-tudo-comecou.html</link>
+        <link>http://ja-gaeta.github.io/2014/java-como-tudo-comecou.html</link>
         <pubDate>Qua, 17 dez 2014 00:00:00 -0200</pubDate>
         <guid isPermaLink="false">2014/java-como-tudo-comecou.html</guid>
         <description>
@@ -350,7 +350,7 @@ $ sudo apt-get install oracle-java8-installer
       </item>
       <item>
         <title>Java & Raspberry Pi - Parte 3</title>
-        <link>http://ja-gaeta.github.io2014/java-e-raspberry-pi-parte-3.html</link>
+        <link>http://ja-gaeta.github.io/2014/java-e-raspberry-pi-parte-3.html</link>
         <pubDate>Ter, 2 dez 2014 00:00:00 -0200</pubDate>
         <guid isPermaLink="false">2014/java-e-raspberry-pi-parte-3.html</guid>
         <description>
@@ -405,7 +405,7 @@ gateway 192.168.1.254
       </item>
       <item>
         <title>Oracle JDK vs OpenJDK</title>
-        <link>http://ja-gaeta.github.io2014/oracle-jdk-vs-openjdk.html</link>
+        <link>http://ja-gaeta.github.io/2014/oracle-jdk-vs-openjdk.html</link>
         <pubDate>Dom, 30 nov 2014 00:00:00 -0200</pubDate>
         <guid isPermaLink="false">2014/oracle-jdk-vs-openjdk.html</guid>
         <description>
@@ -417,7 +417,7 @@ gateway 192.168.1.254
       </item>
       <item>
         <title>Java & Raspberry Pi - Parte 2</title>
-        <link>http://ja-gaeta.github.io2014/java-e-raspberry-pi-parte-2.html</link>
+        <link>http://ja-gaeta.github.io/2014/java-e-raspberry-pi-parte-2.html</link>
         <pubDate>Sáb, 29 nov 2014 00:00:00 -0200</pubDate>
         <guid isPermaLink="false">2014/java-e-raspberry-pi-parte-2.html</guid>
         <description>
@@ -450,7 +450,7 @@ gateway 192.168.1.254
       </item>
       <item>
         <title>Java & Raspberry Pi - Parte 1</title>
-        <link>http://ja-gaeta.github.io2014/java-e-raspberry-pi-parte-1.html</link>
+        <link>http://ja-gaeta.github.io/2014/java-e-raspberry-pi-parte-1.html</link>
         <pubDate>Qui, 27 nov 2014 00:00:00 -0200</pubDate>
         <guid isPermaLink="false">2014/java-e-raspberry-pi-parte-1.html</guid>
         <description>
@@ -461,7 +461,7 @@ gateway 192.168.1.254
       </item>
       <item>
         <title>Curso de Java - Aula 2</title>
-        <link>http://ja-gaeta.github.io2014/curso-de-java-aula-002.html</link>
+        <link>http://ja-gaeta.github.io/2014/curso-de-java-aula-002.html</link>
         <pubDate>Sáb, 22 nov 2014 00:00:00 -0200</pubDate>
         <guid isPermaLink="false">2014/curso-de-java-aula-002.html</guid>
         <description>
@@ -662,7 +662,7 @@ public class OlaMundoUnicode {
       </item>
       <item>
         <title>Curso de Java - Aula 1</title>
-        <link>http://ja-gaeta.github.io2014/curso-de-java-aula-001.html</link>
+        <link>http://ja-gaeta.github.io/2014/curso-de-java-aula-001.html</link>
         <pubDate>Sex, 21 nov 2014 00:00:00 -0200</pubDate>
         <guid isPermaLink="false">2014/curso-de-java-aula-001.html</guid>
         <description>
