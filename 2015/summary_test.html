@@ -3,7 +3,7 @@
   <head>
     <title>
     Ponto G++
-        - Instalação do JDK no Windows
+        - Quarta Postagem
     </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -71,50 +71,84 @@
       <div class="row">
         <div class="col-md-12">
           <article>
-            <div class="page-header"><h1>Instalação do JDK no Windows</h1>
+            <div class="page-header"><h1>Quarta Postagem</h1>
               <ol class="breadcrumb tagsbar">
-                <li><a href="/tags/programação.html">programação</a></li>
-                <li><a href="/tags/java.html">java</a></li>
-                <li><a href="/tags/tutoriais.html">tutoriais</a></li>
+                <li><a href="/tags/blog.html">blog</a></li>
+                <li><a href="/tags/asciidoc.html">asciidoc</a></li>
               </ol>
             </div>
           <p class="post-meta">
-            <i class="fa fa-calendar"></i>&nbsp;26 Dezembro 2014&nbsp;&nbsp;
+            <i class="fa fa-calendar"></i>&nbsp;10 Março 2015&nbsp;&nbsp;
             <i class="fa fa-user"></i>&nbsp;J.A. Gaeta Mendes&nbsp;&nbsp;
-              <i class="fa fa-comment"></i>&nbsp;<span class="badge"><a href="http://ja-gaeta.github.io2014/instalacao-do-jdk-no-windows.html#disqus_thread"></a></span>
+              <i class="fa fa-comment"></i>&nbsp;<span class="badge"><a href="http://ja-gaeta.github.io2015/summary_test.html#disqus_thread"></a></span>
           </p>
-              <p><p>Forneço neste artigo um passo-a-passo para instalação do <strong><span style="color: #808080;"><abbr title="Java Development Kit">JDK</abbr>/<abbr title="Java Runtime Environment">JRE</abbr> - Java <abbr title="Standard Edition">SE</abbr> 8</span></strong> — no <strong><span style="color: #808080;">Windows 8.1</span></strong>. Para outras versões do Windows ou do <abbr title="Java Development Kit">JDK</abbr>/<abbr title="Java Runtime Environment">JRE</abbr>, consulte a documentação do seu sistema operacional e/ou a documentação da <a href="http://docs.oracle.com/javase/8/" target="_blank">Oracle</a>.</p>
-<!--more-->
-<h3>1º Passo:</h3><p>Efetue o download do arquivo executável de instalação no site da Oracle, neste <a href="http://www.oracle.com/technetwork/pt/java/javase/downloads/index.html" target="_blank">link</a>. Selecione "<em>JDK Download"</em>. Ao instalar o <abbr title="Java Development Kit">JDK</abbr>, o <abbr title="Java Runtime Environment">JRE</abbr> correspondente também é instalado. Veja a imagem a seguir:</p>
-<p style="text-align: center;"><img src="http://i.imgur.com/BMN2Neg.png" title="source: imgur.com" /></p><p>Na página seguinte, aceite o acordo de licença e selecione o arquivo correspondente (para o Windows 8.1, no momento em que escrevo esta instrução, o arquivo do último <em>update </em>disponível é o <code>jdk-8u25-windows-x64.exe</code>). Veja a imagem seguinte:</p>
-<p style="text-align: center;"><img src="http://i.imgur.com/1QvtJRj.png" title="source: imgur.com" /></p>
-<h3>2º Passo:</h3><p>Aguarde o final do download, que pode demorar um pouco, dependendo da velocidade de sua conexão com a Internet, pois o tamanho do arquivo mencionado é de 170 MB, e execute o arquivo de instalação. O processo é praticamente automático.</p><p>Para conferir a instalação, abra o <em>Prompt de Comando</em> do Windows, e digite: <code>java -version</code>. Deverão ser exibidas as <em>strings</em> de controle de versão do <abbr title="Java Runtime Environment">JRE</abbr>, conforme a figura abaixo.</p>
-<p style="text-align: center;"><img src="http://i.imgur.com/zsstzjX.png" title="source: imgur.com" /></p>
-<h3>3º Passo:</h3><p>Vamos agora incluir o <em>path</em> do <abbr title="Java Development Kit">JDK</abbr> nas variáveis de ambiente. Para isso, clique com o botão direito do mouse no menu iniciar do Windows, conforme a imagem abaixo e selecione "<em>Sistema"</em>.</p>
-<p style="text-align: center;"><img src="http://i.imgur.com/zSH9cB2.png" title="source: imgur.com" /></p><p>Na janela seguinte, selecione "<em>Configurações avançadas do sistema"</em>.</p>
-<p style="text-align: center;"><img src="http://i.imgur.com/F06oPPj.png" title="source: imgur.com" /></p><p>Na próxima janela, selecione o último botão — "<em>Variáveis de Ambiente…"</em>:</p>
-<p style="text-align: center;"><img src="http://i.imgur.com/c2UXY7H.png" title="source: imgur.com" /></p><p>Na janela de <em>Variáveis de Ambiente</em>, vamos incluir uma nova variável. Para isso, selecione o botão "<em>Novo…"</em>, no painel inferior:</p>
-<p style="text-align: center;"><img src="http://i.imgur.com/A8KKh2Q.png" title="source: imgur.com" /></p><p>Digite "JAVA_HOME" para nome da variável e o <em>path</em> para o diretório onde está instalada sua versão do <abbr title="Java Development Kit">JDK</abbr> como valor da variável; em seguida, clique no botão "OK". Veja na figura seguinte a minha configuração:</p>
-<p style="text-align: center;"><img src="http://i.imgur.com/8Qvpof3.png" title="source: imgur.com" /></p><p>De volta à janela de <em>Variáveis de Ambiente</em>, localize a variável <code>Path</code> e clique no botão "Editar".</p>
-<p style="text-align: center;"><img src="http://i.imgur.com/TmVp4yj.png" title="source: imgur.com" /></p><p>Com muito cuidado para não apagar o que já está contido no valor desta variável, vá até o final da <em>string</em>, coloque um ponto-e-vírgula (;) se ainda não existir, e acrescente a variável que criamos (JAVA_HOME), com a seguinte sintaxe: <code>%JAVA_HOME%\bin;</code> —</p>
-<p style="text-align: center;"><img src="http://i.imgur.com/xDpc5z3.png" title="source: imgur.com" /></p>
-<h3>4º Passo:</h3><p>Para finalizar, feche todas as janelas e vamos conferir a instalação. Abra o <em>Prompt de Comando</em> do Windows e digite: <code>javac -version</code>. Se tudo estiver certo, será exibida a <em>string</em> de controle de versão do compilador Java do <abbr title="Java Development Kit">JDK</abbr>, conforme abaixo:</p>
-<p style="text-align: center;"><img src="http://i.imgur.com/flWeW4A.png" title="source: imgur.com" /></p><p>Parabéns, o <abbr title="Java Development Kit">JDK</abbr> e o <abbr title="Java Runtime Environment">JRE</abbr> estão devidamente instalados na sua máquina e você já pode começar a desenvolver em Java!</p>
-<hr/></p>
+              <p><h1 id="garbage_collection_em_java_1" class="sect0">Garbage Collection em Java (1)</h1>
+<div class="paragraph">
+<p>Este é o primeiro de uma série de artigos sobre <em>Garbage Collection</em> em Java, traduzidos dos originais publicados por <a href="http://insightfullogic.com/about/">Richard Warburton</a> no seu <a href="http://insightfullogic.com/blog/2013/feb/20/garbage-collection-java-1/">blog</a>. (<em>Tradução e publicação autorizadas pelo autor</em>.)</p>
+</div>
+<div class="sect1">
+<h2 id="visão_geral_da_heap">Visão geral da Heap</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Espero ser capaz de cobrir um pouco da teoria e analisar todos os coletores mais importantes na máquina virtual <em>hotspot</em>,<span class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnote_1" title="View footnote.">1</a>]</span>  ao longo desta série. Este artigo explica apenas o que é <em>garbage collection</em> e os elementos comuns aos diferentes coletores.</p>
+</div>
+<div class="sect2">
+<h3 id="por_que_devo_me_preocupar">Por que devo me preocupar?</h3>
+<div class="paragraph">
+<p>Sua máquina virtual Java gerencia a memória para você – o que é muito conveniente –, mas ela pode não vir regulada por padrão no ponto de seu melhor desempenho. Ao compreender um pouco da teoria por trás da <em>garbage collection</em> você poderá ajustar o seu coletor mais facilmente. Uma preocupação comum é com a eficiência do coletor, ou seja, quanto tempo o programa gasta executando o código, em relação ao tempo dispendido na coleta de lixo. Outra preocupação usual é quanto ao tempo em que o aplicativo fica parado.</p>
+</div>
+<div class="paragraph">
+<p>Além disso, existem muitas lendas e boatos envolvendo <em>garbage collection</em>, de forma que a compreensão dos algorítimos um pouco mais detalhadamente ajuda a não cair nas ciladas e armadilhas costumeiras. Além disso, para qualquer um que se interesse em aprender como são aplicados e utilizados na prática os princípios da ciência da computação, é muito compensador examinar as entranhas da JVM.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="o_que_significa_parar_o_mundo">O que significa “parar o mundo”?</h3>
+<div class="paragraph">
+<p>Seu programa (ou <em>mutator</em> usando a terminologia GC) está sempre criando objetos à medida em que é executado. Em algum ponto a <em>heap</em> precisa ser coletada e todos os coletores na <em>hotspot</em> param o aplicativo. O termo “parar o mundo” significa que todas as <em>threads</em> do <em>mutator</em> são pausadas.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Wolpertingers are known to nest in server racks. Enter at your own risk. Nam id nisl quam. Donec a lorem sit amet libero pretium vulputate vel ut purus. Suspendisse leo arcu,
+mattis et imperdiet luctus, pulvinar vitae mi. Quisque fermentum sollicitudin feugiat. Mauris nec leo
+ligula. Nam id nisl quam. Donec a lorem sit amet libero pretium vulputate vel ut purus. Suspendisse leo arcu,
+mattis et imperdiet luctus, pulvinar vitae mi. Quisque fermentum sollicitudin feugiat. Mauris nec leo
+ligula. Vestibulum tristique odio ut risus ultricies a hendrerit quam iaculis. Duis tempor elit sit amet
+ligula vehicula et iaculis sem placerat. Fusce dictum, metus at volutpat lacinia, elit massa auctor risus,
+id auctor arcu enim eu augue. Donec ultrices turpis in mi imperdiet ac venenatis sapien sodales. In
+consequat imperdiet nunc quis bibendum. Nulla semper, erat quis ornare tristique, lectus massa posuere
+libero, ut vehicula lectus nunc ut lorem. Aliquam erat volutpat.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnote_1">
+<a href="#_footnoteref_1">1</a> <em>hotspot</em> é o nome dado à base de código comum por trás do <a href="http://openjdk.java.net/">openjdk</a> e da JVM oficial da Oracle. A partir de Java 7, o openjdk é a implementação de referência para a Java SE.
+</div>
+</div></p>
       <div class="share">
         <div class="social">
   <!-- Facebook -->
           <span class="facebook">
-            <iframe src="//www.facebook.com/plugins/like.php?href=http://http://ja-gaeta.github.io2014/instalacao-do-jdk-no-windows.html&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+            <iframe src="//www.facebook.com/plugins/like.php?href=http://http://ja-gaeta.github.io2015/summary_test.html&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
           </span>
   <!-- Google+ -->
           <span class="google">
             <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-            <g:plusone size="medium" href="http://ja-gaeta.github.io2014/instalacao-do-jdk-no-windows.html"></g:plusone>
+            <g:plusone size="medium" href="http://ja-gaeta.github.io2015/summary_test.html"></g:plusone>
           </span>
   <!-- Twitter -->
           <span class="twitter">
-            <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ja-gaeta.github.io2014/instalacao-do-jdk-no-windows.html">Tweet</a>
+            <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ja-gaeta.github.io2015/summary_test.html">Tweet</a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
           </span>
         </div>

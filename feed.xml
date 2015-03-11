@@ -6,8 +6,8 @@
     <atom:link href="http://ja-gaeta.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>For future use?</description>
     <language>en</language>
-    <pubDate>Ter, 10 mar 2015 10:48:29 -0300</pubDate>
-    <lastBuildDate>Ter, 10 mar 2015 10:48:29 -0300</lastBuildDate>
+    <pubDate>Ter, 10 mar 2015 21:39:14 -0300</pubDate>
+    <lastBuildDate>Ter, 10 mar 2015 21:39:14 -0300</lastBuildDate>
 
       <item>
         <title>Atualizações...</title>
@@ -19,6 +19,221 @@
 &lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;http://i.imgur.com/NhMa6IW.png&quot; title=&quot;source: imgur.com&quot; /&gt;&lt;/p&gt;&lt;p&gt;Já faz um tempão que não atualizava o Ponto G++, mas não estive parado. Pelo contrário, mantive bastante atividade nestes últimos dois meses, preparando uma atualização completa do &lt;em&gt;site&lt;/em&gt;, usando agora a plataforma &lt;a href=&quot;https://br.wordpress.org/&quot;&gt;WordPress&lt;/a&gt;, em substituição à plataforma &lt;a href=&quot;http://www.drupal.org.br/&quot;&gt;Drupal&lt;/a&gt; que vinha usando até então. O motivo: simplificar a manutenção do site, para poder dedicar-me mais à elaboração de conteúdo.&lt;/p&gt;
 &lt;!--more--&gt;&lt;p&gt;O Drupal é um &lt;abbr title=&quot;Content Management System&quot;&gt;CMS&lt;/abbr&gt; excelente, mas para a finalidade que tenho em mente no momento, é uma ferramenta muito pesada — um canhão para matar moscas!&lt;/p&gt;&lt;p&gt;O WordPress, por outro lado, tem manutenção mais simples, embora mantenha poder de fogo suficiente para a elaboração de &lt;em&gt;sites&lt;/em&gt; muito profissionais. Não é a toa que se tornou o lider mundial na sua categoria.&lt;/p&gt;&lt;p&gt;Para o desenvolvimento do Ponto G++, optei por um tema baseado no &lt;a href=&quot;http://getbootstrap.com/getting-started/&quot;&gt;Bootstrap&lt;/a&gt;, para assegurar a excelente responsividade &lt;em&gt;front-end&lt;/em&gt; garantida por este &lt;em&gt;framework&lt;/em&gt; que praticamente se tornou padrão para o desenvolvimento &lt;em&gt;web&lt;/em&gt; de olho nos dispositivos &lt;em&gt;mobile&lt;/em&gt;.&lt;/p&gt;&lt;p&gt;Um outro CMS que andei &lt;em&gt;namorando&lt;/em&gt; foi o &lt;a href=&quot;http://modx.com/&quot;&gt;MODX&lt;/a&gt;, que possui uma flexibilidade incrível para a criação de &lt;em&gt;sites&lt;/em&gt; bem profissionais, sem o &quot;peso&quot; dos CMS similares. Todavia, essa flexibilidade acaba sacrificando a simplicidade de manutenção, além de exigir muito mais trabalho de programação, tanto &lt;em&gt;back-end&lt;/em&gt; como &lt;em&gt;front-end&lt;/em&gt;. Mas meu &lt;em&gt;namoro&lt;/em&gt; com o MODX continua e, quem sabe, talvez ainda venha a usá-lo mais tarde.&lt;/p&gt;&lt;p&gt;Mudando completamente o enfoque, estudei também a possibilidade de usar um gerador de &lt;em&gt;sites&lt;/em&gt; estáticos, muito em voga atualmente para o desenvolvimento de Blogs, documentação, portfólios e até mesmo &lt;em&gt;sites&lt;/em&gt; de pequenos negócios, possibilitando sua publicação não apenas em qualquer provedor pago, mas também no &lt;a href=&quot;https://pages.github.com/&quot;&gt;GitHub&lt;/a&gt; ou outros provedores gratuitos semelhantes.&lt;/p&gt;&lt;p&gt;A grande vantagem desse tipo de desenvolvimento é a sua simplicidade, facilidade de manutenção, rapidez de acesso ao conteúdo e segurança. Ademais, existe atualmente uma gama enorme de &lt;em&gt;frameworks&lt;/em&gt; geradores de &lt;em&gt;sites&lt;/em&gt; estáticos altamente eficientes, sendo o mais famoso deles o &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;, embora a lista seja enorme — consulte este &lt;a href=&quot;https://www.staticgen.com/&quot;&gt;link&lt;/a&gt;, para uma relação mais abrangente.&lt;/p&gt;&lt;p&gt;Experimentei vários: o já mencionado Jekyll; o &lt;a href=&quot;http://jekyllbootstrap.com/&quot;&gt;Jekyll com Bootstrap&lt;/a&gt;; o &lt;a href=&quot;http://gohugo.io/&quot;&gt;Hugo&lt;/a&gt; — baseado na linguagem de programação &lt;a href=&quot;http://golang.org/&quot;&gt;Go&lt;/a&gt;, talvez seja o mais rápido deles, tanto para a geração do &lt;em&gt;site&lt;/em&gt; estático, como para o carregamento das páginas, pois é focado em velocidade e performance; o &lt;a href=&quot;http://sysgears.com/grain/&quot;&gt;Grain&lt;/a&gt;, que é um interessante projeto usando a linguagem de programação &lt;a href=&quot;http://groovy-lang.org/&quot;&gt;Groovy&lt;/a&gt;; e o &lt;a href=&quot;http://jbake.org/&quot;&gt;JBake&lt;/a&gt;, um projeto em franco desenvolvimento usando a linguagem de programação Java, o qual, por este motivo, foi o que escolhi para testar, clonando o Ponto G++ num &lt;em&gt;site&lt;/em&gt; hospedado no GitHub. &lt;a href=&quot;http://ja-gaeta.github.io/&quot;&gt;Veja o resultado&lt;/a&gt;. Funciona muito bem e, como agora estou editando meus artigos em &lt;a href=&quot;http://pt.wikipedia.org/wiki/Markdown&quot;&gt;Markdown&lt;/a&gt;, a publicação no site &lt;em&gt;oficial&lt;/em&gt; usando WordPress, hospedado no HostGator, e o &lt;em&gt;clone&lt;/em&gt;, hospedado no GitHub, pode ser feita simultaneamente.&lt;/p&gt;&lt;p&gt;Bom, acho que isso lhes dá uma visão geral do que andei fazendo para a atualização do Ponto G++. Ainda irei voltar ao assunto em artigos específicos na categoria &quot;desenvolvimento Web&quot;.&lt;/p&gt;&lt;h2&gt;Atualização do Curso de Java&lt;/h2&gt;&lt;p&gt;Outra coisa que tem ocupado meu tempo é a atualização do &quot;Curso de Java&quot;, cujos vídeos venho publicando no &lt;a href=&quot;https://www.youtube.com/channel/UCSXZ98kaD6xA05IeK__FUkQ&quot;&gt;meu canal do YouTube&lt;/a&gt;. O vídeo da aula 1 foi editado para retirada de material com restrição de &lt;em&gt;copyright&lt;/em&gt; e inclusão de &lt;em&gt;capa&lt;/em&gt; personalizada, além da atualização da vinheta de encerramento. Essas duas últimas edições, aliás, também estão sendo feitas com relação aos vídeos das demais aulas.&lt;/p&gt;&lt;p&gt;A mudança mais significativa, contudo, é a inclusão do material de apoio que eu estava publicando inicialmente sob a forma de um &quot;livro&quot;, no &lt;em&gt;post&lt;/em&gt; correspondente a cada aula. Isso torna bem mais fácil correlacionar a vídeo-aula com o texto.&lt;/p&gt;&lt;p&gt;Espero que apreciem as mudanças.&lt;/p&gt;
 &lt;hr/&gt;
+	    </description>
+      </item>
+      <item>
+        <title>O Formato Asciidoc</title>
+        <link>http://ja-gaeta.github.io2015/formato_asciidoc.html</link>
+        <pubDate>Ter, 10 mar 2015 00:00:00 -0300</pubDate>
+        <guid isPermaLink="false">2015/formato_asciidoc.html</guid>
+        <description>
+	        &lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;apresentação&quot;&gt;Apresentação&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Asciidoc é um formato de documento de texto para escrever notas, documentação, artigos, livros, &lt;em&gt;ebooks&lt;/em&gt;, apresentações, páginas da web, páginas man e blogs, podendo ser convertido em diversos outros formatos, tais como HTML, PDF, EPUB e páginas man.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sidebarblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;Finalidade deste documento&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;O propósito deste artigo é demonstrar as inúmeras vantagens de edição no formato Asciidoc, como esta caixa para destaque, por exemplo.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Uma outra funcionalidade muito bacana do formato Asciidoc são os blocos de advertência, incluindo ícones da biblioteca &lt;em&gt;font awsome icons&lt;/em&gt;, conforme podemos ver no exemplo a seguir:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;admonitionblock note&quot;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&quot;icon&quot;&gt;
+&lt;i class=&quot;fa icon-note&quot; title=&quot;Note&quot;&gt;&lt;/i&gt;
+&lt;/td&gt;
+&lt;td class=&quot;content&quot;&gt;
+Um parágrafo de advertência atrai a atenção do leitor para alguma informação auxiliar. Seu propósito é representado por um ícone no início do parágrafo. O efeito do destaque é mesmo perfeito para editoração eletrônica e sua implementação é extremamente versátil.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Aqui estão outros tipos de advertência pré-formatadas:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;admonitionblock tip&quot;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&quot;icon&quot;&gt;
+&lt;i class=&quot;fa icon-tip&quot; title=&quot;Tip&quot;&gt;&lt;/i&gt;
+&lt;/td&gt;
+&lt;td class=&quot;content&quot;&gt;
+Uma dica&amp;#8230;&amp;#8203;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&quot;admonitionblock important&quot;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&quot;icon&quot;&gt;
+&lt;i class=&quot;fa icon-important&quot; title=&quot;Important&quot;&gt;&lt;/i&gt;
+&lt;/td&gt;
+&lt;td class=&quot;content&quot;&gt;
+Não se esqueça&amp;#8230;&amp;#8203;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&quot;admonitionblock warning&quot;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&quot;icon&quot;&gt;
+&lt;i class=&quot;fa icon-warning&quot; title=&quot;Warning&quot;&gt;&lt;/i&gt;
+&lt;/td&gt;
+&lt;td class=&quot;content&quot;&gt;
+Atenção para&amp;#8230;&amp;#8203;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&quot;admonitionblock caution&quot;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&quot;icon&quot;&gt;
+&lt;i class=&quot;fa icon-caution&quot; title=&quot;Caution&quot;&gt;&lt;/i&gt;
+&lt;/td&gt;
+&lt;td class=&quot;content&quot;&gt;
+Cuidado com&amp;#8230;&amp;#8203;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Muito bacana, não é mesmo&amp;#8230;&amp;#8203; e tudo isso pode ser feito num editor de texto puro, como &lt;em&gt;vim&lt;/em&gt;, &lt;em&gt;emacs&lt;/em&gt;, &lt;em&gt;leafpad&lt;/em&gt;, &lt;em&gt;bloco de notas do windows&lt;/em&gt;, enfim, você pode se concentrar apenas no texto e, com algumas marcações semelhantes aos formatos &lt;em&gt;Markdown&lt;/em&gt;, está feita a mágica.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;O editor &lt;em&gt;Atom Edit&lt;/em&gt; tem um plugin que permite ir visualizando o resultado à medida em que você vai escrevendo. É o meu preferido para editar esse tipo de arquivo.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Veja mais um exemplo, agora de uma citação famosa:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;quoteblock&quot;&gt;
+&lt;blockquote&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Oitenta e sete anos atrás, nossos pais ergueram neste continente uma nova nação&amp;#8230;&amp;#8203;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;attribution&quot;&gt;
+&amp;#8212; Abraham Lincoln&lt;br&gt;
+&lt;cite&gt;Discurso na inauguração do cemitério de Gettysburg.&lt;/cite&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;E mais uma:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;quoteblock&quot;&gt;
+&lt;blockquote&gt;
+Uma pessoa que nunca errou, nunca tentou nada novo.
+&lt;/blockquote&gt;
+&lt;div class=&quot;attribution&quot;&gt;
+&amp;#8212; Albert Einstein
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Para edição de código de programação, podemos combinar a meu &lt;em&gt;SyntaxHighlighter&lt;/em&gt; preferido, em JavaScript, com as chamadas para destaque das linhas do Asciidoc, como demonstrado no exemplo abaixo:&lt;/p&gt;
+&lt;/div&gt;
+&lt;pre class=&quot;brush: java, toolbar: false&quot;&gt;
+/* HelloWorld.java */     // (1)
+
+public class HelloWorld { // (2)
+  public static void main(String[] args) {     // (3)
+      System.out.println(&quot;Olá mundão velho!&quot;); // (4)
+  }
+}
+&lt;/pre&gt;
+&lt;div class=&quot;colist arabic&quot;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;i class=&quot;conum&quot; data-value=&quot;1&quot;&gt;&lt;/i&gt;&lt;b&gt;1&lt;/b&gt;&lt;/td&gt;
+&lt;td&gt;Comentário&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;i class=&quot;conum&quot; data-value=&quot;2&quot;&gt;&lt;/i&gt;&lt;b&gt;2&lt;/b&gt;&lt;/td&gt;
+&lt;td&gt;Declaração da classe HelloWorld&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;i class=&quot;conum&quot; data-value=&quot;3&quot;&gt;&lt;/i&gt;&lt;b&gt;3&lt;/b&gt;&lt;/td&gt;
+&lt;td&gt;Método main() &amp;#8594; início do programa&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;i class=&quot;conum&quot; data-value=&quot;4&quot;&gt;&lt;/i&gt;&lt;b&gt;4&lt;/b&gt;&lt;/td&gt;
+&lt;td&gt;Método para exibir a mensagem no console&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Foram incluídas também algumas coisas ainda na fase &quot;experimental&quot;, mas que acrescentam requintes de formatação muito interessantes. Veja uma demonstração abaixo:&lt;/p&gt;
+&lt;/div&gt;
+&lt;table class=&quot;tableblock frame-all grid-all spread&quot;&gt;
+&lt;caption class=&quot;title&quot;&gt;Atalhos de teclado comuns nos navegadores&lt;/caption&gt;
+&lt;colgroup&gt;
+&lt;col style=&quot;width: 50%;&quot;&gt;
+&lt;col style=&quot;width: 50%;&quot;&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th class=&quot;tableblock halign-left valign-top&quot;&gt;Atalho&lt;/th&gt;
+&lt;th class=&quot;tableblock halign-left valign-top&quot;&gt;Propósito&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;kbd&gt;F11&lt;/kbd&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Muda para tela cheia&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;span class=&quot;keyseq&quot;&gt;&lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;T&lt;/kbd&gt;&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Abre uma nova aba&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;span class=&quot;keyseq&quot;&gt;&lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;Shift&lt;/kbd&gt;+&lt;kbd&gt;N&lt;/kbd&gt;&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Abre janela para navegação anônima&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;span class=&quot;keyseq&quot;&gt;&lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;+&lt;/kbd&gt;&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Aumenta o zoom&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Só para você ter uma ideia da facilidade de montar a tabela acima, o código correspondente é o seguinte:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;:experimental:
+[options=&quot;header&quot;, caption=&quot;&quot;]
+.Atalhos de teclado comuns nos navegadores
+|===
+|Atalho |Propósito
+
+|kbd:[F11]
+|Muda para tela cheia
+
+|kbd:[Ctrl+T]
+|Abre uma nova aba
+
+|kbd:[Ctrl+Shift+N]
+|Abre janela para navegação anônima
+
+|kbd:[Ctrl + +]
+|Aumenta o zoom
+|===&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Fantástico, não é mesmo? Creio que esta pequena demonstração já serviu para deixar todo mundo com água na boca, aguçando seu desejo de aprender mais sobre o  Asciidoc, a fim de incrementar a formatação dos seus artigos com extrema facilidade, tornando-os muito mais atraentes.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 	    </description>
       </item>
       <item>
@@ -342,78 +557,78 @@ public class OlaMundoUnicode {
 &lt;/pre&gt;&lt;p&gt;Compile o novo programa (&lt;code&gt;javac OlaMundoUnicode.java&lt;/code&gt;) e execute-o (&lt;code&gt;java OlaMundoUnicode&lt;/code&gt;). O problema está resolvido, conforme pode ser visto na figura a seguir:&lt;/p&gt;
 &lt;p style=&quot;text-align: center;&quot;&gt;&lt;img alt=&quot;OlaMundoUnicode&quot; src=&quot;http://i.imgur.com/XWENH80.png&quot; width=&quot;600&quot; height=&quot;421&quot; title=&quot;source: imgur.com&quot; /&gt;&lt;/p&gt;&lt;p&gt;Forneço a seguir uma tabela com os códigos Unicode dos caracteres latinos acentuados:&lt;/p&gt;
 &lt;p&gt;&lt;/p&gt;
-&lt;table style=&quot;width:60%&quot; align=&quot;center&quot;&gt;
-    &lt;tr style=&quot;background-color: #CBDABB&quot;&gt;
-        &lt;td&gt;&quot;á = \u00e1&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;ê = \u00ea&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;Î = \u00ce&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;ú = \u00fa&quot;&lt;/td&gt;
+&lt;table style=&quot;width:70%,  border: 1px solid black;&quot; align=&quot;center&quot;&gt;
+    &lt;tr style=&quot;background-color: #CBDABB; border: 1px solid black;&quot;&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;á = \u00e1&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;ê = \u00ea&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;Î = \u00ce&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;ú = \u00fa&quot;&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr style=&quot;background-color: #DEE8D4&quot;&gt;
-        &lt;td&gt;&quot;à = \u00e0&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;è = \u00e8&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;Ï = \u00cf&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;ù = \u00f9&quot;&lt;/td&gt;
+    &lt;tr style=&quot;background-color: #DEE8D4; border: 1px solid black;&quot;&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;à = \u00e0&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;è = \u00e8&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;Ï = \u00cf&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;ù = \u00f9&quot;&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr style=&quot;background-color: #CBDABB&quot;&gt;
-        &lt;td&gt;&quot;â = \u00e2&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;É = \u00c9&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;ó = \u00f3&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;û = \u00fb&quot;&lt;/td&gt;
+    &lt;tr style=&quot;background-color: #CBDABB; border: 1px solid black;&quot;&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;â = \u00e2&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;É = \u00c9&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;ó = \u00f3&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;û = \u00fb&quot;&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr style=&quot;background-color: #DEE8D4&quot;&gt;
-        &lt;td&gt;&quot;ã = \u00e3&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;È = \u00c8&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;ò = \u00f2&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;ü = \u00fc&quot;&lt;/td&gt;
+    &lt;tr style=&quot;background-color: #DEE8D4; border: 1px solid black;&quot;&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;ã = \u00e3&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;È = \u00c8&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;ò = \u00f2&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;ü = \u00fc&quot;&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr style=&quot;background-color: #CBDABB&quot;&gt;
-        &lt;td&gt;&quot;ä = \u00e4&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;Ê = \u00ca&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;ô = \u00f4&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;Ú = \u00da&quot;&lt;/td&gt;
+    &lt;tr style=&quot;background-color: #CBDABB; border: 1px solid black;&quot;&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;ä = \u00e4&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;Ê = \u00ca&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;ô = \u00f4&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;Ú = \u00da&quot;&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr style=&quot;background-color: #DEE8D4&quot;&gt;
-        &lt;td&gt;&quot;Á = \u00c1&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;Ë = \u00cb&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;õ = \u00f5&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;Ù = \u00d9&quot;&lt;/td&gt;
+    &lt;tr style=&quot;background-color: #DEE8D4; border: 1px solid black;&quot;&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;Á = \u00c1&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;Ë = \u00cb&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;õ = \u00f5&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;Ù = \u00d9&quot;&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr style=&quot;background-color: #CBDABB&quot;&gt;
-        &lt;td&gt;&quot;À = \u00c0&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;í = \u00ed&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;ö = \u00f6&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;Û = \u00db&quot;&lt;/td&gt;
+    &lt;tr style=&quot;background-color: #CBDABB; border: 1px solid black;&quot;&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;À = \u00c0&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;í = \u00ed&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;ö = \u00f6&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;Û = \u00db&quot;&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr style=&quot;background-color: #DEE8D4&quot;&gt;
-        &lt;td&gt;&quot;Â = \u00c2&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;ì = \u00ec&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;Ó = \u00d3&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;ç = \u00e7&quot;&lt;/td&gt;
+    &lt;tr style=&quot;background-color: #DEE8D4; border: 1px solid black;&quot;&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;Â = \u00c2&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;ì = \u00ec&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;Ó = \u00d3&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;ç = \u00e7&quot;&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr style=&quot;background-color: #CBDABB&quot;&gt;
-        &lt;td&gt;&quot;Ã = \u00c3&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;î = \u00ee&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;Ò = \u00d2&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;Ç = \u00c7&quot;&lt;/td&gt;
+    &lt;tr style=&quot;background-color: #CBDABB; border: 1px solid black;&quot;&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;Ã = \u00c3&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;î = \u00ee&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;Ò = \u00d2&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;Ç = \u00c7&quot;&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr style=&quot;background-color: #DEE8D4&quot;&gt;
-        &lt;td&gt;&quot;Ä = \u00c4&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;ï = \u00ef&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;Ô = \u00d4&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;ñ = \u00f1&quot;&lt;/td&gt;
+    &lt;tr style=&quot;background-color: #DEE8D4; border: 1px solid black;&quot;&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;Ä = \u00c4&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;ï = \u00ef&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;Ô = \u00d4&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;ñ = \u00f1&quot;&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr style=&quot;background-color: #CBDABB&quot;&gt;
-        &lt;td&gt;&quot;é = \u00e9&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;Í = \u00cd&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;Õ = \u00d5&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;Ñ = \u00d1&quot;&lt;/td&gt;
+    &lt;tr style=&quot;background-color: #CBDABB; border: 1px solid black;&quot;&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;é = \u00e9&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;Í = \u00cd&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;Õ = \u00d5&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;Ñ = \u00d1&quot;&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr style=&quot;background-color: #DEE8D4&quot;&gt;
-        &lt;td&gt;&quot;Ö = \u00d6&quot;&lt;/td&gt;
-        &lt;td&gt;&quot;Ì = \u00cc&quot;&lt;/td&gt;
-        &lt;td&gt;&lt;/td&gt;
-        &lt;td&gt;&lt;/td&gt;
+    &lt;tr style=&quot;background-color: #DEE8D4; border: 1px solid black;&quot;&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;Ö = \u00d6&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&quot;Ì = \u00cc&quot;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&lt;/td&gt;
+        &lt;td style=&quot;border: 1px solid black;&quot;&gt;&lt;/td&gt;
     &lt;/tr&gt;
 &lt;/table&gt;
 &lt;p&gt;&lt;/p&gt;&lt;p&gt;Para o desenvolvimento de programas complexos será realmente imprescindível o uso de um IDE como o Eclipse ou NetBeans, mas esses programas usam essas mesmas ferramentas básicas do JDK, de forma que é importante conhecer a fundo seu funcionamento, para otimização do próprio IDE e sua adequação às necessidades do seu projeto.&lt;/p&gt;
