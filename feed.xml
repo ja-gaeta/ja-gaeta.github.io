@@ -6,8 +6,8 @@
     <atom:link href="http://ja-gaeta.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>For future use?</description>
     <language>en</language>
-    <pubDate>Ter, 10 mar 2015 22:08:06 -0300</pubDate>
-    <lastBuildDate>Ter, 10 mar 2015 22:08:06 -0300</lastBuildDate>
+    <pubDate>Qua, 11 mar 2015 11:50:41 -0300</pubDate>
+    <lastBuildDate>Qua, 11 mar 2015 11:50:41 -0300</lastBuildDate>
 
       <item>
         <title>Atualizações...</title>
@@ -33,6 +33,7 @@
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;&lt;a href=&quot;http://www.methods.co.nz/asciidoc/&quot;&gt;Asciidoc&lt;/a&gt; é um formato de documento de texto para escrever notas, documentação, artigos, livros, &lt;em&gt;ebooks&lt;/em&gt;, apresentações, páginas da web, páginas man e blogs, podendo ser convertido em diversos outros formatos, tais como HTML, PDF, EPUB e páginas man.&lt;/p&gt;
 &lt;/div&gt;
+&lt;!--more--&gt;]
 &lt;div class=&quot;sidebarblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
 &lt;div class=&quot;title&quot;&gt;Finalidade deste documento&lt;/div&gt;
@@ -111,7 +112,7 @@ Cuidado com&amp;#8230;&amp;#8203;
 &lt;p&gt;Muito bacana, não é mesmo&amp;#8230;&amp;#8203; e tudo isso pode ser feito num editor de texto puro, como &lt;em&gt;vim&lt;/em&gt;, &lt;em&gt;emacs&lt;/em&gt;, &lt;em&gt;leafpad&lt;/em&gt;, &lt;em&gt;bloco de notas do windows&lt;/em&gt;, enfim, você pode se concentrar apenas no texto e, com algumas marcações semelhantes aos formatos &lt;em&gt;Markdown&lt;/em&gt;, está feita a mágica.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;O editor &lt;em&gt;Atom Edit&lt;/em&gt; tem um plugin que permite ir visualizando o resultado à medida em que você vai escrevendo. É o meu preferido para editar esse tipo de arquivo.&lt;/p&gt;
+&lt;p&gt;O editor &lt;em&gt;Atom Editor&lt;/em&gt; tem um plugin que permite ir visualizando o resultado à medida em que você vai escrevendo. É o meu preferido para editar esse tipo de arquivo.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Veja mais um exemplo, agora de uma citação famosa:&lt;/p&gt;
