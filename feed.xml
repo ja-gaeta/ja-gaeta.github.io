@@ -6,8 +6,8 @@
     <atom:link href="http://ja-gaeta.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>For future use?</description>
     <language>en</language>
-    <pubDate>Qua, 11 mar 2015 11:50:41 -0300</pubDate>
-    <lastBuildDate>Qua, 11 mar 2015 11:50:41 -0300</lastBuildDate>
+    <pubDate>Qua, 11 mar 2015 18:17:38 -0300</pubDate>
+    <lastBuildDate>Qua, 11 mar 2015 18:17:38 -0300</lastBuildDate>
 
       <item>
         <title>Atualizações...</title>
@@ -31,19 +31,19 @@
 &lt;h2 id=&quot;apresentação&quot;&gt;Apresentação&lt;/h2&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.methods.co.nz/asciidoc/&quot;&gt;Asciidoc&lt;/a&gt; é um formato de documento de texto para escrever notas, documentação, artigos, livros, &lt;em&gt;ebooks&lt;/em&gt;, apresentações, páginas da web, páginas man e blogs, podendo ser convertido em diversos outros formatos, tais como HTML, PDF, EPUB e páginas man.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.methods.co.nz/asciidoc/&quot; class=&quot;external&quot; target=&quot;&lt;em&gt;blank&quot;&gt;Asciidoc&lt;/a&gt; é um formato de documento de texto para escrever notas, documentação, artigos, livros, _ebooks&lt;/em&gt;, apresentações, páginas da web, páginas de manual (&lt;em&gt;man pages&lt;/em&gt;) e &lt;em&gt;blogs&lt;/em&gt;, podendo ser convertido em diversos outros formatos, tais como HTML, PDF, EPUB e páginas de manual.&lt;/p&gt;
 &lt;/div&gt;
-&lt;!--more--&gt;]
+&lt;!--more--&gt;
 &lt;div class=&quot;sidebarblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
 &lt;div class=&quot;title&quot;&gt;Finalidade deste documento&lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;O propósito deste artigo é demonstrar as inúmeras vantagens de edição no formato Asciidoc, como esta caixa para destaque, por exemplo.&lt;/p&gt;
+&lt;p&gt;O propósito deste artigo é demonstrar as inúmeras vantagens de edição no formato Asciidoc, como esta caixa para destaque de texto, por exemplo.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Uma outra funcionalidade muito bacana do formato Asciidoc são os blocos de advertência, incluindo ícones da biblioteca &lt;em&gt;font awsome icons&lt;/em&gt;, conforme podemos ver no exemplo a seguir:&lt;/p&gt;
+&lt;p&gt;Uma outra funcionalidade muito da hora do formato Asciidoc são os blocos de advertência, incluindo ícones da biblioteca &lt;a href=&quot;http://fortawesome.github.io/Font-Awesome/&quot; class=&quot;external&quot; target=&quot;_blank&quot;&gt;&lt;em&gt;font awsome icons&lt;/em&gt;&lt;/a&gt;, conforme podemos ver no exemplo a seguir:&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;admonitionblock note&quot;&gt;
 &lt;table&gt;
@@ -109,10 +109,10 @@ Cuidado com&amp;#8230;&amp;#8203;
 &lt;/table&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Muito bacana, não é mesmo&amp;#8230;&amp;#8203; e tudo isso pode ser feito num editor de texto puro, como &lt;em&gt;vim&lt;/em&gt;, &lt;em&gt;emacs&lt;/em&gt;, &lt;em&gt;leafpad&lt;/em&gt;, &lt;em&gt;bloco de notas do windows&lt;/em&gt;, enfim, você pode se concentrar apenas no texto e, com algumas marcações semelhantes aos formatos &lt;em&gt;Markdown&lt;/em&gt;, está feita a mágica.&lt;/p&gt;
+&lt;p&gt;Muito bacana, não é mesmo&amp;#8230;&amp;#8203; e tudo isso pode ser feito num editor de texto puro, como &lt;em&gt;vim&lt;/em&gt;, &lt;em&gt;emacs&lt;/em&gt;, &lt;em&gt;leafpad&lt;/em&gt;, &lt;em&gt;bloco de notas do windows&lt;/em&gt;, enfim, você pode se concentrar apenas no texto, bastando algumas marcações semelhantes aos formatos &lt;a href=&quot;http://pt.wikipedia.org/wiki/Markdown&quot; class=&quot;external&quot; target=&quot;_blank&quot;&gt;&lt;em&gt;Markdown&lt;/em&gt;&lt;/a&gt; para fazer a mágica.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;O editor &lt;em&gt;Atom Editor&lt;/em&gt; tem um plugin que permite ir visualizando o resultado à medida em que você vai escrevendo. É o meu preferido para editar esse tipo de arquivo.&lt;/p&gt;
+&lt;p&gt;O editor &lt;a href=&quot;https://atom.io/&quot; class=&quot;external&quot; target=&quot;_blank&quot;&gt;&lt;em&gt;Atom&lt;/em&gt;&lt;/a&gt; tem um plugin que permite ir visualizando o resultado à medida em que você vai escrevendo. É o meu preferido para editar esse tipo de arquivo.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Veja mais um exemplo, agora de uma citação famosa:&lt;/p&gt;
@@ -140,7 +140,7 @@ Uma pessoa que nunca errou, nunca tentou nada novo.
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Para edição de código de programação, podemos combinar a meu &lt;em&gt;SyntaxHighlighter&lt;/em&gt; preferido, em JavaScript, com as chamadas para destaque das linhas do Asciidoc, como demonstrado no exemplo abaixo:&lt;/p&gt;
+&lt;p&gt;Para edição de código de programação, podemos combinar a meu &lt;a href=&quot;http://alexgorbatchev.com/SyntaxHighlighter/&quot; class=&quot;external&quot; target=&quot;_blank&quot;&gt;&lt;em&gt;SyntaxHighlighter&lt;/em&gt;&lt;/a&gt; preferido, em JavaScript, com as chamadas para destaque das linhas do Asciidoc, como demonstrado no exemplo abaixo:&lt;/p&gt;
 &lt;/div&gt;
 &lt;pre class=&quot;brush: java, toolbar: false&quot;&gt;
 /* HelloWorld.java */     // (1)
@@ -172,7 +172,7 @@ public class HelloWorld { // (2)
 &lt;/table&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Foram incluídas também algumas coisas ainda na fase &quot;experimental&quot;, mas que acrescentam requintes de formatação muito interessantes. Veja uma demonstração abaixo:&lt;/p&gt;
+&lt;p&gt;Estão disponíveis também algumas funcionalidades que ainda estão na fase experimental, mas já podemos constatar que acrescentam requintes de formatação muito interessantes. Veja uma demonstração abaixo:&lt;/p&gt;
 &lt;/div&gt;
 &lt;table class=&quot;tableblock frame-all grid-all spread&quot;&gt;
 &lt;caption class=&quot;title&quot;&gt;Atalhos de teclado comuns nos navegadores&lt;/caption&gt;
