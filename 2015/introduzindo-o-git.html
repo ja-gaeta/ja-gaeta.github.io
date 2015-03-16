@@ -81,19 +81,20 @@
               </ol>
             </div>
           <p class="post-meta">
-            <i class="fa fa-calendar"></i>&nbsp;12 Março 2015&nbsp;&nbsp;
+            <i class="fa fa-calendar"></i>&nbsp;16 Março 2015&nbsp;&nbsp;
             <i class="fa fa-user"></i>&nbsp;J.A. Gaeta Mendes&nbsp;&nbsp;
               <i class="fa fa-comment"></i>&nbsp;<span class="badge"><a href="http://ja-gaeta.github.io/2015/introduzindo-o-git.html#disqus_thread"></a></span>
           </p>
               <p><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Antigamente, quando a gente escrevia usando lápis e papel, não era difícil vermo-nos obrigados a revirar o lixo, atrás de alguma coisa descartada por engano, muitas vezes sem sucesso&#8230;&#8203; e lá se iam horas ou até mesmo dias de trabalho, irrecuperavelmente perdido.</p>
+<p>Antigamente, quando a gente escrevia usando lápis e papel, não era difícil vermo-nos obrigados a revirar o lixo, atrás de alguma coisa descartada por engano, muitas vezes sem sucesso&#8230;&#8203; e lá se iam horas ou até mesmo dias de trabalho, irremediavelmente perdidos.</p>
 </div>
 <!--more-->
 <div id="toc" class="toc">
 <div id="toctitle" class="title">Sumário</div>
 <ul class="sectlevel1">
+<li><a href="#_sistemas_de_controle_de_versão">Sistemas de Controle de Versão</a></li>
 <li><a href="#_o_diferencial_do_a_href_http_git_scm_com_git_a">O Diferencial do <a href="http://git-scm.com/">Git</a></a></li>
 <li><a href="#_terminologia_básica">Terminologia Básica</a></li>
 <li><a href="#_configuração_elementar">Configuração Elementar</a></li>
@@ -123,12 +124,18 @@
 <ul class="sectlevel2">
 <li><a href="#_vídeos">Vídeos</a></li>
 <li><a href="#_tutoriais_interativos">Tutoriais Interativos</a></li>
+<li><a href="#_artigo_original">Artigo original</a></li>
 </ul>
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sistemas_de_controle_de_versão">Sistemas de Controle de Versão</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>Com a advento da editoração eletrônica, esse tipo de problema cresceu sobremaneira. A facilidade de apagar um arquivo no computador, seja intencionalmente ou não, é enorme. Algumas vezes, como no caso dos papéis jogados no lixo, é possível recuperá-los, mas na maioria das vezes temos que recomeçar do zero.</p>
+<p>Com a advento da editoração eletrônica, esse tipo de problema cresceu sobremaneira. A facilidade de apagar um arquivo no computador, seja intencionalmente ou não, é enorme. Algumas vezes, como no caso dos papéis jogados no lixo, é possível recuperá-los, mas na maioria delas temos que recomeçar do zero.</p>
 </div>
 <div class="paragraph">
 <p>Quando estamos criando alguma coisa, escrevendo um livro ou um programa de computador, por exemplo, vamos constantemente modificando o texto ou o código e, não raro, lamentamos ter sobrescrito algum trecho que gostaríamos de trazer de volta.</p>
@@ -151,10 +158,7 @@
 <p>Trataremos neste artigo do controle de versão para desenvolvimento de <em>software</em>, embora ele possa ser usado para quase todo o tipo de arquivo que existe num computador.</p>
 </div>
 <div class="paragraph">
-<p>Na verdade, os VCS foram desenvolvidos exatamente para controlar o desenvolvimento de software, permitindo não apenas a reversão de um projeto para um estado anterior, mas também a comparação de modificações ao longo do tempo, descobrir quem introduziu determinada mudança que esteja causando problemas, quem apresentou uma sugestão ou reportou um <em>bug</em>, e muito mais.</p>
-</div>
-<div class="paragraph">
-<p>Em síntese, os VCS são uma mão na roda para você consertar alguma, digamos assim, <em>defecada</em>, tudo isso ao custo de muito pouco trabalho extra.</p>
+<p>Na verdade, os VCS foram desenvolvidos exatamente para controlar o desenvolvimento de <em>software</em>, permitindo não apenas a reversão de um projeto para um estado anterior, mas também para comparar modificações ao longo do tempo, descobrir quem introduziu determinada mudança que esteja causando problemas, quem apresentou uma sugestão ou reportou um <em>bug</em>, e muito mais.</p>
 </div>
 </div>
 </div>
@@ -162,10 +166,10 @@
 <h2 id="_o_diferencial_do_a_href_http_git_scm_com_git_a">O Diferencial do <a href="http://git-scm.com/">Git</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_vers%C3%A3o" target="<em>blank">Wikipédia</a> lista entre as soluções _opensource</em> mais comuns: CVS, Mercurial, Git e SVN; e entre as comerciais, destaca: SourceSafe, TFS, PVCS (Serena) e ClearCase.</p>
+<p>A <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_vers%C3%A3o" target="_blank">Wikipédia</a> lista entre as soluções de código aberto mais comuns: <a href="http://pt.wikipedia.org/wiki/CVS">CVS</a>, <a href="http://pt.wikipedia.org/wiki/Mercurial">Mercurial</a>, <a href="http://git-scm.com/">Git</a> e <a href="http://pt.wikipedia.org/wiki/Subversion">SVN</a>; e entre as comerciais, destaca: <a href="http://pt.wikipedia.org/wiki/Microsoft_Visual_SourceSafe">SourceSafe</a>, <a href="http://en.wikipedia.org/wiki/Team_Foundation_Server">TFS</a>, <a href="http://en.wikipedia.org/wiki/PVCS">PVCS (Serena)</a> e <a href="http://en.wikipedia.org/wiki/Rational_ClearCase">ClearCase</a>.</p>
 </div>
 <div class="paragraph">
-<p>A primeira pergunta que surge, então, é: o que torna o Git diferente dos outros VCS e qual a razão da sua crescente popularidade?</p>
+<p>A primeira pergunta que surge, então, é: <em>o que torna o Git diferente dos outros VCS e qual a razão da sua crescente popularidade</em>?</p>
 </div>
 <div class="paragraph">
 <p>Certamente a diferença mais óbvia é que o Git é um sistema distribuído (ao contrário do SVN ou TFS, por exemplo). Isso significa que você possui um repositório local que fica numa pasta especial chamada <code>.git</code> e normalmente (mas não obrigatoriamente), tem um repositório remoto central onde diferentes colaboradores podem contribuir para o desenvolvimento do código. Observe que cada um desses colaboradores possui um clone exato do repositório em suas estações de trabalho locais.</p>
@@ -249,7 +253,7 @@
 <p><strong>remote</strong>&#8201;&#8212;&#8201;são os locais remotos do seu repositório, normalmente em algum servidor central, como o GitHub.</p>
 </li>
 <li>
-<p><strong>SHA</strong>&#8201;&#8212;&#8201;cada <em>commit</em> ou <em>node</em> na árvore Git é identificado por uma chave <a href="http://pt.wikipedia.org/wiki/SHA1" target="<em>blank">SHA</a> única. Pode-se utilizá-las em vários comandos para manipular um _node</em> específico.</p>
+<p><strong>SHA</strong>&#8201;&#8212;&#8201;cada <em>commit</em> ou <em>node</em> na árvore Git é identificado por uma chave <a href="http://pt.wikipedia.org/wiki/SHA1">SHA</a> única. Pode-se utilizá-las em vários comandos para manipular um <em>node</em> específico.</p>
 </li>
 <li>
 <p><strong>head</strong>&#8201;&#8212;&#8201;é uma referência a um <em>node</em> para o qual nosso espaço de trabalho no repositório aponta no momento.</p>
@@ -271,7 +275,7 @@
 <p>Usarei a sintaxe da linha de comando dos sistemas baseados em Unix, tais como o Linux e o OS X. No Windows, além da interface gráfica, há um programa para emular um terminal tipo Unix, de forma que este tutorial poderá ser seguido sem problemas, seja qual for seu sistema operacional. O símbolo <code>$</code> representa o <em>prompt</em> da linha de comando e não deve ser digitado.</p>
 </div>
 <div class="paragraph">
-<p>Pressupondo, então, que o Git já está instalado no seu computador e o atalho correspondente ao diretório de sua instalação foi devidamente incluído na variável PATH do seu sistema, a primeira coisa a ser feita é configurá-lo com seu nome e endereço de email. Vamos aproveitar também para configurar um editor-padrão&#8201;&#8212;&#8201;vou escolher o <a href="http://www.vim.org/" target="_blank">vim</a>, mas esteja à vontade para personalizar esta seleção de acordo com o seu gosto pessoal. Para isso, entre os seguintes comandos, com as devidas substituições pessoais:</p>
+<p>Pressupondo, então, que o Git já está instalado no seu computador e o atalho correspondente ao diretório de sua instalação foi devidamente incluído na variável <em>PATH</em> do seu sistema, a primeira coisa a ser feita é configurá-lo com seu nome e endereço de <em>email</em>. Vamos aproveitar também para configurar um editor-padrão&#8201;&#8212;&#8201;vou escolher o <a href="http://www.vim.org/" target="_blank">vim</a>, mas esteja à vontade para personalizar esta seleção de acordo com o seu gosto pessoal. Para isso, entre os seguintes comandos, com as devidas substituições pessoais:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -449,7 +453,7 @@ $ git commit -m "acrescenta outro arquivo com outro conteúdo"
 <h2 id="_criando_uma_ramificação_de_recursos">Criando uma ramificação (de recursos)</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Ramificação (<em>branching</em>) e mesclagem (<em>merging</em>) são as duas coisas que tornam o Git tão poderoso, e é para isso que ele foi otimizado, sendo como é um sistema de controle de versão <strong>distribuído</strong> (VCS). De fato, as ramificações de recursos (<em>feature branches</em>) são criadas para cada novo tipo de funcionalidade que você acrescentar ao seu sistema e são normalmente apagadas mais tarde, depois que o recurso tenha sido mesclado outra vez na ramificação principal de integração (usualmente a ramificação <em>master</em>). A grande vantagem disso é que você pode experimentar a nova funcionalidade num &#8220;playground&#8221; separado e isolado, movendo-se rapidamente para frente ou para trás da ramificação &#8220;master&#8221; original quando necessário. Ademais, ela poderá ser facilmente descartada outra vez (no caso de não ser mais necessária), bastando eliminar a ramificação do recurso. Há um ótimo artigo para <a href="http://blog.thoughtram.io/git/rebase-book/2015/02/10/understanding-branches-in-git.html" target="_blank">entender as ramificações no Git</a>, que você definitivamente deve ler.</p>
+<p>Ramificação (<em>branching</em>) e mesclagem (<em>merging</em>) são as duas coisas que tornam o Git tão poderoso, e é para isso que ele foi otimizado, em se tratando de um sistema de controle de versão <strong>distribuído</strong> (VCS). De fato, as ramificações de recursos (<em>feature branches</em>) são criadas para cada novo tipo de funcionalidade que você acrescentar ao seu sistema e são normalmente apagadas mais tarde, depois que o recurso tenha sido mesclado outra vez na ramificação principal de integração (usualmente a ramificação <em>master</em>). A grande vantagem disso é que você pode experimentar a nova funcionalidade num &#8220;playground&#8221; separado e isolado, movendo-se rapidamente para frente ou para trás da ramificação &#8220;master&#8221; original quando necessário. Ademais, ela poderá ser facilmente descartada outra vez (no caso de não ser mais necessária), bastando eliminar a ramificação do recurso. Há um ótimo artigo para <a href="http://blog.thoughtram.io/git/rebase-book/2015/02/10/understanding-branches-in-git.html" target="_blank">entender as ramificações no Git</a>, que você definitivamente deve ler.</p>
 </div>
 <div class="paragraph">
 <p>Mas vamos começar. Primeiro de tudo, criamos uma nova ramificação de recurso:</p>
@@ -506,9 +510,6 @@ Pode-se usar o comando direto <code>git checkout -b minha-feature-branch</code> 
 <div class="paragraph">
 <p>Vamos modificar um dos nossos arquivos existentes:</p>
 </div>
-<div class="paragraph">
-<p>Lets modify one of our existing files</p>
-</div>
 <div class="listingblock">
 <div class="content">
 <pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ echo "Oi" &gt;&gt; ola.txt
@@ -548,7 +549,7 @@ Dessa vez usamos o comando <code>git commit -a -m</code> para fazer o <code>add<
 </div>
 </div>
 <div class="paragraph">
-<p>Até aqui tudo parece bem normal e ainda temos uma linha reta na árvore, mas observe que agora o <code>master</code> continuou onde estava e movemos para frente <code>minha-feature-branch</code>.</p>
+<p>Até aqui tudo parece bem normal e ainda temos uma linha reta na árvore, mas observe que agora o <code>master</code> continuou onde estava e movemos adiante <code>minha-feature-branch</code>.</p>
 </div>
 <div class="paragraph">
 <p>Vamos trocar para <code>master</code> e modificar o mesmo arquivo lá também.</p>
@@ -593,7 +594,7 @@ $ git commit -a -m "acrescenta linha em ola.txt"
 <h2 id="_mesclando_e_resolvendo_conflitos">Mesclando e resolvendo conflitos</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>O próximo passo seria reintegrar nossa <code>feature branch</code> de volta em <code>master</code>. Isso é feito usando o comando <code>merge</code> :</p>
+<p>O próximo passo será reintegrar nossa <code>feature branch</code> de volta em <code>master</code>. Isso é feito usando o comando <code>merge</code> :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -682,7 +683,7 @@ HEAD is now at 33b65ea... acrescenta linha em ola.txt</code></pre>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Pense na HEAD como a &#8220;branch atual&#8221;. Quando você troca de <em>branches</em> com <code>git checkout</code>, a revisão HEAD muda para apontar a dica da nova <em>branch</em>. [&#8230;&#8203;] É possível para a HEAD referir-se a uma revisão específica que não esteja associada com um nome de <em>branch</em>. Esta situação é chamada <a href="http://git-scm.com/docs/git-checkout" target="_blank"><em>detached HEAD</em></a>. <a href="http://stackoverflow.com/a/2304106/50109" target="_blank">(Postagem no Stackoverflow)</a>
+Pense na HEAD como a &#8220;branch atual&#8221;. Quando você troca de <em>branches</em> com <code>git checkout</code>, a revisão HEAD muda para apontar a dica da nova <em>branch</em>.(&#8230;&#8203;) É possível para a HEAD referir-se a uma revisão específica que não esteja associada com um nome de <em>branch</em>. Esta situação é chamada <a href="http://git-scm.com/docs/git-checkout" target="_blank"><em>detached HEAD</em></a>. <a href="http://stackoverflow.com/a/2304106/50109" target="_blank">(Postagem no Stackoverflow)</a>
 </td>
 </tr>
 </table>
@@ -696,7 +697,7 @@ Pense na HEAD como a &#8220;branch atual&#8221;. Quando você troca de <em>branc
 </div>
 </div>
 <div class="paragraph">
-<p>Como você pode ver, o <code>node</code> recem-criado não possui nenhum rótulo. A única referência que atualmente aponta para ele é a <em>head</em>. Todavia, se agora trocarmos para <code>master</code> novamente, o <code>commit</code> anterior será perdido, pois não teremos como saltar de volta para aquele <code>node</code>.</p>
+<p>Como você pode ver, o <code>node</code> recem-criado não possui nenhum rótulo. A única referência que atualmente aponta para ele é a <em>head</em>. Todavia, se trocarmos para <code>master</code> novamente, o <code>commit</code> anterior será perdido, pois não teremos como saltar de volta para aquele <code>node</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -723,7 +724,7 @@ Switched to branch 'master'</code></pre>
 <h2 id="_rollback">Rollback</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Saltar para trás é bom, mas e se quisermos <strong>desfazer</strong> tudo de volta ao estado antes do <code>merge</code> da <code>feature branch</code>? É fácil assim:</p>
+<p>Saltar para trás é bom, mas e se quisermos <strong>desfazer</strong> tudo de volta ao estado antes do <code>merge</code> da <code>feature branch</code>? Muito fácil:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -742,7 +743,7 @@ HEAD is now at 33b65ea acrescenta linha em ola.txt</code></pre>
 <div class="sect2">
 <h3 id="_usando_revert_para_fazer_rollback_das_mudanças_do_jeito_fácil">Usando &#8220;revert&#8221; para fazer rollback das mudanças do jeito fácil</h3>
 <div class="paragraph">
-<p>Se você precisar fazer o <code>rollback</code> de um <code>commit</code> inteiro e (o que é pior) você já sincronizou com um repositório remoto, então usar <code>git reset --hard</code> pode não ser adequado, uma vez que dessa forma você estaria de certa forma reescrevendo a história, o que não é permitido se a sincronização com o servidor remoto já foi efetuada.</p>
+<p>Se você precisar fazer o <code>rollback</code> de um <code>commit</code> inteiro e (o que é pior) você já sincronizou com um repositório remoto, então usar <code>git reset --hard</code> pode não ser adequado, uma vez que dessa forma você estaria reescrevendo a história, o que não é permitido se a sincronização com o servidor remoto já foi efetuada.</p>
 </div>
 <div class="paragraph">
 <p>Em tais situações pode-se usar o comando <code>revert</code>, o qual basicamente cria um novo <code>commit</code> desfazendo todas as mudanças de um determinado commit que for especificado. Considere, por exemplo, que você queira fazer o <em>rollback</em> de um <em>commit</em> com o ID <code>41b8684</code>:</p>
@@ -759,7 +760,7 @@ HEAD is now at 33b65ea acrescenta linha em ola.txt</code></pre>
 <h2 id="_desfazendo_mudanças_quando_não_foi_feito_commit">Desfazendo mudanças quando não foi feito Commit</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Outro cenário comum no campo de &#8220;desfazer coisas&#8221; é simplesmente descartar mudanças locais quando ainda não foi feito o <code>commit</code>.</p>
+<p>Outro cenário comum no terreno de &#8220;desfazer coisas&#8221; é simplesmente descartar mudanças locais quando ainda não foi feito o <code>commit</code>.</p>
 </div>
 <div class="sect2">
 <h3 id="_arquivos_não_estagiados_para_um_commit">Arquivos não estagiados para um Commit</h3>
@@ -817,7 +818,7 @@ Changes to be committed:
 </div>
 </div>
 <div class="paragraph">
-<p>O comando <code>git checkout</code> não teria nenhum efeito neste caso, mas, ao invés disso, (se você leu o que o git escreveu na saída do <em>status</em>) temos que fazer um <strong>reset</strong>. Por que? Porque o comando <code>git add</code> já criou um <em>node</em> na árvore Git (na verdade isso não é 100% correto: <a href="http://stackoverflow.com/questions/3689838/difference-between-head-working-tree-index-in-git" target="<em>blank">veja Git index vs. working tree</a> para mais detalhes) que, todavia, ainda não foi objeto de um <code>commit</code>. Assim sendo, precisamos _resetar</em> o ponteiro corrente para HEAD que é o topo da nossa <em>branch</em> corrente.</p>
+<p>O comando <code>git checkout</code> não teria nenhum efeito neste caso, mas, ao invés disso, (se você leu o que o git escreveu na saída do parâmetro de <em>status</em>) temos que fazer um <strong>reset</strong>. Por que? Porque o comando <code>git add</code> já criou um <em>node</em> na árvore Git (na verdade isso não é 100% correto: <a href="http://stackoverflow.com/questions/3689838/difference-between-head-working-tree-index-in-git"><em>veja Git index vs. working tree</em></a> para mais detalhes) que, todavia, ainda não foi objeto de um <code>commit</code>. Assim sendo, precisamos <em>resetar</em> o ponteiro corrente para HEAD que é o topo da nossa <em>branch</em> corrente.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -864,7 +865,7 @@ no changes added to commit (use "git add" and/or "git commit -a")</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git remote add origin git@github.com:jaj-gaeta/exemplo.git</code></pre>
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git remote add origin git@github.com:ja-gaeta/exemplo.git</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -983,6 +984,9 @@ origin  git@github.com:juristr/intro.js.git (push)</code></pre>
 <li>
 <p><a href="https://about.gitlab.com/2015/02/19/8-tips-to-help-you-work-better-with-git/">8 Tips to help you work better with Git</a></p>
 </li>
+<li>
+<p><a href="https://www.atlassian.com/git/">Getting Git Right</a></p>
+</li>
 </ul>
 </div>
 <div class="sect2">
@@ -1004,6 +1008,16 @@ origin  git@github.com:juristr/intro.js.git (push)</code></pre>
 </li>
 <li>
 <p><a href="http://pcottle.github.io/learnGitBranching/index.html">Learning Git - Interactive Online Tutorial</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_artigo_original">Artigo original</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://juristr.com/blog/2013/04/git-explained/#Rollback">Git Explained: For Beginners</a></p>
 </li>
 </ul>
 </div>
