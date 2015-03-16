@@ -11,6 +11,7 @@
 
     <!-- Style -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/cosmo/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/prettify-themes/github.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/asciidoctor.css">
@@ -69,6 +70,22 @@
 
         <div class="row">
           <div class="col-md-9">
+            <article>
+              <h2><a href="2015/introduzindo-o-git.html">Introdução ao Git</a></h2>
+          <p class="post-meta">
+            <i class="fa fa-calendar"></i>&nbsp;12 Março 2015&nbsp;&nbsp;
+            <i class="fa fa-user"></i>&nbsp;J.A. Gaeta Mendes&nbsp;&nbsp;
+              <i class="fa fa-comment"></i>&nbsp;<span class="badge"><a href="http://ja-gaeta.github.io/2015/introduzindo-o-git.html#disqus_thread"></a></span>
+          </p>
+              <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Antigamente, quando a gente escrevia usando lápis e papel, não era difícil vermo-nos obrigados a revirar o lixo, atrás de alguma coisa descartada por engano, muitas vezes sem sucesso&#8230;&#8203; e lá se iam horas ou até mesmo dias de trabalho, irrecuperavelmente perdido.</p>
+</div>
+
+              <a href="2015/introduzindo-o-git.html" class="btn btn-success btn-sm read-more">Ler mais <i class="fa fa-arrow-right"></i></a>
+              <br>
+            </article>
             <article>
               <h2><a href="2015/atualizacoes.html">Atualizações...</a></h2>
           <p class="post-meta">
@@ -183,18 +200,6 @@
               <a href="2014/oracle-jdk-vs-openjdk.html" class="btn btn-success btn-sm read-more">Ler mais <i class="fa fa-arrow-right"></i></a>
               <br>
             </article>
-            <article>
-              <h2><a href="2014/java-e-raspberry-pi-parte-2.html">Java & Raspberry Pi - Parte 2</a></h2>
-          <p class="post-meta">
-            <i class="fa fa-calendar"></i>&nbsp;29 Novembro 2014&nbsp;&nbsp;
-            <i class="fa fa-user"></i>&nbsp;J.A. Gaeta Mendes&nbsp;&nbsp;
-              <i class="fa fa-comment"></i>&nbsp;<span class="badge"><a href="http://ja-gaeta.github.io/2014/java-e-raspberry-pi-parte-2.html#disqus_thread"></a></span>
-          </p>
-              <p>O sistema operacional do Raspberry Pi é armazenado num cartão de memória <abbr title="Secure Digital Card">SD</abbr>. Para a instalação que vou fazer, usando o <abbr title="New Out Of the Box Software">NOOBS</abbr>, o tamanho mínimo é de 8 GB. Se for um micro-<abbr title="Secure Digital Card">SD</abbr>, talvez seja preciso também um adaptador, que normalmente vem junto, mas é bom conferir, pois, conforme o modelo, o <em>slot</em> do Raspberry pode suportar apenas <abbr title="Secure Digital Card">SD</abbr> de tamanho padrão. A classe não importa muito, podendo partir da 4, pois a diferença de desempenho entre um cartão classe 4 e um classe 10 é praticamente imperceptível.</p>
-
-              <a href="2014/java-e-raspberry-pi-parte-2.html" class="btn btn-success btn-sm read-more">Ler mais <i class="fa fa-arrow-right"></i></a>
-              <br>
-            </article>
               <br>
               <ul class="pager">
                 Postagens mais antigas podem ser encontradas em <li><a href="/archive.html"> Arquivo</a></li>
@@ -259,6 +264,21 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
+    <script type="text/javascript">
+      <!-- load prettify only when needed -->
+      $(document).ready(function(){
+        var prettify = false;
+        var classToAdd = 'prettyprint snippet';
+        $("pre > code").each(function() {
+          $("pre > code").parent().addClass(classToAdd);
+          prettify = true;
+        });
+        if(prettify) {
+          prettyPrint();
+        }
+      });
+    </script>
 
     <script type="text/javascript">
       /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */

@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+    Ponto G++
+        - Introdução ao Git
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="J.A. Gaeta Mendes">
+    <meta name="description" content="Static blog generated with JBake">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/cosmo/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/prettify-themes/github.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/asciidoctor.css">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav icon -->
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/img/favicon.png" type="image/x-icon">
+      
+    <!-- SyntaxHighlighter -->
+    <script type="text/javascript" src="/js/shCore.js"></script>
+    <script type="text/javascript" src="/js/shBrushJava.js"></script>
+    
+    <link href="/css/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+      
+  </head>
+  <body>      
+    <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Ponto G++</a>
+        </div>
+        
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="/pages/about.html">Sobre</a></li>
+          <!--  <li><a href="/pages/contact.html">Contact</a></li> -->
+          </ul>
+        
+        <!-- Right navigation -->
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/archive.html"><i class="fa fa-list"></i> Arquivo</a></li>
+          <li><a href="/feed.xml" title="Rss"><i class="fa fa-rss"></i> Feed</a></li>
+        </ul>
+        <!-- Right navigation end -->
+
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav><!-- /.navbar -->
+
+    <!-- Begin page content -->
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-md-12">
+          <article>
+            <div class="page-header"><h1>Introdução ao Git</h1>
+              <ol class="breadcrumb tagsbar">
+                <li><a href="/tags/programação.html">programação</a></li>
+                <li><a href="/tags/desenvolvimento-web.html">desenvolvimento-web</a></li>
+                <li><a href="/tags/git.html">git</a></li>
+                <li><a href="/tags/github.html">github</a></li>
+              </ol>
+            </div>
+          <p class="post-meta">
+            <i class="fa fa-calendar"></i>&nbsp;12 Março 2015&nbsp;&nbsp;
+            <i class="fa fa-user"></i>&nbsp;J.A. Gaeta Mendes&nbsp;&nbsp;
+              <i class="fa fa-comment"></i>&nbsp;<span class="badge"><a href="http://ja-gaeta.github.io/2015/sobre-git.html#disqus_thread"></a></span>
+          </p>
+              <p><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Antigamente, quando a gente escrevia usando papel, não era difícil ser obrigado a vasculhar o lixo, atrás de alguma coisa descartada por engano, às vezes sem sucesso&#8230;&#8203; e lá se iam horas ou até mesmo dias de trabalho, irrecuperavelmente perdido.</p>
+</div>
+<!--more-->
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Sumário</div>
+<ul class="sectlevel1">
+<li><a href="#_o_diferencial_do_a_href_http_git_scm_com_git_a">O Diferencial do <a href="http://git-scm.com/">Git</a></a></li>
+<li><a href="#_terminologia_básica">Terminologia Básica</a></li>
+<li><a href="#_configuração_básica">Configuração básica</a></li>
+<li><a href="#_criação_de_um_novo_repositório_git">Criação de um novo repositório Git</a></li>
+<li><a href="#_criação_e_em_commit_em_de_um_novo_arquivo">Criação e <em>commit</em> de um novo arquivo</a></li>
+<li><a href="#_acrescentando_outro_arquivo">Acrescentando outro arquivo</a></li>
+<li><a href="#_criando_uma_ramificação_de_recursos">Criando uma ramificação (de recursos)</a></li>
+<li><a href="#_mesclando_e_resolvendo_conflitos">Mesclando e resolvendo conflitos</a></li>
+<li><a href="#_saltar_para_um_determinado_commit">Saltar para um determinado commit</a></li>
+<li><a href="#_rollback">Rollback</a>
+<ul class="sectlevel2">
+<li><a href="#_usando_revert_para_fazer_rollback_das_mudanças_do_jeito_fácil">Usando &#8220;revert&#8221; para fazer rollback das mudanças do jeito fácil</a></li>
+</ul>
+</li>
+<li><a href="#_desfazer_mudanças_quando_não_foi_feito_commit">Desfazer mudanças quando não foi feito commit</a>
+<ul class="sectlevel2">
+<li><a href="#_arquivos_não_estagiados_para_um_commit">Arquivos não estagiados para um Commit</a></li>
+<li><a href="#_arquivos_estagiados_para_um_commit">Arquivos estagiados para um Commit</a></li>
+</ul>
+</li>
+<li><a href="#_compartilhando_sincronizando_seu_repositório">Compartilhando/Sincronizando seu Repositório</a>
+<ul class="sectlevel2">
+<li><a href="#_clonagem">Clonagem</a></li>
+</ul>
+</li>
+<li><a href="#_recursos_e_em_links_em_em_inglês">Recursos e <em>Links</em> (em inglês)</a>
+<ul class="sectlevel2">
+<li><a href="#_vídeos">Vídeos</a></li>
+<li><a href="#_tutoriais_interativos">Tutoriais Interativos</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Com a advento da editoração eletrônica, esse tipo de problema cresceu sobremaneira. A facilidade de apagar um arquivo no computador, seja intencionalmente ou não, é enorme. Algumas vezes, como no caso dos papéis atirados no lixo, é possível recuperá-los, mas na maioria das vezes temos que recomeçar do zero.</p>
+</div>
+<div class="paragraph">
+<p>Quando estamos criando alguma coisa, escrevendo um livro ou um programa de computador, por exemplo, vamos constantemente modificando o texto ou o código e, não raro, lamentamos ter sobrescrito algum trecho que gostaríamos de trazer de volta.</p>
+</div>
+<div class="paragraph">
+<p>Quem já não passou por esse tipo de situação?</p>
+</div>
+<div class="paragraph">
+<p>Pois é exatamente para tentar resolver, ou ao menos amenizar, esse problema, que surgiram os sistemas de controle de versão (VCS, do inglês <em>Version Control System</em>), também conhecidos como gerenciamento de código fonte (SCM, do inglês <em>Source Code Management</em>), ou simplesmente <em>versionamento</em>, em português.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Sistema de Contrôle de Versão</div>
+<div class="paragraph">
+<p>O contrôle de versão é um sistema que registra as mudanças num arquivo ou conjunto de arquivos ao longo do tempo de forma que se possa recuperar versões específicas futuramente.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Trataremos neste artigo do controle de versão para desenvolvimento de <em>software</em>, embora ele possa ser usado para quase todo o tipo de arquivo que existe num computador.</p>
+</div>
+<div class="paragraph">
+<p>Na verdade, os VCS foram desenvolvidos exatamente para controlar o desenvolvimento de software, permitindo não apenas a reversão de um projeto para um estado anterior, mas também a comparação de modificações ao longo do tempo, descobrir quem introduziu determinada mudança que esteja causando problemas, quem apresentou uma sugestão ou reportou um <em>bug</em>, e muito mais.</p>
+</div>
+<div class="paragraph">
+<p>Em síntese, os VCS são uma mão na roda para você consertar alguma, digamos assim, <em>defecada</em>, tudo isso ao custo de muito pouco trabalho extra.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_o_diferencial_do_a_href_http_git_scm_com_git_a">O Diferencial do <a href="http://git-scm.com/">Git</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_vers%C3%A3o" target="<em>blank">Wikipédia</a> lista entre as soluções _opensource</em> mais comuns: CVS, Mercurial, Git e SVN; e entre as comerciais, destaca: SourceSafe, TFS, PVCS (Serena) e ClearCase.</p>
+</div>
+<div class="paragraph">
+<p>A primeira pergunta que surge, então, é: o que torna o Git diferente dos outros VCS e qual a razão da sua crescente popularidade?</p>
+</div>
+<div class="paragraph">
+<p>Certamente a diferença mais óbvia é que o Git é um sistema distribuído (ao contrário do SVN ou TFS, por exemplo). Isso significa que você possui um repositório local que fica numa pasta especial chamada <code>.git</code> e normalmente (mas não obrigatoriamente), tem um repositório remoto central onde diferentes colaboradores podem contribuir para o desenvolvimento do código. Observe que cada um desses colaboradores possui um clone exato do repositório em suas estações de trabalho locais.</p>
+</div>
+<div class="paragraph">
+<p>Na documentação do Git há uma figura, reproduzida abaixo, que ilustra perfeitamente o controle de versão baseado num sistema distribuído.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://i.imgur.com/Dqd0Kr2.png" alt="Dqd0Kr2">
+</div>
+<div class="title">Figura 1: Sistema de Contrôle de Versão Distribuído</div>
+</div>
+<div class="paragraph">
+<p>Como podemos ver, nos sistemas distribuídos, os clientes não apenas verificam o último <em>snapshot</em> (instantâneo) dos arquivos, mas espelham o repositório inteiro. Uma enorme vantagem dessa solução é que, se porventura o servidor perder os dados por algum problema técnico, eles podem ser recuperados de qualquer um dos clientes que estejam colaborando no projeto, pois cada clone possui um <em>backup</em> completo dos dados.</p>
+</div>
+<div class="paragraph">
+<p>Quem quiser se aprofundar mais no funcionamento cliente/servidor dos sistemas de contrôle de versão, poderá tomar a referência mencionada da <a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_vers%C3%A3o" target="_blank">Wikipédia</a> como ponto de partida.</p>
+</div>
+<div class="paragraph">
+<p>A seguir, numa adaptação do excelente artigo de Juri Strumpflohner, <a href="http://juristr.com/blog/2013/04/git-explained/" target="_blank">publicado no seu blog</a> em abril de 2013, vamos analisar o funcionamento do Git observando o repositório Git sob o ponto de vista das árvores que ele contrói. Para isso, utilizaremos algumas funcionalidades comuns, tais como:</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>acrescentar/modificar um arquivo novo;</p>
+</li>
+<li>
+<p>criar e mesclar uma <em>branch</em> (ramificação) com e sem conflitos de mesclagem;</p>
+</li>
+<li>
+<p>ver o histórico/<em>changelog</em>;</p>
+</li>
+<li>
+<p>executar um <em>rollback</em> até determinado <em>commit</em> e</p>
+</li>
+<li>
+<p>compartilhar/sincronizar o código num repositório remoto central.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>A próxima figura, editada a partir da original contida na <a href="http://git-scm.com/book/en/v2/Getting-Started-Git-Basics" target="_blank">documentação oficial</a> do Git, ilustra com clareza as três fases principais por que passa um arquivo num diretório controlado pelo Git:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://i.imgur.com/73ceAys.png" alt="73ceAys">
+</div>
+<div class="title">Figura 2: Diretório de trabalho, área de estágio e diretório Git.</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_terminologia_básica">Terminologia Básica</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vamos começar examinando alguns termos usados no Git que são fundamentais:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>master</strong>&#8201;&#8212;&#8201;a <em>branch</em> principal do repositório. Normalmente é onde as pessoas trabalham e na qual a integração acontece.</p>
+</li>
+<li>
+<p><strong>clone</strong>&#8201;&#8212;&#8201;copia um repositório <code>git</code> existente, usualmente de alguma localização remota, para o seu ambiente local.</p>
+</li>
+<li>
+<p><strong>commit</strong>&#8201;&#8212;&#8201;envio de arquivos para o repositório local.</p>
+</li>
+<li>
+<p><strong>fetch</strong> ou <strong>pull</strong>&#8201;&#8212;&#8201;pega as últimas atualizações de um repositório remoto. A diferença entre <em>fetch</em> e <em>pull</em> é que <em>pull</em> combina as duas coisas: pega as atualizações de código do repositório remoto e efetua sua mesclagem com o repositório local.</p>
+</li>
+<li>
+<p><strong>push</strong>&#8201;&#8212;&#8201;é usado para enviar arquivos para um repositório remoto.</p>
+</li>
+<li>
+<p><strong>remote</strong>&#8201;&#8212;&#8201;são os locais remotos do seu repositório, normalmente em algum servidor central, como o GitHub.</p>
+</li>
+<li>
+<p><strong>SHA</strong>&#8201;&#8212;&#8201;cada <em>commit</em> ou <em>node</em> na árvore Git é identificado por uma chave <a href="http://pt.wikipedia.org/wiki/SHA1" target="<em>blank">SHA</a> única. Pode-se utilizá-las em vários comandos para manipular um _node</em> específico.</p>
+</li>
+<li>
+<p><strong>head</strong>&#8201;&#8212;&#8201;é uma referência a um <em>node</em> para o qual nosso espaço de trabalho no repositório aponta no momento.</p>
+</li>
+<li>
+<p><strong>branch</strong>&#8201;&#8212;&#8201;uma <em>branch</em> no Git nada mais é do que um rótulo particular em determinado <em>node</em>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuração_básica">Configuração básica</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Não vou entrar em detalhes aqui sobre a instalação do Git, pois isso vai depender do sistema operacional de cada um e, além disso, já existem instruções detalhadas para isso na <a href="http://git-scm.com/book/pt-br/v1/Primeiros-passos-Instalando-Git" target="_blank">documentação oficial do Git</a>, com tradução em português.</p>
+</div>
+<div class="paragraph">
+<p>Usarei a sintaxe da linha de comando dos sistemas baseados em Unix, tais como o Linux e o OS X. No Windows, além da interface gráfica, há um programa para emular um terminal tipo Unix, de forma que este tutorial poderá ser seguido sem problemas, seja qual for seu sistema operacional. O símbolo <code>$</code> representa o <em>prompt</em> da linha de comando e não deve ser digitado.</p>
+</div>
+<div class="paragraph">
+<p>Pressupondo, então, que o Git já está instalado no seu computador e o atalho correspondente ao diretório de sua instalação foi devidamente incluído na variável PATH do seu sistema, a primeira coisa a ser feita é configurá-lo com seu nome e endereço de email. Vamos aproveitar também para configurar um editor-padrão&#8201;&#8212;&#8201;vou escolher o <a href="http://www.vim.org/" target="_blank">vim</a>, mas esteja à vontade para personalizar esta seleção de acordo com o seu gosto pessoal. Para isso, entre os seguintes comandos, com as devidas substituições pessoais:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git config --global user.name "J A Gaeta Mendes"
+$ git config --global user.email "meu_email@example.com"
+$ git config --global core.editor vim</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As configurações podem ser conferidas com o comando <code>git config --list</code>, cujo resultado, após os comandos acima, será:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git config --list
+user.name=J A Gaeta Mendes
+user.email=meu_email@example.com
+core.editor=vim</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_criação_de_um_novo_repositório_git">Criação de um novo repositório Git</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Antes de prosseguir, vamos criar um diretório onde pretendemos instalar um novo repositório Git e entrar neste diretório, com os comandos:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ mkdir meurepogit
+$ cd meurepogit</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Em seguida, vamos inicializar nosso novo repositório git:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git init
+Initialized empty Git repository in /home/gaeta/meurepogit/.git/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Use o comando <code>git status</code> para verificar o estado atual do repositório:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git status
+On branch master
+
+Initial commit
+
+nothing to commit (create/copy files and use "git add" to track)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_criação_e_em_commit_em_de_um_novo_arquivo">Criação e <em>commit</em> de um novo arquivo</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>O próximo passo é criar e adicionar algum conteúdo ao repositório. Vamos criar um arquivo de uma forma bem simples, com os comandos:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ touch ola.txt
+$ echo Ola, mundo! &gt; ola.txt</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Uma nova verificação do estado do repositório vai apresentar agora a seguinte situação:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git status
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+
+	ola.txt
+
+nothing added to commit but untracked files present (use "git add" to track)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Antes de fazer um <strong>commit</strong>, precisamos registrar o arquivo, o que fazemos com o comando <strong>add</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git add ola.txt</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Mais uma verificação do estado:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached &lt;file&gt;..." to unstage)
+
+	new file:   ola.txt</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Podemos agora, finalmente, fazer seu <strong>commit</strong> para o repositório:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git commit -m "Acrescenta meu primeiro arquivo"
+[master (root-commit) 3a40877] Acrescenta meu primeiro arquivo
+ 1 file changed, 1 insertion(+)
+ create mode 100644 ola.txt</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+É uma prática comum indicar &#8220;presença&#8221; nas mensagens de <em>commit</em>. Assim, ao invés de escrever &#8220;acrescentado meu primeiro arquivo&#8221;, escrevemos &#8220;acrescenta meu primeiro arquivo&#8221;.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Se examinarmos neste instante a árvore do repositório, teríamos a seguinte situação:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://i.imgur.com/dKj4HK4.png" alt="dKj4HK4">
+</div>
+</div>
+<div class="paragraph">
+<p>Há um <em>node</em> para o qual o "rótulo" <code>master</code> aponta.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_acrescentando_outro_arquivo">Acrescentando outro arquivo</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vamos agora adicionar um outro arquivo ao repositório:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ echo "Oi, sou um outro arquivo" &gt; outro_arquivo.txt
+$ git add .
+$ git commit -m "acrescenta outro arquivo com outro conteúdo"
+[master ad5c381] acrescenta outro arquivo com outro conteúdo
+ 1 file changed, 1 insertion(+)
+ create mode 100644 outro_arquivo.txt</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Observe que agora usamos <code>git add .</code>, que acrescenta todos os arquivos do diretório corrente (<code>.</code>). Do ponto de vista da árvore temos agora outro <em>node</em> e <code>master</code> moveu-se para ele.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://i.imgur.com/meAuxz4.png" alt="meAuxz4">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_criando_uma_ramificação_de_recursos">Criando uma ramificação (de recursos)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Ramificação (<em>branching</em>) e mesclagem (<em>merging</em>) são as duas coisas que tornam o Git tão poderoso, e é para isso que ele foi otimizado, sendo como é um sistema de controle de versão <strong>distribuído</strong> (VCS). De fato, as ramificações de recursos (<em>feature branches</em>) são criadas para cada novo tipo de funcionalidade que você acrescentar ao seu sistema e são normalmente apagadas mais tarde, depois que o recurso tenha sido mesclado outra vez na ramificação principal de integração (usualmente a ramificação <em>master</em>). A grande vantagem disso é que você pode experimentar a nova funcionalidade num &#8220;playground&#8221; separado e isolado, movendo-se rapidamente para frente ou para trás da ramificação &#8220;master&#8221; original quando necessário. Ademais, ela poderá ser facilmente descartada outra vez (no caso de não ser mais necessária), bastando eliminar a ramificação do recurso. Há um ótimo artigo para <a href="http://blog.thoughtram.io/git/rebase-book/2015/02/10/understanding-branches-in-git.html" target="_blank">entender as ramificações no Git</a>, que você definitivamente deve ler.</p>
+</div>
+<div class="paragraph">
+<p>Mas vamos começar. Primeiro de tudo, criamos uma nova ramificação de recurso:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git branch minha-feature-branch</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Executando o comando:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git branch
+* master
+  minha-feature-branch</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>obtemos uma lista das ramificações. O <code>*</code> na frente de <code>master</code> indica que no momento estamos naquele ramo. Vamos, a invés disso, mudar para o ramo <code>minha-feature-branch</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git checkout minha-feature-branch
+Switched to branch 'minha-feature-branch'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Listando novamente as ramificações:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git branch
+  master
+* minha-feature-branch</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Pode-se usar o comando direto <code>git checkout -b minha-feature-branch</code> para criar e ativar uma nova ramificação num único passo.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A diferença de outros VCS é que há apenas um diretório de trabalho. Todas as ramificações ficam nele e não há uma pasta separada para cada ramificação criada. Ao invés disso, quando se alterna entre as ramificações, o Git atualiza o conteúdo do diretório de trabalho para refletir aquele da ramificação para a qual se está mudando.</p>
+</div>
+<div class="paragraph">
+<p>Vamos modificar um dos nossos arquivos existentes:</p>
+</div>
+<div class="paragraph">
+<p>Lets modify one of our existing files</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ echo "Oi" &gt;&gt; ola.txt
+$ cat ola.txt
+Ola, mundo!
+Oi</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>&#8230;&#8203;e então vamos fazer um <em>commit</em> dele para nossa nova ramificação:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git commit -a -m "modifica arquivo acrescentando oi"
+[minha-feature-branch 8cff170] modifica arquivo acrescentando oi
+ 1 file changed, 1 insertion(+)</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Dessa vez usamos o comando <code>git commit -a -m</code> para fazer o <code>add</code> e <code>commit</code> da modificação num único passo. Isso funciona apenas nos arquivos que já tenham sido adicionados previamente ao repositório git. Arquivos novos não podem ser adicionados dessa maneira e precisam ser inseridos com o comando <code>git add</code> como visto antes.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Como ficou nossa árvore?</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://i.imgur.com/rp32PbY.png" alt="rp32PbY">
+</div>
+</div>
+<div class="paragraph">
+<p>Até aqui tudo parece bem normal e ainda temos uma linha reta na árvore, mas observe que agora o <code>master</code> continuou onde estava e movemos para frente <code>minha-feature-branch</code>.</p>
+</div>
+<div class="paragraph">
+<p>Vamos trocar para <code>master</code> e modificar o mesmo arquivo lá também.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git checkout master
+Switched to branch 'master'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Como era de se esperar, alo.txt não foi modificado:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ cat ola.txt
+Ola, mundo!</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Vamos modificá-lo e dar um <code>commit</code> no <code>master</code> também (isso vai gerar um belo conflito mais tarde):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ echo "Oi, fui modificado no master" &gt;&gt; ola.txt
+$ git commit -a -m "acrescenta linha em ola.txt"
+[master 33b65ea] acrescenta linha em ola.txt
+ 1 file changed, 1 insertion(+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Nossa árvore agora visualiza a ramificação:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://i.imgur.com/LObvuwo.png" alt="LObvuwo">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_mesclando_e_resolvendo_conflitos">Mesclando e resolvendo conflitos</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>O próximo passo seria reintegrar nossa <code>feature branch</code> de volta em <code>master</code>. Isso é feito usando o comando <code>merge</code> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git merge minha-feature-branch
+Auto-merging ola.txt
+CONFLICT (content): Merge conflict in ola.txt
+Automatic merge failed; fix conflicts and then commit the result.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Como esperado, temos um conflito de mesclagem em ola.txt.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ cat ola.txt
+Ola, mundo!
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Oi, fui modificado no master
+=======
+Oi
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; minha-feature-branch</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Vamos consertar isso:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">Ola, mundo!
+Oi, fui modificado no master
+Oi</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>&#8230;&#8203;e fazer o <code>commit</code> novamente:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git commit -a -m "resolve conflitos de merge"
+[master 838d26a] resolve conflitos de merge</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A árvore reflete nosso <code>merge</code>:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://i.imgur.com/2gMboCl.png" alt="2gMboCl">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_saltar_para_um_determinado_commit">Saltar para um determinado commit</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Suponhamos que queremos saltar de volta a um dado <code>commit</code>. Podemos usar o comando <code>git log</code> para obter todos os identificadores SHA que identificam de forma única cada <code>node</code> da árvore.</p>
+</div>
+<div class="paragraph">
+<p>Escolha um dos identificadores (mesmo que não seja o número completo, pouco importa) e pule para aquele <code>node</code> usando o comando <code>checkout</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git checkout 33b65ea
+Note: checking out '33b65ea'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b new_branch_name
+
+HEAD is now at 33b65ea... acrescenta linha em ola.txt</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Observe o comentário exibido pelo git. O que ele significa? <em>Detached head</em> significa que a <em>head</em> não está mais apontando para um rótulo de <em>branch</em>, mas, ao invés disso, para um <em>commit</em> específico da árvore.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Pense na HEAD como a &#8220;branch atual&#8221;. Quando você troca de <em>branches</em> com <code>git checkout</code>, a revisão HEAD muda para apontar a dica da nova <em>branch</em>. [&#8230;&#8203;] É possível para a HEAD referir-se a uma revisão específica que não esteja associada com um nome de <em>branch</em>. Esta situação é chamada <a href="http://git-scm.com/docs/git-checkout" target="_blank"><em>detached HEAD</em></a>. <a href="http://stackoverflow.com/a/2304106/50109" target="_blank">(Postagem no Stackoverflow)</a>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Basicamente, quando eu agora modifico <strong>ola.txt</strong> e faço <code>commit</code> da mudança, a árvore se parece com o seguinte:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://i.imgur.com/CFkTxem.png" alt="CFkTxem">
+</div>
+</div>
+<div class="paragraph">
+<p>Como você pode ver, o <code>node</code> recem-criado não possui nenhum rótulo. A única referência que atualmente aponta para ele é a <em>head</em>. Todavia, se agora trocarmos para <code>master</code> novamente, o <code>commit</code> anterior será perdido, pois não teremos como saltar de volta para aquele <code>node</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git checkout master
+Warning: you are leaving 1 commit behind, not connected to
+any of your branches:
+
+  576bcb8 change file undoing previous changes
+
+If you want to keep them by creating a new branch, this may be a good time
+to do so with:
+
+ git branch new_branch_name 576bcb8239e0ef49d3a6d5a227ff2d1eb73eee55
+
+Switched to branch 'master'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Como se observa, o git nos alerta desse fato.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_rollback">Rollback</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Saltar para trás é bom, mas e se quisermos <strong>desfazer</strong> tudo de volta ao estado antes do <code>merge</code> da <code>feature branch</code>? É fácil assim:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git reset --hard 33b65ea
+HEAD is now at 33b65ea acrescenta linha em ola.txt</code></pre>
+</div>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://i.imgur.com/LObvuwo.png" alt="LObvuwo">
+</div>
+</div>
+<div class="paragraph">
+<p>A sintaxe genérica aqui é <code>git reset --hard &lt;tag/branch/commit id&gt;</code>.</p>
+</div>
+<div class="sect2">
+<h3 id="_usando_revert_para_fazer_rollback_das_mudanças_do_jeito_fácil">Usando &#8220;revert&#8221; para fazer rollback das mudanças do jeito fácil</h3>
+<div class="paragraph">
+<p>Se você precisar fazer o <code>rollback</code> de um <code>commit</code> inteiro e (o que é pior) você já sincronizou com um repositório remoto, então usar <code>git reset --hard</code> pode não ser adequado, uma vez que dessa forma você estaria de certa forma reescrevendo a história, o que não é permitido se a sincronização com o servidor remoto já foi efetuada.</p>
+</div>
+<div class="paragraph">
+<p>Em tais situações pode-se usar o comando <code>revert</code>, o qual basicamente cria um novo <code>commit</code> desfazendo todas as mudanças de um determinado commit que for especificado. Considere, por exemplo, que você queira fazer o <em>rollback</em> de um <em>commit</em> com o ID <code>41b8684</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git revert 41b8684</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_desfazer_mudanças_quando_não_foi_feito_commit">Desfazer mudanças quando não foi feito commit</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Outro cenário comum no campo de &#8220;desfazer coisas&#8221; é simplesmente descartar mudanças locais quando ainda não foi feito o <code>commit</code>.</p>
+</div>
+<div class="sect2">
+<h3 id="_arquivos_não_estagiados_para_um_commit">Arquivos não estagiados para um Commit</h3>
+<div class="paragraph">
+<p>Vamos pressupor que você tenha modificado um arquivo. A execução do comando <code>git status</code> resultaria:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+
+	modified:   ola.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Até aqui nada foi adicionado ao seu repositório Git, nem foi estagiado (registrado) para fazer <code>commit</code>. O que significa descartar aquelas mudanças? Pense na árvore Git. Basta pegar (<code>checkout</code>) a última versão daquele arquivo, certo?</p>
+</div>
+<div class="paragraph">
+<p>Então:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git checkout ola.txt</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>desfaz a mudança, como o comprova um novo <code>git status</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git status
+On branch master
+nothing to commit, working directory clean</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_arquivos_estagiados_para_um_commit">Arquivos estagiados para um Commit</h3>
+<div class="paragraph">
+<p>A outra situação é quando você modificou o arquivo e já o estagiou para dar um <code>commit</code> através do comando <code>git add</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD &lt;file&gt;..." to unstage)
+
+	modified:   ola.txt</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>O comando <code>git checkout</code> não teria nenhum efeito neste caso, mas, ao invés disso, (se você leu o que o git escreveu na saída do <em>status</em>) temos que fazer um <strong>reset</strong>. Por que? Porque o comando <code>git add</code> já criou um <em>node</em> na árvore Git (na verdade isso não é 100% correto: <a href="http://stackoverflow.com/questions/3689838/difference-between-head-working-tree-index-in-git" target="<em>blank">veja Git index vs. working tree</a> para mais detalhes) que, todavia, ainda não foi objeto de um <code>commit</code>. Assim sendo, precisamos _resetar</em> o ponteiro corrente para HEAD que é o topo da nossa <em>branch</em> corrente.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git reset HEAD ola.txt
+Unstaged changes after reset:
+M	ola.txt</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>e consequentemente:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+
+	modified:   ola.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Estamos novamente no estado em que temos mudanças locais <em>ainda não estagiadas para um commit</em> e podemos então usar o comando <code>checkout</code> para descartá-las. Uma maneira rápida de fazer isso é usar:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git reset --hard HEAD</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>juntando num único comando a retirada de estágio e <em>checkout</em> das mudanças.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_compartilhando_sincronizando_seu_repositório">Compartilhando/Sincronizando seu Repositório</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Ao fim e ao cabo, vamos querer compartilhar nosso código, normalmente sincronizando-o com um repositório central. Para fazer isso, temos que adicionar um <strong>remote</strong>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git remote add origin git@github.com:jaj-gaeta/exemplo.git</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Para verificar se obteve êxito, basta digitar:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git remote -v</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>o qual lista todos os <em>remotes</em>. Agora é preciso <strong>publicar nossa <em>branch master</em> local</strong> para o repositório remoto. Isso é feito da seguinte forma:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git push -u origin master</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>E terminamos.</p>
+</div>
+<div class="paragraph">
+<p>Uma coisa realmente poderosa é que pode-se acrescentar repositórios remotos múltiplos. Isso é usado frequentemente em combinação com soluções de hospedagem em nuvem para distribuição do código no servidor. Por exemplo, você pode acrescentar um remoto chamado <em>deploy</em> que aponta para algum servidor de repositório hospedado na nuvem, tal como:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git remote add deploy git@somecloudserver.com:ja-gaeta/meuprojeto</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>e então, sempre que você quiser publicar sua <em>branch</em>, basta executar:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git push deploy</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_clonagem">Clonagem</h3>
+<div class="paragraph">
+<p>Tudo funciona da mesma forma se você pretende iniciar a partir de um repositório remoto já existente. O primeiro passo é fazer um <code>checkout</code> do código-fonte, o que é chamado <strong>clonagem</strong> (<em>cloning</em>) na terminologia do Git. Deve-se, então, fazer algo assim:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git clone git@github.com:ja-gaeta/exemplo.git
+Cloning into 'exemplo'...
+remote: Counting objects: 430, done.
+remote: Compressing objects: 100% (293/293), done.
+remote: Total 430 (delta 184), reused 363 (delta 128)
+Receiving objects: 100% (430/430), 419.70 KiB | 102 KiB/s, done.
+Resolving deltas: 100% (184/184), done.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Isso vai criar uma pasta (neste caso) chamada &#8220;exemplo&#8221; e se entrarmos nela:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ cd exemplo/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>e verificarmos os repositórios remotos, constatamos que a informação para seu rastreamento já está configurada:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">$ git remote -v
+origin  git@github.com:juristr/intro.js.git (fetch)
+origin  git@github.com:juristr/intro.js.git (push)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Podemos começar agora o ciclo <code>commit/branch/push</code> normalmente.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_recursos_e_em_links_em_em_inglês">Recursos e <em>Links</em> (em inglês)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Os cenários acima são simples, mas provavelmente são também, ao mesmo tempo , os mais usados. O Git, contudo, é capaz de fazer muito mais. Para obter mais detalhes, consulte os links abaixo:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://gitready.com/" class="bare">http://gitready.com/</a></p>
+</li>
+<li>
+<p><a href="http://git-scm.com/book">Book: Pro Git by Scott Chacon</a></p>
+</li>
+<li>
+<p><a href="http://ndpsoftware.com/git-cheatsheet.html">Visual Git Cheat-Sheet</a></p>
+</li>
+<li>
+<p><a href="https://gist.github.com/juristr/5280366">My personal Git Cheat Sheet where I continuously add stuff I want to remember</a></p>
+</li>
+<li>
+<p><a href="http://gitimmersion.com/index.html">Git Immersion</a></p>
+</li>
+<li>
+<p><a href="http://www.slideshare.net/lemiorhan/git-branching-model">Git Branching Model</a></p>
+</li>
+<li>
+<p><a href="http://refcardz.dzone.com/refcardz/getting-started-git">DZone Refcard: Getting Started with Git</a></p>
+</li>
+<li>
+<p><a href="http://refcardz.dzone.com/refcardz/git-patterns-and-anti-patterns">DZone Refcard: Git Patterns and Antipatterns</a></p>
+</li>
+<li>
+<p><a href="http://git-man-page-generator.lokaltog.net/">Git Man-Page generator</a></p>
+</li>
+<li>
+<p><a href="http://blog.thoughtram.io/git/rebase-book/2015/02/10/understanding-branches-in-git.html">Understanding branches in Git</a></p>
+</li>
+<li>
+<p><a href="https://about.gitlab.com/2015/02/19/8-tips-to-help-you-work-better-with-git/">8 Tips to help you work better with Git</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_vídeos">Vídeos</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://www.youtube.com/watch?v=ZDR433b0HJY&amp;feature=youtu.be&amp;t=21m4s">Introduction to Git with Scott Chacon of GitHub</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tutoriais_interativos">Tutoriais Interativos</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://try.github.io/">Try Git in 15 minutes</a></p>
+</li>
+<li>
+<p><a href="http://pcottle.github.io/learnGitBranching/index.html">Learning Git - Interactive Online Tutorial</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div></p>
+      <div class="share">
+        <div class="social">
+  <!-- Facebook -->
+          <span class="facebook">
+            <iframe src="//www.facebook.com/plugins/like.php?href=http://http://ja-gaeta.github.io/2015/sobre-git.html&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+          </span>
+  <!-- Google+ -->
+          <span class="google">
+            <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+            <g:plusone size="medium" href="http://ja-gaeta.github.io/2015/sobre-git.html"></g:plusone>
+          </span>
+  <!-- Twitter -->
+          <span class="twitter">
+            <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ja-gaeta.github.io/2015/sobre-git.html">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </span>
+        </div>
+      </div>
+<hr>
+<section class="comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+  
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>            </article>
+        </div> <!-- /.col-md-12 -->
+      </div> <!-- /.row -->
+        
+      </div><!-- /.container -->
+
+    <footer>
+      <div class="container">
+        <hr>
+        <div class="row">
+          <div class="col-xs-10">
+            <p class="text-muted credit">&copy; Ponto G++ 2015 <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/br/"><img src="/img/creative_commons_88x31.png"></a> | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.3.2</a> | <i title="Linux" class="fa fa-linux"></i></p>
+          </div>
+          <div class="col-xs-2 gotop">
+            <a href="#"><i class="fa fa-arrow-circle-up"> topo</i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
+    <script type="text/javascript">
+      <!-- load prettify only when needed -->
+      $(document).ready(function(){
+        var prettify = false;
+        var classToAdd = 'prettyprint snippet';
+        $("pre > code").each(function() {
+          $("pre > code").parent().addClass(classToAdd);
+          prettify = true;
+        });
+        if(prettify) {
+          prettyPrint();
+        }
+      });
+    </script>
+
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+    </script>
+
+          <script type="text/javascript">
+        SyntaxHighlighter.all()
+    </script>
+  </body>
+</html>
