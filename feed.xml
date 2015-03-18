@@ -6,13 +6,13 @@
     <atom:link href="http://ja-gaeta.github.io//feed.xml" rel="self" type="application/rss+xml" />
     <description>For future use?</description>
     <language>en</language>
-    <pubDate>Seg, 16 mar 2015 20:19:23 -0300</pubDate>
-    <lastBuildDate>Seg, 16 mar 2015 20:19:23 -0300</lastBuildDate>
+    <pubDate>Qua, 18 mar 2015 20:31:36 -0300</pubDate>
+    <lastBuildDate>Qua, 18 mar 2015 20:31:36 -0300</lastBuildDate>
 
       <item>
         <title>Introdução ao Git</title>
         <link>http://ja-gaeta.github.io/2015/introduzindo-o-git.html</link>
-        <pubDate>Seg, 16 mar 2015 00:00:00 -0300</pubDate>
+        <pubDate>Qua, 18 mar 2015 00:00:00 -0300</pubDate>
         <guid isPermaLink="false">2015/introduzindo-o-git.html</guid>
         <description>
 	        &lt;div id=&quot;preamble&quot;&gt;
@@ -78,7 +78,7 @@
 &lt;/div&gt;
 &lt;div class=&quot;sidebarblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;div class=&quot;title&quot;&gt;Sistema de Contrôle de Versão&lt;/div&gt;
+&lt;div class=&quot;title&quot;&gt;Sistema de Controle de Versão&lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;O contrôle de versão é um sistema que registra as mudanças num arquivo ou conjunto de arquivos ao longo do tempo de forma que se possa recuperar versões específicas futuramente.&lt;/p&gt;
 &lt;/div&gt;
@@ -117,10 +117,10 @@
 &lt;p&gt;Como podemos ver, nos sistemas distribuídos, os clientes não apenas verificam o último &lt;em&gt;snapshot&lt;/em&gt; (instantâneo) dos arquivos, mas espelham o repositório inteiro. Uma enorme vantagem dessa solução é que, se porventura o servidor perder os dados por algum problema técnico, eles podem ser recuperados de qualquer um dos clientes que estejam colaborando no projeto, pois cada clone possui um &lt;em&gt;backup&lt;/em&gt; completo dos dados.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Quem quiser se aprofundar mais no funcionamento cliente/servidor dos sistemas de contrôle de versão, poderá tomar a referência mencionada da &lt;a href=&quot;http://pt.wikipedia.org/wiki/Sistema_de_controle_de_vers%C3%A3o&quot; target=&quot;_blank&quot;&gt;Wikipédia&lt;/a&gt; como ponto de partida.&lt;/p&gt;
+&lt;p&gt;Quem quiser se aprofundar mais no funcionamento cliente/servidor dos sistemas de controle de versão, poderá tomar a referência mencionada da &lt;a href=&quot;http://pt.wikipedia.org/wiki/Sistema_de_controle_de_vers%C3%A3o&quot; target=&quot;_blank&quot;&gt;Wikipédia&lt;/a&gt; como ponto de partida.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;A seguir, numa adaptação do excelente artigo de Juri Strumpflohner, &lt;a href=&quot;http://juristr.com/blog/2013/04/git-explained/&quot; target=&quot;_blank&quot;&gt;publicado no seu blog&lt;/a&gt; em abril de 2013, vamos analisar o funcionamento do Git observando o repositório Git sob o ponto de vista das árvores que ele contrói. Para isso, utilizaremos algumas funcionalidades comuns, tais como:&lt;/p&gt;
+&lt;p&gt;A seguir, numa adaptação do excelente artigo de Juri Strumpflohner, &lt;a href=&quot;http://juristr.com/blog/2013/04/git-explained/&quot; target=&quot;_blank&quot;&gt;publicado no seu blog&lt;/a&gt; em abril de 2013, vamos analisar o funcionamento do Git observando o repositório Git sob o ponto de vista das árvores que ele constrói. Para isso, utilizaremos algumas funcionalidades comuns, tais como:&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;sidebarblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
