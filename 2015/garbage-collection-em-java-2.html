@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+    Ponto G++
+        - Garbage Collection em Java (2)
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="J.A. Gaeta Mendes">
+    <meta name="description" content="Static blog generated with JBake">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/cosmo/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/prettify-themes/github.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/asciidoctor.css">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav icon -->
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/img/favicon.png" type="image/x-icon">
+      
+    <!-- SyntaxHighlighter -->
+    <script type="text/javascript" src="/js/shCore.js"></script>
+    <script type="text/javascript" src="/js/shBrushJava.js"></script>
+    
+    <link href="/css/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+      
+  </head>
+  <body>      
+    <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Ponto G++</a>
+        </div>
+        
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="/pages/about.html">Sobre</a></li>
+          <!--  <li><a href="/pages/contact.html">Contact</a></li> -->
+          </ul>
+        
+        <!-- Right navigation -->
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/archive.html"><i class="fa fa-list"></i> Arquivo</a></li>
+          <li><a href="/feed.xml" title="Rss"><i class="fa fa-rss"></i> Feed</a></li>
+        </ul>
+        <!-- Right navigation end -->
+
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav><!-- /.navbar -->
+
+    <!-- Begin page content -->
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-md-12">
+          <article>
+            <div class="page-header"><h1>Garbage Collection em Java (2)</h1>
+              <ol class="breadcrumb tagsbar">
+                <li><a href="/tags/programação.html">programação</a></li>
+                <li><a href="/tags/java.html">java</a></li>
+              </ol>
+            </div>
+          <p class="post-meta">
+            <i class="fa fa-calendar"></i>&nbsp;19 Março 2015&nbsp;&nbsp;
+            <i class="fa fa-user"></i>&nbsp;J.A. Gaeta Mendes&nbsp;&nbsp;
+              <i class="fa fa-comment"></i>&nbsp;<span class="badge"><a href="http://ja-gaeta.github.io/2015/garbage-collection-em-java-2.html#disqus_thread"></a></span>
+          </p>
+              <p><p>Este é o segundo de uma série de artigos sobre <em>Garbage Collection em Java</em>, traduzidos dos originais publicados por <a href="http://insightfullogic.com/about/" target="_blank">Richard Warburton</a> no seu <a href="http://insightfullogic.com/blog/2013/mar/6/garbage-collection-java-2/" target="_blank">blog</a>. (<em>Tradução e publicação autorizadas pelo autor</em>.)</p>
+<!--more-->
+<p style="text-align: center;"><img src="http://i.imgur.com/s3eYAZM.png" title="source: imgur.com" /></p><h2>Parallel Scavenge (Limpador em Paralelo)</h2><p>Examinaremos hoje como trabalham os <em>Garbage Collectors</em> em Paralelo. Especificamente, isso é uma combinação da execução do coletor <em>Parallel Scavenge</em> sobre o <em>Eden</em> e do coletor <em>Mark and Sweep</em> sobre a geração em <em>Tenured</em>. Pode-se obter esta opção passando o parâmetro: <code>-XX:+UseParallelOldGC</code>, embora ele já seja o padrão em certos tipos de máquinas.</p><p>Talvez você queira ler meu <a href="/2015/garbage-collection-em-java-1.html">primeiro artigo</a> sobre Garbage Collection, se ainda não o fez, pois ele dá uma visão geral do assunto.</p><h3>Espaços Eden e Survivor</h3><p><figure style="float: left; padding: 10px"><img src="http://i.imgur.com/8GTEiRk.jpg" title="source: imgur.com" /><figcaption style="text-align: center"><em>Um naco de cheddar, <br />pronto para alocação</em></figcaption></figure></p><p>No coletor <em>parallel scavenge</em> os espaços <em>Eden</em> e <em>Survivor</em> são coletados usando uma abordagem conhecida como <strong>GC Hemisférica</strong>. Os objetos são inicialmente alocados no <em>Eden</em> e, quando ele está quase cheio<a><a href="#note1"><sup>1</sup></a></a>, uma GC do espaço <em>Eden</em> é disparada. Isso identifica os objetos vivos e os copia para o espaço <em>Survivor</em> ativo<a><a href="#note2"><sup>2</sup></a></a>. Ele então trata todo o espaço <em>Eden</em> como um bloco de memória livre e contínuo que pode ser alocado novamente.</p><p>Neste caso o processo de alocação fica parecido com o corte de um pedaço de <em>cheddar</em>. Cada pedaço é cortado de forma contígua e então a fatia seguinte será a próxima a ser “comida”. Isto tem a vantagem de que a alocação requer apenas uma adição de ponteiros.</p><p>A fim de identificar objetos vivos é realizada uma busca no grafo de objetos. A busca começa por um conjunto de objetos “raiz” que são objetos certamente vivos; por exemplo, cada <em>thread</em> é um objeto-raiz. A busca encontra então objetos que são apontados por um conjunto raiz, e se expande para fora até encontrar todos os objetos vivos. Abaixo está uma bela representação gráfica, cortesia de <a href="http://micheltriana.com/tag/garbage-collection/">Michael Triana</a>:</p>
+<p style="text-align: center;"><img src="http://i.imgur.com/v9G3uzN.png" title="source: imgur.com" /></p><p>Paralelo, no contexto de <em>parallel scavenge</em> significa que a coleta é feita por múltiplas <em>threads</em> executadas ao mesmo tempo. Isso não deve ser confundido com a GC incremental, na qual o coletor é executado simultaneamente ou intercalado com o programa. A coleta em paralelo melhora o desempenho geral da GC, usando com mais eficiência as modernas CPU <em>multicore</em>. O paralelismo é alcançado dando a cada <em>thread</em> um conjunto de raízes para marcar e um segmento da tabela de objetos.</p><p>Há dois espaços <em>Survivor</em>, mas apenas um deles está ativo num determinado instante no tempo. Eles são coletados da mesma forma que no <em>Eden</em>. A ideia é que os objetos sejam copiados no espaço <em>Survivor</em> ativo quando eles são promovidos do <em>Eden</em>. Então, quando é tempo de esvaziar o espaço, eles são copiados no espaço <em>Survivor</em> inativo. Assim que o espaço <em>Survivor</em> estiver completamente vazio o espaço inativo torna-se ativo, e o espaço ativo torna-se inativo. Consegue-se isso invertendo-se o ponteiro para o começo do espaço <em>Survivor</em> e significa que todos os objetos mortos neste espaço podem ser liberados, bastando tão somente uma atribuição de ponteiro.</p><h3>Concepção e compensações de tempo da <em>Young Gen</em></h3><p>Uma vez que isso envolve apenas a cópia de objetos vivos e mudanças de ponteiros, o tempo levado para coletar os espaços <em>Eden</em> e <em>Survivor</em> é proporcional à quantidade de objetos vivos. Isso é muito importante uma vez que, de acordo com a hipótese geracional, sabemos que a maioria dos objetos morrem jovens, e assim não há nenhum custo para os GC liberarem a memória associada a eles.</p><p>A concepção dos espaços <em>Survivor</em> é motivada pela ideia de que a coleta de objetos quando são jovens fica mais em conta do que uma coleta no espaço <em>Tenured</em>. A coleta contínua de objetos de uma forma hemisférica por algumas execuções de GC ajuda no desempenho geral.</p><p>Finalmente, o fato de que o <em>Eden</em> é organizado num único espaço contíguo, torna a alocação pouco custosa. Um programa em C pode usar um comando <code>malloc</code> para alocar um bloco de memória, o que implica em percorrer uma lista de espaços livres na memória tentando encontrar algum que seja grande o suficiente. Quando se usa um alocador de área e se aloca consecutivamente, tudo que se precisa fazer é verificar se há espaço livre suficiente e então incrementar um ponteiro de acordo com o tamanho do objeto.</p><h3><em>Mark and Sweep</em> em Paralelo</h3><p>Os objetos que tenham sobrevivido a um certo número de coletas habilitam-se ao espaço <em>Tenured</em>. O número de vezes que precisam sobreviver é o 'limiar de <em>tenuring</em>'. As coletas em <em>Tenured</em> operam um pouco diferentemente das feitas no <em>Eden</em>, usando um algorítimo chamado <em>mark and sweep</em> (marca e limpa). Cada objeto tem um <em>bit</em> de marcação associado a ele. Todas as marcas são inicialmente configuradas como falsas e, a medida em que o objeto é alcançado durante a busca no grafo, são configuradas como verdadeiras.</p><p>A busca no grafo que identifica objetos vivos é similar à busca descrita para geração jovem. A diferença é que ao invés de copiar objetos vivos, ela simplesmente os marca. Depois disso ela pode percorrer a tabela de objetos e liberar qualquer um que não esteja vivo. Este processo é feito em paralelo em diversas <em>threads</em>, cada uma pesquisando uma região da <em>heap</em>.</p><p><figure style="float: left; padding: 10px"><img src="http://i.imgur.com/S15NQci.jpg" title="source: imgur.com" /><figcaption style="text-align: center"><em>Queijo depois da <br />Mark and Sweep</em></figcaption></figure></p><p>Infelizmente, este processo de deletar objetos que ainda estão vivos deixa o espaço <em>Tenured</em> parecendo um queijo suiço. Resta alguma memória em uso na qual os objetos ainda estão vivos, entremeada de buracos onde outros viviam. Este tipo de fragmentação é prejudicial para o desempenho do aplicativo porque torna impossível alocar objetos que sejam maiores do que o tamanho dos buracos.</p><p>A fim de reduzir o problema do queijo suiço a <em>Mark/Sweep</em> em Paralelo compacta a <em>heap</em> tentando deixar os objetos vivos alocados contiguamente no começo do espaço <em>Tenured</em>. Depois da deleção ele procura áreas do espaço <em>Tenured</em> para identificar quais tem baixa e alta taxas de ocupação. Os objetos vivos das regiões de baixa ocupação são movidos para baixo em direção às regiões que tem alta ocupação, as quais estarão naturalmente na extremidade mais baixa da memória em razão da prévia fase de compactação. A movimentação de objetos nesta fase, na verdade, é executada pela <em>thread</em> alocada para a região de destino, ao invés da região de origem.</p><p><figure style="float: right; padding: 10px"><img src="http://i.imgur.com/K9cjrVs.jpg" title="source: imgur.com" /><figcaption style="text-align: center"><em>Queijo com baixa taxa de ocupação</em></figcaption></figure></p><h3>Resumo</h3>
+<ul>
+  <li><p>O <em>Parallel Scavenge</em> divide a <em>heap</em> em quatro espaços: <em>Eden</em>, dois <em>Survivors</em> e <em>Tenured</em>.</p></li>
+  <li><p>O <em>Parallel Scavenge</em> usa um coletor de cópia em paralelo para coletar os espaços <em>Eden</em> e <em>Survivor</em>.</p></li>
+  <li><p>Um algorítimo diferente é usado para o espaço <em>Tenured</em>. Ele marca todos os objetos vivos, deleta os objetos mortos e então compacta o espaço.</p></li>
+  <li><p>O <em>Parallel Scavenge</em> tem um bom desempenho, mas ele interrompe o programa quando é executado.</p></li>
+</ul><p>Na terceira parte desta série, examinarei como funciona a CMS, ou <em>Concurrent-Mark-Sweep</em>. Felizmente, será um artigo de leitura mais amena para aqueles com alergia à lactose.</p>
+<hr/>
+<h3><em>Notas: </em></h3><p><a name="note1"><sup>1</sup></a> Tecnicamente há um “limiar de ocupação” para cada espaço na <em>heap</em>, o qual define quão cheio o espaço pode ficar antes que ocorra a GC.</p><p><a name="note2"><sup>2</sup></a> Este algorítimo de cópia é baseado no algorítimo de <a href="http://en.wikipedia.org/wiki/Cheney%27s_algorithm">Cheney</a>.</p></p>
+      <div class="share">
+        <div class="social">
+  <!-- Facebook -->
+          <span class="facebook">
+            <iframe src="//www.facebook.com/plugins/like.php?href=http://http://ja-gaeta.github.io/2015/garbage-collection-em-java-2.html&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+          </span>
+  <!-- Google+ -->
+          <span class="google">
+            <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+            <g:plusone size="medium" href="http://ja-gaeta.github.io/2015/garbage-collection-em-java-2.html"></g:plusone>
+          </span>
+  <!-- Twitter -->
+          <span class="twitter">
+            <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ja-gaeta.github.io/2015/garbage-collection-em-java-2.html">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </span>
+        </div>
+      </div>
+<hr>
+<section class="comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+  
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>            </article>
+        </div> <!-- /.col-md-12 -->
+      </div> <!-- /.row -->
+        
+      </div><!-- /.container -->
+
+    <footer>
+      <div class="container">
+        <hr>
+        <div class="row">
+          <div class="col-xs-10">
+            <p class="text-muted credit">&copy; Ponto G++ 2015 <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/br/"><img src="/img/creative_commons_88x31.png"></a> | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.3.2</a> | <i title="Linux" class="fa fa-linux"></i></p>
+          </div>
+          <div class="col-xs-2 gotop">
+            <a href="#"><i class="fa fa-arrow-circle-up"> topo</i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
+    <script type="text/javascript">
+      <!-- load prettify only when needed -->
+      $(document).ready(function(){
+        var prettify = false;
+        var classToAdd = 'prettyprint snippet';
+        $("pre > code").each(function() {
+          $("pre > code").parent().addClass(classToAdd);
+          prettify = true;
+        });
+        if(prettify) {
+          prettyPrint();
+        }
+      });
+    </script>
+
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+    </script>
+
+          <script type="text/javascript">
+        SyntaxHighlighter.all()
+    </script>
+  </body>
+</html>
