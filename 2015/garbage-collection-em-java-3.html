@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+    Ponto G++
+        - Garbage Collection em Java (3)
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="J.A. Gaeta Mendes">
+    <meta name="description" content="Static blog generated with JBake">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/cosmo/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/prettify-themes/github.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/asciidoctor.css">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav icon -->
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/img/favicon.png" type="image/x-icon">
+      
+    <!-- SyntaxHighlighter -->
+    <script type="text/javascript" src="/js/shCore.js"></script>
+    <script type="text/javascript" src="/js/shBrushJava.js"></script>
+    
+    <link href="/css/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+      
+  </head>
+  <body>      
+    <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Ponto G++</a>
+        </div>
+        
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="/pages/about.html">Sobre</a></li>
+          <!--  <li><a href="/pages/contact.html">Contact</a></li> -->
+          </ul>
+        
+        <!-- Right navigation -->
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/archive.html"><i class="fa fa-list"></i> Arquivo</a></li>
+          <li><a href="/feed.xml" title="Rss"><i class="fa fa-rss"></i> Feed</a></li>
+        </ul>
+        <!-- Right navigation end -->
+
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav><!-- /.navbar -->
+
+    <!-- Begin page content -->
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-md-12">
+          <article>
+            <div class="page-header"><h1>Garbage Collection em Java (3)</h1>
+              <ol class="breadcrumb tagsbar">
+                <li><a href="/tags/programação.html">programação</a></li>
+                <li><a href="/tags/java.html">java</a></li>
+              </ol>
+            </div>
+          <p class="post-meta">
+            <i class="fa fa-calendar"></i>&nbsp;13 Janeiro 2015&nbsp;&nbsp;
+            <i class="fa fa-user"></i>&nbsp;J.A. Gaeta Mendes&nbsp;&nbsp;
+              <i class="fa fa-comment"></i>&nbsp;<span class="badge"><a href="http://ja-gaeta.github.io/2015/garbage-collection-em-java-3.html#disqus_thread"></a></span>
+          </p>
+              <p><p>Este é o segundo de uma série de artigos sobre <em>Garbage Collection em Java</em>, traduzidos dos originais publicados por <a href="http://insightfullogic.com/about/" target="_blank">Richard Warburton</a> no seu <a href="http://insightfullogic.com/blog/2013/may/7/garbage-collection-java-3/" target="_blank">blog</a>. (<em>Tradução e publicação autorizadas pelo autor</em>.)</p>
+<!--more-->
+<p style="text-align: center;"><img src="http://i.imgur.com/WZWkHHS.png" title="source: imgur.com" /></p><p>Esta é a continuação dos meus dois artigos anteriores sobre coleta de lixo (*garbage collection*):</p>
+<ol>
+  <li><a href="/2015/garbage-collection-em-java-1.html">Visão geral da GC na HotSpot.</a></li>
+  <li><a href="/2015/garbage-collection-em-java-2.html">Garbage Collectors em Paralelo.</a></li>
+</ol><h3>Marcação e Limpeza Concorrentes <em>(Concurrent Mark Sweep)</em></h3><p>Os coletores de lixo paralelos na <em>Hotspot</em> foram projetados para minimizar a quantidade de tempo que o aplicativo gasta efetuando coleta de lixo, denominado <em>throughput</em>. Esta não é uma solução adequada para todos os aplicativos — alguns exigem que as pausas individuais também sejam curtas, o que é conhecido como exigência de latência.</p><p>O coletor de marcação e limpeza concorrente <em>(Concurrent Mark Sweep — CMS)</em> é projetado para ser de latência mais baixa do que os coletores paralelos. O ponto chave do seu projeto é tentar fazer uma parte da coleta de lixo ao mesmo tempo em que o aplicativo está sendo executado. O resultado é que, quando o coletor precisa suspender a execução do aplicativo, não o faz por um período de tempo muito longo.</p><p>Neste ponto você provavelmente deve estar se perguntando: "mas afinal, 'paralelo' e 'concorrente' não querem dizer a mesma coisa?" Bem, no contexto da GC, paralelo significa "usar múltiplas <em>threads</em> para executar a GC ao mesmo tempo" e concorrente significa que "a GC é executada simultaneamente com o aplicativo no qual ela está fazendo a coleta".</p><h3>Coleta Geracional Jovem</h3><p>O coletor geracional jovem no CMS é denominado <code>ParNew</code> e na verdade usa o mesmo algorítimo básico do coletor <em>Parallel Scavenge</em>, um dos coletores paralelos que descrevi anteriormente.</p><p>Mesmo assim ele é um coletor diferente em termos da base de código <em>hotspot</em> da <em>Parallel Scavenge</em>, tanto porque precisa intercalar a sua execução com o resto da CMS, como também porque implementa uma API interna diferente para a <em>Parallel Scavenge</em>. Esta última faz presunções sobre quais coletores <em>Tenured</em> devem ser trabalhados por ela — especificamente <code>ParOld</code> e <code>SerialOld</code>. Tenha em mente que isso implica que o coletor geracional jovem também "para o mundo".</p><h3>Coleta no espaço <em>Tenured</em></h3><p>Da mesma forma que o coletor <code>ParOld</code> o coletor CMS <code>Tenured</code> usa um algorítimo <em>mark and sweep</em>, no qual os objetos vivos são marcados e então os objetos mortos são apagados. Apagado é realmente um termo estranho quando se trata de gerenciamento de memória. O coletor não está na verdade deletando objetos no sentido de esvaziar a memória, ele está apenas devolvendo a memória associada com aquele objeto para o espaço no qual o sistema de gerenciamento possa alocá-la — os blocos livres. Não obstante seja denominado coletor de marcação e limpeza concorrente, nem todas as suas fases são executadas concorrentemente com o aplicativo: duas delas param o mundo e quatro são executadas concorrentemente.</p><h3>Como é disparada a GC?</h3><p>Em <code>ParOld</code>, a coleta de lixo é disparada quando se fica sem espaço na <em>heap Tenured</em>. Esta abordagem funciona porque <code>ParOld</code> simplesmente paralisa o aplicativo para efetuar a coleta. Para que o programa continue a rodar durante a coleta em <em>Tenured</em>, o coletor CMS precisa começar a coletar quando ainda há espaço de trabalho remanescente em <em>Tenured</em>.</p><p>Assim sendo, a CMS começa com base no montante de ocupação do espaço <em>Tenured</em> — a ideia é que a quantidade de espaço livre restante seja a janela de oportunidade para executar a GC. Isso é conhecido como fração de ocupação inicial e é descrita em termos de quanto a <em>heap</em> está ocupada. Assim, uma fração de 0.7 cria uma janela de 30% da <em>heap</em> para executar a GC CMS antes do seu esgotamento.</p><h3>Fases</h3><p>Uma vez que a GC seja disparada, o algorítimo CMS consiste de uma série de fases executadas em sequência:</p>
+<ol>
+  <li><p><strong>Marcação Inicial <em>(Initial Mark)</em> —</strong> Paralisa todas as <em>threads</em> do aplicativo e marca como vivos todos os objetos diretamente alcançáveis a partir dos objetos-raiz. Esta fase para o mundo.</p></li>
+  <li><p><strong>Marcação Concorrente <em>(Concurrent Mark)</em> —</strong> As <em>threads</em> do aplicativo são reiniciadas. Todos os objetos vivos são transitoriamente marcados enquanto alcançáveis pelas referências seguintes a partir dos objetos marcados na marcação inicial.</p></li>
+  <li><p><strong>Pré-limpeza Concorrente <em>(Concurrent Preclean)</em> —</strong> Esta fase examina os objetos que tenham sido atualizados ou promovidos durante a marcação concorrente ou novos objetos que tenham sido alocados durante a mesma. O <em>bit</em> de marcação é atualizado para assinalar se o objeto está vivo ou morto. A fase pode ser executada repetidamente até que haja uma taxa específica de ocupação no <em>Eden</em>.</p></li>
+  <li><p><strong>Remarcação <em>(Remark)</em> —</strong> Embora alguns objetos tenham sido atualizados durante a fase de pré-limpeza, ainda assim é preciso parar o mundo para processar objetos residuais. Esta fase faz uma revisão a partir das raízes. Ela também processa objetos de referência, tais como referências leves ou fracas. Esta fase para o mundo.</p></li>
+  <li><p><strong>Limpeza Concorrente <em>(Concurrent Sweep)</em> —</strong> Examina a tabela de ponteiros de objetos ordinários <em>(Ordinary Object Pointer - OOP)</em>, que referencia todos os objetos na <em>heap</em>, e localiza os objetos mortos. A memória alocada àqueles objetos é então readicionada à sua lista de blocos livres. Esta é a lista dos espaços nos quais um objeto pode ser alocado.</p></li>
+  <li><p><strong>Reinicialização Concorrente <em>(Concurrent Reset)</em> —</strong> Reinicializa todas as estruturas de dados internas para que a CMS possa ser novamente executada no futuro.</p></li>
+</ol><p>Teoricamente, os objetos marcados durante a fase de pré-limpeza deveriam ser examinados na fase seguinte — remarcação — mas a fase de remarcação paralisa o mundo, de forma que a fase de pré-limpeza existe para tentar reduzir as pausas de remarcação, fazendo parte do trabalho de remarcação concorrentemente. Quando a CMS foi originalmente adicionada à <em>HotSpot</em> esta fase nem sequer existia. Ela foi adicionada na versão 1.5 de Java para manejar os cenários em que uma coleta e eliminação geracional jovem causa uma pausa e é imediatamente seguida de uma remarcação. Esta remarcação também causa uma pausa, que se combinam para gerar uma pausa ainda mais pronunciada. É por isso que as remarcações são disparadas por um limiar de ocupação do <em>Eden</em> — o objetivo é agendar a fase de remarcação para o meio do caminho entre as pausas geracionais jovens.</p><p>As fases de remarcação também fazem pausas, enquanto a de pré-limpeza não o faz. Isso significa que realizar pré-limpezas reduz a quantidade de tempo dispendido em pausas na GC.</p><h3>Falhas do Modo Concorrente</h3><p>Algumas vezes a CMS é incapaz de satisfazer as necessidades do aplicativo e uma GC Completa com paralisação do mundo precisa ser executada. Isso é chamado falha no modo concorrente, e normalmente resulta numa longa pausa. Uma falha no modo concorrente acontece quando não há espaço suficiente em <em>Tenured</em> para promover um objeto. Há duas causas para isso:</p>
+<ul>
+  <li>É promovido um objeto que é muito grande para caber em algum espaço contíguo de memória.</li>
+  <li>Não há espaço suficiente em <em>Tenured</em> para dar conta da taxa de objetos vivos sendo promovidos.</li>
+</ul><p>Isso pode ocorrer porque a coleta concorrente é incapaz de liberar espaço rápido o suficiente, devido às taxas de promoção de objetos, ou porque o uso continuado do coletor CMS tenha causado muita fragmentação da <em>heap</em> e não existem espaços individuais grandes o suficiente para receberem objetos promovidos. Para poder desfragmentar a <em>heap Tenured</em> adequadamente, é preciso executar uma GC completa.</p><h3>Permgen</h3><p>A CMS não coleta os espaços <em>Permgen</em> por padrão, exigindo que a flag <code>XX:+CMSClassUnloadingEnabled</code> seja habilitada para isso. Caso o espaço <em>Permgen</em> se esgote enquanto a CMS está sendo usada, sem que esta <em>flag</em> esteja habilitada, será disparada uma GC completa. Ademais, o espaço <em>Permgen</em> pode manter referências na <em>heap</em> normal através de estruturas como <code>classloaders</code>, significando que até que o <em>Permgen</em> seja coletado pode estar havendo vazamento de memória na <em>heap</em> regular. Em Java 7 as constantes <code>String</code> dos arquivos de classes também são alocadas na <em>heap</em> regular, ao invés de o serem no <em>Permgen</em>, o que por um lado reduz o uso desta, mas por outro soma-se ao conjunto de referências que estão entrando na <em>heap</em> regular provenientes do <em>Permgen</em>.</p><h3>Lixo Flutuante <em>(Floating Garbage)</em></h3><p>No final de uma coleta CMS é possível que alguns objetos não tenham sido deletados — chama-se a isso Lixo Flutuante <em>(Floating Garbage)</em>. Isso ocorre quando os objetos são de-referenciados após a marcação inicial. A pré-limpeza concorrente e a fase de remarcação asseguram-se de que todos os objetos vivos sejam marcados, examinando os objetos que tenham sido criados, modificados ou promovidos. Caso um objeto tenha sido de-referenciado entre a marcação inicial e a fase de remarcação, então será preciso uma pesquisa completa no grafo de objetos para encontrar todos os mortos. Isso é obviamente muito demorado, e a fase de remarcação deve ser breve uma vez que nela ocorrem pausas.</p><p>Isso não é necessariamente um problema para os usuários da CMS uma vez que a próxima execução do coletor CMS cuidará de limpar esse lixo remanescente.</p><h3>Sumário</h3><p>A marcação e limpeza concorrente <em>(Concurrent Mark and Sweep)</em> reduz os tempos de pausa do coletor paralelo executando parte do trabalho de GC ao mesmo tempo em que o aplicativo é executado. Ela não remove as pausas completamente, uma vez que parte de seu algorítimo precisa parar o aplicativo para que possa ser executado.</p></p>
+      <div class="share">
+        <div class="social">
+  <!-- Facebook -->
+          <span class="facebook">
+            <iframe src="//www.facebook.com/plugins/like.php?href=http://http://ja-gaeta.github.io/2015/garbage-collection-em-java-3.html&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+          </span>
+  <!-- Google+ -->
+          <span class="google">
+            <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+            <g:plusone size="medium" href="http://ja-gaeta.github.io/2015/garbage-collection-em-java-3.html"></g:plusone>
+          </span>
+  <!-- Twitter -->
+          <span class="twitter">
+            <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ja-gaeta.github.io/2015/garbage-collection-em-java-3.html">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </span>
+        </div>
+      </div>
+<hr>
+<section class="comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+  
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>            </article>
+        </div> <!-- /.col-md-12 -->
+      </div> <!-- /.row -->
+        
+      </div><!-- /.container -->
+
+    <footer>
+      <div class="container">
+        <hr>
+        <div class="row">
+          <div class="col-xs-10">
+            <p class="text-muted credit">&copy; Ponto G++ 2015 <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/br/"><img src="/img/creative_commons_88x31.png"></a> | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.3.2</a> | <i title="Linux" class="fa fa-linux"></i></p>
+          </div>
+          <div class="col-xs-2 gotop">
+            <a href="#"><i class="fa fa-arrow-circle-up"> topo</i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
+    <script type="text/javascript">
+      <!-- load prettify only when needed -->
+      $(document).ready(function(){
+        var prettify = false;
+        var classToAdd = 'prettyprint snippet';
+        $("pre > code").each(function() {
+          $("pre > code").parent().addClass(classToAdd);
+          prettify = true;
+        });
+        if(prettify) {
+          prettyPrint();
+        }
+      });
+    </script>
+
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+    </script>
+
+          <script type="text/javascript">
+        SyntaxHighlighter.all()
+    </script>
+  </body>
+</html>
