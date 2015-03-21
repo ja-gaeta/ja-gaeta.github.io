@@ -92,7 +92,7 @@
   <li><p>O <em>Parallel Scavenge</em> usa um coletor de cópia em paralelo para coletar os espaços <em>Eden</em> e <em>Survivor</em>.</p></li>
   <li><p>Um algorítimo diferente é usado para o espaço <em>Tenured</em>. Ele marca todos os objetos vivos, deleta os objetos mortos e então compacta o espaço.</p></li>
   <li><p>O <em>Parallel Scavenge</em> tem um bom desempenho, mas ele interrompe o programa quando é executado.</p></li>
-</ul><p>Na terceira parte desta série, examinarei como funciona a CMS, ou <em>Concurrent-Mark-Sweep</em>. Felizmente, será um artigo de leitura mais amena para aqueles com alergia à lactose.</p>
+</ul><p>Na <a href="/2015/garbage-collection-em-java-3.html">terceira parte</a> desta série, examinarei como funciona a CMS, ou <em>Concurrent-Mark-Sweep</em>. Felizmente, será um artigo de leitura mais amena para aqueles com alergia à lactose.</p>
 <hr/>
 <h3><em>Notas: </em></h3><p><a name="note1"><sup>1</sup></a> Tecnicamente há um “limiar de ocupação” para cada espaço na <em>heap</em>, o qual define quão cheio o espaço pode ficar antes que ocorra a GC.</p><p><a name="note2"><sup>2</sup></a> Este algorítimo de cópia é baseado no algorítimo de <a href="http://en.wikipedia.org/wiki/Cheney%27s_algorithm">Cheney</a>.</p></p>
       <div class="share">
