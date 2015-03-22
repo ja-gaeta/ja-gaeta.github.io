@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+    Ponto G++
+        - Garbage Collection em Java (4)
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="J.A. Gaeta Mendes">
+    <meta name="description" content="Static blog generated with JBake">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/cosmo/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/prettify-themes/github.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/asciidoctor.css">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav icon -->
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/img/favicon.png" type="image/x-icon">
+      
+    <!-- SyntaxHighlighter -->
+    <script type="text/javascript" src="/js/shCore.js"></script>
+    <script type="text/javascript" src="/js/shBrushJava.js"></script>
+    
+    <link href="/css/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+      
+  </head>
+  <body>      
+    <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Ponto G++</a>
+        </div>
+        
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="/pages/about.html">Sobre</a></li>
+          <!--  <li><a href="/pages/contact.html">Contact</a></li> -->
+          </ul>
+        
+        <!-- Right navigation -->
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/archive.html"><i class="fa fa-list"></i> Arquivo</a></li>
+          <li><a href="/feed.xml" title="Rss"><i class="fa fa-rss"></i> Feed</a></li>
+        </ul>
+        <!-- Right navigation end -->
+
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav><!-- /.navbar -->
+
+    <!-- Begin page content -->
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-md-12">
+          <article>
+            <div class="page-header"><h1>Garbage Collection em Java (4)</h1>
+              <ol class="breadcrumb tagsbar">
+                <li><a href="/tags/programação.html">programação</a></li>
+                <li><a href="/tags/java.html">java</a></li>
+              </ol>
+            </div>
+          <p class="post-meta">
+            <i class="fa fa-calendar"></i>&nbsp;23 Janeiro 2015&nbsp;&nbsp;
+            <i class="fa fa-user"></i>&nbsp;J.A. Gaeta Mendes&nbsp;&nbsp;
+              <i class="fa fa-comment"></i>&nbsp;<span class="badge"><a href="http://ja-gaeta.github.io/2015/garbage-collection-em-java-4.html#disqus_thread"></a></span>
+          </p>
+              <p><p>Último de uma série de artigos sobre <em>Garbage Collection</em> em Java, traduzidos dos originais publicados por <a href="http://insightfullogic.com/about/">Richard Warburton</a> no seu <a href="http://insightfullogic.com/blog/2013/jun/24/garbage-collection-java-4/">blog</a>. Richard é autor do livro da editora O'Reilly <a href="http://shop.oreilly.com/product/0636920030713.do?cmp=af-prog-books-videos-product_cj_9781491900154_7470410">Java 8 Lambdas</a>. <em>(Tradução e publicação autorizadas pelo autor.)</em></p>
+<!--more-->
+<p style="text-align: center;"><img src="http://i.imgur.com/4b6OGv1.jpg" title="source: imgur.com" /></p><h3>G1: o Primeiro Lixeiro</h3><p>O coletor G1 foi o último a ser implementado na JVM. É um coletor que vem recebendo suporte desde Java 7, Update 4, e a equipe da Oracle responsável pelo projeto GC tem declarado publicamente sua esperança de conseguir pausas curtas para a coleta de lixo quando o G1 estiver plenamente concluído. Esta é a continuação dos meus artigos anteriores sobre <em>Garbage Collection</em> (Coleta de Lixo):</p>
+<ol>
+  <li><a href="/2015/garbage-collection-em-java-1.html">Visão geral da GC na HotSpot.</a></li>
+  <li><a href="/2015/garbage-collection-em-java-2.html">Garbage Collectors em Paralelo.</a></li>
+  <li><a href="/2015/garbage-collection-em-java-3.html">Marcação e Limpeza Concorrentes (CMS).</a></li>
+</ol><h3>O Problema: Grandes <em>Heaps</em> Significam Longas Pausas</h3><p>O coletor de Marcação e Limpeza Concorrentes <em>(Concurrent Mark and Sweep - CMS)</em>, é atualmente o coletor recomendado para pausas curtas, mas infelizmente seus intervalos de pausa aumentam com a quantidade de objetos vivos na região <em>Tenured</em>. Isso significa que, enquanto é relativamente fácil conseguir pausas curtas em <em>heaps</em> pequenas, os intervalos começam a aumentar quando se tem <em>heaps</em> da ordem de dezenas ou centenas de Gigabytes.</p><p>Além disso, o CMS não desfragmenta a <em>heap</em>, de forma que em algum momento irá ocorrer uma <strong>falha no modo concorrente</strong> <em>(Concurrent Mode Failure - CMF)</em>, disparando uma GC completa. Uma vez entrando neste cenário de GC completa, pode-se esperar uma pausa na linha de tempo, a grosso modo, de 1 segundo por Gigabyte de objetos vivos. Utilizando o CMS, uma <em>heap</em> de 100 GB pode se tornar uma bomba-relógio com uma pausa de um minuto e meio pronta para explodir a qualquer momento...</p>
+<p style="text-align: center;"><img src="http://i.imgur.com/haflekB.jpg" title="source: imgur.com" /></p><p>Um bom ajuste na GC pode cuidar desse inconveniente, mas às vezes apenas empurra o problema com a barriga. Uma <em>Falha do Modo Concorrente</em> (CMF) e a subsequente GC completa são inevitáveis numa linha de tempo suficientemente longa, a menos que você pertença àquele pequeno grupo de pessoas que deliberadamente evitam preencher o espaço <em>Tenured</em>.</p><p>Esquema da <em>Heap</em> de G1</p><p>O Coletor G1 tenta separar os intervalos de pausa de uma coleta individual, do tamanho total da <em>heap</em>, dividindo-a em diferentes regiões. Cada região tem um tamanho fixo, entre 1MB e 32MB, e a JVM é capaz de criar um total de 2.000 regiões.</p>
+<p style="text-align: center;"><img src="http://i.imgur.com/zshLp2H.png" title="source: imgur.com" /></p><p>Você deve estar lembrado, da leitura dos artigos anteriores, que os outros coletores dividem a <em>heap</em> nos grupos de memória denominados <em>Eden</em>, <em>Survivor</em> e <em>Tenured</em>. O G1 mantem a mesma categoria de agrupamentos, mas ao invés deles serem blocos de memória contíguos, cada região é logicamente categorizada num desses grupos.</p><p>Há ainda um outro tipo de região — a região enorme <em>(humongous region)</em>. Ela foi projetada para armazenar objetos que possuem tamanho maior do que a maioria — por exemplo, um <code>array</code> muito longo. Qualquer objeto maior do que 50% do tamanho da região é armazenado na <em>humongous region</em>. Isso é feito tomando-se múltiplas regiões normais, localizadas contiguamente na memória, e tratando-as logicamente como uma única região.</p>
+<p style="text-align: center;"><img src="http://i.imgur.com/QjdzvTE.png" title="source: imgur.com" /></p><h3>Conjuntos Memorizados</h3><p>Claro que pouco adiantaria dividir a <em>heap</em> em regiões se fosse preciso percorrer toda ela para encontrar os objetos marcados como vivos. O primeiro passo para resolver isso é subdividir as regiões em segmentos de 512 Bytes, chamados "cartas" <em>(cards)</em>. Cada carta tem um registro de 1 byte na tabela de marcação.</p><p>Cada região possui um conjunto memorizado ou <code>RSet</code> — que é o conjunto de cartas que foram registradas. Uma carta é um conjunto memorizado se um objeto de outra região, armazenado dentro da carta, aponta para um objeto dentro desta região.</p><p>Sempre que um <em>mutator</em> registra a referência de um objeto, uma barreira de registro é usada para atualizar o conjunto memorizado. Nos bastidores, o conjunto memorizado é dividido em diferentes coleções, de forma que diferentes <em>threads</em> podem operar sem restrição, mas conceitualmente todas as coleções são parte do mesmo conjunto memorizado.</p><h3>Marcação Concorrente</h3><p>A fim de identificar quais objetos na <em>heap</em> estão vivos, o G1 executa, na maioria das vezes, uma marcação concorrente dos objetos vivos.</p>
+<ul>
+  <li><p><strong>Fase de Marcação —</strong> O objetivo da fase de marcação é encontrar quais os objetos dentro da <em>heap</em> que estão vivos. Para registrar os objetos que estão vivos, o G1 usa um <em>bitmap</em> de marcação — que armazena um único bit para cada 64 bits na <em>heap</em>. Todos os objetos são rastreados a partir de suas raízes, marcando-se as áreas com objetos vivos no <em>bitmap</em> de marcação. Isso é feito, na maioria das vezes, de forma concorrente, mas há uma <em>Pausa Inicial de Marcação</em>, similar ao CMS, na qual o aplicativo é pausado e o primeiro nível de filhos dos objetos raízes são rastreados. Depois que isso se completa, as <em>threads</em> do <em>mutator</em> recomeçam. O G1 precisa manter um registro atualizado de tudo o que estiver vivo na <em>heap</em>, uma vez que ela não está sendo limpa na mesma pausa da fase de marcação.</p></li>
+  <li><p><strong>Fase de Remarcação —</strong> O objetivo da fase de remarcação é atualizar a informação da fase de marcação sobre os objetos vivos. A primeira coisa a fazer é decidir quando remarcar. Ela é disparada com base no preenchimento de uma percentagem da <em>heap</em>. Isso é calculado pegando-se a informação da fase de marcação e o número de alocações desde então, o que informa ao G1 se a percentagem requerida foi atingida. O G1 usa então a barreira de registro mencionada acima para anotar as mudanças na <em>heap</em> e armazená-las numa série de <em>buffers</em> de mudanças. Os objetos nos <em>buffers</em> de mudanças são registrados no <em>bitmap</em> de marcação concorrentemente. Quando a percentagem de preenchimento é atingida, as <em>threads</em> do <em>mutator</em> são pausadas novamente e os <em>buffers</em> de mudanças são processados, marcando seus objetos vivos.</p></li>
+  <li><p><strong>Fase de limpeza —</strong> Neste ponto, o G1 sabe quais são os objetos que estão vivos. Uma vez que o seu foco são regiões que possuem a maior parte do espaço disponível, seu próximo passo é trabalhar o espaço livre numa determinada região, contando os objetos vivos. Isso é calculado a partir do <em>bitmap</em> de marcação, e as regiões são ordenadas tomando-se por base em quais delas é mais útil coletar. As regiões coletadas são armazenadas no que é conhecido como um conjunto de coleção <em>(collection set)</em> ou <code>CSet</code>.</p></li>
+</ul><h3>Evacuação</h3><p>Similarmente à abordagem feita pela <em>Geração Jovem Hemisférica</em> na GC em Paralelo e dos coletores CMS, os objetos mortos não são coletados. Ao invés disso, os objetos vivos são evacuados de uma região e toda ela é então considerada livre.</p><p>O G1 recupera os objetos vivos de uma forma inteligente — ele não tenta recuperar todos os objetos vivos num único ciclo, mas focaliza regiões potencialmente com o maior espaço passível de recuperação e apenas essas são evacuadas. Seu trabalho nas regiões-alvo é feito calculando a proporção de objetos vivos dentro das regiões e selecionando a região com a proporção mais baixa de objetos vivos.</p><p>Os objetos são evacuados e a região vai sendo liberada, o que ocorre simultaneamente em diversas outras regiões. Isso significa que o G1 compacta os dados enquanto executa a GC. Isto é operado em paralelo em múltiplas <em>threads</em>. Os "GC em Paralelo" tradicionais também fazem isso, mas o CMS não.</p><p>Da mesma forma como no CMS e no GC em Paralelo, há o conceito de <em>tenuring</em>. Isso quer dizer que os objetos jovens ficam "velhos" se sobreviverem a coletas suficientes. Este número é chamado <strong>limiar de <em>tenuring</em>.</strong> Se uma região geracional jovem sobrevive ao limiar de <em>tenuring</em> e retem objetos vivos o suficiente para evitar que sejam evacuados, então a região é promovida. Primeiro para a região <em>Survivor</em> e depois para a <em>Tenured</em>. Ela nunca é evacuada.</p><h3>Falha de Evacuação</h3><p>Infelizmente, o G1 ainda pode encontrar um cenário similar ao de uma <em>Falha do Modo Concorrente</em> (CMF), disparando uma GC Completa que "para o mundo". Isso é chamado uma <em>Falha de Evacuação</em> e ocorre quando não há regiões livres. A inexistência de regiões livres significa que não há para onde evacuar os objetos.</p><p>Teoricamente, as Falhas de Evacuação são menos prováveis de acontecer no G1 do que as <em>Falhas do Modo Concorrente</em> no CMS. Isso porque o G1 compacta suas regiões em tempo real ao invés de esperar que ocorra uma falha para implementar uma compactação.</p><h3>Conclusões</h3><p>A despeito das compactações e dos esforços para pausas curtas, o G1 não garante ser sempre o campeão e todas as tentativas de adotá-lo devem ser acompanhadas de uma medição objetiva da performance dos alvos e análise dos <em>logs</em> de GC. A metodologia necessária para isso está fora do escopo deste artigo, mas espero abordá-la futuramente.</p><p>Em termos de algorítimo, existem desafios enfrentados pelo G1 que os outros coletores da <em>HotSpot</em> não encontram. Especialmente o ônus de manter conjuntos memorizados. O GC em Paralelo ainda é o coletor recomendado para maior rendimento, e em muitas circunstâncias o CMS se sai melhor do que o G1.</p><p>Ainda é muito cedo para dizer se o G1 será o grande vencedor na disputa com o coletor CMS, mas em algumas situações ele já está trazendo benefícios para os desenvolvedores que o utilizam. Com o tempo veremos se as limitações de desempenho do G1 são realmente limites ou se a equipe de desenvolvimento apenas precisa de um esforço de engenharia maior para solucionar os problemas.</p><p>Meus agradecimentos a <a href="http://twitter.com/johno_oliver">John Oliver</a>, <a href="http://twitter.com/itsmonktastic?">Tim Monks</a> e <a href="http://twitter.com/karianna">Martijn Vergurg</a> por fazerem a revisão dos rascunhos deste e dos artigos anteriores sobre GC.</p></p>
+      <div class="share">
+        <div class="social">
+  <!-- Facebook -->
+          <span class="facebook">
+            <iframe src="//www.facebook.com/plugins/like.php?href=http://http://ja-gaeta.github.io/2015/garbage-collection-em-java-4.html&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+          </span>
+  <!-- Google+ -->
+          <span class="google">
+            <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+            <g:plusone size="medium" href="http://ja-gaeta.github.io/2015/garbage-collection-em-java-4.html"></g:plusone>
+          </span>
+  <!-- Twitter -->
+          <span class="twitter">
+            <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ja-gaeta.github.io/2015/garbage-collection-em-java-4.html">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </span>
+        </div>
+      </div>
+<hr>
+<section class="comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+  
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>            </article>
+        </div> <!-- /.col-md-12 -->
+      </div> <!-- /.row -->
+        
+      </div><!-- /.container -->
+
+    <footer>
+      <div class="container">
+        <hr>
+        <div class="row">
+          <div class="col-xs-10">
+            <p class="text-muted credit">&copy; Ponto G++ 2015 <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/br/"><img src="/img/creative_commons_88x31.png"></a> | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.3.2</a> | <i title="Linux" class="fa fa-linux"></i></p>
+          </div>
+          <div class="col-xs-2 gotop">
+            <a href="#"><i class="fa fa-arrow-circle-up"> topo</i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
+    <script type="text/javascript">
+      <!-- load prettify only when needed -->
+      $(document).ready(function(){
+        var prettify = false;
+        var classToAdd = 'prettyprint snippet';
+        $("pre > code").each(function() {
+          $("pre > code").parent().addClass(classToAdd);
+          prettify = true;
+        });
+        if(prettify) {
+          prettyPrint();
+        }
+      });
+    </script>
+
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+    </script>
+
+          <script type="text/javascript">
+        SyntaxHighlighter.all()
+    </script>
+  </body>
+</html>
