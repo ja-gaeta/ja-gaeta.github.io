@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+    Ponto G++
+        - Curso de Java - Aula 3
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="J.A. Gaeta Mendes">
+    <meta name="description" content="Static blog generated with JBake">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/cosmo/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/prettify-themes/github.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/asciidoctor.css">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav icon -->
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/img/favicon.png" type="image/x-icon">
+      
+    <!-- SyntaxHighlighter -->
+    <script type="text/javascript" src="/js/shCore.js"></script>
+    <script type="text/javascript" src="/js/shBrushJava.js"></script>
+    <script type="text/javascript" src="/js/shBrushCSharp.js"></script>
+    <script type="text/javascript" src="/js/shBrushCpp.js"></script>
+    <script type="text/javascript" src="/js/shBrushPython.js"></script>
+    
+    <link href="/css/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+      
+  </head>
+  <body>      
+    <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Ponto G++</a>
+        </div>
+        
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="/pages/about.html">Sobre</a></li>
+          <!--  <li><a href="/pages/contact.html">Contact</a></li> -->
+          </ul>
+        
+        <!-- Right navigation -->
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/archive.html"><i class="fa fa-list"></i> Arquivo</a></li>
+          <li><a href="/feed.xml" title="Rss"><i class="fa fa-rss"></i> Feed</a></li>
+        </ul>
+        <!-- Right navigation end -->
+
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav><!-- /.navbar -->
+
+    <!-- Begin page content -->
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-md-12">
+          <article>
+            <div class="page-header"><h1>Curso de Java - Aula 3</h1>
+              <ol class="breadcrumb tagsbar">
+                <li><a href="/tags/cursos.html">cursos</a></li>
+                <li><a href="/tags/java.html">java</a></li>
+              </ol>
+            </div>
+          <p class="post-meta">
+            <i class="fa fa-calendar"></i>&nbsp;30 Abril 2015&nbsp;&nbsp;
+            <i class="fa fa-user"></i>&nbsp;J.A. Gaeta Mendes&nbsp;&nbsp;
+              <i class="fa fa-comment"></i>&nbsp;<span class="badge"><a href="http://ja-gaeta.github.io/2015/curso-de-java-aula-003.html#disqus_thread"></a></span>
+          </p>
+              <p><div id="preamble">
+<div class="sectionbody">
+<p style="text-align: center;">&nbsp;<iframe src="//www.youtube.com/embed/CeakNzgI3y8" frameborder="1" width="560" height="315" allowfullscreen></iframe></p>
+<div class="paragraph">
+<p>Adicionado conteúdo para a terceira vídeo-aula do nosso Curso de Java. Agora você pode acompanhar o curso com este material de apoio e aprofundar-se ainda mais no estudo da linguagem de programação Java.</p>
+</div>
+<!--more-->
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Programa da aula</div>
+<ul class="sectlevel1">
+<li><a href="#_introdução">Introdução</a></li>
+<li><a href="#_java_curiosa_divertida">Java Curiosa &amp; Divertida</a>
+<ul class="sectlevel2">
+<li><a href="#_o_número_mágico_do_em_bytecode_em">O Número Mágico do <em>Bytecode</em></a></li>
+</ul>
+</li>
+<li><a href="#_sintaxe_das_linguagens_de_programação">Sintaxe das Linguagens de Programação</a>
+<ul class="sectlevel2">
+<li><a href="#_clareza_do_código">Clareza do Código</a></li>
+<li><a href="#_sintaxe_de_java_vs_outras_linguagens">Sintaxe de Java vs. Outras Linguagens</a></li>
+<li><a href="#_palavras_reservadas_pela_linguagem_java">Palavras Reservadas pela Linguagem Java</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introdução">Introdução</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sejam bem vindos a mais uma aula do Curso de Java do Ponto G++. Nesta aula, inauguramos um novo bloco, o &#8220;Java Curiosa e Divertida&#8221;, onde iremos focalizar em cada aula algum aspecto curioso da linguagem de programação Java, que tenha alguma relação como os assuntos que estejam sendo estudados.</p>
+</div>
+<div class="paragraph">
+<p>No bloco regular da aula, começamos enfatizando duas necessidades fundamentais: a rigorosa observância da sintaxe, que em Java pode ser às vezes bem complicada, e o uso de endentação para aumentar a clareza do código. Em seguida, fazemos uma brevíssima comparação da sintaxe de Java com a de outras linguagens de programação, e finalizamos apresentando as 50 palavras reservadas de uso interno da linguagem.</p>
+</div>
+<div class="paragraph">
+<p>Desejo-lhes um bom aproveitamento do material desta aula.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_java_curiosa_divertida">Java Curiosa &amp; Divertida</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_o_número_mágico_do_em_bytecode_em">O Número Mágico do <em>Bytecode</em></h3>
+<div class="paragraph">
+<p>Antes de mais nada, para entender o que vamos tratar aqui, é preciso uma rápida revisão da representação dos números nas bases dois (binária), dez (decimal) e dezesseis (hexadecimal).</p>
+</div>
+<div class="paragraph">
+<p>Observem as representações numéricas na figura abaixo:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://i.imgur.com/vauzBJG.png" alt="vauzBJG">
+</div>
+</div>
+<div class="paragraph">
+<p>Nela, podemos observar que um mesmo número pode ser representado por <strong>47.531</strong>, na base decimal, por <strong>1011100110101011</strong>, na base binária ou por <strong>B9AB</strong>, na base hexadecimal. De todas essas representações, a mais difícil para que nós, humanos, possamos entender é, sem dúvida alguma, a binária.</p>
+</div>
+<div class="paragraph">
+<p>Inobstante o sistema decimal seja aquele com o qual estejamos mais habituados, ele não é o mais adequado para a identificação, por exemplo, dos endereços na memória dos computadores. Para isso é que foi adotado o sistema hexadecimal.</p>
+</div>
+<div class="paragraph">
+<p>Os dígitos binários do exemplo acima, podem ser divididos em grupos de 4 bits, denominados <em>nibbles</em>, conforme pode ser observado na linha intermediária da figura, facilitando um pouco mais sua visualização. O mais importante contudo, além disso, é que cada grupo de 4 bits comporta exatamente 16 combinações diferentes (2<sup>4</sup>)&#8201;&#8212;&#8201;e é aí que entram os números hexadecimais&#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>Mas como representar os 16 dígitos dessa base numérica? Simples: usamos os dez dígitos emprestados da base decimal (0 a 9) e completamos os demais com as seis primeiras letras do alfabeto&#8201;&#8212;&#8201;A, B, C, D, E e F. A correspondência com o sistema decimal seria, então, a seguinte:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://i.imgur.com/sOhIyl3.png" alt="sOhIyl3">
+</div>
+</div>
+<div class="paragraph">
+<p>A calculadora do Windows possui um modo <em>programador</em> (com equivalentes nos outros sistemas operacionais), que permite constatar visualmente a equivalência numérica nas três bases aqui examinadas, conforme observamos na figura abaixo:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://i.imgur.com/jx4VANA.png" alt="jx4VANA">
+</div>
+</div>
+<div class="paragraph">
+<p>A definição de &#8220;número mágico&#8221;, de acordo com a Wikipédia, é a seguinte:</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Número mágico : um termo usado em informática para designar constantes especiais usadas para definir um certo propósito, usualmente escolhidas de forma arbitrária. Eles são chamados de mágicos pois a sua presença é inexplicável sem um conhecimento prévio do seu uso, seja informal com o criador da constante ou formal através de documentação.</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>No caso de Java, a identificação do <em>bytecode</em>, ou seja, o arquivo compilado <code>.class</code>, é um cabeçalho de 4 bytes: <strong>CA FE BA BE</strong>, em hexadecimal. Quem nos conta a origem desse &#8220;número mágico&#8221; é o próprio James Gosling, considerado o &#8220;pai&#8221; da linguagem Java:</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Nós costumávamos ir almoçar num lugar chamado <em>St. Michael&#8217;s Alley</em>. De acordo com uma lenda local, a banda <em>Grateful Dead</em> costumava se apresentar por lá num passado distante, antes de se tornar famosa. Era um lugar muito peculiar, que definitivamente tinha tudo a ver com a <em>Grateful Dead</em>. Quando Jerry morreu, eles chegaram até a montar um pequeno santuário no estilo budista.
+Quando combinávamos ir lá, referíamo-nos ao lugar como <em>Cafe Dead</em> (Café Morto). Num dado momento, percebeu-se que isso era um número hexadecimal.
+ &gt; Naquela época eu estava atualizando o código de alguns formatos de arquivo e precisava de um par de números mágicos: um para o arquivo-objeto persistente e outro para as classes. Usei <strong>CAFEDEAD</strong> para o formato de arquivo-objeto e, ao buscar uma palavra com 4 caracteres hexadecimais para combinar com <strong>CAFE</strong>, que parecia bastante apropriado, acabei encontrando <strong>BABE</strong> e decidi usá-la. Naquele tempo, isso não parecia tão importante assim ou destinado a ter outro lugar na história além da lata de lixo.
+ &gt; Assim, <strong>CAFEBABE</strong> se tornou o formato do arquivo de classes, e <strong>CAFEDEAD</strong> era o formato do arquivo-objeto persistente. Mas a utilização do arquivo-objeto persistente foi abandonada, e com ele o uso de CAFEDEAD, eventualmente substituído pela RMI (<em>Remote Method Invocation</em>, ou seja, Invocação de Métodos Remotos).</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>Na figura abaixo, podemos ver esse famoso número mágico num arquivo .class editado no editor Sublime Text:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://i.imgur.com/O6sDIQd.png" alt="O6sDIQd">
+</div>
+</div>
+<div class="paragraph">
+<p>Um observação final: a &#8220;assinatura&#8221; <strong>CAFE BABE</strong> é usada de forma generalizada pelos <em>bytecodes</em> gerados por outras linguagens de programação que se utilizam da JVM, tais como Groovy e Scala.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sintaxe_das_linguagens_de_programação">Sintaxe das Linguagens de Programação</h2>
+<div class="sectionbody">
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://i.imgur.com/ayjaTy5.png" alt="ayjaTy5">
+</div>
+</div>
+<div class="paragraph">
+<p>Dizem que certa vez um grande general, prestes a ir para a guerra, dirigiu-se ao Oráculo de Apolo, em Delfos, como era costume na Grécia Antiga, para consultar a Pitonisa sobre seu futuro. A Pitonisa, com sua voz gutural, disse-lhe a frase em destaque na figura acima, sem que a entonação de sua voz fizesse qualquer distinção sintática com pausas ou ênfases. Dessa forma, o general interpretou a profecia com a pontuação que aparece à direita, ficando tranquilo quanto ao seu sucesso.</p>
+</div>
+<div class="paragraph">
+<p>Tempos depois, sua viúva dirigiu-se ao Oráculo e foi ter com a Pitonisa, para questioná-la quanto à falsidade de sua profecia, pois o general havia perecido na guerra. A Pitonisa respondeu-lhe que tinha havido um mal entendido, pois sua previsão fora correta, com a pontuação da mesma frase como aparece à esquerda na figura.</p>
+</div>
+<div class="paragraph">
+<p>Se essa história é verdadeira ou apenas uma lenda, não sei dizer, mas serve para demonstrar a importância da sintaxe em qualquer linguagem.</p>
+</div>
+<div class="paragraph">
+<p>De acordo com a Wikipédia, uma linguagem de programação pode ser definida como &#8220;um conjunto de regras sintáticas e semânticas usadas para definir um programa de computador&#8221; e, no caso de sua inobservância, ao invés de gerar apenas mal entendidos, como no caso das linguagens naturais, é gerado um erro de compilação.</p>
+</div>
+<div class="paragraph">
+<p>Apresento, na figura abaixo, um trecho do código-fonte de um programa Java, onde podemos observar a aplicação dessas regras na prática.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://i.imgur.com/TE6tPsi.png" alt="TE6tPsi">
+</div>
+</div>
+<div class="paragraph">
+<p>As palavras em destaque no texto, tais como <code>public</code>, <code>class</code>, <code>static</code> e <code>void</code>, são palavras reservadas para uso interno pela linguagem e cada uma tem sua razão de ser e uma função específica. Observem também os sinais gráficos especiais como chaves (<code>{}</code>), colchetes (<code>[]</code>), parênteses (<code>()</code>) e o ponto e vírgula (<code>;</code>) encerrando a declaração de um método. Atentem para a forma de composição do método: <code>System.out.println(&#8230;&#8203;)</code>, e as aspas delimitando a <strong>String</strong> <code>"Olá mundão velho!"</code>. Enfim, tudo isso faz parte da sintaxe da linguagem de programação Java e qualquer erro, mesmo a simples troca de uma letra maiúscula por uma minúscula numa palavra reservada ou tipo de dado, acarreta um erro de sintaxe e, consequentemente, o programa não será compilado até que o erro seja corrigido.</p>
+</div>
+<div class="paragraph">
+<p>Existem também certas convenções adotadas de forma consistente pela linguagem Java, que eu o aconselho enfaticamente a adotar desde logo, pois isso facilitará muito sua vida e a de outros programadores que precisarem examinar seu código, além de dar-lhe um aspecto bem mais intuitivo e profissional. É o caso, por exemplo, da adoção do estilo <em>CamelCase</em> para identificação de variáveis, classes e métodos personalizados, como, por exemplo, no código acima, a classe <code>OlaMundo</code>. O programa iria compilar normalmente se você lhe desse o nome de <code>OLAMUNDO</code>, mas isso estaria contrariando as convenções usuais da linguagem. Olhando de relance, um programador poderia pensar tratar-se de uma constante, onde todas as letras são maiúsculas por convenção.</p>
+</div>
+<div class="paragraph">
+<p>Deu para você  entender por que a observância das convenções é tão importante? Embora isso possa ter ficado meio vago no exame de um trecho de código tão pequeno como este, podem acreditar que faz muito sentido quando se analisa um programa com centenas ou milhares de linhas de código!</p>
+</div>
+<div class="sect2">
+<h3 id="_clareza_do_código">Clareza do Código</h3>
+<div class="paragraph">
+<p>Um outro aspecto que não deve ser relevado é com relação à estética de redação do código, com critérios de endentação, espaçamento e sinalização consistentes, para facilitar sua leitura e entendimento. Examine as duas versões de um mesmo fragmento de código na figura abaixo:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://i.imgur.com/MFgMGuB.png" alt="MFgMGuB">
+</div>
+</div>
+<div class="paragraph">
+<p>O código acima da linha tracejada é exatamente o mesmo daquele abaixo dela e esse programa compila normalmente, mas é evidente que a primeira versão é muito mais clara para a leitura e compreensão do código. Se isso é válido para um trecho de código-fonte tão pequeno, imagine num programa com centenas de classes e milhares de linhas.</p>
+</div>
+<div class="paragraph">
+<p>Outro ponto importante, é manter a consistência de estilo ao longo do código-fonte. Se, por exemplo, você usa este estilo, abrindo a chave logo depois da declaração, na mesma linha:</p>
+</div>
+<pre class="brush: java, toolbar: false">
+public static void main (String[] args) {
+
+}
+</pre>
+<div class="paragraph">
+<p>evite mudar para este outro estilo, abrindo a chave na linha seguinte à da declaração:</p>
+</div>
+<pre class="brush: java, toolbar: false">
+public static void main (String[] args)
+{
+
+}
+</pre>
+<div class="paragraph">
+<p>A mudança é muito sutil: apenas o local de abertura da chave, mas uma vez escolhido um dos estilos, permaneça fiel a ele ao longo de todo o código. A mesma coisa vale para espaçamento de endentação e de linhas. Com o tempo, você vai observar que quando a formatação é consistente, fica mais fácil habituar-se com ela e isso agiliza a leitura do código. Nosso cérebro é incrível no seu poder de adaptação, mas um pouquinho de ajuda vai aumentar sua produtividade.</p>
+</div>
+<div class="paragraph">
+<p>Neste particular, os editores das IDE facilitam muito a vida do programador, pois todos eles incorporam recursos para automatizar o processo de endentação e formatação do código-fonte, com bastante flexibilidade para atender a todos os gostos.</p>
+</div>
+<div class="paragraph">
+<p>Para finalizar, um último conselho: usem e abusem dos comentários, principalmente da facilidade de documentação oferecida pelo <strong>Javadoc</strong>, pois isso é o que efetivamente separa os profissionais dos amadores.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sintaxe_de_java_vs_outras_linguagens">Sintaxe de Java vs. Outras Linguagens</h3>
+<div class="paragraph">
+<p>Comparem, a seguir, a sintaxe de um mesmo programa básico nas suas versões em Java, C, C++, C# e Python. Tirando Python, que é na verdade um <em>script</em> executado por um interpretador, todas as demais linguagens tem uma sintaxe muito parecida. Isso é feito propositalmente, para que a curva de aprendizado seja muito rápida de uma para outra linguagem. Uma vez dominada uma delas, o caminho para aprender as outras fica bem mais suave.</p>
+</div>
+<div class="paragraph">
+<p>Em Java:</p>
+</div>
+<pre class="brush: java, toolbar: false">
+/* OlaMundo em Java */
+
+public class OlaMundo {
+
+  public static void main(String[] args) {
+
+    System.out.println("Olá mundão velho!");
+
+  }
+
+}
+</pre>
+<div class="paragraph">
+<p>Em C:</p>
+</div>
+<pre class="brush: c, toolbar: false">
+/* OlaMundo em C */
+
+#include &#60;stdio.h&#62;
+
+int main (int argc, char** argv)
+{
+    printf("Olá mundão velho!\n"); // função printf está em stdio.h
+    return (0);
+}
+</pre>
+<div class="paragraph">
+<p>Em C++:</p>
+</div>
+<pre class="brush: c, toolbar: false">
+/* OlaMundo em C++ */
+
+ #include &#60;iostream&#62;
+using namespace std;
+
+int main(int argc, const char * argv[]) {
+
+  cout << "Olá mundão velho!" << endl;
+
+}
+</pre>
+<div class="paragraph">
+<p>Em C#:</p>
+</div>
+<pre class="brush: csharp, toolbar: false">
+/* OlaMundo em C# */
+
+using System;
+
+public class OlaMundo
+{
+   public static void Main(string[] args)
+   {
+      Console.WriteLine("Olá mundão velho!");
+   }
+}
+</pre>
+<div class="paragraph">
+<p>Em Python:</p>
+</div>
+<pre class="brush: python, toolbar: false">
+# OlaMundo em Python
+
+print "Olá mundão velho!"
+</pre>
+</div>
+<div class="sect2">
+<h3 id="_palavras_reservadas_pela_linguagem_java">Palavras Reservadas pela Linguagem Java</h3>
+<div class="paragraph">
+<p>Para encerrar esta aula, apresento a seguir uma tabela com as 50 palavras reservadas da linguagem de programação Java, sendo que as duas últimas não são mais usadas atualmente, sendo mantidas apenas por uma questão de compatibilidade com suas primeiras versões.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://i.imgur.com/YKbLoEw.png" alt="YKbLoEw">
+</div>
+</div>
+<div class="paragraph">
+<p>Ao longo deste curso, teremos oportunidade de examinar essas palavras, todas amplamente documentadas. Encorajo-o a fazer uma pesquisa no Google sobre cada uma, principalmente as menos usuais, para ir se familiarizando com a sintaxe de Java.</p>
+</div>
+<div class="paragraph">
+<p>Esta é, talvez, a parte mais trabalhosa no aprendizado de uma linguagem de programação. Seria comparável com a ampliação do vocabulário, para quem aprende uma língua estrangeira. Pode ser tedioso às vezes, mas somente quando você tiver domínio sobre um vocabulário suficientemente amplo, poderá deslanchar no idioma.</p>
+</div>
+</div>
+</div>
+</div></p>
+      <div class="share">
+        <div class="social">
+  <!-- Facebook -->
+          <span class="facebook">
+            <iframe src="//www.facebook.com/plugins/like.php?href=http://http://ja-gaeta.github.io/2015/curso-de-java-aula-003.html&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+          </span>
+  <!-- Google+ -->
+          <span class="google">
+            <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+            <g:plusone size="medium" href="http://ja-gaeta.github.io/2015/curso-de-java-aula-003.html"></g:plusone>
+          </span>
+  <!-- Twitter -->
+          <span class="twitter">
+            <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ja-gaeta.github.io/2015/curso-de-java-aula-003.html">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </span>
+        </div>
+      </div>
+<hr>
+<section class="comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+  
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>            </article>
+        </div> <!-- /.col-md-12 -->
+      </div> <!-- /.row -->
+        
+      </div><!-- /.container -->
+
+    <footer>
+      <div class="container">
+        <hr>
+        <div class="row">
+          <div class="col-xs-10">
+            <p class="text-muted credit">&copy; Ponto G++ 2015 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/br/"><img src="/img/creative_commons_88x31.png"></a> | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.3.2</a> | <i title="Linux" class="fa fa-linux"></i></p>
+          </div>
+          <div class="col-xs-2 gotop">
+            <a href="#"><i class="fa fa-arrow-circle-up"> topo</i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
+    <script type="text/javascript">
+      <!-- load prettify only when needed -->
+      $(document).ready(function(){
+        var prettify = false;
+        var classToAdd = 'prettyprint snippet';
+        $("pre > code").each(function() {
+          $("pre > code").parent().addClass(classToAdd);
+          prettify = true;
+        });
+        if(prettify) {
+          prettyPrint();
+        }
+      });
+    </script>
+
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+    </script>
+
+          <script type="text/javascript">
+        SyntaxHighlighter.all()
+    </script>
+  </body>
+</html>

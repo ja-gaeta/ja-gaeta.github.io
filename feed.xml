@@ -6,9 +6,307 @@
     <atom:link href="http://ja-gaeta.github.io//feed.xml" rel="self" type="application/rss+xml" />
     <description>For future use?</description>
     <language>en</language>
-    <pubDate>Qui, 26 mar 2015 17:59:26 -0300</pubDate>
-    <lastBuildDate>Qui, 26 mar 2015 17:59:26 -0300</lastBuildDate>
+    <pubDate>Qui, 30 abr 2015 18:31:40 -0300</pubDate>
+    <lastBuildDate>Qui, 30 abr 2015 18:31:40 -0300</lastBuildDate>
 
+      <item>
+        <title>Curso de Java - Aula 3</title>
+        <link>http://ja-gaeta.github.io/2015/curso-de-java-aula-003.html</link>
+        <pubDate>Qui, 30 abr 2015 00:00:00 -0300</pubDate>
+        <guid isPermaLink="false">2015/curso-de-java-aula-003.html</guid>
+        <description>
+	        &lt;div id=&quot;preamble&quot;&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;p style=&quot;text-align: center;&quot;&gt;&amp;nbsp;&lt;iframe src=&quot;//www.youtube.com/embed/CeakNzgI3y8&quot; frameborder=&quot;1&quot; width=&quot;560&quot; height=&quot;315&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/p&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Adicionado conteúdo para a terceira vídeo-aula do nosso Curso de Java. Agora você pode acompanhar o curso com este material de apoio e aprofundar-se ainda mais no estudo da linguagem de programação Java.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!--more--&gt;
+&lt;div id=&quot;toc&quot; class=&quot;toc&quot;&gt;
+&lt;div id=&quot;toctitle&quot; class=&quot;title&quot;&gt;Programa da aula&lt;/div&gt;
+&lt;ul class=&quot;sectlevel1&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#_introdução&quot;&gt;Introdução&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#_java_curiosa_divertida&quot;&gt;Java Curiosa &amp;amp; Divertida&lt;/a&gt;
+&lt;ul class=&quot;sectlevel2&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#_o_número_mágico_do_em_bytecode_em&quot;&gt;O Número Mágico do &lt;em&gt;Bytecode&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#_sintaxe_das_linguagens_de_programação&quot;&gt;Sintaxe das Linguagens de Programação&lt;/a&gt;
+&lt;ul class=&quot;sectlevel2&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#_clareza_do_código&quot;&gt;Clareza do Código&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#_sintaxe_de_java_vs_outras_linguagens&quot;&gt;Sintaxe de Java vs. Outras Linguagens&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#_palavras_reservadas_pela_linguagem_java&quot;&gt;Palavras Reservadas pela Linguagem Java&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_introdução&quot;&gt;Introdução&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Sejam bem vindos a mais uma aula do Curso de Java do Ponto G++. Nesta aula, inauguramos um novo bloco, o &amp;#8220;Java Curiosa e Divertida&amp;#8221;, onde iremos focalizar em cada aula algum aspecto curioso da linguagem de programação Java, que tenha alguma relação como os assuntos que estejam sendo estudados.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;No bloco regular da aula, começamos enfatizando duas necessidades fundamentais: a rigorosa observância da sintaxe, que em Java pode ser às vezes bem complicada, e o uso de endentação para aumentar a clareza do código. Em seguida, fazemos uma brevíssima comparação da sintaxe de Java com a de outras linguagens de programação, e finalizamos apresentando as 50 palavras reservadas de uso interno da linguagem.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Desejo-lhes um bom aproveitamento do material desta aula.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_java_curiosa_divertida&quot;&gt;Java Curiosa &amp;amp; Divertida&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_o_número_mágico_do_em_bytecode_em&quot;&gt;O Número Mágico do &lt;em&gt;Bytecode&lt;/em&gt;&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Antes de mais nada, para entender o que vamos tratar aqui, é preciso uma rápida revisão da representação dos números nas bases dois (binária), dez (decimal) e dezesseis (hexadecimal).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Observem as representações numéricas na figura abaixo:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://i.imgur.com/vauzBJG.png&quot; alt=&quot;vauzBJG&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Nela, podemos observar que um mesmo número pode ser representado por &lt;strong&gt;47.531&lt;/strong&gt;, na base decimal, por &lt;strong&gt;1011100110101011&lt;/strong&gt;, na base binária ou por &lt;strong&gt;B9AB&lt;/strong&gt;, na base hexadecimal. De todas essas representações, a mais difícil para que nós, humanos, possamos entender é, sem dúvida alguma, a binária.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Inobstante o sistema decimal seja aquele com o qual estejamos mais habituados, ele não é o mais adequado para a identificação, por exemplo, dos endereços na memória dos computadores. Para isso é que foi adotado o sistema hexadecimal.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Os dígitos binários do exemplo acima, podem ser divididos em grupos de 4 bits, denominados &lt;em&gt;nibbles&lt;/em&gt;, conforme pode ser observado na linha intermediária da figura, facilitando um pouco mais sua visualização. O mais importante contudo, além disso, é que cada grupo de 4 bits comporta exatamente 16 combinações diferentes (2&lt;sup&gt;4&lt;/sup&gt;)&amp;#8201;&amp;#8212;&amp;#8201;e é aí que entram os números hexadecimais&amp;#8230;&amp;#8203;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Mas como representar os 16 dígitos dessa base numérica? Simples: usamos os dez dígitos emprestados da base decimal (0 a 9) e completamos os demais com as seis primeiras letras do alfabeto&amp;#8201;&amp;#8212;&amp;#8201;A, B, C, D, E e F. A correspondência com o sistema decimal seria, então, a seguinte:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://i.imgur.com/sOhIyl3.png&quot; alt=&quot;sOhIyl3&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;A calculadora do Windows possui um modo &lt;em&gt;programador&lt;/em&gt; (com equivalentes nos outros sistemas operacionais), que permite constatar visualmente a equivalência numérica nas três bases aqui examinadas, conforme observamos na figura abaixo:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://i.imgur.com/jx4VANA.png&quot; alt=&quot;jx4VANA&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;A definição de &amp;#8220;número mágico&amp;#8221;, de acordo com a Wikipédia, é a seguinte:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;quoteblock&quot;&gt;
+&lt;blockquote&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Número mágico : um termo usado em informática para designar constantes especiais usadas para definir um certo propósito, usualmente escolhidas de forma arbitrária. Eles são chamados de mágicos pois a sua presença é inexplicável sem um conhecimento prévio do seu uso, seja informal com o criador da constante ou formal através de documentação.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;No caso de Java, a identificação do &lt;em&gt;bytecode&lt;/em&gt;, ou seja, o arquivo compilado &lt;code&gt;.class&lt;/code&gt;, é um cabeçalho de 4 bytes: &lt;strong&gt;CA FE BA BE&lt;/strong&gt;, em hexadecimal. Quem nos conta a origem desse &amp;#8220;número mágico&amp;#8221; é o próprio James Gosling, considerado o &amp;#8220;pai&amp;#8221; da linguagem Java:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;quoteblock&quot;&gt;
+&lt;blockquote&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Nós costumávamos ir almoçar num lugar chamado &lt;em&gt;St. Michael&amp;#8217;s Alley&lt;/em&gt;. De acordo com uma lenda local, a banda &lt;em&gt;Grateful Dead&lt;/em&gt; costumava se apresentar por lá num passado distante, antes de se tornar famosa. Era um lugar muito peculiar, que definitivamente tinha tudo a ver com a &lt;em&gt;Grateful Dead&lt;/em&gt;. Quando Jerry morreu, eles chegaram até a montar um pequeno santuário no estilo budista.
+Quando combinávamos ir lá, referíamo-nos ao lugar como &lt;em&gt;Cafe Dead&lt;/em&gt; (Café Morto). Num dado momento, percebeu-se que isso era um número hexadecimal.
+ &amp;gt; Naquela época eu estava atualizando o código de alguns formatos de arquivo e precisava de um par de números mágicos: um para o arquivo-objeto persistente e outro para as classes. Usei &lt;strong&gt;CAFEDEAD&lt;/strong&gt; para o formato de arquivo-objeto e, ao buscar uma palavra com 4 caracteres hexadecimais para combinar com &lt;strong&gt;CAFE&lt;/strong&gt;, que parecia bastante apropriado, acabei encontrando &lt;strong&gt;BABE&lt;/strong&gt; e decidi usá-la. Naquele tempo, isso não parecia tão importante assim ou destinado a ter outro lugar na história além da lata de lixo.
+ &amp;gt; Assim, &lt;strong&gt;CAFEBABE&lt;/strong&gt; se tornou o formato do arquivo de classes, e &lt;strong&gt;CAFEDEAD&lt;/strong&gt; era o formato do arquivo-objeto persistente. Mas a utilização do arquivo-objeto persistente foi abandonada, e com ele o uso de CAFEDEAD, eventualmente substituído pela RMI (&lt;em&gt;Remote Method Invocation&lt;/em&gt;, ou seja, Invocação de Métodos Remotos).&lt;/p&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Na figura abaixo, podemos ver esse famoso número mágico num arquivo .class editado no editor Sublime Text:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://i.imgur.com/O6sDIQd.png&quot; alt=&quot;O6sDIQd&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Um observação final: a &amp;#8220;assinatura&amp;#8221; &lt;strong&gt;CAFE BABE&lt;/strong&gt; é usada de forma generalizada pelos &lt;em&gt;bytecodes&lt;/em&gt; gerados por outras linguagens de programação que se utilizam da JVM, tais como Groovy e Scala.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_sintaxe_das_linguagens_de_programação&quot;&gt;Sintaxe das Linguagens de Programação&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://i.imgur.com/ayjaTy5.png&quot; alt=&quot;ayjaTy5&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Dizem que certa vez um grande general, prestes a ir para a guerra, dirigiu-se ao Oráculo de Apolo, em Delfos, como era costume na Grécia Antiga, para consultar a Pitonisa sobre seu futuro. A Pitonisa, com sua voz gutural, disse-lhe a frase em destaque na figura acima, sem que a entonação de sua voz fizesse qualquer distinção sintática com pausas ou ênfases. Dessa forma, o general interpretou a profecia com a pontuação que aparece à direita, ficando tranquilo quanto ao seu sucesso.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Tempos depois, sua viúva dirigiu-se ao Oráculo e foi ter com a Pitonisa, para questioná-la quanto à falsidade de sua profecia, pois o general havia perecido na guerra. A Pitonisa respondeu-lhe que tinha havido um mal entendido, pois sua previsão fora correta, com a pontuação da mesma frase como aparece à esquerda na figura.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Se essa história é verdadeira ou apenas uma lenda, não sei dizer, mas serve para demonstrar a importância da sintaxe em qualquer linguagem.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;De acordo com a Wikipédia, uma linguagem de programação pode ser definida como &amp;#8220;um conjunto de regras sintáticas e semânticas usadas para definir um programa de computador&amp;#8221; e, no caso de sua inobservância, ao invés de gerar apenas mal entendidos, como no caso das linguagens naturais, é gerado um erro de compilação.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Apresento, na figura abaixo, um trecho do código-fonte de um programa Java, onde podemos observar a aplicação dessas regras na prática.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://i.imgur.com/TE6tPsi.png&quot; alt=&quot;TE6tPsi&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As palavras em destaque no texto, tais como &lt;code&gt;public&lt;/code&gt;, &lt;code&gt;class&lt;/code&gt;, &lt;code&gt;static&lt;/code&gt; e &lt;code&gt;void&lt;/code&gt;, são palavras reservadas para uso interno pela linguagem e cada uma tem sua razão de ser e uma função específica. Observem também os sinais gráficos especiais como chaves (&lt;code&gt;{}&lt;/code&gt;), colchetes (&lt;code&gt;[]&lt;/code&gt;), parênteses (&lt;code&gt;()&lt;/code&gt;) e o ponto e vírgula (&lt;code&gt;;&lt;/code&gt;) encerrando a declaração de um método. Atentem para a forma de composição do método: &lt;code&gt;System.out.println(&amp;#8230;&amp;#8203;)&lt;/code&gt;, e as aspas delimitando a &lt;strong&gt;String&lt;/strong&gt; &lt;code&gt;&quot;Olá mundão velho!&quot;&lt;/code&gt;. Enfim, tudo isso faz parte da sintaxe da linguagem de programação Java e qualquer erro, mesmo a simples troca de uma letra maiúscula por uma minúscula numa palavra reservada ou tipo de dado, acarreta um erro de sintaxe e, consequentemente, o programa não será compilado até que o erro seja corrigido.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Existem também certas convenções adotadas de forma consistente pela linguagem Java, que eu o aconselho enfaticamente a adotar desde logo, pois isso facilitará muito sua vida e a de outros programadores que precisarem examinar seu código, além de dar-lhe um aspecto bem mais intuitivo e profissional. É o caso, por exemplo, da adoção do estilo &lt;em&gt;CamelCase&lt;/em&gt; para identificação de variáveis, classes e métodos personalizados, como, por exemplo, no código acima, a classe &lt;code&gt;OlaMundo&lt;/code&gt;. O programa iria compilar normalmente se você lhe desse o nome de &lt;code&gt;OLAMUNDO&lt;/code&gt;, mas isso estaria contrariando as convenções usuais da linguagem. Olhando de relance, um programador poderia pensar tratar-se de uma constante, onde todas as letras são maiúsculas por convenção.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Deu para você  entender por que a observância das convenções é tão importante? Embora isso possa ter ficado meio vago no exame de um trecho de código tão pequeno como este, podem acreditar que faz muito sentido quando se analisa um programa com centenas ou milhares de linhas de código!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_clareza_do_código&quot;&gt;Clareza do Código&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Um outro aspecto que não deve ser relevado é com relação à estética de redação do código, com critérios de endentação, espaçamento e sinalização consistentes, para facilitar sua leitura e entendimento. Examine as duas versões de um mesmo fragmento de código na figura abaixo:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://i.imgur.com/MFgMGuB.png&quot; alt=&quot;MFgMGuB&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;O código acima da linha tracejada é exatamente o mesmo daquele abaixo dela e esse programa compila normalmente, mas é evidente que a primeira versão é muito mais clara para a leitura e compreensão do código. Se isso é válido para um trecho de código-fonte tão pequeno, imagine num programa com centenas de classes e milhares de linhas.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Outro ponto importante, é manter a consistência de estilo ao longo do código-fonte. Se, por exemplo, você usa este estilo, abrindo a chave logo depois da declaração, na mesma linha:&lt;/p&gt;
+&lt;/div&gt;
+&lt;pre class=&quot;brush: java, toolbar: false&quot;&gt;
+public static void main (String[] args) {
+
+}
+&lt;/pre&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;evite mudar para este outro estilo, abrindo a chave na linha seguinte à da declaração:&lt;/p&gt;
+&lt;/div&gt;
+&lt;pre class=&quot;brush: java, toolbar: false&quot;&gt;
+public static void main (String[] args)
+{
+
+}
+&lt;/pre&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;A mudança é muito sutil: apenas o local de abertura da chave, mas uma vez escolhido um dos estilos, permaneça fiel a ele ao longo de todo o código. A mesma coisa vale para espaçamento de endentação e de linhas. Com o tempo, você vai observar que quando a formatação é consistente, fica mais fácil habituar-se com ela e isso agiliza a leitura do código. Nosso cérebro é incrível no seu poder de adaptação, mas um pouquinho de ajuda vai aumentar sua produtividade.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Neste particular, os editores das IDE facilitam muito a vida do programador, pois todos eles incorporam recursos para automatizar o processo de endentação e formatação do código-fonte, com bastante flexibilidade para atender a todos os gostos.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Para finalizar, um último conselho: usem e abusem dos comentários, principalmente da facilidade de documentação oferecida pelo &lt;strong&gt;Javadoc&lt;/strong&gt;, pois isso é o que efetivamente separa os profissionais dos amadores.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_sintaxe_de_java_vs_outras_linguagens&quot;&gt;Sintaxe de Java vs. Outras Linguagens&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Comparem, a seguir, a sintaxe de um mesmo programa básico nas suas versões em Java, C, C++, C# e Python. Tirando Python, que é na verdade um &lt;em&gt;script&lt;/em&gt; executado por um interpretador, todas as demais linguagens tem uma sintaxe muito parecida. Isso é feito propositalmente, para que a curva de aprendizado seja muito rápida de uma para outra linguagem. Uma vez dominada uma delas, o caminho para aprender as outras fica bem mais suave.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Em Java:&lt;/p&gt;
+&lt;/div&gt;
+&lt;pre class=&quot;brush: java, toolbar: false&quot;&gt;
+/* OlaMundo em Java */
+
+public class OlaMundo {
+
+  public static void main(String[] args) {
+
+    System.out.println(&quot;Olá mundão velho!&quot;);
+
+  }
+
+}
+&lt;/pre&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Em C:&lt;/p&gt;
+&lt;/div&gt;
+&lt;pre class=&quot;brush: c, toolbar: false&quot;&gt;
+/* OlaMundo em C */
+
+#include &amp;#60;stdio.h&amp;#62;
+
+int main (int argc, char** argv)
+{
+    printf(&quot;Olá mundão velho!\n&quot;); // função printf está em stdio.h
+    return (0);
+}
+&lt;/pre&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Em C++:&lt;/p&gt;
+&lt;/div&gt;
+&lt;pre class=&quot;brush: c, toolbar: false&quot;&gt;
+/* OlaMundo em C++ */
+
+ #include &amp;#60;iostream&amp;#62;
+using namespace std;
+
+int main(int argc, const char * argv[]) {
+
+  cout &lt;&lt; &quot;Olá mundão velho!&quot; &lt;&lt; endl;
+
+}
+&lt;/pre&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Em C#:&lt;/p&gt;
+&lt;/div&gt;
+&lt;pre class=&quot;brush: csharp, toolbar: false&quot;&gt;
+/* OlaMundo em C# */
+
+using System;
+
+public class OlaMundo
+{
+   public static void Main(string[] args)
+   {
+      Console.WriteLine(&quot;Olá mundão velho!&quot;);
+   }
+}
+&lt;/pre&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Em Python:&lt;/p&gt;
+&lt;/div&gt;
+&lt;pre class=&quot;brush: python, toolbar: false&quot;&gt;
+# OlaMundo em Python
+
+print &quot;Olá mundão velho!&quot;
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_palavras_reservadas_pela_linguagem_java&quot;&gt;Palavras Reservadas pela Linguagem Java&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Para encerrar esta aula, apresento a seguir uma tabela com as 50 palavras reservadas da linguagem de programação Java, sendo que as duas últimas não são mais usadas atualmente, sendo mantidas apenas por uma questão de compatibilidade com suas primeiras versões.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://i.imgur.com/YKbLoEw.png&quot; alt=&quot;YKbLoEw&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ao longo deste curso, teremos oportunidade de examinar essas palavras, todas amplamente documentadas. Encorajo-o a fazer uma pesquisa no Google sobre cada uma, principalmente as menos usuais, para ir se familiarizando com a sintaxe de Java.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Esta é, talvez, a parte mais trabalhosa no aprendizado de uma linguagem de programação. Seria comparável com a ampliação do vocabulário, para quem aprende uma língua estrangeira. Pode ser tedioso às vezes, mas somente quando você tiver domínio sobre um vocabulário suficientemente amplo, poderá deslanchar no idioma.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+	    </description>
+      </item>
       <item>
         <title>Java - 20 anos</title>
         <link>http://ja-gaeta.github.io/2015/java-20-anos.html</link>
