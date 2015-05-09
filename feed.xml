@@ -6,8 +6,8 @@
     <atom:link href="http://ja-gaeta.github.io//feed.xml" rel="self" type="application/rss+xml" />
     <description>For future use?</description>
     <language>en</language>
-    <pubDate>Qui, 30 abr 2015 18:31:40 -0300</pubDate>
-    <lastBuildDate>Qui, 30 abr 2015 18:31:40 -0300</lastBuildDate>
+    <pubDate>Sáb, 9 mai 2015 11:31:02 -0300</pubDate>
+    <lastBuildDate>Sáb, 9 mai 2015 11:31:02 -0300</lastBuildDate>
 
       <item>
         <title>Curso de Java - Aula 3</title>
@@ -113,10 +113,14 @@
 &lt;div class=&quot;quoteblock&quot;&gt;
 &lt;blockquote&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Nós costumávamos ir almoçar num lugar chamado &lt;em&gt;St. Michael&amp;#8217;s Alley&lt;/em&gt;. De acordo com uma lenda local, a banda &lt;em&gt;Grateful Dead&lt;/em&gt; costumava se apresentar por lá num passado distante, antes de se tornar famosa. Era um lugar muito peculiar, que definitivamente tinha tudo a ver com a &lt;em&gt;Grateful Dead&lt;/em&gt;. Quando Jerry morreu, eles chegaram até a montar um pequeno santuário no estilo budista.
-Quando combinávamos ir lá, referíamo-nos ao lugar como &lt;em&gt;Cafe Dead&lt;/em&gt; (Café Morto). Num dado momento, percebeu-se que isso era um número hexadecimal.
- &amp;gt; Naquela época eu estava atualizando o código de alguns formatos de arquivo e precisava de um par de números mágicos: um para o arquivo-objeto persistente e outro para as classes. Usei &lt;strong&gt;CAFEDEAD&lt;/strong&gt; para o formato de arquivo-objeto e, ao buscar uma palavra com 4 caracteres hexadecimais para combinar com &lt;strong&gt;CAFE&lt;/strong&gt;, que parecia bastante apropriado, acabei encontrando &lt;strong&gt;BABE&lt;/strong&gt; e decidi usá-la. Naquele tempo, isso não parecia tão importante assim ou destinado a ter outro lugar na história além da lata de lixo.
- &amp;gt; Assim, &lt;strong&gt;CAFEBABE&lt;/strong&gt; se tornou o formato do arquivo de classes, e &lt;strong&gt;CAFEDEAD&lt;/strong&gt; era o formato do arquivo-objeto persistente. Mas a utilização do arquivo-objeto persistente foi abandonada, e com ele o uso de CAFEDEAD, eventualmente substituído pela RMI (&lt;em&gt;Remote Method Invocation&lt;/em&gt;, ou seja, Invocação de Métodos Remotos).&lt;/p&gt;
+&lt;p&gt;Nós costumávamos ir almoçar num lugar chamado &lt;em&gt;St. Michael&amp;#8217;s Alley&lt;/em&gt;. De acordo com uma lenda local, a banda &lt;em&gt;Grateful Dead&lt;/em&gt; costumava se apresentar por lá num passado distante, antes de se tornar famosa. Era um lugar muito peculiar, que definitivamente tinha tudo a ver com a &lt;em&gt;Grateful Dead&lt;/em&gt;. Quando Jerry morreu, eles chegaram até a montar um pequeno santuário no estilo budista.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Quando combinávamos ir lá, referíamo-nos ao lugar como &lt;em&gt;Cafe Dead&lt;/em&gt; (Café Morto). Num dado momento, percebeu-se que isso era um número hexadecimal.
+Naquela época eu estava atualizando o código de alguns formatos de arquivo e precisava de um par de números mágicos: um para o arquivo-objeto persistente e outro para as classes. Usei &lt;strong&gt;CAFEDEAD&lt;/strong&gt; para o formato de arquivo-objeto e, ao buscar uma palavra com 4 caracteres hexadecimais para combinar com &lt;strong&gt;CAFE&lt;/strong&gt;, que parecia bastante apropriado, acabei encontrando &lt;strong&gt;BABE&lt;/strong&gt; e decidi usá-la. Naquele tempo, isso não parecia tão importante assim ou destinado a ter outro lugar na história além da lata de lixo.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Assim, &lt;strong&gt;CAFEBABE&lt;/strong&gt; se tornou o formato do arquivo de classes, e &lt;strong&gt;CAFEDEAD&lt;/strong&gt; era o formato do arquivo-objeto persistente. Mas a utilização do arquivo-objeto persistente foi abandonada, e com ele o uso de CAFEDEAD, eventualmente substituído pela RMI (&lt;em&gt;Remote Method Invocation&lt;/em&gt;, ou seja, Invocação de Métodos Remotos).&lt;/p&gt;
 &lt;/div&gt;
 &lt;/blockquote&gt;
 &lt;/div&gt;
