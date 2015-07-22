@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+    Ponto G++
+        - Curso de Java - Aula 4
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="J.A. Gaeta Mendes">
+    <meta name="description" content="Static blog generated with JBake">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/cosmo/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/prettify-themes/github.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/asciidoctor.css">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav icon -->
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/img/favicon.png" type="image/x-icon">
+      
+    <!-- SyntaxHighlighter -->
+    <script type="text/javascript" src="/js/shCore.js"></script>
+    <script type="text/javascript" src="/js/shBrushJava.js"></script>
+    <script type="text/javascript" src="/js/shBrushCSharp.js"></script>
+    <script type="text/javascript" src="/js/shBrushCpp.js"></script>
+    <script type="text/javascript" src="/js/shBrushPython.js"></script>
+    
+    <link href="/css/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+      
+  </head>
+  <body>      
+    <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Ponto G++</a>
+        </div>
+        
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="/pages/about.html">Sobre</a></li>
+          <!--  <li><a href="/pages/contact.html">Contact</a></li> -->
+          </ul>
+        
+        <!-- Right navigation -->
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/archive.html"><i class="fa fa-list"></i> Arquivo</a></li>
+          <li><a href="/feed.xml" title="Rss"><i class="fa fa-rss"></i> Feed</a></li>
+        </ul>
+        <!-- Right navigation end -->
+
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav><!-- /.navbar -->
+
+    <!-- Begin page content -->
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-md-12">
+          <article>
+            <div class="page-header"><h1>Curso de Java - Aula 4</h1>
+              <ol class="breadcrumb tagsbar">
+                <li><a href="/tags/cursos.html">cursos</a></li>
+                <li><a href="/tags/java.html">java</a></li>
+              </ol>
+            </div>
+          <p class="post-meta">
+            <i class="fa fa-calendar"></i>&nbsp;21 Julho 2015&nbsp;&nbsp;
+            <i class="fa fa-user"></i>&nbsp;J.A. Gaeta Mendes&nbsp;&nbsp;
+              <i class="fa fa-comment"></i>&nbsp;<span class="badge"><a href="http://ja-gaeta.github.io/2015/curso-de-java-aula-004.html#disqus_thread"></a></span>
+          </p>
+              <p><div id="preamble">
+<div class="sectionbody">
+<p style="text-align: center;">&nbsp;<iframe src="//www.youtube.com/embed/zWtmB33AUCo" frameborder="1" width="560" height="315" allowfullscreen></iframe></p>
+<div class="paragraph">
+<p>Conteúdo da quarta vídeo-aula do Curso de Java, material essencial de apoio para o acompanhamento do curso de forma a assegurar o progresso na senda da linguagem de programação Java.</p>
+</div>
+<!--more-->
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Programa da aula</div>
+<ul class="sectlevel1">
+<li><a href="#_java_curiosa_divertida">Java Curiosa &amp; Divertida</a>
+<ul class="sectlevel2">
+<li><a href="#_o_mistério_do_cafe_babe">O mistério do CAFE BABE</a></li>
+</ul>
+</li>
+<li><a href="#_lógica_de_programação">Lógica de Programação</a>
+<ul class="sectlevel2">
+<li><a href="#_declaração_de_variáveis_em_java">Declaração de Variáveis em Java</a></li>
+<li><a href="#_regras_de_nomenclatura">Regras de Nomenclatura</a></li>
+</ul>
+</li>
+<li><a href="#_links_Úteis">Links Úteis</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_java_curiosa_divertida">Java Curiosa &amp; Divertida</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_o_mistério_do_cafe_babe">O mistério do CAFE BABE</h3>
+<div class="paragraph">
+<p>Vamos nos deter um pouco mais no exame do número mágico que inicia os arquivos dos <em>Bytecodes</em> a serem executados pela JVM que, como vimos na aula passada, é representado pelo número hexadecimal <strong>CAFE BABE</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Primeiramente, vejamos porque os números hexadecimais são usados na ciência da computação.</p>
+</div>
+<div class="paragraph">
+<p>Observem, na figura abaixo, que quatro bits podem representar, no sistema binário, qualquer número entre 0 (0000) e 15 (1111), ou seja, um conjunto de 16 números.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/07/cafe_babe.png" alt="cafe babe">
+</div>
+</div>
+<div class="paragraph">
+<p>Bingo! Cada dígito na base hexadecimal, pode representar exatamente 16 dígitos e, dessa forma, pode simplificar bastante a representação do código, pois cada dígito hexadecimal substitui 4 bits, ou seja, um <em>nibble</em>; dois dígitos hexadecimais substituem 8 bits, ou um <em>byte</em> e 4 dígitos hexadecimais substituem nada menos do que 16 bits (2 bytes), ou o que chamamos <em>palavra</em> ou <em>word</em>&#8230;&#8203; e, vamos e venhamos, é muito mais simples a representação hexadecimal CAFE do que a binária 1100101011111110&#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>O que devemos ter muito claro em mente, é que qualquer dessas duas notações representam exatamente o mesmo número. A única coisa que se altera, é a base numérica adotada.</p>
+</div>
+<div class="paragraph">
+<p>Fazendo uso da calculadora, disponível entre os utilitários de qualquer sistema operacional, no modo "programador", podemos facilmente converter o número mágico CAFE BABE para seu equivalente no sistema decimal, como vemos nas figuras abaixo:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/07/cafe_hex_dec.png" alt="cafe hex dec">
+</div>
+</div>
+<div class="paragraph">
+<p>Uma coisa interessante é que, na propaganda da Oracle, eles afirmam que Java é executada em mais de três bilhões de dispositivos!</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/07/3billion_java.jpg" alt="3billion java">
+</div>
+</div>
+<div class="paragraph">
+<p>O que vocês acham? Será uma mera coincidência? Teoria da conspiração? Homens-de-Preto? Deixo para vocês a tarefa de resolver este mistério&#8230;&#8203;</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_lógica_de_programação">Lógica de Programação</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_declaração_de_variáveis_em_java">Declaração de Variáveis em Java</h3>
+<div class="paragraph">
+<p>Não vamos adentrar aqui num estudo pormenorizado da memória física (hardware) dos computadores, mas seria interessante que vocês fizessem um pesquisa no Google, para examinar um pouco mais pormenorizadamente o assunto, em especial com relação à memória RAM (Random Access Memory&#8201;&#8212;&#8201;memória de acesso aleatório).</p>
+</div>
+<div class="paragraph">
+<p>Uma coisa verdadeiramente fantástica com relação aos computadores, aliás aquilo que os fazem ser efetivamente úteis, é a forma como podemos guardar dados temporariamente na memória (ou gravá-los para recuperação posterior).</p>
+</div>
+<div class="paragraph">
+<p>Cada byte da memória física é representado por um endereço único, representado em notação hexadecimal, seja ela de que dimensão for, desde alguns kilobytes até vários gigabytes&#8230;&#8203; cada célula de memória tem seu endereço. Na nomenclatura de programação, chamamos a estes endereços variáveis e, para não ter que recorrer à notação hexadecimal, o que tornaria a leitura do código muito difícil, damos um nome à variável, de acordo com as regras específicas da linguagem de programação usada.</p>
+</div>
+<div class="paragraph">
+<p>Conhecer o endereço da memória, contudo, seria de pouca valia se não pudéssemos guardar nada nele, não é mesmo? Assim sendo, vinculado àquele endereço único, é reservado um determinado montante de memória para o armazenamento dos dados&#8230;&#8203; mas como determinar este montante?</p>
+</div>
+<div class="paragraph">
+<p>Algumas linguagens de programação fazem isso em tempo de execução, ou seja <strong>dinamicamente</strong>, mas não é este o caso de Java. Embora seja matéria de controvérsia qual o melhor enfoque, o fato é que, desde sua concepção, optou-se por uma linguagem fortemente tipada e, dessa forma, além de darmos um nome para a variável, temos também que informar qual o tipo de dado que será armazenado naquele endereço.</p>
+</div>
+<div class="paragraph">
+<p>Esses tipos de dados são comuns a praticamente todas as linguagens de programação, mas podem haver pequenas variações nos seus tamanhos de uma para outra. Alguns tipos comuns são o "int" ou "Integer" para representar os números inteiros, "string" para representar cadeias de caracteres, "char" para representar um único caracter e "double" para representar números de ponto flutuante (decimais), apenas para citar os mais usuais.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/07/variaveis_tipos.png" alt="variaveis tipos">
+</div>
+</div>
+<div class="paragraph">
+<p>A declaração na linguagem de programação Java, deve obedecer à convenção <code>tipo nome-da-variável = valor;</code>. No caso da figura acima, teríamos:</p>
+</div>
+<pre class="brush: java, toolbar: false">
+    String nome = "Asdrubal";
+    String categoria = "iniciante";
+    Integer idade = 32;
+    Double saldo = 12.75;
+</pre>
+<div class="paragraph">
+<p>Observe o ponto-e-vírgula encerrando as declarações e repare também que, para o tipo String, o valor correspondente deve estar delimitado por aspas, desnecessárias para tipos numéricos, tais como Integer e Double.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_regras_de_nomenclatura">Regras de Nomenclatura</h3>
+<div class="paragraph">
+<p>As regras para dar nome às variáveis na linguagem de programação Java são bem intuitivas:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Deve iniciar com uma letra, o sinal de "underscore" ( _ ) ou o sinal de cifrão ($), este último de uso restrito para casos especiais, como veremos adiante ao tratarmos das convenções de nomenclatura;</p>
+</li>
+<li>
+<p>Sensibilidade à caixa das letras ("Case Sensitive"), ou seja, há diferenciação entre maiúsculas e minúsculas;</p>
+</li>
+<li>
+<p>Não pode começar com um número;</p>
+</li>
+<li>
+<p>É proibido deixar espaço em branco entre palavras. Para melhorar a legibilidade, as palavras devem ser separadas com o sinal de "underscore" ( _ ) ou,  preferencialmente, usando a convenção "CamelCase".</p>
+</li>
+<li>
+<p>Não podem ser usadas palavras reservadas para nome de variável.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A tabela a seguir elenca as 50 palavras-reservadas da linguagem Java:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/07/java_reserved_words.png" alt="java reserved words">
+</div>
+</div>
+<div class="paragraph">
+<p>A linguagem de programação Java foi desde o princípio responsável pela disseminação de boas práticas para a redação de código. São as chamadas convenções cuja observância, embora não seja compulsória, melhora muito a legibilidade do código e, por isso, aconselho enfaticamente sua adoção.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/07/CamelCase.png" alt="CamelCase">
+</div>
+</div>
+<div class="paragraph">
+<p>Assim, conforme a convenção, as variáveis devem ser nomeadas iniciando sempre com uma letra minúscula e, caso seja composta de mais de uma palavra, deve-se adotar a notação "camelCase", ou seja: primeira palavra começa com minúscula, segunda palavra com maiúscula, e assim por diante, tudo emendado, imitando as corcovas de um camelo&#8201;&#8212;&#8201;daí o nome.</p>
+</div>
+<div class="paragraph">
+<p>Exemplos de nomes válidos: primeiroNome, numeroDoCpf, listaDeCompras, etc.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_links_Úteis">Links Úteis</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Tipos de dados: <a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html" class="bare">https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div></p>
+      <div class="share">
+        <div class="social">
+  <!-- Facebook -->
+          <span class="facebook">
+            <iframe src="//www.facebook.com/plugins/like.php?href=http://http://ja-gaeta.github.io/2015/curso-de-java-aula-004.html&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+          </span>
+  <!-- Google+ -->
+          <span class="google">
+            <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+            <g:plusone size="medium" href="http://ja-gaeta.github.io/2015/curso-de-java-aula-004.html"></g:plusone>
+          </span>
+  <!-- Twitter -->
+          <span class="twitter">
+            <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ja-gaeta.github.io/2015/curso-de-java-aula-004.html">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </span>
+        </div>
+      </div>
+<hr>
+<section class="comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+  
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>            </article>
+        </div> <!-- /.col-md-12 -->
+      </div> <!-- /.row -->
+        
+      </div><!-- /.container -->
+
+    <footer>
+      <div class="container">
+        <hr>
+        <div class="row">
+          <div class="col-xs-10">
+            <p class="text-muted credit">&copy; Ponto G++ 2015 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/br/"><img src="/img/creative_commons_88x31.png"></a> | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.3.2</a> | <i title="Linux" class="fa fa-linux"></i></p>
+          </div>
+          <div class="col-xs-2 gotop">
+            <a href="#"><i class="fa fa-arrow-circle-up"> topo</i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
+    <script type="text/javascript">
+      <!-- load prettify only when needed -->
+      $(document).ready(function(){
+        var prettify = false;
+        var classToAdd = 'prettyprint snippet';
+        $("pre > code").each(function() {
+          $("pre > code").parent().addClass(classToAdd);
+          prettify = true;
+        });
+        if(prettify) {
+          prettyPrint();
+        }
+      });
+    </script>
+
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+    </script>
+
+          <script type="text/javascript">
+        SyntaxHighlighter.all()
+    </script>
+  </body>
+</html>

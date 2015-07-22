@@ -6,9 +6,192 @@
     <atom:link href="http://ja-gaeta.github.io//feed.xml" rel="self" type="application/rss+xml" />
     <description>For future use?</description>
     <language>en</language>
-    <pubDate>Sáb, 9 mai 2015 11:31:02 -0300</pubDate>
-    <lastBuildDate>Sáb, 9 mai 2015 11:31:02 -0300</lastBuildDate>
+    <pubDate>Ter, 21 jul 2015 23:03:45 -0300</pubDate>
+    <lastBuildDate>Ter, 21 jul 2015 23:03:45 -0300</lastBuildDate>
 
+      <item>
+        <title>Curso de Java - Aula 4</title>
+        <link>http://ja-gaeta.github.io/2015/curso-de-java-aula-004.html</link>
+        <pubDate>Ter, 21 jul 2015 00:00:00 -0300</pubDate>
+        <guid isPermaLink="false">2015/curso-de-java-aula-004.html</guid>
+        <description>
+	        &lt;div id=&quot;preamble&quot;&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;p style=&quot;text-align: center;&quot;&gt;&amp;nbsp;&lt;iframe src=&quot;//www.youtube.com/embed/zWtmB33AUCo&quot; frameborder=&quot;1&quot; width=&quot;560&quot; height=&quot;315&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/p&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Conteúdo da quarta vídeo-aula do Curso de Java, material essencial de apoio para o acompanhamento do curso de forma a assegurar o progresso na senda da linguagem de programação Java.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!--more--&gt;
+&lt;div id=&quot;toc&quot; class=&quot;toc&quot;&gt;
+&lt;div id=&quot;toctitle&quot; class=&quot;title&quot;&gt;Programa da aula&lt;/div&gt;
+&lt;ul class=&quot;sectlevel1&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#_java_curiosa_divertida&quot;&gt;Java Curiosa &amp;amp; Divertida&lt;/a&gt;
+&lt;ul class=&quot;sectlevel2&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#_o_mistério_do_cafe_babe&quot;&gt;O mistério do CAFE BABE&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#_lógica_de_programação&quot;&gt;Lógica de Programação&lt;/a&gt;
+&lt;ul class=&quot;sectlevel2&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#_declaração_de_variáveis_em_java&quot;&gt;Declaração de Variáveis em Java&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#_regras_de_nomenclatura&quot;&gt;Regras de Nomenclatura&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#_links_Úteis&quot;&gt;Links Úteis&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_java_curiosa_divertida&quot;&gt;Java Curiosa &amp;amp; Divertida&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_o_mistério_do_cafe_babe&quot;&gt;O mistério do CAFE BABE&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Vamos nos deter um pouco mais no exame do número mágico que inicia os arquivos dos &lt;em&gt;Bytecodes&lt;/em&gt; a serem executados pela JVM que, como vimos na aula passada, é representado pelo número hexadecimal &lt;strong&gt;CAFE BABE&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Primeiramente, vejamos porque os números hexadecimais são usados na ciência da computação.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Observem, na figura abaixo, que quatro bits podem representar, no sistema binário, qualquer número entre 0 (0000) e 15 (1111), ou seja, um conjunto de 16 números.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/07/cafe_babe.png&quot; alt=&quot;cafe babe&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Bingo! Cada dígito na base hexadecimal, pode representar exatamente 16 dígitos e, dessa forma, pode simplificar bastante a representação do código, pois cada dígito hexadecimal substitui 4 bits, ou seja, um &lt;em&gt;nibble&lt;/em&gt;; dois dígitos hexadecimais substituem 8 bits, ou um &lt;em&gt;byte&lt;/em&gt; e 4 dígitos hexadecimais substituem nada menos do que 16 bits (2 bytes), ou o que chamamos &lt;em&gt;palavra&lt;/em&gt; ou &lt;em&gt;word&lt;/em&gt;&amp;#8230;&amp;#8203; e, vamos e venhamos, é muito mais simples a representação hexadecimal CAFE do que a binária 1100101011111110&amp;#8230;&amp;#8203;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;O que devemos ter muito claro em mente, é que qualquer dessas duas notações representam exatamente o mesmo número. A única coisa que se altera, é a base numérica adotada.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Fazendo uso da calculadora, disponível entre os utilitários de qualquer sistema operacional, no modo &quot;programador&quot;, podemos facilmente converter o número mágico CAFE BABE para seu equivalente no sistema decimal, como vemos nas figuras abaixo:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/07/cafe_hex_dec.png&quot; alt=&quot;cafe hex dec&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Uma coisa interessante é que, na propaganda da Oracle, eles afirmam que Java é executada em mais de três bilhões de dispositivos!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/07/3billion_java.jpg&quot; alt=&quot;3billion java&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;O que vocês acham? Será uma mera coincidência? Teoria da conspiração? Homens-de-Preto? Deixo para vocês a tarefa de resolver este mistério&amp;#8230;&amp;#8203;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_lógica_de_programação&quot;&gt;Lógica de Programação&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_declaração_de_variáveis_em_java&quot;&gt;Declaração de Variáveis em Java&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Não vamos adentrar aqui num estudo pormenorizado da memória física (hardware) dos computadores, mas seria interessante que vocês fizessem um pesquisa no Google, para examinar um pouco mais pormenorizadamente o assunto, em especial com relação à memória RAM (Random Access Memory&amp;#8201;&amp;#8212;&amp;#8201;memória de acesso aleatório).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Uma coisa verdadeiramente fantástica com relação aos computadores, aliás aquilo que os fazem ser efetivamente úteis, é a forma como podemos guardar dados temporariamente na memória (ou gravá-los para recuperação posterior).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Cada byte da memória física é representado por um endereço único, representado em notação hexadecimal, seja ela de que dimensão for, desde alguns kilobytes até vários gigabytes&amp;#8230;&amp;#8203; cada célula de memória tem seu endereço. Na nomenclatura de programação, chamamos a estes endereços variáveis e, para não ter que recorrer à notação hexadecimal, o que tornaria a leitura do código muito difícil, damos um nome à variável, de acordo com as regras específicas da linguagem de programação usada.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Conhecer o endereço da memória, contudo, seria de pouca valia se não pudéssemos guardar nada nele, não é mesmo? Assim sendo, vinculado àquele endereço único, é reservado um determinado montante de memória para o armazenamento dos dados&amp;#8230;&amp;#8203; mas como determinar este montante?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Algumas linguagens de programação fazem isso em tempo de execução, ou seja &lt;strong&gt;dinamicamente&lt;/strong&gt;, mas não é este o caso de Java. Embora seja matéria de controvérsia qual o melhor enfoque, o fato é que, desde sua concepção, optou-se por uma linguagem fortemente tipada e, dessa forma, além de darmos um nome para a variável, temos também que informar qual o tipo de dado que será armazenado naquele endereço.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Esses tipos de dados são comuns a praticamente todas as linguagens de programação, mas podem haver pequenas variações nos seus tamanhos de uma para outra. Alguns tipos comuns são o &quot;int&quot; ou &quot;Integer&quot; para representar os números inteiros, &quot;string&quot; para representar cadeias de caracteres, &quot;char&quot; para representar um único caracter e &quot;double&quot; para representar números de ponto flutuante (decimais), apenas para citar os mais usuais.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/07/variaveis_tipos.png&quot; alt=&quot;variaveis tipos&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;A declaração na linguagem de programação Java, deve obedecer à convenção &lt;code&gt;tipo nome-da-variável = valor;&lt;/code&gt;. No caso da figura acima, teríamos:&lt;/p&gt;
+&lt;/div&gt;
+&lt;pre class=&quot;brush: java, toolbar: false&quot;&gt;
+    String nome = &quot;Asdrubal&quot;;
+    String categoria = &quot;iniciante&quot;;
+    Integer idade = 32;
+    Double saldo = 12.75;
+&lt;/pre&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Observe o ponto-e-vírgula encerrando as declarações e repare também que, para o tipo String, o valor correspondente deve estar delimitado por aspas, desnecessárias para tipos numéricos, tais como Integer e Double.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_regras_de_nomenclatura&quot;&gt;Regras de Nomenclatura&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As regras para dar nome às variáveis na linguagem de programação Java são bem intuitivas:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Deve iniciar com uma letra, o sinal de &quot;underscore&quot; ( _ ) ou o sinal de cifrão ($), este último de uso restrito para casos especiais, como veremos adiante ao tratarmos das convenções de nomenclatura;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Sensibilidade à caixa das letras (&quot;Case Sensitive&quot;), ou seja, há diferenciação entre maiúsculas e minúsculas;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Não pode começar com um número;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;É proibido deixar espaço em branco entre palavras. Para melhorar a legibilidade, as palavras devem ser separadas com o sinal de &quot;underscore&quot; ( _ ) ou,  preferencialmente, usando a convenção &quot;CamelCase&quot;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Não podem ser usadas palavras reservadas para nome de variável.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;A tabela a seguir elenca as 50 palavras-reservadas da linguagem Java:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/07/java_reserved_words.png&quot; alt=&quot;java reserved words&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;A linguagem de programação Java foi desde o princípio responsável pela disseminação de boas práticas para a redação de código. São as chamadas convenções cuja observância, embora não seja compulsória, melhora muito a legibilidade do código e, por isso, aconselho enfaticamente sua adoção.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/07/CamelCase.png&quot; alt=&quot;CamelCase&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Assim, conforme a convenção, as variáveis devem ser nomeadas iniciando sempre com uma letra minúscula e, caso seja composta de mais de uma palavra, deve-se adotar a notação &quot;camelCase&quot;, ou seja: primeira palavra começa com minúscula, segunda palavra com maiúscula, e assim por diante, tudo emendado, imitando as corcovas de um camelo&amp;#8201;&amp;#8212;&amp;#8201;daí o nome.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Exemplos de nomes válidos: primeiroNome, numeroDoCpf, listaDeCompras, etc.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_links_Úteis&quot;&gt;Links Úteis&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Tipos de dados: &lt;a href=&quot;https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html&quot; class=&quot;bare&quot;&gt;https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+	    </description>
+      </item>
       <item>
         <title>Curso de Java - Aula 3</title>
         <link>http://ja-gaeta.github.io/2015/curso-de-java-aula-003.html</link>
