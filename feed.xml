@@ -6,8 +6,8 @@
     <atom:link href="http://ja-gaeta.github.io//feed.xml" rel="self" type="application/rss+xml" />
     <description>For future use?</description>
     <language>en</language>
-    <pubDate>Ter, 21 jul 2015 23:03:45 -0300</pubDate>
-    <lastBuildDate>Ter, 21 jul 2015 23:03:45 -0300</lastBuildDate>
+    <pubDate>Ter, 21 jul 2015 23:52:29 -0300</pubDate>
+    <lastBuildDate>Ter, 21 jul 2015 23:52:29 -0300</lastBuildDate>
 
       <item>
         <title>Curso de Java - Aula 4</title>
@@ -61,7 +61,7 @@
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Bingo! Cada dígito na base hexadecimal, pode representar exatamente 16 dígitos e, dessa forma, pode simplificar bastante a representação do código, pois cada dígito hexadecimal substitui 4 bits, ou seja, um &lt;em&gt;nibble&lt;/em&gt;; dois dígitos hexadecimais substituem 8 bits, ou um &lt;em&gt;byte&lt;/em&gt; e 4 dígitos hexadecimais substituem nada menos do que 16 bits (2 bytes), ou o que chamamos &lt;em&gt;palavra&lt;/em&gt; ou &lt;em&gt;word&lt;/em&gt;&amp;#8230;&amp;#8203; e, vamos e venhamos, é muito mais simples a representação hexadecimal CAFE do que a binária 1100101011111110&amp;#8230;&amp;#8203;&lt;/p&gt;
+&lt;p&gt;Bingo! Cada dígito na base hexadecimal, pode representar exatamente 16 números decimais e isso simplifica bastante a representação do código, pois cada dígito hexadecimal substitui 4 bits, ou seja, um &lt;em&gt;nibble&lt;/em&gt;; dois dígitos hexadecimais substituem 8 bits, ou um &lt;em&gt;byte&lt;/em&gt; e 4 dígitos hexadecimais substituem nada menos do que 16 bits (2 bytes), ou o que chamamos &lt;em&gt;palavra&lt;/em&gt; ou &lt;em&gt;word&lt;/em&gt;&amp;#8230;&amp;#8203; e, vamos e venhamos, é muito mais simples a representação hexadecimal CAFE do que a binária 1100101011111110&amp;#8230;&amp;#8203;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;O que devemos ter muito claro em mente, é que qualquer dessas duas notações representam exatamente o mesmo número. A única coisa que se altera, é a base numérica adotada.&lt;/p&gt;
@@ -1791,10 +1791,10 @@ public class HelloWorld { // (2)
         <description>
 	        &lt;p&gt;Forneço neste artigo um passo-a-passo para instalação do JDK/JRE (Java SE 8) no Mac OS X. Para outras versões do JDK/JRE, consulte a documentação do seu sistema operacional e/ou a documentação da &lt;a href=&quot;http://docs.oracle.com/javase/8/&quot;&gt;Oracle&lt;/a&gt;, caso encontre alguma dificuldade.&lt;/p&gt;
 &lt;!--more--&gt;&lt;h3&gt;1º Passo - Download&lt;/h3&gt;&lt;p&gt;Efetue o download do arquivo executável de instalação no site da Oracle, &lt;a href=&quot;http://www.oracle.com/technetwork/pt/java/javase/downloads/index.html&quot;&gt;neste link&lt;/a&gt;. Selecione &lt;em&gt;JDK Download&lt;/em&gt;. Ao instalar o JDK, o JRE correspondente também é instalado. Observe a imagem a seguir:&lt;/p&gt;
-&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;http://i.imgur.com/BMN2Neg.png&quot; title=&quot;source: imgur.com&quot; /&gt;&lt;/p&gt;&lt;p&gt;Na página seguinte, aceite o acordo de licença e selecione o arquivo correspondente (para o Mac OS X x64, no momento em que escrevo esta instrução, o arquivo do último &lt;em&gt;update&lt;/em&gt; disponível é o &lt;code&gt;jdk-8u25-macosx-x64.dmg&lt;/code&gt;. Veja a imagem seguinte:&lt;/p&gt;
-&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;http://i.imgur.com/ocSduXR.png&quot; title=&quot;source: imgur.com&quot; /&gt;&lt;/p&gt;&lt;h3&gt;2º Passo: Instalação&lt;/h3&gt;&lt;p&gt;Aguarde o final do download, que pode demorar um pouco, dependendo da velocidade de sua conexão com a Internet, pois o tamanho do arquivo mencionado é de 209 MB, e execute o arquivo &lt;strong&gt;dmg&lt;/strong&gt; de instalação. O processo é praticamente automático.&lt;/p&gt;&lt;h3&gt;3º Passo: Verificação&lt;/h3&gt;&lt;p&gt;Para conferir a instalação, abra um Terminal, e digite &lt;code&gt;java -version&lt;/code&gt;. Deverão ser exibidas as &lt;em&gt;strings&lt;/em&gt; de controle de versão do JRE, conforme a figura abaixo.&lt;/p&gt;
-&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img style=&quot;border:1px solid #021a40;&quot; src=&quot;http://i.imgur.com/OTJxj7t.png&quot; title=&quot;source: imgur.com&quot; /&gt;&lt;/p&gt;&lt;p&gt;Em seguida, digite &lt;code&gt;javac -version&lt;/code&gt;. Se tudo estiver certo, será exibida a &lt;em&gt;string&lt;/em&gt; de controle de versão do compilador Java do JDK, conforme abaixo:&lt;/p&gt;
-&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img style=&quot;border:1px solid #021a40;&quot; src=&quot;http://i.imgur.com/y3mAVjM.png&quot; title=&quot;source: imgur.com&quot; /&gt;&lt;/p&gt;&lt;p&gt;Parabéns, o JDK e o JRE estão devidamente instalados na sua máquina e você já pode começar a desenvolver em Java!&lt;/p&gt;
+&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2014/12/mac_inst_0011.png&quot; alt=&quot;mac_inst_0011&quot; /&gt;&lt;/p&gt;&lt;p&gt;Na página seguinte, aceite o acordo de licença e selecione o arquivo correspondente (para o Mac OS X x64, no momento em que escrevo esta instrução, o arquivo do último &lt;em&gt;update&lt;/em&gt; disponível é o &lt;code&gt;jdk-8u25-macosx-x64.dmg&lt;/code&gt;. Veja a imagem seguinte:&lt;/p&gt;
+&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/02/macInstall_001.png&quot; alt=&quot;macInstall_001&quot; /&gt;&lt;/p&gt;&lt;h3&gt;2º Passo: Instalação&lt;/h3&gt;&lt;p&gt;Aguarde o final do download, que pode demorar um pouco, dependendo da velocidade de sua conexão com a Internet, pois o tamanho do arquivo mencionado é de 209 MB, e execute o arquivo &lt;strong&gt;dmg&lt;/strong&gt; de instalação. O processo é praticamente automático.&lt;/p&gt;&lt;h3&gt;3º Passo: Verificação&lt;/h3&gt;&lt;p&gt;Para conferir a instalação, abra um Terminal, e digite &lt;code&gt;java -version&lt;/code&gt;. Deverão ser exibidas as &lt;em&gt;strings&lt;/em&gt; de controle de versão do JRE, conforme a figura abaixo.&lt;/p&gt;
+&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2014/12/mac_inst_002.png&quot; alt=&quot;mac_inst_002&quot; /&gt;&lt;/p&gt;&lt;p&gt;Em seguida, digite &lt;code&gt;javac -version&lt;/code&gt;. Se tudo estiver certo, será exibida a &lt;em&gt;string&lt;/em&gt; de controle de versão do compilador Java do JDK, conforme abaixo:&lt;/p&gt;
+&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2014/12/mac_inst_003.png&quot; alt=&quot;mac_inst_003&quot; /&gt;&lt;/p&gt;&lt;p&gt;Parabéns, o JDK e o JRE estão devidamente instalados na sua máquina e você já pode começar a desenvolver em Java!&lt;/p&gt;
 &lt;hr/&gt;
 	    </description>
       </item>
