@@ -6,9 +6,183 @@
     <atom:link href="http://ja-gaeta.github.io//feed.xml" rel="self" type="application/rss+xml" />
     <description>For future use?</description>
     <language>en</language>
-    <pubDate>Sex, 24 jul 2015 19:09:51 -0300</pubDate>
-    <lastBuildDate>Sex, 24 jul 2015 19:09:51 -0300</lastBuildDate>
+    <pubDate>Ter, 28 jul 2015 18:16:53 -0300</pubDate>
+    <lastBuildDate>Ter, 28 jul 2015 18:16:53 -0300</lastBuildDate>
 
+      <item>
+        <title>Curso de Java - Aula 5</title>
+        <link>http://ja-gaeta.github.io/2015/curso-de-java-aula-005.html</link>
+        <pubDate>Qua, 22 jul 2015 00:00:00 -0300</pubDate>
+        <guid isPermaLink="false">2015/curso-de-java-aula-005.html</guid>
+        <description>
+	        &lt;div id=&quot;preamble&quot;&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;p style=&quot;text-align: center;&quot;&gt;&amp;nbsp;&lt;iframe src=&quot;//www.youtube.com/embed/ikeihqqrzNc&quot; frameborder=&quot;1&quot; width=&quot;560&quot; height=&quot;315&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/p&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Material de apoio para a vídeo-aula nº 5 do Curso de Java ministrado no Ponto G++, contendo toda a base teórica para um sólido acompanhamento da aula.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!--more--&gt;
+&lt;div id=&quot;toc&quot; class=&quot;toc&quot;&gt;
+&lt;div id=&quot;toctitle&quot; class=&quot;title&quot;&gt;Programa da aula&lt;/div&gt;
+&lt;ul class=&quot;sectlevel1&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#_java_curiosa_divertida&quot;&gt;Java Curiosa &amp;amp; Divertida&lt;/a&gt;
+&lt;ul class=&quot;sectlevel2&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#_a_história_de_duke&quot;&gt;A História de Duke&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#_desvendando_o_mistério_do_rei_branco&quot;&gt;Desvendando o Mistério do Rei Branco&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#_tipagem_das_linguagens_de_programação&quot;&gt;Tipagem das Linguagens de Programação&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#_links_Úteis&quot;&gt;Links Úteis&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_java_curiosa_divertida&quot;&gt;Java Curiosa &amp;amp; Divertida&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_a_história_de_duke&quot;&gt;A História de Duke&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Quando começamos a estudar a linguagem de programação Java, somos logo apresentados ao seu simpático mascote, chamado Duke&amp;#8230;&amp;#8203;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/07/duke_waving.png&quot; alt=&quot;duke waving&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Neste bloco da vídeo-aula, contamos a história dessa personagem e, para dar um toque de humor, revelamos uma fofoca que rola no mundo Java, sobre  a sua ligação com a famosa série Jornada nas Estrelas (Star Trek), finalizando com uma homenagem ao extraordinário Leonard Nimoy, falecido recentemente.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Abaixo, são fornecidos, entre outros, &lt;em&gt;links&lt;/em&gt; para os sites que usamos na pesquisa deste assunto.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_desvendando_o_mistério_do_rei_branco&quot;&gt;Desvendando o Mistério do Rei Branco&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Quando quisermos apresentar caracteres UTF-8 no console do IDE Eclipse, é necessário que sua codificação esteja configurada corretamente.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Por padrão, o console é configurado para a codificação de terminal Cp 1252. Para dar suporte à codificação UTF-8 (ou outra qualquer), é preciso selecionar o menu Run &amp;#8594; Run Configurations&amp;#8230;&amp;#8203; (Consulte a figura a seguir, para referência).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/07/ecl_runconfig_menu.png&quot; alt=&quot;ecl runconfig menu&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Na caixa de diálogo de configuração, selecione a aba &lt;em&gt;Common&lt;/em&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/07/ecl_config_utf8_1.png&quot; alt=&quot;ecl config utf8 1&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Observe que, no grupo de botões de rádio &lt;em&gt;Encoding&lt;/em&gt;, está selecionada a opção &lt;em&gt;Default - inherited (Cp 1252)&lt;/em&gt;. Para mudar a codificação, selecione o botão de rádio &lt;em&gt;Other&lt;/em&gt; e, na caixa de seleção &lt;em&gt;Drop-Down&lt;/em&gt;, escolha &lt;strong&gt;UTF-8&lt;/strong&gt;, conforme é exibido na próxima figura:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/07/ecl_config_utf8_2.png&quot; alt=&quot;ecl config utf8 2&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_tipagem_das_linguagens_de_programação&quot;&gt;Tipagem das Linguagens de Programação&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As linguagens de programação podem ser divididas em dois grandes grupos: as dinâmicas e as estáticas. Nas primeiras a necessidade de declaração dos tipos de dados é fraca, o que facilita o desenvolvimento por um lado, mas em geral dificultam a detecção de erros, principalmente quando o projeto é de grande dimensão e complexidade. Já as linguagens estáticas permitem que os desenvolvedores localizem erros até mesmo antes da execução do aplicativo, mas tem a desvantagem de não serem tão práticas como as linguagens mais modernas.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Na resposta a uma pergunta sobre o tema no &lt;a href=&quot;http://pt.stackoverflow.com/questions/21508/&quot; target=&quot;_blank&quot;&gt;stackoverflow em português&lt;/a&gt;, encontramos a seguinte tabela comparativa muito interessante entre esses dois grupos de linguagens:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/07/dinamic_vs_static.png&quot; alt=&quot;dinamic vs static&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;A linguagem de programação Java enquadra-se no grupo das linguagens estáticas e, portanto, nela é obrigatória a declaração do tipo das variáveis e são proibidas determinadas operações com tipos diferentes.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Não são feitas inferências de tipo, ou seja, os tipos não podem ser subentendidos de acordo com o valor atribuído à variável, sob nenhuma hipótese.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Em algumas operações com tipos diferentes, pode ocorrer o &quot;casting&quot; (ou conversão) de um dos tipos em outro, silenciosamente, nos bastidores. É o que ocorre no exemplo abaixo:&lt;/p&gt;
+&lt;/div&gt;
+&lt;pre class=&quot;brush: java, toolbar: false&quot;&gt;
+package teste;
+
+public class Teste {
+
+	public static void main(String[] args) {
+
+		int i = 2;
+		double d = 2.0
+
+		System.out.println(i + d);
+
+		// 4.0
+	}
+}
+&lt;/pre&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Neste caso, o inteiro (int) &quot;i&quot; é convertido silenciosamente para ponto-flutuante de dupla precisão (double), antes da adição com &quot;d&quot;. Em outro ponto deste curso, examinaremos esta questão de &quot;casting&quot;, ou seja, a conversão automática e silenciosa de um tipo em outro, pois isso é uma coisa muito importante e que se deve ter sempre em mente, para evitar conversões inesperadas e indesejadas.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Em linguagens de tipagem fraca, como JavaScript, por exemplo, essas conversões são muito mais comuns e flexíveis. Inteiros são automaticamente convertidos em &quot;strings&quot; de caracteres e concatenados com outra &quot;string&quot; numa adição como exemplificado abaixo:&lt;/p&gt;
+&lt;/div&gt;
+&lt;pre class=&quot;brush: javascript, toolbar: false&quot;&gt;
+console.log(&apos;Camisa &apos; + 10);
+console.log(10 + &apos; camisas&apos;);
+
+// Camisa 10
+// 10 camisas
+&lt;/pre&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Mas afinal, o que é melhor: uma linguagem estática ou uma linguagem dinâmica? A resposta é&amp;#8230;&amp;#8203; depende.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;A principal dependência é, sem dúvida, do tipo de aplicativo que pretendemos desenvolver. A linguagem de programação é como uma ferramenta: você pode usar um martelo para fixar um parafuso, mas para isso uma chave de fenda seria muito mais indicada.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;O fato de ser uma linguagem de tipagem estática muito forte, como ocorre com Java, acaba sendo o seu ponto alto para o desenvolvimento de grandes sistemas corporativos, muito complexos e com exigências muito rigorosas quanto à segurança.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Por outro lado, linguagens dinâmicas tais como JavaScript e PHP, voltadas para o desenvolvimento de aplicativos na Internet (Web), aproveitam ao máximo a flexibilidade delas para o desenvolvimento com alta produtividade.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Uma última coisa para a qual gostaria de chamar sua atenção é que, existem outras linguagens de programação para desenvolvimento no ambiente Java (JRE), e algumas são dinâmicas, como Groovy, por exemplo.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_links_Úteis&quot;&gt;Links Úteis&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Duke &quot;open-source&quot;: &lt;a href=&quot;https://duke.kenai.com/&quot; class=&quot;bare&quot;&gt;https://duke.kenai.com/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Java.net: &lt;a href=&quot;https://home.java.net/&quot; class=&quot;bare&quot;&gt;https://home.java.net/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;História de Duke: &lt;a href=&quot;https://www.java.net/duke-java-mascot&quot; class=&quot;bare&quot;&gt;https://www.java.net/duke-java-mascot&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Tipagem: &lt;a href=&quot;https://anotacoesdohercules.wordpress.com/2013/03/05/tipagem-fracaforte-e-inferencia-de-tipo/&quot; class=&quot;bare&quot;&gt;https://anotacoesdohercules.wordpress.com/2013/03/05/tipagem-fracaforte-e-inferencia-de-tipo/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+	    </description>
+      </item>
       <item>
         <title>Curso de Java - Aula 4</title>
         <link>http://ja-gaeta.github.io/2015/curso-de-java-aula-004.html</link>
@@ -117,7 +291,7 @@
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;A declaração na linguagem de programação Java, deve obedecer à convenção &lt;code&gt;tipo nome-da-variável = valor;&lt;/code&gt;. No caso da figura acima, teríamos:&lt;/p&gt;
+&lt;p&gt;A declaração de variáveis na linguagem de programação Java, deve obedecer à convenção &lt;code&gt;tipo nome-da-variável = valor;&lt;/code&gt;. No caso da figura acima, teríamos:&lt;/p&gt;
 &lt;/div&gt;
 &lt;pre class=&quot;brush: java, toolbar: false&quot;&gt;
     String nome = &quot;Asdrubal&quot;;
