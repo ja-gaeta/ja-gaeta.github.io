@@ -6,13 +6,292 @@
     <atom:link href="http://ja-gaeta.github.io//feed.xml" rel="self" type="application/rss+xml" />
     <description>For future use?</description>
     <language>en</language>
-    <pubDate>Ter, 28 jul 2015 18:16:53 -0300</pubDate>
-    <lastBuildDate>Ter, 28 jul 2015 18:16:53 -0300</lastBuildDate>
+    <pubDate>Sun, 2 Aug 2015 18:55:07 -0300</pubDate>
+    <lastBuildDate>Sun, 2 Aug 2015 18:55:07 -0300</lastBuildDate>
 
+      <item>
+        <title>Desvendando as Portas Lógicas</title>
+        <link>http://ja-gaeta.github.io/2015/desvendando-as-portas-logicas.html</link>
+        <pubDate>Wed, 29 Jul 2015 00:00:00 -0300</pubDate>
+        <guid isPermaLink="false">2015/desvendando-as-portas-logicas.html</guid>
+        <description>
+	        &lt;div id=&quot;preamble&quot;&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Dentre os componentes mais elementares da eletrônica digital estão as denominadas &lt;strong&gt;portas lógicas&lt;/strong&gt;. Elas são integradas aos milhares em circuitos prontinhos para uso, tais como os microprocessadores e os microcontroladores.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;O entendimento do funcionamento desses circuitos básicos é essencial para a compreensão dos operadores lógicos usados em programação, principalmente os operadores lógicos &lt;em&gt;bitwise&lt;/em&gt;, ou seja aqueles que operam a nível de &lt;em&gt;bit&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!--more--&gt;
+&lt;div id=&quot;toc&quot; class=&quot;toc&quot;&gt;
+&lt;div id=&quot;toctitle&quot; class=&quot;title&quot;&gt;Índice&lt;/div&gt;
+&lt;ul class=&quot;sectlevel1&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#_introdução&quot;&gt;Introdução&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#_porta_inversora_not&quot;&gt;Porta Inversora (&quot;NOT&quot;)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#_porta_and&quot;&gt;Porta &quot;AND&quot;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_introdução&quot;&gt;Introdução&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/03/simple-circuit.png&quot; alt=&quot;simple circuit&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;A figura acima apresenta o circuito eletrônico mais elementar que existe: um LED, em série com um resistor limitador de corrente, que acende e apaga ao ser acionada uma chave. Mas embora simples, este circuito contém em si todo o fundamento da eletrônica digital&amp;#8201;&amp;#8212;&amp;#8201;de fato, o LED só poderá assumir dois estados: apagado, ou aceso; desligado ou ligado; 0 ou 1&amp;#8230;&amp;#8203; perceberam?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Os transistores funcionam muito bem como chaves eletrônicas e podem comutar, isto é, mudar de estado, com velocidades fantásticas. Com o desenvolvimento da tecnologia, eles puderam ser integrados aos milhões nos microprocessadores, vindo daí a grande capacidade de processamento dos computadores modernos.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Voltando ao nosso conceito básico de eletrônica digital, sabemos então que ela pode representar apenas dois dígitos numéricos: &quot;0&quot;, para uma tensão de 0 V e &quot;1&quot;, para uma tensão de 3,3 V nos circuitos integrados mais modernos, ou 5 V nos mais antigos.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Depois de rever esses conceitos elementares, podemos passar ao estudo das portas lógicas.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_porta_inversora_not&quot;&gt;Porta Inversora (&quot;NOT&quot;)&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;A lógica desta porta é simplíssima: como o nome já diz, ela faz uma inversão da entrada. Ou seja, quando a tensão na entrada é nula (0 V), que podemos representar por 0, a tensão na saída será alta (3,3 V, por exemplo), e podemos representá-la por 1. Por outro lado, se a entrada for alta (3,3 V neste exemplo), a saída será nula (0 V). Abaixo podemos ver o símbolo da porta inversora e a representação da lógica do seu funcionamento.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/07/not_gate.jpg&quot; alt=&quot;not gate&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Aquele pequeno círculo na frente do triângulo quer dizer inversão. Voltaremos a ver isso quando examinarmos as outras portas lógicas.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Podemos montar uma simples porta inversora, usando apenas um transistor NPN, alguns resistores, uma chave &quot;push-button&quot; e dois LEDs de cores diferentes, para monitorar a entrada e a saída.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;O circuito, apresentado na figura abaixo, é bem simples e sua montagem pode ser feita numa &lt;em&gt;protoboard&lt;/em&gt;, usando alguns cabinhos para as conexões.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/07/porta_inversora_npn_1.png&quot; alt=&quot;porta inversora npn 1&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Nesta situação, com o &lt;em&gt;push-button&lt;/em&gt; aberto, o LED de entrada recebe uma tensão desprezível, praticamente 0 V, e permanece apagado (representando 0); por outro lado, a polarização do transistor permite fluir uma corrente suficiente pelo coletor para acender o LED de saída, com uma tensão praticamente nominal (representando 1). A foto a seguir mostra a montagem neste estado.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/07/montagem_porta_inversora_01.png&quot; alt=&quot;montagem porta inversora 01&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Vamos inverter as coisas agora, conforme mostrado no diagrama abaixo:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/07/porta_inversora_npn_2.png&quot; alt=&quot;porta inversora npn 2&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Quando pressionamos o botão, a corrente flui livremente pelo LED de entrada que acende com a tensão nominal (representando 1), alterando-se a polarização do transistor que entra em corte e, uma vez que a corrente de coletor praticamente inexiste, o LED de saída permanece apagado (representando 0). A próxima foto exibe a montagem neste novo estado.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/07/montagem_porta_inversora_02.png&quot; alt=&quot;montagem porta inversora 02&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Como já disse, esses circuitos são embutidos em circuitos integrados, como o famoso 7404, já um ancião, que possui nada mais nada menos do que seis portas inversoras, operando com uma tensão nominal de 5 V e cujo diagrama interno é exibido na figura seguinte.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/07/ic7404.png&quot; alt=&quot;ic7404&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Este CI faz parte da família TTL (sigla para &lt;em&gt;Transistor-Transistor Logic&lt;/em&gt; ou Lógica Transistor-Transistor em português), que já teve seu momento na história da eletrônica. Os TTL tem a vantagem de não serem tão sensíveis à eletricidade estática como os da família CMOS mais moderna, e são de baixo custo, razões suficientes para usá-los nas nossas experimentações com as portas lógicas.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Apresento abaixo o circuito para teste de uma porta inversora (NOT), usando o 7404, que simplifica bastante a montagem. Para esta demonstração, vamos usar apenas uma das portas inversoras disponíveis, correspondendo aos pinos 1 (entrada) e 2 (saída) do CI. O pino 7 corresponde sempre ao terra e o pino 14 à alimentação de 5 Vcc, conforme se vê na extrema direita do diagrama. A tensão de alimentação é crítica e, caso você não possua uma boa fonte ajustável regulada, apresento à esquerda o esquema para uma fonte estabilizada usando o CI 7805TV (ou equivalente), garantindo uma saída de 5 V, a partir de uma bateria de 9 V.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/08/porta_not_7404.png&quot; alt=&quot;porta not 7404&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Na foto abaixo, vemos a montagem do circuito com a entrada aterrada (cabo amarelo), ou seja, &quot;0&quot;, cuja condição é atestada pelo LED indicador verde apagado, enquanto a saída apresenta a tensão nominal de 5 V, isto é, &quot;1&quot;, conforme confirma o seu LED indicador vermelho aceso.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/08/montagem_porta_not_7404_0.jpg&quot; alt=&quot;montagem porta not 7404 0&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Observe na foto seguinte que invertemos a polarização da entrada (cabo amarelo), alimentado agora com a tensão nominal de 5 V, ou seja, &quot;1&quot;, de forma que seu LED indicador acende, enquanto a saída é aterrada, isto é, &quot;0&quot;, apagando-se o LED indicador vermelho.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/08/montagem_porta_not_7404_1.jpg&quot; alt=&quot;montagem porta not 7404 1&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Fica confirmada experimentalmente, portanto, a tabela-verdade da porta lógica &quot;NOT&quot; (ou inversora), qual seja:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/08/tv_not.png&quot; alt=&quot;tv not&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Para encerrar, apresento na figura abaixo o símbolo para a porta lógica &quot;NOT&quot;, onde o terminal X corresponde à entrada e o terminal Z à saída.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/08/simbolo_porta_not.png&quot; alt=&quot;simbolo porta not&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;A representação matemática na álgebra booleana para esta porta é a apresentada na figura seguinte. A linha acima da letra &quot;Y&quot; indica o inverso de &quot;X&quot;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/08/matematica_porta_not.png&quot; alt=&quot;matematica porta not&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_porta_and&quot;&gt;Porta &quot;AND&quot;&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Esta porta, como diz o nome, faz a operação do &quot;AND&quot; (&quot;E&quot;) lógico, que corresponde à uma multiplicação, possuindo pelo menos duas entradas. Assim sendo, se &quot;X&quot; e &quot;Y&quot; forem as entradas, a saída &quot;Z&quot; será o resultado da multiplicação das entradas (X . Y). Nas figuras abaixo vemos o símbolo da porta &quot;AND&quot; e sua representação matemática na álgebra booleana.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/08/simbolo_porta_and.png&quot; alt=&quot;simbolo porta and&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/08/matematica_porta_and.png&quot; alt=&quot;matematica porta and&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Podemos montar então a tabela-verdade da porta lógica &quot;AND&quot;, conforme a seguir:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/08/tv_and.png&quot; alt=&quot;tv and&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Em programação, é mais comum definir a porta lógica &quot;AND&quot; como aquela em que a saída somente será &quot;1&quot; quando todas as entradas forem &quot;1&quot;, caso contrário, será &quot;0&quot;. Se definirmos que &quot;0&quot; representa o valor booleano &quot;false&quot; e &quot;1&quot; o valor &quot;true&quot;, podemos também definir que o resultado da aplicação de um operador relacional &quot;AND&quot; somente será &quot;true&quot; se &lt;strong&gt;ambos&lt;/strong&gt; os valores comparados forem &quot;true&quot;. Caso contrário, o resultado da comparação será &quot;false&quot;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Para a nossa demonstração prática, vamos usar o Circuito Integrado 7408, que contém 4 portas &quot;AND&quot; e cujo diagrama interno é apresentado a seguir.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/08/ic7408.png&quot; alt=&quot;ic7408&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;O circuito de teste da porta lógica &quot;AND&quot; é bastante semelhante ao da porta lógica &quot;NOT&quot; que vimos anteriormente. A diferença está nas duas entradas ao invés de uma única e, portanto, temos que acrescentar mais um LED. A alimentação do CI é feita através dos pinos 7 (terra) e 14 (+5Vcc), como consta na extrema direita do esquema e, à esquerda dele, temos uma fonte de alimentação estabilizada usando o CI 7805 e uma bateria de 9V.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/08/porta_and_7408.png&quot; alt=&quot;porta and 7408&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+	    </description>
+      </item>
+      <item>
+        <title>Curso de Java - Aula 6</title>
+        <link>http://ja-gaeta.github.io/2015/curso-de-java-aula-006.html</link>
+        <pubDate>Tue, 28 Jul 2015 00:00:00 -0300</pubDate>
+        <guid isPermaLink="false">2015/curso-de-java-aula-006.html</guid>
+        <description>
+	        &lt;div id=&quot;preamble&quot;&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;p style=&quot;text-align: center;&quot;&gt;&amp;nbsp;&lt;iframe src=&quot;//www.youtube.com/embed/-1N5bvF9gSc&quot; frameborder=&quot;1&quot; width=&quot;560&quot; height=&quot;315&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/p&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Material de apoio para a vídeo-aula nº 6 do Curso de Java ministrado no Ponto G++, contendo toda a base teórica para um sólido acompanhamento da aula.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!--more--&gt;
+&lt;div id=&quot;toc&quot; class=&quot;toc&quot;&gt;
+&lt;div id=&quot;toctitle&quot; class=&quot;title&quot;&gt;Programa da aula&lt;/div&gt;
+&lt;ul class=&quot;sectlevel1&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#_java_curiosa_divertida&quot;&gt;Java Curiosa &amp;amp; Divertida&lt;/a&gt;
+&lt;ul class=&quot;sectlevel2&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#_natal_ou_dia_das_bruxas&quot;&gt;Natal ou Dia das Bruxas?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#_links_Úteis&quot;&gt;Links Úteis&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_java_curiosa_divertida&quot;&gt;Java Curiosa &amp;amp; Divertida&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_natal_ou_dia_das_bruxas&quot;&gt;Natal ou Dia das Bruxas?&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Uma velha piada Nerd indaga por que os programadores confundem o Natal com o Dia das Bruxas&amp;#8230;&amp;#8203; a resposta infamérrima é:  porque Oct 31 = Dec 25.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Não os culpo se acharam esta a piada mais sem graça que já ouviram na vida, porque ela está mais para o humor inglês do que o nosso. Aliás, o seu entendimento exige um pouco de conhecimento da língua inglesa.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Abaixo eu forneço um link para quem quiser uma explicação pormenorizada do assunto, embora seja preciso um bom conhecimento de inglês porque o texto está nesse idioma. Contudo, a explicação dada nesta nossa vídeo-aula é suficiente para esclarecer tudo e, quem sabe, você consiga até rir no final&amp;#8230;&amp;#8203;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Aproveite para aprender um pouco mais sobre os sistemas de numeração usados pelos computadores e, para completar, apresento ainda um programa em Java para confirmar os fundamentos matemáticos da nossa piada Nerd:&lt;/p&gt;
+&lt;/div&gt;
+&lt;pre class=&quot;brush: java, toolbar: false&quot;&gt;
+package piadaNerd;
+
+public class Piada {
+
+    public static void main(String[] args) {
+        int dec25 = 25;
+        int oct31 = 031;
+
+        System.out.println(dec25 == oct31);
+    }
+
+    // resultado da comparação: true (verdadeiro!)
+}
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_links_Úteis&quot;&gt;Links Úteis&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://armchairdissident.wordpress.com/2009/04/15/a-long-explanation-of-a-damned-fine-joke/&quot; target=&quot;_blank&quot;&gt;Uma longa explicação de uma boa piada. (Natal ou Dia das Bruxas?)&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+	    </description>
+      </item>
       <item>
         <title>Curso de Java - Aula 5</title>
         <link>http://ja-gaeta.github.io/2015/curso-de-java-aula-005.html</link>
-        <pubDate>Qua, 22 jul 2015 00:00:00 -0300</pubDate>
+        <pubDate>Wed, 22 Jul 2015 00:00:00 -0300</pubDate>
         <guid isPermaLink="false">2015/curso-de-java-aula-005.html</guid>
         <description>
 	        &lt;div id=&quot;preamble&quot;&gt;
@@ -186,7 +465,7 @@ console.log(10 + &apos; camisas&apos;);
       <item>
         <title>Curso de Java - Aula 4</title>
         <link>http://ja-gaeta.github.io/2015/curso-de-java-aula-004.html</link>
-        <pubDate>Ter, 21 jul 2015 00:00:00 -0300</pubDate>
+        <pubDate>Tue, 21 Jul 2015 00:00:00 -0300</pubDate>
         <guid isPermaLink="false">2015/curso-de-java-aula-004.html</guid>
         <description>
 	        &lt;div id=&quot;preamble&quot;&gt;
@@ -291,7 +570,7 @@ console.log(10 + &apos; camisas&apos;);
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;A declaração de variáveis na linguagem de programação Java, deve obedecer à convenção &lt;code&gt;tipo nome-da-variável = valor;&lt;/code&gt;. No caso da figura acima, teríamos:&lt;/p&gt;
+&lt;p&gt;A declaração na linguagem de programação Java, deve obedecer à convenção &lt;code&gt;tipo nome-da-variável = valor;&lt;/code&gt;. No caso da figura acima, teríamos:&lt;/p&gt;
 &lt;/div&gt;
 &lt;pre class=&quot;brush: java, toolbar: false&quot;&gt;
     String nome = &quot;Asdrubal&quot;;
@@ -378,7 +657,7 @@ console.log(10 + &apos; camisas&apos;);
       <item>
         <title>Curso de Java - Aula 3</title>
         <link>http://ja-gaeta.github.io/2015/curso-de-java-aula-003.html</link>
-        <pubDate>Qui, 30 abr 2015 00:00:00 -0300</pubDate>
+        <pubDate>Thu, 30 Apr 2015 00:00:00 -0300</pubDate>
         <guid isPermaLink="false">2015/curso-de-java-aula-003.html</guid>
         <description>
 	        &lt;div id=&quot;preamble&quot;&gt;
@@ -680,7 +959,7 @@ print &quot;Olá mundão velho!&quot;
       <item>
         <title>Java - 20 anos</title>
         <link>http://ja-gaeta.github.io/2015/java-20-anos.html</link>
-        <pubDate>Qui, 26 mar 2015 00:00:00 -0300</pubDate>
+        <pubDate>Thu, 26 Mar 2015 00:00:00 -0300</pubDate>
         <guid isPermaLink="false">2015/java-20-anos.html</guid>
         <description>
 	        &lt;div class=&quot;paragraph&quot;&gt;
@@ -695,7 +974,7 @@ print &quot;Olá mundão velho!&quot;
       <item>
         <title>Introdução ao Git</title>
         <link>http://ja-gaeta.github.io/2015/introduzindo-o-git.html</link>
-        <pubDate>Seg, 16 mar 2015 00:00:00 -0300</pubDate>
+        <pubDate>Mon, 16 Mar 2015 00:00:00 -0300</pubDate>
         <guid isPermaLink="false">2015/introduzindo-o-git.html</guid>
         <description>
 	        &lt;div id=&quot;preamble&quot;&gt;
@@ -1642,7 +1921,7 @@ origin  git@github.com:juristr/intro.js.git (push)&lt;/code&gt;&lt;/pre&gt;
       <item>
         <title>Atualizações...</title>
         <link>http://ja-gaeta.github.io/2015/atualizacoes.html</link>
-        <pubDate>Ter, 10 mar 2015 00:00:00 -0300</pubDate>
+        <pubDate>Tue, 10 Mar 2015 00:00:00 -0300</pubDate>
         <guid isPermaLink="false">2015/atualizacoes.html</guid>
         <description>
 	        &lt;h2&gt;Atualização do Ponto G++&lt;/h2&gt;
@@ -1654,7 +1933,7 @@ origin  git@github.com:juristr/intro.js.git (push)&lt;/code&gt;&lt;/pre&gt;
       <item>
         <title>O Formato Asciidoc</title>
         <link>http://ja-gaeta.github.io/2015/formato_asciidoc.html</link>
-        <pubDate>Ter, 10 mar 2015 00:00:00 -0300</pubDate>
+        <pubDate>Tue, 10 Mar 2015 00:00:00 -0300</pubDate>
         <guid isPermaLink="false">2015/formato_asciidoc.html</guid>
         <description>
 	        &lt;div class=&quot;sect1&quot;&gt;
@@ -1870,7 +2149,7 @@ public class HelloWorld { // (2)
       <item>
         <title>Garbage Collection em Java (4)</title>
         <link>http://ja-gaeta.github.io/2015/garbage-collection-em-java-4.html</link>
-        <pubDate>Sex, 23 jan 2015 00:00:00 -0200</pubDate>
+        <pubDate>Fri, 23 Jan 2015 00:00:00 -0200</pubDate>
         <guid isPermaLink="false">2015/garbage-collection-em-java-4.html</guid>
         <description>
 	        &lt;p&gt;Último de uma série de artigos sobre &lt;em&gt;Garbage Collection&lt;/em&gt; em Java, traduzidos dos originais publicados por &lt;a href=&quot;http://insightfullogic.com/about/&quot;&gt;Richard Warburton&lt;/a&gt; no seu &lt;a href=&quot;http://insightfullogic.com/blog/2013/jun/24/garbage-collection-java-4/&quot;&gt;blog&lt;/a&gt;. Richard é autor do livro da editora O&apos;Reilly &lt;a href=&quot;http://shop.oreilly.com/product/0636920030713.do?cmp=af-prog-books-videos-product_cj_9781491900154_7470410&quot;&gt;Java 8 Lambdas&lt;/a&gt;. &lt;em&gt;(Tradução e publicação autorizadas pelo autor.)&lt;/em&gt;&lt;/p&gt;
@@ -1894,7 +2173,7 @@ public class HelloWorld { // (2)
       <item>
         <title>Garbage Collection em Java (3)</title>
         <link>http://ja-gaeta.github.io/2015/garbage-collection-em-java-3.html</link>
-        <pubDate>Ter, 13 jan 2015 00:00:00 -0200</pubDate>
+        <pubDate>Tue, 13 Jan 2015 00:00:00 -0200</pubDate>
         <guid isPermaLink="false">2015/garbage-collection-em-java-3.html</guid>
         <description>
 	        &lt;p&gt;Este é o segundo de uma série de artigos sobre &lt;em&gt;Garbage Collection&lt;/em&gt; em Java, traduzidos dos originais publicados por &lt;a href=&quot;http://insightfullogic.com/about/&quot; target=&quot;_blank&quot;&gt;Richard Warburton&lt;/a&gt; no seu &lt;a href=&quot;http://insightfullogic.com/blog/2013/may/7/garbage-collection-java-3/&quot; target=&quot;_blank&quot;&gt;blog&lt;/a&gt;. (&lt;em&gt;Tradução e publicação autorizadas pelo autor&lt;/em&gt;.)&lt;/p&gt;
@@ -1919,9 +2198,127 @@ public class HelloWorld { // (2)
 	    </description>
       </item>
       <item>
+        <title>Java &amp; Raspberry Pi - Parte 4</title>
+        <link>http://ja-gaeta.github.io/2015/java-e-raspberry-pi-parte-4.html</link>
+        <pubDate>Tue, 6 Jan 2015 00:00:00 -0200</pubDate>
+        <guid isPermaLink="false">2015/java-e-raspberry-pi-parte-4.html</guid>
+        <description>
+	        &lt;div id=&quot;preamble&quot;&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;No último artigo desta série, vamos instalar o BlueJ no nosso pequeno Raspberry Pi e testar a instalação, para ter certeza de que tudo está funcionando direitinho.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!--more--&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/02/bluejSplash.png&quot; alt=&quot;bluejSplash&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Abra o seu navegador, acesse &lt;a href=&quot;http://www.bluej.org/&quot; target=&quot;_blank&quot;&gt;bluej.org&lt;/a&gt; e faça o download da última versão disponível do &lt;strong&gt;BlueJ Installer&lt;/strong&gt; para a plataforma Raspian Linux. Na data em que estou escrevendo este artigo, o arquivo correspondente chama-se &lt;code&gt;bluej-314a.deb&lt;/code&gt;, com 6,5 MB, contendo a versão liberada em 26/9/2014. Observe que existem outras versões, tanto para distribuições Debian/Ubuntu do Linux, Windows e Mac OS X, sendo que esses dois últimos incluem também o JDK da Oracle.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_instalação&quot;&gt;Instalação&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;A instalação é bem simples. Abra um terminal na pasta onde foi baixado o arquivo do &lt;strong&gt;BlueJ Installer&lt;/strong&gt; e digite o comando:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;code&gt;sudo dpkg -i bluej-314a.deb&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Inicie então o BlueJ, selecionando o programa no grupo &quot;Desenvolvimento&quot; do Menu &quot;Iniciar&quot;. Alternativamente, num terminal, digite o comando: &lt;code&gt;bluej&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Será exibida a bela &lt;em&gt;Splash Screen&lt;/em&gt; do BlueJ, exibida acima. Demora um pouquinho, mas logo você verá a janela principal do BlueJ, mostrada a seguir:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/02/bluej_inicial.png&quot; alt=&quot;bluej inicial&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_utilização&quot;&gt;Utilização&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Vamos começar abrindo um dos arquivos de exemplo que foram instalados em &lt;code&gt;/usr/share/doc/BlueJ&lt;/code&gt;. Siga os passos a seguir:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;olist arabic&quot;&gt;
+&lt;ol class=&quot;arabic&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;Selecione o menu: Projeto → Abrir Projeto&amp;#8230;&amp;#8203; (ou o atalho: Ctrl+O)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Na janela seguinte, vamos abrir o projeto &quot;hello&quot;, conforme a figura abaixo:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/02/abrir_hello.png&quot; alt=&quot;abrir hello&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Uma vez aberto o Projeto &quot;hello&quot;, todas as áreas da janela ficam ativas e, no centro, são exibidas duas figuras. A primeira, uma página de caderno, representa um arquivo texto incluído no projeto (README.TXT). Para abrí-lo, clique com o botão direito do mouse sobre a figura e selecione &lt;strong&gt;Abrir&lt;/strong&gt;. A imagem a seguir mostra este arquivo no editor do BlueJ:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/02/helloReadMe.png&quot; alt=&quot;helloReadMe&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Quem já está acostumado com programação orientada a objetos já reconheceu na outra figura um &lt;a href=&quot;https://docs.kde.org/stable/pt_BR/kdesdk/umbrello/uml-basics.html&quot; target=&quot;_blank&quot;&gt;diagrama UML&lt;/a&gt; da classe &lt;code&gt;Hello&lt;/code&gt;. Clique com o botão direito do mouse sobre ele para abrir o menu de contexto, conforme figura abaixo:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/02/helloMenu.png&quot; alt=&quot;helloMenu&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Num próximo artigo, vamos examinar em detalhes cada um dos itens deste menu de contexto. Por ora, vamos editar o código-fonte da classe. Para isso, selecione &lt;strong&gt;Abrir Editor&lt;/strong&gt;. Altere a String no método &lt;code&gt;System.out.println&lt;/code&gt; para &quot;Olá mundão velho!&quot;. Observe que o botão inferior passa a exibir &lt;code&gt;alterado&lt;/code&gt;. Clique o botão &lt;strong&gt;Compilar&lt;/strong&gt;. Observe que o botão inferior mostra agora &lt;code&gt;salvo&lt;/code&gt;, e aparece uma mensagem na caixa de texto ao lado dele, informando o resultado da compilação: &lt;code&gt;Classe compilada - nenhum erro de sintaxe&lt;/code&gt;. Confira o resultado na imagem a seguir:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/02/helloEdited.png&quot; alt=&quot;helloEdited&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Para encerrar, vamos executar nosso pequeno programa. Abra novamente o menu de contexto da classe &quot;Hello&quot; e selecione agora o método &lt;code&gt;void main(String[] args)&lt;/code&gt;. Na janela seguinte, se existissem parâmetros, poderíamos inserí-los entre as chaves. Neste caso, basta clicar no botão &lt;strong&gt;Ok&lt;/strong&gt;, para que nossa &lt;code&gt;String&lt;/code&gt; de saudação seja exibida na janela de Terminal do BlueJ. Veja a sequência de imagens abaixo:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/02/helloRun.png&quot; alt=&quot;helloRun&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/02/helloTerminal.png&quot; alt=&quot;helloTerminal&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Parabéns, você já instalou o BlueJ no seu Raspberry Pi e fez sua primeira exploração pela interface do programa. Como deve ter percebido, o BlueJ é uma ferramenta extraordinária para o aprendizado de linguagens de programação orientadas a objeto, como é o caso de Java. Mas a integração com o Raspberry Pi vai além, e permite experimentar diretamente com a GPIO (&lt;strong&gt;General Purpose Input/Output&lt;/strong&gt;) do &quot;bichinho&quot;. Abordaremos este assunto em outros artigos.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Para quem ficou entusiasmado e quer se aprofundar no estudo de OOP usando o BlueJ, indico o excelente livro de David J. Barnes &amp;amp; Michael Kölling, &lt;a href=&quot;http://www.bluej.org/objects-first/&quot;&gt;&lt;em&gt;Objects First with Java ‒ A Practical Introduction using BlueJ&lt;/em&gt;&lt;/a&gt;. No site do livro, você poderá baixar um arquivo com mais projetos, no quadro &quot;&lt;strong&gt;Resources&lt;/strong&gt;&quot;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Se ainda não está familiarizado com o BlueJ, vale a pena gastar algum tempo para descobrir o que ele pode fazer por você. Como se trata de um IDE Java padrão, podem ser desenvolvidos nele todos os programas em Java desenvolvidos em outros IDE, mas ele pode fazer muito mais. No BlueJ, você pode instanciar objetos individualmente, de forma interativa, e chamar métodos individuais. Isso facilita muito a realização de testes, brincadeiras e experimentação.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Essas características do BlueJ foram descritas em diversos números da Java Magazine, onde você poderá aprender mais. Os números de &lt;a href=&quot;http://www.oraclejavamagazine-digital.com/javamagazine_open/20120708#pg25&quot;&gt;Julho/Agosto de 2012&lt;/a&gt; e de &lt;a href=&quot;http://www.oraclejavamagazine-digital.com/javamagazine_open/20120910#pg29&quot;&gt;Setembro/Outubro de 2012&lt;/a&gt;, incluem uma introdução ao BlueJ e as edições de &lt;a href=&quot;http://www.oraclejavamagazine-digital.com/javamagazine_open/20140506#pg34&quot;&gt;Maio/Junho de 2014&lt;/a&gt; e &lt;a href=&quot;http://www.oraclejavamagazine-digital.com/javamagazine_open/20140708#pg30&quot;&gt;Julho/Agosto de 2014&lt;/a&gt;, discutem os aspectos de interatividade do BlueJ em mais detalhes.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+	    </description>
+      </item>
+      <item>
         <title>Garbage Collection em Java (2)</title>
         <link>http://ja-gaeta.github.io/2015/garbage-collection-em-java-2.html</link>
-        <pubDate>Seg, 5 jan 2015 00:00:00 -0200</pubDate>
+        <pubDate>Mon, 5 Jan 2015 00:00:00 -0200</pubDate>
         <guid isPermaLink="false">2015/garbage-collection-em-java-2.html</guid>
         <description>
 	        &lt;p&gt;Este é o segundo de uma série de artigos sobre &lt;em&gt;Garbage Collection em Java&lt;/em&gt;, traduzidos dos originais publicados por &lt;a href=&quot;http://insightfullogic.com/about/&quot; target=&quot;_blank&quot;&gt;Richard Warburton&lt;/a&gt; no seu &lt;a href=&quot;http://insightfullogic.com/blog/2013/mar/6/garbage-collection-java-2/&quot; target=&quot;_blank&quot;&gt;blog&lt;/a&gt;. (&lt;em&gt;Tradução e publicação autorizadas pelo autor&lt;/em&gt;.)&lt;/p&gt;
@@ -1941,7 +2338,7 @@ public class HelloWorld { // (2)
       <item>
         <title>Garbage Collection em Java (1)</title>
         <link>http://ja-gaeta.github.io/2015/garbage-collection-em-java-1.html</link>
-        <pubDate>Qui, 1 jan 2015 00:00:00 -0200</pubDate>
+        <pubDate>Thu, 1 Jan 2015 00:00:00 -0200</pubDate>
         <guid isPermaLink="false">2015/garbage-collection-em-java-1.html</guid>
         <description>
 	        &lt;p&gt;Este é o primeiro de uma série de artigos sobre &lt;em&gt;Garbage Collection em Java&lt;/em&gt;, traduzidos dos originais publicados por &lt;a href=&quot;http://insightfullogic.com/about/&quot; target=&quot;_blank&quot;&gt;Richard Warburton&lt;/a&gt; no seu &lt;a href=&quot;http://insightfullogic.com/blog/2013/feb/20/garbage-collection-java-1/&quot; target=&quot;_blank&quot;&gt;blog&lt;/a&gt;. (&lt;em&gt;Tradução e publicação autorizadas pelo autor&lt;/em&gt;.)&lt;/p&gt;
@@ -1969,7 +2366,7 @@ public class HelloWorld { // (2)
       <item>
         <title>Instalação do JDK no Mac OS X</title>
         <link>http://ja-gaeta.github.io/2014/instalacao-do-jdk-no-mac-os-x.html</link>
-        <pubDate>Ter, 30 dez 2014 00:00:00 -0200</pubDate>
+        <pubDate>Tue, 30 Dec 2014 00:00:00 -0200</pubDate>
         <guid isPermaLink="false">2014/instalacao-do-jdk-no-mac-os-x.html</guid>
         <description>
 	        &lt;p&gt;Forneço neste artigo um passo-a-passo para instalação do JDK/JRE (Java SE 8) no Mac OS X. Para outras versões do JDK/JRE, consulte a documentação do seu sistema operacional e/ou a documentação da &lt;a href=&quot;http://docs.oracle.com/javase/8/&quot;&gt;Oracle&lt;/a&gt;, caso encontre alguma dificuldade.&lt;/p&gt;
@@ -1984,7 +2381,7 @@ public class HelloWorld { // (2)
       <item>
         <title>Instalação do JDK no Linux</title>
         <link>http://ja-gaeta.github.io/2014/instalacao-do-jdk-no-linux.html</link>
-        <pubDate>Seg, 29 dez 2014 00:00:00 -0200</pubDate>
+        <pubDate>Mon, 29 Dec 2014 00:00:00 -0200</pubDate>
         <guid isPermaLink="false">2014/instalacao-do-jdk-no-linux.html</guid>
         <description>
 	        &lt;p&gt;As distribuições do sistema operacional GNU/Linux costumam vir com o &lt;a href=&quot;http://openjdk.java.net/&quot; target=&quot;_blank&quot;&gt;OpenJDK&lt;/a&gt; já pré-instalado. O OpenJDK é a versão &lt;em&gt;open-source&lt;/em&gt; do JDK e nada impede usá-lo para o aprendizado da linguagem de programação Java. Aliás, o OpenJDK é, desde 2010, a implementação de referência para a linguagem Java. Todavia, como vamos usar o JDK 8 da Oracle no Curso de Java do Ponto G++, é melhor adotar esta versão, para evitar qualquer eventual incompatibilidade com os exemplos das aulas. Para entender a diferença entre o OpenJDK e o JDK da Oracle, consulte &lt;a href=&quot;/2014/oracle-jdk-vs-openjdk.html&quot;&gt;este artigo&lt;/a&gt;.&lt;/p&gt;
@@ -2006,7 +2403,7 @@ $ sudo apt-get install oracle-java8-installer
       <item>
         <title>Instalação do JDK no Windows</title>
         <link>http://ja-gaeta.github.io/2014/instalacao-do-jdk-no-windows.html</link>
-        <pubDate>Sex, 26 dez 2014 00:00:00 -0200</pubDate>
+        <pubDate>Fri, 26 Dec 2014 00:00:00 -0200</pubDate>
         <guid isPermaLink="false">2014/instalacao-do-jdk-no-windows.html</guid>
         <description>
 	        &lt;p&gt;Forneço neste artigo um passo-a-passo para instalação do &lt;strong&gt;&lt;span style=&quot;color: #808080;&quot;&gt;&lt;abbr title=&quot;Java Development Kit&quot;&gt;JDK&lt;/abbr&gt;/&lt;abbr title=&quot;Java Runtime Environment&quot;&gt;JRE&lt;/abbr&gt; - Java &lt;abbr title=&quot;Standard Edition&quot;&gt;SE&lt;/abbr&gt; 8&lt;/span&gt;&lt;/strong&gt; — no &lt;strong&gt;&lt;span style=&quot;color: #808080;&quot;&gt;Windows 8.1&lt;/span&gt;&lt;/strong&gt;. Para outras versões do Windows ou do &lt;abbr title=&quot;Java Development Kit&quot;&gt;JDK&lt;/abbr&gt;/&lt;abbr title=&quot;Java Runtime Environment&quot;&gt;JRE&lt;/abbr&gt;, consulte a documentação do seu sistema operacional e/ou a documentação da &lt;a href=&quot;http://docs.oracle.com/javase/8/&quot; target=&quot;_blank&quot;&gt;Oracle&lt;/a&gt;.&lt;/p&gt;
@@ -2032,7 +2429,7 @@ $ sudo apt-get install oracle-java8-installer
       <item>
         <title>Java: Como Tudo Começou</title>
         <link>http://ja-gaeta.github.io/2014/java-como-tudo-comecou.html</link>
-        <pubDate>Qua, 17 dez 2014 00:00:00 -0200</pubDate>
+        <pubDate>Wed, 17 Dec 2014 00:00:00 -0200</pubDate>
         <guid isPermaLink="false">2014/java-como-tudo-comecou.html</guid>
         <description>
 	        &lt;p&gt;A história da tecnologia Java começou modestamente no final de 1990, quando a empresa Sun Microsystems&lt;a href=&quot;#note1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; encarregou seus funcionários Patrick Naughton, Mike Sheridan e James Gosling da tarefa de descobrir qual seria a próxima grande tendência na área da computação. O projeto, denominado “Green Project”, chegou à seguinte conclusão preliminar: a integração dos dispositivos controlados digitalmente com os computadores iria se tornar uma tendência muito importante.&lt;/p&gt;
@@ -2052,7 +2449,7 @@ $ sudo apt-get install oracle-java8-installer
       <item>
         <title>Java & Raspberry Pi - Parte 3</title>
         <link>http://ja-gaeta.github.io/2014/java-e-raspberry-pi-parte-3.html</link>
-        <pubDate>Ter, 2 dez 2014 00:00:00 -0200</pubDate>
+        <pubDate>Tue, 2 Dec 2014 00:00:00 -0200</pubDate>
         <guid isPermaLink="false">2014/java-e-raspberry-pi-parte-3.html</guid>
         <description>
 	        &lt;p&gt;Para operar seu Raspberry Pi remotamente, é preciso saber o seu endereço IP — isso é basicamente como se fosse o endereço onde ele reside e permite que o computador hospedeiro o encontre na rêde. Em condições padrão, o roteador fornece automaticamente um endereço IP ao Raspberry Pi (chamado IP dinâmico e representado pela sigla DHCP), quando você o conecta à rêde. Todavia, isso pode mudar sempre que você remover o Pi da rêde.&lt;/p&gt;
@@ -2107,7 +2504,7 @@ gateway 192.168.1.254
       <item>
         <title>Oracle JDK vs OpenJDK</title>
         <link>http://ja-gaeta.github.io/2014/oracle-jdk-vs-openjdk.html</link>
-        <pubDate>Dom, 30 nov 2014 00:00:00 -0200</pubDate>
+        <pubDate>Sun, 30 Nov 2014 00:00:00 -0200</pubDate>
         <guid isPermaLink="false">2014/oracle-jdk-vs-openjdk.html</guid>
         <description>
 	        &lt;p&gt;O OpenJDK é a implementação de código-aberto (open-source) do JDK. Atualmente, quase não há diferença entre a versão SE da Oracle e o OpenJDK, uma vez que a Oracle decidiu adotar este último como referência para implementação do JDK.&lt;/p&gt;&lt;p&gt;Traduzo, a seguir, o trecho deste &lt;a href=&quot;http://blogs.oracle.com/henrik/entry/java_7_questions_answers&quot;&gt;blog oficial&lt;/a&gt; da Oracle, que esclarece as diferenças entre as duas implementações:&lt;/p&gt;
@@ -2119,7 +2516,7 @@ gateway 192.168.1.254
       <item>
         <title>Java & Raspberry Pi - Parte 2</title>
         <link>http://ja-gaeta.github.io/2014/java-e-raspberry-pi-parte-2.html</link>
-        <pubDate>Sáb, 29 nov 2014 00:00:00 -0200</pubDate>
+        <pubDate>Sat, 29 Nov 2014 00:00:00 -0200</pubDate>
         <guid isPermaLink="false">2014/java-e-raspberry-pi-parte-2.html</guid>
         <description>
 	        &lt;p&gt;O sistema operacional do Raspberry Pi é armazenado num cartão de memória &lt;abbr title=&quot;Secure Digital Card&quot;&gt;SD&lt;/abbr&gt;. Para a instalação que vou fazer, usando o &lt;abbr title=&quot;New Out Of the Box Software&quot;&gt;NOOBS&lt;/abbr&gt;, o tamanho mínimo é de 8 GB. Se for um micro-&lt;abbr title=&quot;Secure Digital Card&quot;&gt;SD&lt;/abbr&gt;, talvez seja preciso também um adaptador, que normalmente vem junto, mas é bom conferir, pois, conforme o modelo, o &lt;em&gt;slot&lt;/em&gt; do Raspberry pode suportar apenas &lt;abbr title=&quot;Secure Digital Card&quot;&gt;SD&lt;/abbr&gt; de tamanho padrão. A classe não importa muito, podendo partir da 4, pois a diferença de desempenho entre um cartão classe 4 e um classe 10 é praticamente imperceptível.&lt;/p&gt;
@@ -2152,7 +2549,7 @@ gateway 192.168.1.254
       <item>
         <title>Java & Raspberry Pi - Parte 1</title>
         <link>http://ja-gaeta.github.io/2014/java-e-raspberry-pi-parte-1.html</link>
-        <pubDate>Qui, 27 nov 2014 00:00:00 -0200</pubDate>
+        <pubDate>Thu, 27 Nov 2014 00:00:00 -0200</pubDate>
         <guid isPermaLink="false">2014/java-e-raspberry-pi-parte-1.html</guid>
         <description>
 	        &lt;p&gt;&lt;a href=&quot;http://www.oraclejavamagazine-digital.com/javamagazine/november_december_2014#pg36&quot;&gt;&lt;em&gt;Baseado num artigo de MICHAEL KÖLLING, Oracle Java Magazine&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;A revista Java Magazine da Oracle, na sua edição do último bimestre de 2014, dá início a uma série de artigos muito interessantes, abordando a nova plataforma &lt;a href=&quot;http://www.bluej.org/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;BlueJ&lt;/strong&gt;&lt;/a&gt;, que permite o desenvolvimento de programas com a Java &lt;abbr title=&quot;Standard Edition&quot;&gt;SE&lt;/abbr&gt; 8, diretamente no &lt;a href=&quot;http://www.raspberrypi.org/&quot; target=&quot;_blank&quot;&gt;Raspberry Pi&lt;/a&gt;.&lt;/p&gt;
@@ -2163,7 +2560,7 @@ gateway 192.168.1.254
       <item>
         <title>Curso de Java - Aula 2</title>
         <link>http://ja-gaeta.github.io/2014/curso-de-java-aula-002.html</link>
-        <pubDate>Sáb, 22 nov 2014 00:00:00 -0200</pubDate>
+        <pubDate>Sat, 22 Nov 2014 00:00:00 -0200</pubDate>
         <guid isPermaLink="false">2014/curso-de-java-aula-002.html</guid>
         <description>
 	        &lt;p style=&quot;text-align: center;&quot;&gt;&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/o2pTdOdKC5Y&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/p&gt;
@@ -2364,7 +2761,7 @@ public class OlaMundoUnicode {
       <item>
         <title>Curso de Java - Aula 1</title>
         <link>http://ja-gaeta.github.io/2014/curso-de-java-aula-001.html</link>
-        <pubDate>Sex, 21 nov 2014 00:00:00 -0200</pubDate>
+        <pubDate>Fri, 21 Nov 2014 00:00:00 -0200</pubDate>
         <guid isPermaLink="false">2014/curso-de-java-aula-001.html</guid>
         <description>
 	        &lt;p style=&quot;text-align: center;&quot;&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/-6p1ZjDVxCE&quot; width=&quot;560&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;allowfullscreen&quot;&gt;&lt;/iframe&gt;&lt;/p&gt;

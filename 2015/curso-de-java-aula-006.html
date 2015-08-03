@@ -3,7 +3,7 @@
   <head>
     <title>
     Ponto G++
-        - Quarta Postagem
+        - Curso de Java - Aula 6
     </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +12,7 @@
 
     <!-- Style -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/cosmo/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/prettify-themes/github.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/asciidoctor.css">
@@ -28,6 +29,9 @@
     <!-- SyntaxHighlighter -->
     <script type="text/javascript" src="/js/shCore.js"></script>
     <script type="text/javascript" src="/js/shBrushJava.js"></script>
+    <script type="text/javascript" src="/js/shBrushCSharp.js"></script>
+    <script type="text/javascript" src="/js/shBrushCpp.js"></script>
+    <script type="text/javascript" src="/js/shBrushPython.js"></script>
     
     <link href="/css/shCore.css" rel="stylesheet" type="text/css" />
     <link href="/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
@@ -71,84 +75,98 @@
       <div class="row">
         <div class="col-md-12">
           <article>
-            <div class="page-header"><h1>Quarta Postagem</h1>
+            <div class="page-header"><h1>Curso de Java - Aula 6</h1>
               <ol class="breadcrumb tagsbar">
-                <li><a href="/tags/blog.html">blog</a></li>
-                <li><a href="/tags/asciidoc.html">asciidoc</a></li>
+                <li><a href="/tags/cursos.html">cursos</a></li>
+                <li><a href="/tags/java.html">java</a></li>
               </ol>
             </div>
           <p class="post-meta">
-            <i class="fa fa-calendar"></i>&nbsp;10 Março 2015&nbsp;&nbsp;
+            <i class="fa fa-calendar"></i>&nbsp;28 July 2015&nbsp;&nbsp;
             <i class="fa fa-user"></i>&nbsp;J.A. Gaeta Mendes&nbsp;&nbsp;
-              <i class="fa fa-comment"></i>&nbsp;<span class="badge"><a href="http://ja-gaeta.github.io2015/summary_test.html#disqus_thread"></a></span>
+              <i class="fa fa-comment"></i>&nbsp;<span class="badge"><a href="http://ja-gaeta.github.io/2015/curso-de-java-aula-006.html#disqus_thread"></a></span>
           </p>
-              <p><h1 id="garbage_collection_em_java_1" class="sect0">Garbage Collection em Java (1)</h1>
+              <p><div id="preamble">
+<div class="sectionbody">
+<p style="text-align: center;">&nbsp;<iframe src="//www.youtube.com/embed/-1N5bvF9gSc" frameborder="1" width="560" height="315" allowfullscreen></iframe></p>
 <div class="paragraph">
-<p>Este é o primeiro de uma série de artigos sobre <em>Garbage Collection</em> em Java, traduzidos dos originais publicados por <a href="http://insightfullogic.com/about/">Richard Warburton</a> no seu <a href="http://insightfullogic.com/blog/2013/feb/20/garbage-collection-java-1/">blog</a>. (<em>Tradução e publicação autorizadas pelo autor</em>.)</p>
+<p>Material de apoio para a vídeo-aula nº 6 do Curso de Java ministrado no Ponto G++, contendo toda a base teórica para um sólido acompanhamento da aula.</p>
+</div>
+<!--more-->
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Programa da aula</div>
+<ul class="sectlevel1">
+<li><a href="#_java_curiosa_divertida">Java Curiosa &amp; Divertida</a>
+<ul class="sectlevel2">
+<li><a href="#_natal_ou_dia_das_bruxas">Natal ou Dia das Bruxas?</a></li>
+</ul>
+</li>
+<li><a href="#_links_Úteis">Links Úteis</a></li>
+</ul>
+</div>
+</div>
 </div>
 <div class="sect1">
-<h2 id="visão_geral_da_heap">Visão geral da Heap</h2>
+<h2 id="_java_curiosa_divertida">Java Curiosa &amp; Divertida</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Espero ser capaz de cobrir um pouco da teoria e analisar todos os coletores mais importantes na máquina virtual <em>hotspot</em>,<span class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnote_1" title="View footnote.">1</a>]</span>  ao longo desta série. Este artigo explica apenas o que é <em>garbage collection</em> e os elementos comuns aos diferentes coletores.</p>
-</div>
 <div class="sect2">
-<h3 id="por_que_devo_me_preocupar">Por que devo me preocupar?</h3>
+<h3 id="_natal_ou_dia_das_bruxas">Natal ou Dia das Bruxas?</h3>
 <div class="paragraph">
-<p>Sua máquina virtual Java gerencia a memória para você – o que é muito conveniente –, mas ela pode não vir regulada por padrão no ponto de seu melhor desempenho. Ao compreender um pouco da teoria por trás da <em>garbage collection</em> você poderá ajustar o seu coletor mais facilmente. Uma preocupação comum é com a eficiência do coletor, ou seja, quanto tempo o programa gasta executando o código, em relação ao tempo dispendido na coleta de lixo. Outra preocupação usual é quanto ao tempo em que o aplicativo fica parado.</p>
+<p>Uma velha piada Nerd indaga por que os programadores confundem o Natal com o Dia das Bruxas&#8230;&#8203; a resposta infamérrima é:  porque Oct 31 = Dec 25.</p>
 </div>
 <div class="paragraph">
-<p>Além disso, existem muitas lendas e boatos envolvendo <em>garbage collection</em>, de forma que a compreensão dos algorítimos um pouco mais detalhadamente ajuda a não cair nas ciladas e armadilhas costumeiras. Além disso, para qualquer um que se interesse em aprender como são aplicados e utilizados na prática os princípios da ciência da computação, é muito compensador examinar as entranhas da JVM.</p>
+<p>Não os culpo se acharam esta a piada mais sem graça que já ouviram na vida, porque ela está mais para o humor inglês do que o nosso. Aliás, o seu entendimento exige um pouco de conhecimento da língua inglesa.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="o_que_significa_parar_o_mundo">O que significa “parar o mundo”?</h3>
 <div class="paragraph">
-<p>Seu programa (ou <em>mutator</em> usando a terminologia GC) está sempre criando objetos à medida em que é executado. Em algum ponto a <em>heap</em> precisa ser coletada e todos os coletores na <em>hotspot</em> param o aplicativo. O termo “parar o mundo” significa que todas as <em>threads</em> do <em>mutator</em> são pausadas.</p>
+<p>Abaixo eu forneço um link para quem quiser uma explicação pormenorizada do assunto, embora seja preciso um bom conhecimento de inglês porque o texto está nesse idioma. Contudo, a explicação dada nesta nossa vídeo-aula é suficiente para esclarecer tudo e, quem sabe, você consiga até rir no final&#8230;&#8203;</p>
 </div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-Wolpertingers are known to nest in server racks. Enter at your own risk. Nam id nisl quam. Donec a lorem sit amet libero pretium vulputate vel ut purus. Suspendisse leo arcu,
-mattis et imperdiet luctus, pulvinar vitae mi. Quisque fermentum sollicitudin feugiat. Mauris nec leo
-ligula. Nam id nisl quam. Donec a lorem sit amet libero pretium vulputate vel ut purus. Suspendisse leo arcu,
-mattis et imperdiet luctus, pulvinar vitae mi. Quisque fermentum sollicitudin feugiat. Mauris nec leo
-ligula. Vestibulum tristique odio ut risus ultricies a hendrerit quam iaculis. Duis tempor elit sit amet
-ligula vehicula et iaculis sem placerat. Fusce dictum, metus at volutpat lacinia, elit massa auctor risus,
-id auctor arcu enim eu augue. Donec ultrices turpis in mi imperdiet ac venenatis sapien sodales. In
-consequat imperdiet nunc quis bibendum. Nulla semper, erat quis ornare tristique, lectus massa posuere
-libero, ut vehicula lectus nunc ut lorem. Aliquam erat volutpat.
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>Aproveite para aprender um pouco mais sobre os sistemas de numeração usados pelos computadores e, para completar, apresento ainda um programa em Java para confirmar os fundamentos matemáticos da nossa piada Nerd:</p>
 </div>
+<pre class="brush: java, toolbar: false">
+package piadaNerd;
+
+public class Piada {
+
+    public static void main(String[] args) {
+        int dec25 = 25;
+        int oct31 = 031;
+
+        System.out.println(dec25 == oct31);
+    }
+
+    // resultado da comparação: true (verdadeiro!)
+}
+</pre>
 </div>
 </div>
 </div>
-<div id="footnotes">
-<hr>
-<div class="footnote" id="_footnote_1">
-<a href="#_footnoteref_1">1</a> <em>hotspot</em> é o nome dado à base de código comum por trás do <a href="http://openjdk.java.net/">openjdk</a> e da JVM oficial da Oracle. A partir de Java 7, o openjdk é a implementação de referência para a Java SE.
+<div class="sect1">
+<h2 id="_links_Úteis">Links Úteis</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://armchairdissident.wordpress.com/2009/04/15/a-long-explanation-of-a-damned-fine-joke/" target="_blank">Uma longa explicação de uma boa piada. (Natal ou Dia das Bruxas?)</a></p>
+</li>
+</ul>
+</div>
 </div>
 </div></p>
       <div class="share">
         <div class="social">
   <!-- Facebook -->
           <span class="facebook">
-            <iframe src="//www.facebook.com/plugins/like.php?href=http://http://ja-gaeta.github.io2015/summary_test.html&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+            <iframe src="//www.facebook.com/plugins/like.php?href=http://http://ja-gaeta.github.io/2015/curso-de-java-aula-006.html&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
           </span>
   <!-- Google+ -->
           <span class="google">
             <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-            <g:plusone size="medium" href="http://ja-gaeta.github.io2015/summary_test.html"></g:plusone>
+            <g:plusone size="medium" href="http://ja-gaeta.github.io/2015/curso-de-java-aula-006.html"></g:plusone>
           </span>
   <!-- Twitter -->
           <span class="twitter">
-            <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ja-gaeta.github.io2015/summary_test.html">Tweet</a>
+            <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ja-gaeta.github.io/2015/curso-de-java-aula-006.html">Tweet</a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
           </span>
         </div>
@@ -180,7 +198,7 @@ libero, ut vehicula lectus nunc ut lorem. Aliquam erat volutpat.
         <hr>
         <div class="row">
           <div class="col-xs-10">
-            <p class="text-muted credit">&copy; Ponto G++ 2015 <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/br/"><img src="/img/creative_commons_88x31.png"></a> | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.3.2</a> | <i title="Linux" class="fa fa-linux"></i></p>
+            <p class="text-muted credit">&copy; Ponto G++ 2015 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/br/"><img src="/img/creative_commons_88x31.png"></a> | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.4.0</a> | <i title="Linux" class="fa fa-linux"></i></p>
           </div>
           <div class="col-xs-2 gotop">
             <a href="#"><i class="fa fa-arrow-circle-up"> topo</i></a>
@@ -193,6 +211,21 @@ libero, ut vehicula lectus nunc ut lorem. Aliquam erat volutpat.
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
+    <script type="text/javascript">
+      <!-- load prettify only when needed -->
+      $(document).ready(function(){
+        var prettify = false;
+        var classToAdd = 'prettyprint snippet';
+        $("pre > code").each(function() {
+          $("pre > code").parent().addClass(classToAdd);
+          prettify = true;
+        });
+        if(prettify) {
+          prettyPrint();
+        }
+      });
+    </script>
 
     <script type="text/javascript">
       /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
