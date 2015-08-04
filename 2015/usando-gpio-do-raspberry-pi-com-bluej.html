@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+    Ponto G++
+        - Usando a GPIO do Raspberry Pi com BlueJ
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="J.A. Gaeta Mendes">
+    <meta name="description" content="Static blog generated with JBake">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/cosmo/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/prettify-themes/github.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/asciidoctor.css">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav icon -->
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/img/favicon.png" type="image/x-icon">
+      
+    <!-- SyntaxHighlighter -->
+    <script type="text/javascript" src="/js/shCore.js"></script>
+    <script type="text/javascript" src="/js/shBrushJava.js"></script>
+    <script type="text/javascript" src="/js/shBrushCSharp.js"></script>
+    <script type="text/javascript" src="/js/shBrushCpp.js"></script>
+    <script type="text/javascript" src="/js/shBrushPython.js"></script>
+    
+    <link href="/css/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+      
+  </head>
+  <body>      
+    <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Ponto G++</a>
+        </div>
+        
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="/pages/about.html">Sobre</a></li>
+          <!--  <li><a href="/pages/contact.html">Contact</a></li> -->
+          </ul>
+        
+        <!-- Right navigation -->
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/archive.html"><i class="fa fa-list"></i> Arquivo</a></li>
+          <li><a href="/feed.xml" title="Rss"><i class="fa fa-rss"></i> Feed</a></li>
+        </ul>
+        <!-- Right navigation end -->
+
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav><!-- /.navbar -->
+
+    <!-- Begin page content -->
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-md-12">
+          <article>
+            <div class="page-header"><h1>Usando a GPIO do Raspberry Pi com BlueJ</h1>
+              <ol class="breadcrumb tagsbar">
+                <li><a href="/tags/bluej.html">bluej</a></li>
+                <li><a href="/tags/java.html">java</a></li>
+                <li><a href="/tags/eletrônica.html">eletrônica</a></li>
+                <li><a href="/tags/raspberry-pi.html">raspberry-pi</a></li>
+                <li><a href="/tags/tutoriais.html">tutoriais</a></li>
+              </ol>
+            </div>
+          <p class="post-meta">
+            <i class="fa fa-calendar"></i>&nbsp;14 January 2015&nbsp;&nbsp;
+            <i class="fa fa-user"></i>&nbsp;J.A. Gaeta Mendes&nbsp;&nbsp;
+              <i class="fa fa-comment"></i>&nbsp;<span class="badge"><a href="http://ja-gaeta.github.io/2015/usando-gpio-do-raspberry-pi-com-bluej.html#disqus_thread"></a></span>
+          </p>
+              <p><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Na parte superior do Raspberry Pi, ao lado do soquete amarelo de saída de vídeo, encontram-se os conectores da GPIO, sigla em inglês para <em>General Purpose Input/Output</em>, isto é, Entrada/Saída de Uso Geral. Isso constitui uma das principais características deste fantástico dispositivo, permitindo uma variedade imensa de aplicações no campo da mecatrônica.</p>
+</div>
+<!--more-->
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/03/gpio-pins.jpg" alt="gpio pins">
+</div>
+</div>
+<div class="paragraph">
+<p>Estes inocentes pininhos fazem a interface entre o Pi e o mundo exterior. De uma forma bem simples, pode-se considerá-los como se fossem interruptores que podem ser ligados/desligados (entrada ou <em>input</em>) ou que o Pi pode ligar/desligar (saída ou <em>output</em>). Dezessete dos 26 pinos são efetivamente GPIO; os outros são pinos de alimentação ou aterramento. Confira o esquema da pinagem na figura a seguir:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/03/basic-gpio-layout.png" alt="basic gpio layout">
+</div>
+</div>
+<div class="paragraph">
+<p>Os pinos da GPIO podem ser programados para interagir numa enorme variedade de maneiras. As entradas, por exemplo, podem ser acionadas também por sensores ou sinais de outros dispositivos; as saídas podem ser conectadas a outros componentes eletrônicos como leds, motores, servos, etc.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+É preciso tomar muito cuidado ao fazer conexões nos pinos GPIO, pois um erro de pinagem ou sobrecarga podem inutilizar completamente o Raspberry Pi. Preste muita atenção, portanto, na hora de plugar os cabos nos pinos, conferindo tudo cuidadosamente antes de ativar o circuito.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_um_helloworld_para_a_gpio">Um "HelloWorld" para a GPIO</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Um dos circuitos mais elementares que existem é o de um LED em série com um resistor e um interruptor, o qual comanda seu acendimento. No esquema abaixo vemos o diagrama deste circuito:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/03/simple-circuit.png" alt="simple circuit">
+</div>
+</div>
+<div class="paragraph">
+<p>A próxima figura mostra o circuito acima devidamente montado na nossa protoboard. À esquerda, o LED está apagado e, ao ser fechado o interruptor, na imagem da direita, ele acende. Nada mais simples do que isso, não é mesmo?</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/03/leds_on_off.png" alt="leds on off">
+</div>
+</div>
+<div class="paragraph">
+<p>Observe que os LED possuem polaridade (negativo e positivo). Se essa polaridade for invertida na montagem, ADEUS LED!!! Para identificar os pinos, observe um pequeno chanfro no corpo do LED. O terminal do lado do chanfro é o Cátodo (negativo). Esse terminal também costuma ser mais curto, para facilitar sua identificação. O outro terminal, consequentemente, é o Ânodo (positivo).</p>
+</div>
+<div class="paragraph">
+<p>A montagem de apenas um LED, num único pino da GPIO, é bastante segura, ainda mais que estamos usando um resistor de 330Ω para limitar a corrente. Isso garante que a corrente drenada da saída fique em torno dos 4mA. O LED não vai ofuscá-lo com o melhor do seu brilho, mas estaremos dentro do limite de segurança.</p>
+</div>
+<div class="paragraph">
+<p>Esses limites variam conforme a quantidade de pinos utilizados, mas de uma maneira geral, podemos considerar seguro o limite de 16mA para apenas um pino e de 51mA para todos os pinos. Parece que não é muito, mas é mais do que suficiente para alimentar outros circuitos (<em>drivers</em>) os quais, por sua vez, podem acionar cargas bem mais potentes.</p>
+</div>
+<div class="paragraph">
+<p>Bom, chega de conversa. Vamos botar a mão na massa e elaborar um programa bem básico para demonstrar o uso da GPIO, a partir do IDE BlueJ. É o equivalente ao famoso "HelloWorld", e sua finalidade é apenas acender o LED, fazendo a função do interruptor. Para isso, além do BlueJ e JDK devidamente instalados no Pi (consulte nossos artigos anteriores para maiores informações - v. links abaixo), você vai precisar dos seguintes itens:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Uma "protoboard" (base para montagens experimentais sem solda);</p>
+</li>
+<li>
+<p>Dois cabinhos com conectores "macho/fêmea" preto e vermelho;</p>
+</li>
+<li>
+<p>Um LED (Diodo Emissor de Luz) de uso geral;</p>
+</li>
+<li>
+<p>Um resistor de 330Ω (laranja, laranja, marron).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Veja na figura a seguir a aparência desses componentes:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/03/componentes.png" alt="componentes">
+</div>
+</div>
+<div class="paragraph">
+<p>O cabo preto deve ser conectado no pino marcado 20 (Terra ou Ground) no Pi e o cabo vermelho deve ser conectado no pino marcado 22 (GPIO6). Consulte o diagrama seguinte:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/03/pins_used.png" alt="pins used">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Se você possui um Raspberry Pi modelo B+, ele terá mais do que 26 pinos. Todavia, as atribuições de numeração GPIO para ambos os modelos (B e B+), será a mesma descrita aqui e o projeto funciona nos dois sem que seja necessário fazer nenhuma alteração.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Veja no próxima imagem a minha montagem numa protoboard (também chamada breadboard), usando o modelo B:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/03/rasp_led.png" alt="rasp led">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_programando_a_gpio_com_o_bluej">Programando a GPIO com o BlueJ</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Abra o IDE BlueJ na interface gráfica do seu Raspian e carregue o projeto LED-Button. A figura a seguir mostra a janela do BlueJ com o projeto carregado:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/03/LedBnOpened.png" alt="LedBnOpened">
+</div>
+</div>
+<div class="paragraph">
+<p>Cada uma das caixas amarelas na janela do BlueJ acima é uma classe Java. A classe LED representa o LED real do nosso circuito conectado ao Raspberry Pi, e é ela que vamos usar neste primeiro exercício. Todas as demais classes já estão implementadas e vamos usá-las em exercícios futuros.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_criando_um_novo_objeto_led">Criando um novo objeto LED</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vamos aproveitar a funcionalidade do BlueJ para interagir diretamente com o objeto LED. Como já disse no meu artigo anterior, uma das grandes vantagens de usar o BlueJ é poder testar os objetos sem necessidade de um programa de teste com o método <code>main()</code>.</p>
+</div>
+<div class="paragraph">
+<p>A primeira coisa a fazer, é criar o objeto LED. Para isso, clique com o botão direito do mouse sobre a classe LED e selecione <code>new LED()</code>. Se esta opção não existir é porque a classe precisa ser compilada. Confira na figura seguinte:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/03/newLED.png" alt="newLED">
+</div>
+</div>
+<div class="paragraph">
+<p>O BlueJ solicitará um nome para a instância. O nome sugerido (<code>lED1</code>) está bom por ora. Clique o botão Ok e observe o aparecimento de um retângulo vermelho representando o objeto criado no painel inferior à esquerda, denominado <code>lED1: LED</code>:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/03/lED1_created.png" alt="lED1 created">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_acendendo_e_apagando_o_led">Acendendo e Apagando o LED</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Para acender o LED, clique com o botão direito do mouse sobre o objeto <code>lED1</code> e selecione o método <code>void on()</code>:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/03/lED1_sel_method_on.png" alt="lED1 sel method on">
+</div>
+</div>
+<div class="paragraph">
+<p>Isso vai acender o LED. (Vai demorar um pouquinho da primeira vez, tendo em vista que precisam ser feitas todas as conexões nos bastidores).</p>
+</div>
+<div class="paragraph">
+<p>Para encerrar, use o método <code>void off()</code> para apagar o LED e até a próxima.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_referências">Referências:</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://www.raspberrypi.org/documentation/usage/gpio/" target="_blank">Documentação do Raspberry Pi — GPIO</a></p>
+</li>
+<li>
+<p><a href="http://www.thebox.myzen.co.uk/Raspberry/Understanding_Outputs.html" target="_blank">Understanding Outputs</a></p>
+</li>
+<li>
+<p><a href="http://ja-gaeta.github.io/2014/java-e-raspberry-pi-parte-1.html" target="_blank">Java &amp; Raspberry Pi - Parte 1</a></p>
+</li>
+<li>
+<p><a href="http://ja-gaeta.github.io/2014/java-e-raspberry-pi-parte-2.html" target="_blank">Java &amp; Raspberry Pi - Parte 2</a></p>
+</li>
+<li>
+<p><a href="http://ja-gaeta.github.io/2014/java-e-raspberry-pi-parte-3.html" target="_blank">Java &amp; Raspberry Pi - Parte 3</a></p>
+</li>
+<li>
+<p><a href="http://ja-gaeta.github.io/2015/java-e-raspberry-pi-parte-4.html" target="_blank">Java &amp; Raspberry Pi - Parte 4</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div></p>
+      <div class="share">
+        <div class="social">
+  <!-- Facebook -->
+          <span class="facebook">
+            <iframe src="//www.facebook.com/plugins/like.php?href=http://http://ja-gaeta.github.io/2015/usando-gpio-do-raspberry-pi-com-bluej.html&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+          </span>
+  <!-- Google+ -->
+          <span class="google">
+            <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+            <g:plusone size="medium" href="http://ja-gaeta.github.io/2015/usando-gpio-do-raspberry-pi-com-bluej.html"></g:plusone>
+          </span>
+  <!-- Twitter -->
+          <span class="twitter">
+            <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ja-gaeta.github.io/2015/usando-gpio-do-raspberry-pi-com-bluej.html">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </span>
+        </div>
+      </div>
+<hr>
+<section class="comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+  
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>            </article>
+        </div> <!-- /.col-md-12 -->
+      </div> <!-- /.row -->
+        
+      </div><!-- /.container -->
+
+    <footer>
+      <div class="container">
+        <hr>
+        <div class="row">
+          <div class="col-xs-10">
+            <p class="text-muted credit">&copy; Ponto G++ 2015 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/br/"><img src="/img/creative_commons_88x31.png"></a> | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.4.0</a> | <i title="Linux" class="fa fa-linux"></i></p>
+          </div>
+          <div class="col-xs-2 gotop">
+            <a href="#"><i class="fa fa-arrow-circle-up"> topo</i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
+    <script type="text/javascript">
+      <!-- load prettify only when needed -->
+      $(document).ready(function(){
+        var prettify = false;
+        var classToAdd = 'prettyprint snippet';
+        $("pre > code").each(function() {
+          $("pre > code").parent().addClass(classToAdd);
+          prettify = true;
+        });
+        if(prettify) {
+          prettyPrint();
+        }
+      });
+    </script>
+
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+    </script>
+
+          <script type="text/javascript">
+        SyntaxHighlighter.all()
+    </script>
+  </body>
+</html>

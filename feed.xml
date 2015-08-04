@@ -6,8 +6,8 @@
     <atom:link href="http://ja-gaeta.github.io//feed.xml" rel="self" type="application/rss+xml" />
     <description>For future use?</description>
     <language>en</language>
-    <pubDate>Mon, 3 Aug 2015 14:51:38 -0300</pubDate>
-    <lastBuildDate>Mon, 3 Aug 2015 14:51:38 -0300</lastBuildDate>
+    <pubDate>Tue, 4 Aug 2015 09:29:30 -0300</pubDate>
+    <lastBuildDate>Tue, 4 Aug 2015 09:29:30 -0300</lastBuildDate>
 
       <item>
         <title>Curso de Java - Aula 6</title>
@@ -1964,6 +1964,221 @@ public class HelloWorld { // (2)
   &lt;li&gt;&lt;p&gt;&lt;strong&gt;Fase de Remarcação —&lt;/strong&gt; O objetivo da fase de remarcação é atualizar a informação da fase de marcação sobre os objetos vivos. A primeira coisa a fazer é decidir quando remarcar. Ela é disparada com base no preenchimento de uma percentagem da &lt;em&gt;heap&lt;/em&gt;. Isso é calculado pegando-se a informação da fase de marcação e o número de alocações desde então, o que informa ao G1 se a percentagem requerida foi atingida. O G1 usa então a barreira de registro mencionada acima para anotar as mudanças na &lt;em&gt;heap&lt;/em&gt; e armazená-las numa série de &lt;em&gt;buffers&lt;/em&gt; de mudanças. Os objetos nos &lt;em&gt;buffers&lt;/em&gt; de mudanças são registrados no &lt;em&gt;bitmap&lt;/em&gt; de marcação concorrentemente. Quando a percentagem de preenchimento é atingida, as &lt;em&gt;threads&lt;/em&gt; do &lt;em&gt;mutator&lt;/em&gt; são pausadas novamente e os &lt;em&gt;buffers&lt;/em&gt; de mudanças são processados, marcando seus objetos vivos.&lt;/p&gt;&lt;/li&gt;
   &lt;li&gt;&lt;p&gt;&lt;strong&gt;Fase de limpeza —&lt;/strong&gt; Neste ponto, o G1 sabe quais são os objetos que estão vivos. Uma vez que o seu foco são regiões que possuem a maior parte do espaço disponível, seu próximo passo é trabalhar o espaço livre numa determinada região, contando os objetos vivos. Isso é calculado a partir do &lt;em&gt;bitmap&lt;/em&gt; de marcação, e as regiões são ordenadas tomando-se por base em quais delas é mais útil coletar. As regiões coletadas são armazenadas no que é conhecido como um conjunto de coleção &lt;em&gt;(collection set)&lt;/em&gt; ou &lt;code&gt;CSet&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;h3&gt;Evacuação&lt;/h3&gt;&lt;p&gt;Similarmente à abordagem feita pela &lt;em&gt;Geração Jovem Hemisférica&lt;/em&gt; na GC em Paralelo e dos coletores CMS, os objetos mortos não são coletados. Ao invés disso, os objetos vivos são evacuados de uma região e toda ela é então considerada livre.&lt;/p&gt;&lt;p&gt;O G1 recupera os objetos vivos de uma forma inteligente — ele não tenta recuperar todos os objetos vivos num único ciclo, mas focaliza regiões potencialmente com o maior espaço passível de recuperação e apenas essas são evacuadas. Seu trabalho nas regiões-alvo é feito calculando a proporção de objetos vivos dentro das regiões e selecionando a região com a proporção mais baixa de objetos vivos.&lt;/p&gt;&lt;p&gt;Os objetos são evacuados e a região vai sendo liberada, o que ocorre simultaneamente em diversas outras regiões. Isso significa que o G1 compacta os dados enquanto executa a GC. Isto é operado em paralelo em múltiplas &lt;em&gt;threads&lt;/em&gt;. Os &quot;GC em Paralelo&quot; tradicionais também fazem isso, mas o CMS não.&lt;/p&gt;&lt;p&gt;Da mesma forma como no CMS e no GC em Paralelo, há o conceito de &lt;em&gt;tenuring&lt;/em&gt;. Isso quer dizer que os objetos jovens ficam &quot;velhos&quot; se sobreviverem a coletas suficientes. Este número é chamado &lt;strong&gt;limiar de &lt;em&gt;tenuring&lt;/em&gt;.&lt;/strong&gt; Se uma região geracional jovem sobrevive ao limiar de &lt;em&gt;tenuring&lt;/em&gt; e retem objetos vivos o suficiente para evitar que sejam evacuados, então a região é promovida. Primeiro para a região &lt;em&gt;Survivor&lt;/em&gt; e depois para a &lt;em&gt;Tenured&lt;/em&gt;. Ela nunca é evacuada.&lt;/p&gt;&lt;h3&gt;Falha de Evacuação&lt;/h3&gt;&lt;p&gt;Infelizmente, o G1 ainda pode encontrar um cenário similar ao de uma &lt;em&gt;Falha do Modo Concorrente&lt;/em&gt; (CMF), disparando uma GC Completa que &quot;para o mundo&quot;. Isso é chamado uma &lt;em&gt;Falha de Evacuação&lt;/em&gt; e ocorre quando não há regiões livres. A inexistência de regiões livres significa que não há para onde evacuar os objetos.&lt;/p&gt;&lt;p&gt;Teoricamente, as &lt;em&gt;Falhas de Evacuação&lt;/em&gt; são menos prováveis de acontecer no G1 do que as &lt;em&gt;Falhas do Modo Concorrente&lt;/em&gt; no CMS. Isso porque o G1 compacta suas regiões em tempo real ao invés de esperar que ocorra uma falha para implementar uma compactação.&lt;/p&gt;&lt;h3&gt;Conclusões&lt;/h3&gt;&lt;p&gt;A despeito das compactações e dos esforços para pausas curtas, o G1 não garante ser sempre o campeão e todas as tentativas de adotá-lo devem ser acompanhadas de uma medição objetiva da performance dos alvos e análise dos &lt;em&gt;logs&lt;/em&gt; de GC. A metodologia necessária para isso está fora do escopo deste artigo, mas espero abordá-la futuramente.&lt;/p&gt;&lt;p&gt;Em termos de algorítimo, existem desafios enfrentados pelo G1 que os outros coletores da &lt;em&gt;HotSpot&lt;/em&gt; não encontram. Especialmente o ônus de manter conjuntos memorizados. O GC em Paralelo ainda é o coletor recomendado para maior rendimento, e em muitas circunstâncias o CMS se sai melhor do que o G1.&lt;/p&gt;&lt;p&gt;Ainda é muito cedo para dizer se o G1 será o grande vencedor na disputa com o coletor CMS, mas em algumas situações ele já está trazendo benefícios para os desenvolvedores que o utilizam. Com o tempo veremos se as limitações de desempenho do G1 são realmente limites ou se a equipe de desenvolvimento apenas precisa de um esforço de engenharia maior para solucionar os problemas.&lt;/p&gt;&lt;p&gt;Meus agradecimentos a &lt;a href=&quot;http://twitter.com/johno_oliver&quot;&gt;John Oliver&lt;/a&gt;, &lt;a href=&quot;http://twitter.com/itsmonktastic?&quot;&gt;Tim Monks&lt;/a&gt; e &lt;a href=&quot;http://twitter.com/karianna&quot;&gt;Martijn Vergurg&lt;/a&gt; por fazerem a revisão dos rascunhos deste e dos artigos anteriores sobre GC.&lt;/p&gt;
+	    </description>
+      </item>
+      <item>
+        <title>Usando a GPIO do Raspberry Pi com BlueJ</title>
+        <link>http://ja-gaeta.github.io/2015/usando-gpio-do-raspberry-pi-com-bluej.html</link>
+        <pubDate>Wed, 14 Jan 2015 00:00:00 -0200</pubDate>
+        <guid isPermaLink="false">2015/usando-gpio-do-raspberry-pi-com-bluej.html</guid>
+        <description>
+	        &lt;div id=&quot;preamble&quot;&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Na parte superior do Raspberry Pi, ao lado do soquete amarelo de saída de vídeo, encontram-se os conectores da GPIO, sigla em inglês para &lt;em&gt;General Purpose Input/Output&lt;/em&gt;, isto é, Entrada/Saída de Uso Geral. Isso constitui uma das principais características deste fantástico dispositivo, permitindo uma variedade imensa de aplicações no campo da mecatrônica.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!--more--&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/03/gpio-pins.jpg&quot; alt=&quot;gpio pins&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Estes inocentes pininhos fazem a interface entre o Pi e o mundo exterior. De uma forma bem simples, pode-se considerá-los como se fossem interruptores que podem ser ligados/desligados (entrada ou &lt;em&gt;input&lt;/em&gt;) ou que o Pi pode ligar/desligar (saída ou &lt;em&gt;output&lt;/em&gt;). Dezessete dos 26 pinos são efetivamente GPIO; os outros são pinos de alimentação ou aterramento. Confira o esquema da pinagem na figura a seguir:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/03/basic-gpio-layout.png&quot; alt=&quot;basic gpio layout&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Os pinos da GPIO podem ser programados para interagir numa enorme variedade de maneiras. As entradas, por exemplo, podem ser acionadas também por sensores ou sinais de outros dispositivos; as saídas podem ser conectadas a outros componentes eletrônicos como leds, motores, servos, etc.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;admonitionblock warning&quot;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&quot;icon&quot;&gt;
+&lt;i class=&quot;fa icon-warning&quot; title=&quot;Warning&quot;&gt;&lt;/i&gt;
+&lt;/td&gt;
+&lt;td class=&quot;content&quot;&gt;
+É preciso tomar muito cuidado ao fazer conexões nos pinos GPIO, pois um erro de pinagem ou sobrecarga podem inutilizar completamente o Raspberry Pi. Preste muita atenção, portanto, na hora de plugar os cabos nos pinos, conferindo tudo cuidadosamente antes de ativar o circuito.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_um_helloworld_para_a_gpio&quot;&gt;Um &quot;HelloWorld&quot; para a GPIO&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Um dos circuitos mais elementares que existem é o de um LED em série com um resistor e um interruptor, o qual comanda seu acendimento. No esquema abaixo vemos o diagrama deste circuito:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/03/simple-circuit.png&quot; alt=&quot;simple circuit&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;A próxima figura mostra o circuito acima devidamente montado na nossa protoboard. À esquerda, o LED está apagado e, ao ser fechado o interruptor, na imagem da direita, ele acende. Nada mais simples do que isso, não é mesmo?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/03/leds_on_off.png&quot; alt=&quot;leds on off&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Observe que os LED possuem polaridade (negativo e positivo). Se essa polaridade for invertida na montagem, ADEUS LED!!! Para identificar os pinos, observe um pequeno chanfro no corpo do LED. O terminal do lado do chanfro é o Cátodo (negativo). Esse terminal também costuma ser mais curto, para facilitar sua identificação. O outro terminal, consequentemente, é o Ânodo (positivo).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;A montagem de apenas um LED, num único pino da GPIO, é bastante segura, ainda mais que estamos usando um resistor de 330Ω para limitar a corrente. Isso garante que a corrente drenada da saída fique em torno dos 4mA. O LED não vai ofuscá-lo com o melhor do seu brilho, mas estaremos dentro do limite de segurança.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Esses limites variam conforme a quantidade de pinos utilizados, mas de uma maneira geral, podemos considerar seguro o limite de 16mA para apenas um pino e de 51mA para todos os pinos. Parece que não é muito, mas é mais do que suficiente para alimentar outros circuitos (&lt;em&gt;drivers&lt;/em&gt;) os quais, por sua vez, podem acionar cargas bem mais potentes.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Bom, chega de conversa. Vamos botar a mão na massa e elaborar um programa bem básico para demonstrar o uso da GPIO, a partir do IDE BlueJ. É o equivalente ao famoso &quot;HelloWorld&quot;, e sua finalidade é apenas acender o LED, fazendo a função do interruptor. Para isso, além do BlueJ e JDK devidamente instalados no Pi (consulte nossos artigos anteriores para maiores informações - v. links abaixo), você vai precisar dos seguintes itens:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Uma &quot;protoboard&quot; (base para montagens experimentais sem solda);&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Dois cabinhos com conectores &quot;macho/fêmea&quot; preto e vermelho;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Um LED (Diodo Emissor de Luz) de uso geral;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Um resistor de 330Ω (laranja, laranja, marron).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Veja na figura a seguir a aparência desses componentes:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/03/componentes.png&quot; alt=&quot;componentes&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;O cabo preto deve ser conectado no pino marcado 20 (Terra ou Ground) no Pi e o cabo vermelho deve ser conectado no pino marcado 22 (GPIO6). Consulte o diagrama seguinte:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/03/pins_used.png&quot; alt=&quot;pins used&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;admonitionblock note&quot;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&quot;icon&quot;&gt;
+&lt;i class=&quot;fa icon-note&quot; title=&quot;Note&quot;&gt;&lt;/i&gt;
+&lt;/td&gt;
+&lt;td class=&quot;content&quot;&gt;
+Se você possui um Raspberry Pi modelo B+, ele terá mais do que 26 pinos. Todavia, as atribuições de numeração GPIO para ambos os modelos (B e B+), será a mesma descrita aqui e o projeto funciona nos dois sem que seja necessário fazer nenhuma alteração.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Veja no próxima imagem a minha montagem numa protoboard (também chamada breadboard), usando o modelo B:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/03/rasp_led.png&quot; alt=&quot;rasp led&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_programando_a_gpio_com_o_bluej&quot;&gt;Programando a GPIO com o BlueJ&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Abra o IDE BlueJ na interface gráfica do seu Raspian e carregue o projeto LED-Button. A figura a seguir mostra a janela do BlueJ com o projeto carregado:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/03/LedBnOpened.png&quot; alt=&quot;LedBnOpened&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Cada uma das caixas amarelas na janela do BlueJ acima é uma classe Java. A classe LED representa o LED real do nosso circuito conectado ao Raspberry Pi, e é ela que vamos usar neste primeiro exercício. Todas as demais classes já estão implementadas e vamos usá-las em exercícios futuros.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_criando_um_novo_objeto_led&quot;&gt;Criando um novo objeto LED&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Vamos aproveitar a funcionalidade do BlueJ para interagir diretamente com o objeto LED. Como já disse no meu artigo anterior, uma das grandes vantagens de usar o BlueJ é poder testar os objetos sem necessidade de um programa de teste com o método &lt;code&gt;main()&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;A primeira coisa a fazer, é criar o objeto LED. Para isso, clique com o botão direito do mouse sobre a classe LED e selecione &lt;code&gt;new LED()&lt;/code&gt;. Se esta opção não existir é porque a classe precisa ser compilada. Confira na figura seguinte:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/03/newLED.png&quot; alt=&quot;newLED&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;O BlueJ solicitará um nome para a instância. O nome sugerido (&lt;code&gt;lED1&lt;/code&gt;) está bom por ora. Clique o botão Ok e observe o aparecimento de um retângulo vermelho representando o objeto criado no painel inferior à esquerda, denominado &lt;code&gt;lED1: LED&lt;/code&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/03/lED1_created.png&quot; alt=&quot;lED1 created&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_acendendo_e_apagando_o_led&quot;&gt;Acendendo e Apagando o LED&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Para acender o LED, clique com o botão direito do mouse sobre o objeto &lt;code&gt;lED1&lt;/code&gt; e selecione o método &lt;code&gt;void on()&lt;/code&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/03/lED1_sel_method_on.png&quot; alt=&quot;lED1 sel method on&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Isso vai acender o LED. (Vai demorar um pouquinho da primeira vez, tendo em vista que precisam ser feitas todas as conexões nos bastidores).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Para encerrar, use o método &lt;code&gt;void off()&lt;/code&gt; para apagar o LED e até a próxima.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_referências&quot;&gt;Referências:&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.raspberrypi.org/documentation/usage/gpio/&quot; target=&quot;_blank&quot;&gt;Documentação do Raspberry Pi — GPIO&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.thebox.myzen.co.uk/Raspberry/Understanding_Outputs.html&quot; target=&quot;_blank&quot;&gt;Understanding Outputs&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://ja-gaeta.github.io/2014/java-e-raspberry-pi-parte-1.html&quot; target=&quot;_blank&quot;&gt;Java &amp;amp; Raspberry Pi - Parte 1&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://ja-gaeta.github.io/2014/java-e-raspberry-pi-parte-2.html&quot; target=&quot;_blank&quot;&gt;Java &amp;amp; Raspberry Pi - Parte 2&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://ja-gaeta.github.io/2014/java-e-raspberry-pi-parte-3.html&quot; target=&quot;_blank&quot;&gt;Java &amp;amp; Raspberry Pi - Parte 3&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://ja-gaeta.github.io/2015/java-e-raspberry-pi-parte-4.html&quot; target=&quot;_blank&quot;&gt;Java &amp;amp; Raspberry Pi - Parte 4&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 	    </description>
       </item>
       <item>
