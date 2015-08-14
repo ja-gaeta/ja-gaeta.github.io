@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+    Ponto G++
+        - Desvendando as Portas Lógicas
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="J.A. Gaeta Mendes">
+    <meta name="description" content="Static blog generated with JBake">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/cosmo/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/prettify-themes/github.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/asciidoctor.css">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav icon -->
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/img/favicon.png" type="image/x-icon">
+      
+    <!-- SyntaxHighlighter -->
+    <script type="text/javascript" src="/js/shCore.js"></script>
+    <script type="text/javascript" src="/js/shBrushJava.js"></script>
+    <script type="text/javascript" src="/js/shBrushCSharp.js"></script>
+    <script type="text/javascript" src="/js/shBrushCpp.js"></script>
+    <script type="text/javascript" src="/js/shBrushPython.js"></script>
+    
+    <link href="/css/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+      
+  </head>
+  <body>      
+    <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Ponto G++</a>
+        </div>
+        
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="/pages/about.html">Sobre</a></li>
+          <!--  <li><a href="/pages/contact.html">Contact</a></li> -->
+          </ul>
+        
+        <!-- Right navigation -->
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/archive.html"><i class="fa fa-list"></i> Arquivo</a></li>
+          <li><a href="/feed.xml" title="Rss"><i class="fa fa-rss"></i> Feed</a></li>
+        </ul>
+        <!-- Right navigation end -->
+
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav><!-- /.navbar -->
+
+    <!-- Begin page content -->
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-md-12">
+          <article>
+            <div class="page-header"><h1>Desvendando as Portas Lógicas</h1>
+              <ol class="breadcrumb tagsbar">
+                <li><a href="/tags/eletrônica.html">eletrônica</a></li>
+                <li><a href="/tags/ciência-da-computação.html">ciência-da-computação</a></li>
+                <li><a href="/tags/programação.html">programação</a></li>
+              </ol>
+            </div>
+          <p class="post-meta">
+            <i class="fa fa-calendar"></i>&nbsp;29 July 2015&nbsp;&nbsp;
+            <i class="fa fa-user"></i>&nbsp;J.A. Gaeta Mendes&nbsp;&nbsp;
+              <i class="fa fa-comment"></i>&nbsp;<span class="badge"><a href="http://ja-gaeta.github.io/2015/desvendando-as-portas-logicas.html#disqus_thread"></a></span>
+          </p>
+              <p><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Dentre os componentes mais elementares da eletrônica digital estão as denominadas <strong>portas lógicas</strong>. Elas são integradas aos milhares em circuitos prontinhos para uso, tais como os microprocessadores e os microcontroladores.</p>
+</div>
+<div class="paragraph">
+<p>O entendimento do funcionamento desses circuitos básicos é essencial para a compreensão dos operadores lógicos usados em programação, principalmente os operadores lógicos <em>bitwise</em>, ou seja aqueles que operam a nível de <em>bit</em>.</p>
+</div>
+<p style="text-align: center;">&nbsp;<iframe src="//www.youtube.com/embed/hxfHDP5QJ-0" frameborder="1" width="560" height="315" allowfullscreen></iframe></p>
+
+<!--more-->
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Índice</div>
+<ul class="sectlevel1">
+<li><a href="#_introdução">Introdução</a></li>
+<li><a href="#_porta_and">Porta "AND"</a></li>
+<li><a href="#_porta_or">Porta "OR"</a></li>
+<li><a href="#_porta_not_inversora">Porta "NOT" (Inversora)</a></li>
+<li><a href="#_porta_xor">Porta "XOR"</a></li>
+<li><a href="#_conclusão">Conclusão</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introdução">Introdução</h2>
+<div class="sectionbody">
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/03/simple-circuit.png" alt="simple circuit">
+</div>
+</div>
+<div class="paragraph">
+<p>A figura acima apresenta o circuito eletrônico mais elementar que existe: um LED, em série com um resistor limitador de corrente, que acende e apaga ao ser acionada uma chave. Mas embora simples, este circuito contém em si todo o fundamento da eletrônica digital&#8201;&#8212;&#8201;de fato, o LED só poderá assumir dois estados: apagado, ou aceso; desligado ou ligado; 0 ou 1, falso ou verdadeiro&#8230;&#8203; perceberam?</p>
+</div>
+<div class="paragraph">
+<p>Os transistores funcionam muito bem como chaves eletrônicas e podem comutar, isto é, mudar de estado, com velocidades fantásticas. Com o desenvolvimento da tecnologia, eles puderam ser integrados aos milhões nos microprocessadores, vindo daí a grande capacidade de processamento dos computadores modernos.</p>
+</div>
+<div class="paragraph">
+<p>Voltando ao nosso conceito básico de eletrônica digital, sabemos então que ela pode representar apenas dois dígitos numéricos: "0", para uma tensão de 0 V e "1", para uma tensão de 3,3 V nos circuitos integrados mais modernos, ou 5 V nos mais antigos.</p>
+</div>
+<div class="paragraph">
+<p>Depois de rever esses conceitos elementares, podemos passar ao estudo das portas lógicas.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_porta_and">Porta "AND"</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Esta porta, como diz o nome, faz a operação do "AND" ("E") lógico, que corresponde a uma <a href="https://en.wikipedia.org/wiki/Logical_conjunction" target="_blank">conjunção</a>, possuindo pelo menos duas entradas. Assim sendo, se "X" e "Y" forem as entradas, a saída "Z" será o resultado da conjunção das entradas (X.Y ou X∧Y). Nas figuras abaixo vemos o símbolo da porta "AND" e sua representação matemática na álgebra booleana.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/08/simbolo_porta_and.png" alt="simbolo porta and">
+</div>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/08/matematica_porta_and.png" alt="matematica porta and">
+</div>
+</div>
+<div class="paragraph">
+<p>As combinações possíveis decorrentes da aplicação do operador booleano "AND" nas entradas da porta lógica podem ser tabuladas no que é chamado Tabela Verdade. Podemos montar então a Tabela Verdade da porta lógica "AND", conforme a seguir:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/08/tv_and.png" alt="tv and">
+</div>
+</div>
+<div class="paragraph">
+<p>Em programação, é mais comum definir a porta lógica "AND" como aquela em que a saída somente será "1" quando todas as entradas forem "1", caso contrário, será "0". Se definirmos que "0" representa o valor booleano "false" e "1" o valor "true", podemos também definir que o resultado da aplicação de um operador relacional "AND" somente será "true" se <strong>ambos</strong> os valores comparados forem "true". Caso contrário, o resultado da comparação será "false". Matematicamente, isso é denominado conjunção.</p>
+</div>
+<div class="paragraph">
+<p>Para a nossa demonstração prática, vamos usar o Circuito Integrado 7408, que contém 4 portas "AND" e cujo diagrama interno é apresentado a seguir.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/08/ic7408.png" alt="ic7408">
+</div>
+</div>
+<div class="paragraph">
+<p>O circuito de teste da porta lógica "AND" é bastante simples, consistindo de dois LEDs em série com as entradas e resistores para limitar a corrente dentro dos seus parâmetros de funcionamento. A alimentação do CI é feita através dos pinos 7 (terra) e 14 (+5Vcc), como consta na extrema direita do esquema e, à esquerda dele, temos uma fonte de alimentação estabilizada usando o CI 7805 e uma bateria de 9V.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/08/porta_and_7408.png" alt="porta and 7408">
+</div>
+</div>
+<div class="paragraph">
+<p>A montagem não apresenta nenhuma dificuldade, devendo-se apenas ter cuidado na identificação dos pinos dos CIs e na polaridade dos LEDs. Na foto abaixo, podemos observar que as duas entradas da porta "AND" utilizada (pinos 1 e 2), estão em potencial de 0V, pois os cabos amarelo e azul que os alimentam estão ambos ligados ao terra, confirmado pelos LEDs verdes ligados a elas, que estão apagados. Temos então a primeira situação da Tabela-Verdade da porta lógica "AND" e a saída (pino 3) também apresenta 0V, confirmado pelo LED vermelho ligado a ela, que igualmente permanece apagado.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/08/foto_and_1.png" alt="foto and 1">
+</div>
+</div>
+<div class="paragraph">
+<p>Passemos agora à verificação da segunda situação da Tabela-Verdade da porta "AND", deixando a entrada "X" aterrada ("0" lógico), e ligando o cabo amarelo da entrada "Y" (pino 1) à linha de alimentação positiva de +5V ("1" lógico). Como apenas uma das entradas é "1", a saída continua "0", confirmado pelo LED vermelho apagado. Confira na próxima foto:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/08/foto_and_2.png" alt="foto and 2">
+</div>
+</div>
+<div class="paragraph">
+<p>Passemos à terceira situação possível da Tabela-Verdade da porta "AND", ligando agora o cabo azul da entrada "X" (pino 2) à alimentação de +5V ("1" lógico), voltando a aterrar o cabo amarelo da entrada "Y" (pino 1). Embora invertida, esta situação é idêntica à anterior, ou seja, apenas uma das entradas é "1" e, portanto, a saída ainda permanece "0", confirmado pelo LED vermelho apagado. Esta situação está demonstrada no foto a seguir:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/08/foto_and_3.png" alt="foto and 3">
+</div>
+</div>
+<div class="paragraph">
+<p>A última situação possível na Tabela-Verdade da porta lógica "AND" é aquela em que ambas as entradas estão ligadas à linha de alimentação de +5V, no estado de "1" lógico, conforme pode ser constatado por ambos os LEDs verdes acesos. Esta é a única situação em que a saída também apresenta "1" lógico, confirmado pelo LED vermelho aceso. Veja a foto:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/08/foto_and_4.png" alt="foto and 4">
+</div>
+</div>
+<div class="paragraph">
+<p>Para melhor comparar o resultado visual das entradas e saída nas fotos com a situação da Tabela-Verdade da porta lógica "AND", tenha sempre em mente que:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>LED apagado = "0"</p>
+</li>
+<li>
+<p>LED aceso = "1"</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_porta_or">Porta "OR"</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A porta lógica "OR" faz a operação do "OR" ("OU") lógico, que corresponde a uma <a href="https://en.wikipedia.org/wiki/Logical_disjunction" target="_blank">disjunção</a>, possuindo também pelo menos duas entradas, tal como na porta "AND". Dessa forma, se "X" e "Y" forem as entradas, a saída "Z" será o resultado da disjunção das entradas (X+Y ou X∨Y).</p>
+</div>
+<div class="paragraph">
+<p>Na figura abaixo vemos o símbolo da porta "OR" e sua fórmula matemática em álgebra booleana na  saída (Z).</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/08/or_gate_symbol_rev1.png" alt="or gate symbol rev1">
+</div>
+</div>
+<div class="paragraph">
+<p>A tabela-verdade da porta lógica "OR" é apresentada a seguir:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/08/tv_or.png" alt="tv or">
+</div>
+</div>
+<div class="paragraph">
+<p>Na tabela acima podemos observar que a saída da porta lógica "OR" somente será "0" se todas as suas entradas forem "0", caso contrário, será "1". Tanto na porta "AND", como agora na porta "OR", afirmamos que elas possuem pelo menos duas entradas, mas estas podem ser expandidas, se for necessário, acoplando-se outra porta "OR" a uma das entradas, como representado esquematicamente na figura abaixo.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/08/or_gate_3inputs.png" alt="or gate 3inputs">
+</div>
+</div>
+<div class="paragraph">
+<p>Para a demonstração prática desta porta lógica, vamos usar outro circuito integrado TTL, o 7432, cujo diagrama é mostrado na próxima figura, na qual podemos ver que ele contém 4 portas "OR" no seu interior. A alimentação é provida através dos pinos 7 (terra) e 14 (+5Vcc), como nos demais integrados que estamos usando.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/08/7432.jpg" alt="7432">
+</div>
+</div>
+<div class="paragraph">
+<p>Para quem fez a montagem anterior da porta lógica "AND", agora é uma barbada. Basta substituir o 7408 pelo 7432 e aproveitar todas as demais ligações da <em>protoboard</em>. Na figura abaixo, temos o esquema do circuito da porta lógica "OR" que, como se vê, é similar ao da porta "AND", exceto quanto ao Circuito Integrado utilizado. O valor dos resistores pode se situar tranquilamente entre 100Ω e 150Ω para assegurar um brilho adequado dos LED, dentro dos limites de segurança.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/08/porta_or_7432.png" alt="porta or 7432">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_porta_not_inversora">Porta "NOT" (Inversora)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A lógica desta porta é simplíssima: como o nome já diz, ela faz uma inversão da entrada. Ou seja, quando a tensão na entrada é nula (0 V), que podemos representar por 0, a tensão na saída será alta (3,3 V, por exemplo), e podemos representá-la por 1. Por outro lado, se a entrada for alta (3,3 V neste exemplo), a saída será nula (0 V). Abaixo podemos ver o símbolo da porta inversora e a representação da lógica do seu funcionamento.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/07/not_gate.jpg" alt="not gate">
+</div>
+</div>
+<div class="paragraph">
+<p>Aquele pequeno círculo na frente do triângulo quer dizer inversão. Voltaremos a ver isso quando examinarmos as outras portas lógicas.</p>
+</div>
+<div class="paragraph">
+<p>Podemos montar uma simples porta inversora, usando apenas um transistor NPN, alguns resistores, uma chave "push-button" e dois LEDs de cores diferentes, para monitorar a entrada e a saída.</p>
+</div>
+<div class="paragraph">
+<p>O circuito, apresentado na figura abaixo, é bem simples e sua montagem pode ser feita numa <em>protoboard</em>, usando alguns cabinhos para as conexões.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/07/porta_inversora_npn_1.png" alt="porta inversora npn 1">
+</div>
+</div>
+<div class="paragraph">
+<p>Nesta situação, com o <em>push-button</em> aberto, o LED de entrada recebe uma tensão desprezível, praticamente 0 V, e permanece apagado (representando 0); por outro lado, a polarização do transistor permite fluir uma corrente suficiente pelo coletor para acender o LED de saída, com uma tensão praticamente nominal (representando 1). A foto a seguir mostra a montagem neste estado.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/07/montagem_porta_inversora_01.png" alt="montagem porta inversora 01">
+</div>
+</div>
+<div class="paragraph">
+<p>Vamos inverter as coisas agora, conforme mostrado no diagrama abaixo:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/07/porta_inversora_npn_2.png" alt="porta inversora npn 2">
+</div>
+</div>
+<div class="paragraph">
+<p>Quando pressionamos o botão, a corrente flui livremente pelo LED de entrada que acende com a tensão nominal (representando 1), alterando-se a polarização do transistor que entra em corte e, uma vez que a corrente de coletor praticamente inexiste, o LED de saída permanece apagado (representando 0). A próxima foto exibe a montagem neste novo estado.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/07/montagem_porta_inversora_02.png" alt="montagem porta inversora 02">
+</div>
+</div>
+<div class="paragraph">
+<p>Como já disse, esses circuitos são embutidos em circuitos integrados, como o famoso 7404, já um ancião, que possui nada mais nada menos do que seis portas inversoras, operando com uma tensão nominal de 5 V e cujo diagrama interno é exibido na figura seguinte.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/07/ic7404.png" alt="ic7404">
+</div>
+</div>
+<div class="paragraph">
+<p>Este CI faz parte da família TTL (sigla para <em>Transistor-Transistor Logic</em> ou Lógica Transistor-Transistor em português), que já teve seu momento na história da eletrônica. Os TTL tem a vantagem de não serem tão sensíveis à eletricidade estática como os da família CMOS mais moderna, e são de baixo custo, razões suficientes para usá-los nas nossas experimentações com as portas lógicas.</p>
+</div>
+<div class="paragraph">
+<p>Apresento abaixo o circuito para teste de uma porta inversora (NOT), usando o 7404, que simplifica bastante a montagem. Para esta demonstração, vamos usar apenas uma das portas inversoras disponíveis, correspondendo aos pinos 1 (entrada) e 2 (saída) do CI. O pino 7 corresponde sempre ao terra e o pino 14 à alimentação de 5 Vcc, conforme se vê na extrema direita do diagrama. A tensão de alimentação é crítica e, caso você não possua uma boa fonte ajustável regulada, apresento à esquerda o esquema para uma fonte estabilizada usando o CI 7805TV (ou equivalente), garantindo uma saída de 5V, a partir de uma bateria de 9V.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/08/porta_not_7404.png" alt="porta not 7404">
+</div>
+</div>
+<div class="paragraph">
+<p>Na foto abaixo, vemos a montagem do circuito com a entrada aterrada (cabo amarelo), ou seja, "0", cuja condição é atestada pelo LED indicador verde apagado, enquanto a saída apresenta a tensão nominal de 5V, isto é, "1", conforme confirma o seu LED indicador vermelho aceso.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/08/montagem_porta_not_7404_0.jpg" alt="montagem porta not 7404 0">
+</div>
+</div>
+<div class="paragraph">
+<p>Observe na foto seguinte que invertemos a polarização da entrada (cabo amarelo), alimentado agora com a tensão nominal de 5V, ou seja, "1", de forma que seu LED indicador acende, enquanto a saída é aterrada, isto é, "0", apagando-se o LED indicador vermelho.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/08/montagem_porta_not_7404_1.jpg" alt="montagem porta not 7404 1">
+</div>
+</div>
+<div class="paragraph">
+<p>Fica confirmada experimentalmente, portanto, a tabela-verdade da porta lógica "NOT" (ou inversora), qual seja:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/08/tv_not.png" alt="tv not">
+</div>
+</div>
+<div class="paragraph">
+<p>Para encerrar, apresento na figura abaixo o símbolo para a porta lógica "NOT", onde o terminal X corresponde à entrada e o terminal Z à saída.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/08/simbolo_porta_not.png" alt="simbolo porta not">
+</div>
+</div>
+<div class="paragraph">
+<p>A representação matemática na álgebra booleana para esta porta é a apresentada na figura seguinte. A linha acima da letra "Y" indica o inverso de "X".</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/08/matematica_porta_not.png" alt="matematica porta not">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_porta_xor">Porta "XOR"</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Esta porta apresenta na sua saída o resultado de operações <em>booleanas</em> com as três portas vistas anteriormente, que são as básicas. Apresento a seguir o operador da porta "XOR" e seu símbolo lógico nos diagramas dos circuitos eletrônicos:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/08/simbolo_porta_xor.png" alt="simbolo porta xor">
+</div>
+</div>
+<div class="paragraph">
+<p>Como podem observar, a operação "XOR" pode ser decomposta numa operação "OR" do resultado de uma operação "AND" entre o inverso da entrada "X" com a entrada "Y" e outra operação "AND" entre a entrada "X" e o inverso da entrada "Y". Dessa forma, é possível montar um circuito lógico da porta "XOR", usando as portas básicas, conforme o diagrama a seguir:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/08/xor_equivalente.png" alt="xor equivalente">
+</div>
+</div>
+<div class="paragraph">
+<p>A tabela verdade da porta lógica "XOR" é a seguinte:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/08/tv_xor.png" alt="tv xor">
+</div>
+</div>
+<div class="paragraph">
+<p>Vemos que somente teremos o "1" lógico na saída da porta "XOR" quando os valores lógicos das entradas forem diferentes, isto é, "0" e "1" ou "1" e "0". Quando os valores lógicos das entradas forem iguais ("0" e "0" ou "1" e "1"), a saída será "0" lógico. Daí vem o nome da porta, que é uma abreviatura para "eXclusive OR" ("OU exclusivo").</p>
+</div>
+<div class="paragraph">
+<p>Para teste da porta lógica "XOR" usaremos um circuito integrado 74_86, que abriga 4 portas lógicas "XOR" no seu interior. No diagrama a seguir, podemos identificar a pinagem deste CI:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/08/74_86.png" alt="74 86">
+</div>
+</div>
+<div class="paragraph">
+<p>O circuito de teste é praticamente idêntico ao das portas "AND" e "OR", bastando substituir o circuito integrado na <em>protoboard</em>, respeitando a posição dos pinos. A seguir, o diagrama do circuito:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/08/porta_xor_7486.png" alt="porta xor 7486">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conclusão">Conclusão</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Espero que este artigo e o vídeo que o complementa tenham esclarecido para vocês os fundamentos da álgebra booleana e sua aplicação nos circuitos eletrônicos que, por sua vez, são a base dos operadores lógicos utilizados nas linguagens de programação. Evidentemente, num pequeno artigo como este, abordamos apenas os fundamentos básicos da matéria, mas espero ter despertado seu interesse para aprofundar-se nos estudos da álgebra boolena e na montagem de circuitos práticos de maior complexidade. O assunto é fascinante e, com certeza, seu entendimento é essencial para dominar a lógica de programação.</p>
+</div>
+</div>
+</div></p>
+      <div class="share">
+        <div class="social">
+  <!-- Facebook -->
+          <span class="facebook">
+            <iframe src="//www.facebook.com/plugins/like.php?href=http://http://ja-gaeta.github.io/2015/desvendando-as-portas-logicas.html&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+          </span>
+  <!-- Google+ -->
+          <span class="google">
+            <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+            <g:plusone size="medium" href="http://ja-gaeta.github.io/2015/desvendando-as-portas-logicas.html"></g:plusone>
+          </span>
+  <!-- Twitter -->
+          <span class="twitter">
+            <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ja-gaeta.github.io/2015/desvendando-as-portas-logicas.html">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </span>
+        </div>
+      </div>
+<hr>
+<section class="comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+  
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>            </article>
+        </div> <!-- /.col-md-12 -->
+      </div> <!-- /.row -->
+        
+      </div><!-- /.container -->
+
+    <footer>
+      <div class="container">
+        <hr>
+        <div class="row">
+          <div class="col-xs-10">
+            <p class="text-muted credit">&copy; Ponto G++ 2015 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/br/"><img src="/img/creative_commons_88x31.png"></a> | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.4.0</a> | <i title="Linux" class="fa fa-linux"></i></p>
+          </div>
+          <div class="col-xs-2 gotop">
+            <a href="#"><i class="fa fa-arrow-circle-up"> topo</i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
+    <script type="text/javascript">
+      <!-- load prettify only when needed -->
+      $(document).ready(function(){
+        var prettify = false;
+        var classToAdd = 'prettyprint snippet';
+        $("pre > code").each(function() {
+          $("pre > code").parent().addClass(classToAdd);
+          prettify = true;
+        });
+        if(prettify) {
+          prettyPrint();
+        }
+      });
+    </script>
+
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+    </script>
+
+          <script type="text/javascript">
+        SyntaxHighlighter.all()
+    </script>
+  </body>
+</html>
