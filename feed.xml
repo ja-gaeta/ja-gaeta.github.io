@@ -6,8 +6,8 @@
     <atom:link href="http://ja-gaeta.github.io//feed.xml" rel="self" type="application/rss+xml" />
     <description>For future use?</description>
     <language>en</language>
-    <pubDate>Sat, 15 Aug 2015 00:34:10 -0300</pubDate>
-    <lastBuildDate>Sat, 15 Aug 2015 00:34:10 -0300</lastBuildDate>
+    <pubDate>Mon, 17 Aug 2015 19:20:17 -0300</pubDate>
+    <lastBuildDate>Mon, 17 Aug 2015 19:20:17 -0300</lastBuildDate>
 
       <item>
         <title>Desvendando as Portas Lógicas</title>
@@ -388,6 +388,11 @@
 &lt;li&gt;&lt;a href=&quot;#_natal_ou_dia_das_bruxas&quot;&gt;Natal ou Dia das Bruxas?&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#_tipos_primitivos&quot;&gt;Tipos Primitivos&lt;/a&gt;
+&lt;ul class=&quot;sectlevel2&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#_complemento_de_dois&quot;&gt;Complemento de Dois&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#_links_Úteis&quot;&gt;Links Úteis&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -429,12 +434,86 @@ public class Piada {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_tipos_primitivos&quot;&gt;Tipos Primitivos&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Embora Java seja uma linguagem orientada a objeto, fazendo um uso tão intensivo dessa metodologia de programação que podemos afirmar que quase tudo nela é um objeto, esse &quot;quase&quot; indica que possui alguns elementos que não são objetos.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Esses elementos são os denominados &lt;strong&gt;Tipos Primitivos&lt;/strong&gt;, definidos na tabela a seguir:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/08/primitivosJava.png&quot; alt=&quot;primitivosJava&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Se precisarmos fazer muitos cálculos, como quando trabalhamos com gráficos, por exemplo, é interessante dispor de tipos mais simples, de forma a não comprometer o desempenho do aplicativo. Esta é a principal razão da linguagem Java ter mantido essa variedade de tipos primitivos, além disso, eles ocupam bem menos espaço na memória do que seus objetos equivalentes.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Tais objetos existem de fato: são as classes &lt;em&gt;wrapper&lt;/em&gt;, que vemos na tabela a seguir, correlacionadas com seus equivalentes primitivos:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/08/wrappers.png&quot; alt=&quot;wrappers&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;em&gt;Wrapper&lt;/em&gt;, em inglês, quer dizer &lt;strong&gt;invólucro&lt;/strong&gt; e, na linguagem Java, são classes especiais que possuem métodos para a conversão de variáveis primitivas, encapsulando tipos primitivos. Voltaremos a este assunto mais tarde, depois de consolidarmos mais o entendimento de orientação a objeto.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Voltando então aos tipos primitivos propriamente ditos, a primeira observação a ser feita é quanto ao tamanho de cada um deles, os quais, independentemente do sistema operacional ou arquitetura do &lt;em&gt;hardware&lt;/em&gt;, são aqueles exibidos na tabela acima. Esses tamanhos, por sua vez, definem os limites para os números que podem ser representados em cada um deles.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Podemos subdividi-los em três grandes grupos: booleano, inteiros e de ponto flutuante. O grupo booleano possui apenas um tipo, o &lt;strong&gt;boolean&lt;/strong&gt;, com o tamanho de 1 único bit e que pode assumir apenas os valores &lt;strong&gt;true&lt;/strong&gt; ou &lt;strong&gt;false&lt;/strong&gt;, não admitindo &lt;em&gt;casting&lt;/em&gt;, isto é, sua conversão para outro tipo. O grupo dos inteiros são o &lt;strong&gt;byte&lt;/strong&gt;, com o tamanho de 1 byte; o &lt;strong&gt;short&lt;/strong&gt;, com 2 bytes; o &lt;strong&gt;int&lt;/strong&gt; com 4 bytes e o long com 8 bytes, todos eles operando no sistema de complemento de dois, que examinaremos mais adiante. Ainda faz parte do grupo de inteiros o tipo &lt;strong&gt;char&lt;/strong&gt;, com 2 bytes, para a representação de caracteres Unicode, no padrão &lt;a href=&quot;https://pt.wikipedia.org/wiki/UTF-16&quot; target=&quot;_blank&quot;&gt;UTF-16&lt;/a&gt;. O último grupo é o Ponto Flutuante, para representar os números fracionários, com os tipos &lt;strong&gt;float&lt;/strong&gt;, de 4 bytes e double de 8 bytes. Do tamanho em bytes decorrem os limites de cada um dos tipos, como pode ser visto na tabela acima.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_complemento_de_dois&quot;&gt;Complemento de Dois&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Como sabemos, a representação dos números, inclusive os caracteres, que também são números relacionados a algum tipo de codificação como ASCII ou UTF-8, é feita nos computadores na base binária, usando um sistema muito bem bolado chamado de &lt;strong&gt;Complemento de Dois&lt;/strong&gt;. Suas regras são as seguintes:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;O zero é representado colocando todos os bits em zero. No tipo &lt;strong&gt;byte&lt;/strong&gt;, por exemplo, que possui 1 byte ou 8 bits, o zero seria representado como: 0 0 0 0 0 0 0 0&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;O maior número positivo que pode ser representado segue a fórmula: 2&lt;sup&gt;(número_de_bits-1)&lt;/sup&gt; - 1 e o menor negativo obedece a fórmula 2&lt;sup&gt;(número_de_bits-1)&lt;/sup&gt; apenas, pois já existe o zero entre os positivos. No tipo &lt;strong&gt;byte&lt;/strong&gt;, temos então o maior inteiro positivo igual a 2&lt;sup&gt;(8-1)&lt;/sup&gt; - 1 = 2&lt;sup&gt;7&lt;/sup&gt; - 1 = 128 - 1 = 127 e o menor inteiro negativo igual a 2&lt;sup&gt;(8-1)&lt;/sup&gt; = 2&lt;sup&gt;7&lt;/sup&gt; = -128.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Para os números negativos, ao invés de iniciarmos com todos os bits colocados em zero como nos positivos, colocamos todos os bits em 1. No tipo &lt;strong&gt;byte&lt;/strong&gt; que estamos usando como exemplo, o -1 seria representado como: 1 1 1 1 1 1 1 1&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Vejam na figura a seguir a representação do sistema de complemento de dois para um tipo de apenas 4 bits (denominado tecnicamente de &lt;em&gt;nibble&lt;/em&gt;), para ter uma visão mais clara da aplicação das regras acima.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/08/nibble_c2.png&quot; alt=&quot;nibble c2&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Como os números negativos são o complemento de dois dos positivos e vice-versa, este sistema permite operar com segurança na memória dos computadores pois, se houver um &quot;estouro&quot; do limite, o número apenas converte-se no limite inferior oposto, isto é, 0 se o valor &quot;estourado&quot; for negativo e o menor número negativo possível, se o valor &quot;estourado&quot; for positivo. Vejam na representação gráfica abaixo como isso fica fácil de visualizar:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/08/c2circular.png&quot; alt=&quot;c2circular&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
 &lt;h2 id=&quot;_links_Úteis&quot;&gt;Links Úteis&lt;/h2&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;ulist&quot;&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&quot;https://armchairdissident.wordpress.com/2009/04/15/a-long-explanation-of-a-damned-fine-joke/&quot; target=&quot;_blank&quot;&gt;Uma longa explicação de uma boa piada. (Natal ou Dia das Bruxas?)&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html&quot; target=&quot;_blank&quot;&gt;Tipos de Dados Primitivos em Java&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -2672,13 +2751,13 @@ Se você possui um Raspberry Pi modelo B+, ele terá mais do que 26 pinos. Todav
 &lt;p&gt;Parabéns, você já instalou o BlueJ no seu Raspberry Pi e fez sua primeira exploração pela interface do programa. Como deve ter percebido, o BlueJ é uma ferramenta extraordinária para o aprendizado de linguagens de programação orientadas a objeto, como é o caso de Java. Mas a integração com o Raspberry Pi vai além, e permite experimentar diretamente com a GPIO (&lt;strong&gt;General Purpose Input/Output&lt;/strong&gt;) do &quot;bichinho&quot;. Abordaremos este assunto em outros artigos.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Para quem ficou entusiasmado e quer se aprofundar no estudo de OOP usando o BlueJ, indico o excelente livro de David J. Barnes &amp;amp; Michael Kölling, &lt;a href=&quot;http://www.bluej.org/objects-first/&quot;&gt;&lt;em&gt;Objects First with Java ‒ A Practical Introduction using BlueJ&lt;/em&gt;&lt;/a&gt;. No site do livro, você poderá baixar um arquivo com mais projetos, no quadro &quot;&lt;strong&gt;Resources&lt;/strong&gt;&quot;.&lt;/p&gt;
+&lt;p&gt;Para quem ficou entusiasmado e quer se aprofundar no estudo de OOP usando o BlueJ, indico o excelente livro de David J. Barnes &amp;amp; Michael Kölling, &lt;a href=&quot;http://www.bluej.org/objects-first/&quot; target=&quot;_blank&quot;&gt;&lt;em&gt;Objects First with Java ‒ A Practical Introduction using BlueJ&lt;/em&gt;&lt;/a&gt;. No site do livro, você poderá baixar um arquivo com mais projetos, no quadro &quot;&lt;strong&gt;Resources&lt;/strong&gt;&quot;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Se ainda não está familiarizado com o BlueJ, vale a pena gastar algum tempo para descobrir o que ele pode fazer por você. Como se trata de um IDE Java padrão, podem ser desenvolvidos nele todos os programas em Java desenvolvidos em outros IDE, mas ele pode fazer muito mais. No BlueJ, você pode instanciar objetos individualmente, de forma interativa, e chamar métodos individuais. Isso facilita muito a realização de testes, brincadeiras e experimentação.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Essas características do BlueJ foram descritas em diversos números da Java Magazine, onde você poderá aprender mais. Os números de &lt;a href=&quot;http://www.oraclejavamagazine-digital.com/javamagazine_open/20120708#pg25&quot;&gt;Julho/Agosto de 2012&lt;/a&gt; e de &lt;a href=&quot;http://www.oraclejavamagazine-digital.com/javamagazine_open/20120910#pg29&quot;&gt;Setembro/Outubro de 2012&lt;/a&gt;, incluem uma introdução ao BlueJ e as edições de &lt;a href=&quot;http://www.oraclejavamagazine-digital.com/javamagazine_open/20140506#pg34&quot;&gt;Maio/Junho de 2014&lt;/a&gt; e &lt;a href=&quot;http://www.oraclejavamagazine-digital.com/javamagazine_open/20140708#pg30&quot;&gt;Julho/Agosto de 2014&lt;/a&gt;, discutem os aspectos de interatividade do BlueJ em mais detalhes.&lt;/p&gt;
+&lt;p&gt;Essas características do BlueJ foram descritas em diversos números da Java Magazine, onde você poderá aprender mais. Os números de &lt;a href=&quot;http://www.oraclejavamagazine-digital.com/javamagazine_open/20120708#pg25&quot; target=&quot;_blank&quot;&gt;Julho/Agosto de 2012&lt;/a&gt; e de &lt;a href=&quot;http://www.oraclejavamagazine-digital.com/javamagazine_open/20120910#pg29&quot; target=&quot;_blank&quot;&gt;Setembro/Outubro de 2012&lt;/a&gt;, incluem uma introdução ao BlueJ e as edições de &lt;a href=&quot;http://www.oraclejavamagazine-digital.com/javamagazine_open/20140506#pg34&quot; target=&quot;_blank&quot;&gt;Maio/Junho de 2014&lt;/a&gt; e &lt;a href=&quot;http://www.oraclejavamagazine-digital.com/javamagazine_open/20140708#pg30&quot; target=&quot;_blank&quot;&gt;Julho/Agosto de 2014&lt;/a&gt;, discutem os aspectos de interatividade do BlueJ em mais detalhes.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;

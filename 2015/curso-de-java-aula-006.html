@@ -101,6 +101,11 @@
 <li><a href="#_natal_ou_dia_das_bruxas">Natal ou Dia das Bruxas?</a></li>
 </ul>
 </li>
+<li><a href="#_tipos_primitivos">Tipos Primitivos</a>
+<ul class="sectlevel2">
+<li><a href="#_complemento_de_dois">Complemento de Dois</a></li>
+</ul>
+</li>
 <li><a href="#_links_Úteis">Links Úteis</a></li>
 </ul>
 </div>
@@ -142,12 +147,86 @@ public class Piada {
 </div>
 </div>
 <div class="sect1">
+<h2 id="_tipos_primitivos">Tipos Primitivos</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Embora Java seja uma linguagem orientada a objeto, fazendo um uso tão intensivo dessa metodologia de programação que podemos afirmar que quase tudo nela é um objeto, esse "quase" indica que possui alguns elementos que não são objetos.</p>
+</div>
+<div class="paragraph">
+<p>Esses elementos são os denominados <strong>Tipos Primitivos</strong>, definidos na tabela a seguir:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/08/primitivosJava.png" alt="primitivosJava">
+</div>
+</div>
+<div class="paragraph">
+<p>Se precisarmos fazer muitos cálculos, como quando trabalhamos com gráficos, por exemplo, é interessante dispor de tipos mais simples, de forma a não comprometer o desempenho do aplicativo. Esta é a principal razão da linguagem Java ter mantido essa variedade de tipos primitivos, além disso, eles ocupam bem menos espaço na memória do que seus objetos equivalentes.</p>
+</div>
+<div class="paragraph">
+<p>Tais objetos existem de fato: são as classes <em>wrapper</em>, que vemos na tabela a seguir, correlacionadas com seus equivalentes primitivos:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/08/wrappers.png" alt="wrappers">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Wrapper</em>, em inglês, quer dizer <strong>invólucro</strong> e, na linguagem Java, são classes especiais que possuem métodos para a conversão de variáveis primitivas, encapsulando tipos primitivos. Voltaremos a este assunto mais tarde, depois de consolidarmos mais o entendimento de orientação a objeto.</p>
+</div>
+<div class="paragraph">
+<p>Voltando então aos tipos primitivos propriamente ditos, a primeira observação a ser feita é quanto ao tamanho de cada um deles, os quais, independentemente do sistema operacional ou arquitetura do <em>hardware</em>, são aqueles exibidos na tabela acima. Esses tamanhos, por sua vez, definem os limites para os números que podem ser representados em cada um deles.</p>
+</div>
+<div class="paragraph">
+<p>Podemos subdividi-los em três grandes grupos: booleano, inteiros e de ponto flutuante. O grupo booleano possui apenas um tipo, o <strong>boolean</strong>, com o tamanho de 1 único bit e que pode assumir apenas os valores <strong>true</strong> ou <strong>false</strong>, não admitindo <em>casting</em>, isto é, sua conversão para outro tipo. O grupo dos inteiros são o <strong>byte</strong>, com o tamanho de 1 byte; o <strong>short</strong>, com 2 bytes; o <strong>int</strong> com 4 bytes e o long com 8 bytes, todos eles operando no sistema de complemento de dois, que examinaremos mais adiante. Ainda faz parte do grupo de inteiros o tipo <strong>char</strong>, com 2 bytes, para a representação de caracteres Unicode, no padrão <a href="https://pt.wikipedia.org/wiki/UTF-16" target="_blank">UTF-16</a>. O último grupo é o Ponto Flutuante, para representar os números fracionários, com os tipos <strong>float</strong>, de 4 bytes e double de 8 bytes. Do tamanho em bytes decorrem os limites de cada um dos tipos, como pode ser visto na tabela acima.</p>
+</div>
+<div class="sect2">
+<h3 id="_complemento_de_dois">Complemento de Dois</h3>
+<div class="paragraph">
+<p>Como sabemos, a representação dos números, inclusive os caracteres, que também são números relacionados a algum tipo de codificação como ASCII ou UTF-8, é feita nos computadores na base binária, usando um sistema muito bem bolado chamado de <strong>Complemento de Dois</strong>. Suas regras são as seguintes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>O zero é representado colocando todos os bits em zero. No tipo <strong>byte</strong>, por exemplo, que possui 1 byte ou 8 bits, o zero seria representado como: 0 0 0 0 0 0 0 0</p>
+</li>
+<li>
+<p>O maior número positivo que pode ser representado segue a fórmula: 2<sup>(número_de_bits-1)</sup> - 1 e o menor negativo obedece a fórmula 2<sup>(número_de_bits-1)</sup> apenas, pois já existe o zero entre os positivos. No tipo <strong>byte</strong>, temos então o maior inteiro positivo igual a 2<sup>(8-1)</sup> - 1 = 2<sup>7</sup> - 1 = 128 - 1 = 127 e o menor inteiro negativo igual a 2<sup>(8-1)</sup> = 2<sup>7</sup> = -128.</p>
+</li>
+<li>
+<p>Para os números negativos, ao invés de iniciarmos com todos os bits colocados em zero como nos positivos, colocamos todos os bits em 1. No tipo <strong>byte</strong> que estamos usando como exemplo, o -1 seria representado como: 1 1 1 1 1 1 1 1</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Vejam na figura a seguir a representação do sistema de complemento de dois para um tipo de apenas 4 bits (denominado tecnicamente de <em>nibble</em>), para ter uma visão mais clara da aplicação das regras acima.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/08/nibble_c2.png" alt="nibble c2">
+</div>
+</div>
+<div class="paragraph">
+<p>Como os números negativos são o complemento de dois dos positivos e vice-versa, este sistema permite operar com segurança na memória dos computadores pois, se houver um "estouro" do limite, o número apenas converte-se no limite inferior oposto, isto é, 0 se o valor "estourado" for negativo e o menor número negativo possível, se o valor "estourado" for positivo. Vejam na representação gráfica abaixo como isso fica fácil de visualizar:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/08/c2circular.png" alt="c2circular">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_links_Úteis">Links Úteis</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
 <p><a href="https://armchairdissident.wordpress.com/2009/04/15/a-long-explanation-of-a-damned-fine-joke/" target="_blank">Uma longa explicação de uma boa piada. (Natal ou Dia das Bruxas?)</a></p>
+</li>
+<li>
+<p><a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html" target="_blank">Tipos de Dados Primitivos em Java</a></p>
 </li>
 </ul>
 </div>
