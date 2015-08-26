@@ -6,9 +6,167 @@
     <atom:link href="http://ja-gaeta.github.io//feed.xml" rel="self" type="application/rss+xml" />
     <description>For future use?</description>
     <language>en</language>
-    <pubDate>Mon, 17 Aug 2015 19:20:17 -0300</pubDate>
-    <lastBuildDate>Mon, 17 Aug 2015 19:20:17 -0300</lastBuildDate>
+    <pubDate>Wed, 26 Aug 2015 20:24:37 -0300</pubDate>
+    <lastBuildDate>Wed, 26 Aug 2015 20:24:37 -0300</lastBuildDate>
 
+      <item>
+        <title>Curso de Java - Aula 7</title>
+        <link>http://ja-gaeta.github.io/2015/curso-de-java-aula-007.html</link>
+        <pubDate>Wed, 26 Aug 2015 00:00:00 -0300</pubDate>
+        <guid isPermaLink="false">2015/curso-de-java-aula-007.html</guid>
+        <description>
+	        &lt;div id=&quot;preamble&quot;&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;p style=&quot;text-align: center;&quot;&gt;&amp;nbsp;&lt;iframe src=&quot;//www.youtube.com/embed/25Ea-Uqs24I&quot; frameborder=&quot;1&quot; width=&quot;560&quot; height=&quot;315&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/p&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Material de apoio para a vídeo-aula nº 7 do Curso de Java ministrado no Ponto G++, contendo toda a base teórica para um sólido acompanhamento da aula.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!--more--&gt;
+&lt;div id=&quot;toc&quot; class=&quot;toc&quot;&gt;
+&lt;div id=&quot;toctitle&quot; class=&quot;title&quot;&gt;Programa da aula&lt;/div&gt;
+&lt;ul class=&quot;sectlevel1&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#_java_curiosa_divertida&quot;&gt;Java Curiosa &amp;amp; Divertida&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#_tipos_primitivos&quot;&gt;Tipos Primitivos&lt;/a&gt;
+&lt;ul class=&quot;sectlevel2&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#_o_tipo_strong_char_strong&quot;&gt;O tipo &lt;strong&gt;char&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_java_curiosa_divertida&quot;&gt;Java Curiosa &amp;amp; Divertida&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Um exemplo concreto das coisas estranhas que acontecem quando o limite dos tipos inteiros que usam o sistema de complemento de dois é estourado, ocorreu recentemente quando o contador de visualizações do YouTube ultrapassou seu limite de 32 bits no vídeo do &lt;em&gt;clip&lt;/em&gt; musical Gangnam Style que, como se diz, &quot;viralizou&quot; de uma forma inimaginável.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;O pessoal da Google pensou que certamente um vídeo jamais ultrapassaria a barreira das 2 bilhões e pouco visualizações, e adotou um tipo inteiro de 4 bytes para representar o contador, cujo limite exato é 2.147.483.647.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Mas isso acabou acontecendo no final de 2014, e a notícia foi amplamente divulgada pela midia, conforme pode ser visto abaixo.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/08/gangnam_overflow.png&quot; alt=&quot;gangnam overflow&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Na verdade, houve um certo exagero sensacionalista nessas notícias. Os engenheiros da Google já haviam observado que &quot;Gangnam Style&quot; havia atingido 2 bilhões de visualizações em maio daquele ano e, embora a fase viral já tivesse passado, com certeza ocorreria um &lt;em&gt;overflow&lt;/em&gt; em breve e, assim, tiveram tempo mais que suficiente para a correção do problema, por sinal bastante simples, bastando modificar a alocação de memória naquele ponto de 32 para 64 bits. Nunca houve, de fato, um estouro no código do YouTube.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Colocaram até um &lt;em&gt;ovo de páscoa&lt;/em&gt; no contador, de forma que, ao passar com o cursor sobre o mesmo, ele simulava um odômetro, mudando para o número negativo, representando o tal &quot;estouro&quot;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Aproveitamos este incidente para fixar nesta seção os conceitos de tipos primitivos, seus limites e, principalmente, o funcionamento do complemento de dois. O programa abaixo demonstra isso de uma forma bem simples:&lt;/p&gt;
+&lt;/div&gt;
+&lt;pre class=&quot;brush: java, toolbar: false&quot;&gt;
+package br.com.pontogpp;
+
+public class YoutubeCounter {
+
+    public static void main(String[] args) {
+
+        // limite positivo do int de 32 bits é 2.147.483.647
+        int contadorVelho = 2147483647;
+        System.out.println(contadorVelho);
+
+        // se o limite positivo for estourado, a variável assume o limite
+        // inferior negativo
+        ++contadorVelho;
+        System.out.println(contadorVelho);
+
+        // o limite do tipo long (64 bits) é bem maior: 9.223.372.036.854.775.807
+        long contadorNovo = 2147483647;
+        ++contadorNovo;
+        System.out.println(contadorNovo);
+
+    }
+
+}
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_tipos_primitivos&quot;&gt;Tipos Primitivos&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_o_tipo_strong_char_strong&quot;&gt;O tipo &lt;strong&gt;char&lt;/strong&gt;&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Embora ainda dentro do grupo dos inteiros, o &lt;code&gt;char&lt;/code&gt; difere dos demais tipos por ser o único &lt;em&gt;unsigned&lt;/em&gt;, isto é, sem sinal e, portanto, não usa sistema de complemento de dois. O motivo disso é porque este tipo é usado para representar os caracteres da codificação &lt;a href=&quot;http://stackoverflow.com/questions/2241348/what-is-unicode-utf-8-utf-16&quot;&gt;Unicode UTF-16&lt;/a&gt;, que é o padrão em Java. Coloquei o link para uma resposta bastante completa sobre o assunto no &lt;em&gt;Stackoverflow&lt;/em&gt;, para quem quiser saber mais sobre esse sistema de codificação.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;O programa abaixo serve para demonstrar as peculiaridades do tipo &lt;code&gt;char&lt;/code&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;pre class=&quot;brush: java, toolbar: false&quot;&gt;
+public class CharsTour {
+
+    public static void main(String[] args) {
+
+        char x = &apos;a&apos;, y = &apos;b&apos;;
+        System.out.println(x);
+        System.out.println(y);
+        System.out.println(x + y);
+        System.out.println(); // insere uma linha vazia entre este e o bloco seguinte
+
+        x = 97;
+        y = 98;
+        char z = &apos; &apos;;
+//      x = x + y; // Erro de compilação: &quot;Type mismatch: cannot convert from int to char&quot;
+        z = (char)(x + y); // cast explícito, retorna char; OK
+        System.out.println(z);
+        x += y; // Operação e atribuição composto; OK também
+        System.out.println(x);
+        System.out.println();
+
+        System.out.println(((Object)(&apos;a&apos; + &apos;b&apos;)).getClass());
+        System.out.println();
+        // saída: class java.lang.Integer
+
+        // concatenando os caracteres como String:
+        System.out.println(&apos;a&apos; + &quot;&quot; + &apos;b&apos;);
+        System.out.println(&quot;&quot; + &apos;a&apos; + &apos;b&apos;);
+        System.out.println(&apos;a&apos; + &apos;b&apos; + &quot;&quot;); // &quot;195&quot;
+        System.out.println();
+
+        System.out.println(new String(new char[] { &apos;a&apos;, &apos;b&apos; }));
+        System.out.println(new StringBuilder().append(&apos;a&apos;).append(&apos;b&apos;).toString());
+        System.out.println(String.format(&quot;%c%c&quot;, &apos;a&apos;, &apos;b&apos;));
+
+    }
+
+}
+&lt;/pre&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;O programa é composto por cinco blocos, que passamos a examinar mais detalhadamente.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;No primeiro bloco, fazemos a atribuição dos caracteres &apos;a&apos; e &apos;b&apos; às variáves &lt;code&gt;x&lt;/code&gt; e &lt;code&gt;y&lt;/code&gt; (linha 5). Vejam que os literais dos caracteres são identificados por aspas simples. Observem, também, como podemos fazer as atribuições numa única linha de código, usando a vírgula para separar as variáveis.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Nas linhas seguintes, usamos o método &lt;code&gt;System.out.println()&lt;/code&gt; para exibir os valores de &lt;code&gt;x&lt;/code&gt;, de &lt;code&gt;y&lt;/code&gt; e o resultado da expressão &lt;code&gt;x + y&lt;/code&gt;. A última saída é a única que apresenta surpresa, pois seu valor é o inteiro 195, correspondente à soma de 97 e 98, que são os códigos Unicode dos caracteres &apos;a&apos; e &apos;b&apos;, como pode ser conferido &lt;a href=&quot;http://asecuritysite.com/coding/asc2?val=0%2C255&quot;&gt;nesta tabela&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Isso ocorre porque, internamente, o tipo &lt;code&gt;char&lt;/code&gt; é tratado como um inteiro, como vimos no início deste estudo. Isso pode ser confirmado com o código apresentado no terceiro bloco do programa (linhas 21 a 23). É feito, então, um &quot;casting&quot; silencioso pelo compilador do resultado da expressão, que é passado como &lt;code&gt;Integer&lt;/code&gt; para o método &lt;code&gt;System.out.println()&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;No segundo bloco, temos mais algumas operações com o &lt;code&gt;char&lt;/code&gt;, para deixar a coisa mais clara. Se você remover o comentário da linha 14, o IDE deverá exibir um erro de incompatibilidade de tipos (&lt;em&gt;Type mismatch&lt;/em&gt;) e o programa não poderá ser compilado. Isso, pela mesma razão que vimos acima, ou seja, o &lt;em&gt;casting&lt;/em&gt; silencioso para integer, feito pelo compilador.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Na linha 15, demonstramos como fazer o &lt;em&gt;casting&lt;/em&gt; explícito para transformar o resultado da expressão no seu &lt;code&gt;char&lt;/code&gt; equivalente e, na linha 17, mostramos que é possível o uso de operadores compostos.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;No quarto bloco, são demonstradas formas simples de concatenação de caracteres para formação de uma &lt;code&gt;String&lt;/code&gt;. Atente que na linha 28, o resultado apresentado é a &lt;code&gt;String&lt;/code&gt; &quot;195&quot; e não o &lt;code&gt;Integer&lt;/code&gt; 195.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Finalmente, no último bloco do programa (linhas 31 a 33), são mostrados outros métodos para concatenação de caracteres em &lt;code&gt;string&lt;/code&gt;. Seu uso ficará mais claro, quando avançarmos no estudo da orientação a objeto.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+	    </description>
+      </item>
       <item>
         <title>Desvendando as Portas Lógicas</title>
         <link>http://ja-gaeta.github.io/2015/desvendando-as-portas-logicas.html</link>
@@ -2751,13 +2909,13 @@ Se você possui um Raspberry Pi modelo B+, ele terá mais do que 26 pinos. Todav
 &lt;p&gt;Parabéns, você já instalou o BlueJ no seu Raspberry Pi e fez sua primeira exploração pela interface do programa. Como deve ter percebido, o BlueJ é uma ferramenta extraordinária para o aprendizado de linguagens de programação orientadas a objeto, como é o caso de Java. Mas a integração com o Raspberry Pi vai além, e permite experimentar diretamente com a GPIO (&lt;strong&gt;General Purpose Input/Output&lt;/strong&gt;) do &quot;bichinho&quot;. Abordaremos este assunto em outros artigos.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Para quem ficou entusiasmado e quer se aprofundar no estudo de OOP usando o BlueJ, indico o excelente livro de David J. Barnes &amp;amp; Michael Kölling, &lt;a href=&quot;http://www.bluej.org/objects-first/&quot; target=&quot;_blank&quot;&gt;&lt;em&gt;Objects First with Java ‒ A Practical Introduction using BlueJ&lt;/em&gt;&lt;/a&gt;. No site do livro, você poderá baixar um arquivo com mais projetos, no quadro &quot;&lt;strong&gt;Resources&lt;/strong&gt;&quot;.&lt;/p&gt;
+&lt;p&gt;Para quem ficou entusiasmado e quer se aprofundar no estudo de OOP usando o BlueJ, indico o excelente livro de David J. Barnes &amp;amp; Michael Kölling, &lt;a href=&quot;http://www.bluej.org/objects-first/&quot;&gt;&lt;em&gt;Objects First with Java ‒ A Practical Introduction using BlueJ&lt;/em&gt;&lt;/a&gt;. No site do livro, você poderá baixar um arquivo com mais projetos, no quadro &quot;&lt;strong&gt;Resources&lt;/strong&gt;&quot;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Se ainda não está familiarizado com o BlueJ, vale a pena gastar algum tempo para descobrir o que ele pode fazer por você. Como se trata de um IDE Java padrão, podem ser desenvolvidos nele todos os programas em Java desenvolvidos em outros IDE, mas ele pode fazer muito mais. No BlueJ, você pode instanciar objetos individualmente, de forma interativa, e chamar métodos individuais. Isso facilita muito a realização de testes, brincadeiras e experimentação.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Essas características do BlueJ foram descritas em diversos números da Java Magazine, onde você poderá aprender mais. Os números de &lt;a href=&quot;http://www.oraclejavamagazine-digital.com/javamagazine_open/20120708#pg25&quot; target=&quot;_blank&quot;&gt;Julho/Agosto de 2012&lt;/a&gt; e de &lt;a href=&quot;http://www.oraclejavamagazine-digital.com/javamagazine_open/20120910#pg29&quot; target=&quot;_blank&quot;&gt;Setembro/Outubro de 2012&lt;/a&gt;, incluem uma introdução ao BlueJ e as edições de &lt;a href=&quot;http://www.oraclejavamagazine-digital.com/javamagazine_open/20140506#pg34&quot; target=&quot;_blank&quot;&gt;Maio/Junho de 2014&lt;/a&gt; e &lt;a href=&quot;http://www.oraclejavamagazine-digital.com/javamagazine_open/20140708#pg30&quot; target=&quot;_blank&quot;&gt;Julho/Agosto de 2014&lt;/a&gt;, discutem os aspectos de interatividade do BlueJ em mais detalhes.&lt;/p&gt;
+&lt;p&gt;Essas características do BlueJ foram descritas em diversos números da Java Magazine, onde você poderá aprender mais. Os números de &lt;a href=&quot;http://www.oraclejavamagazine-digital.com/javamagazine_open/20120708#pg25&quot;&gt;Julho/Agosto de 2012&lt;/a&gt; e de &lt;a href=&quot;http://www.oraclejavamagazine-digital.com/javamagazine_open/20120910#pg29&quot;&gt;Setembro/Outubro de 2012&lt;/a&gt;, incluem uma introdução ao BlueJ e as edições de &lt;a href=&quot;http://www.oraclejavamagazine-digital.com/javamagazine_open/20140506#pg34&quot;&gt;Maio/Junho de 2014&lt;/a&gt; e &lt;a href=&quot;http://www.oraclejavamagazine-digital.com/javamagazine_open/20140708#pg30&quot;&gt;Julho/Agosto de 2014&lt;/a&gt;, discutem os aspectos de interatividade do BlueJ em mais detalhes.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
