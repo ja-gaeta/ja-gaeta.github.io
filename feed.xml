@@ -6,8 +6,8 @@
     <atom:link href="http://ja-gaeta.github.io//feed.xml" rel="self" type="application/rss+xml" />
     <description>For future use?</description>
     <language>en</language>
-    <pubDate>Thu, 27 Aug 2015 20:38:26 -0300</pubDate>
-    <lastBuildDate>Thu, 27 Aug 2015 20:38:26 -0300</lastBuildDate>
+    <pubDate>Thu, 27 Aug 2015 20:54:06 -0300</pubDate>
+    <lastBuildDate>Thu, 27 Aug 2015 20:54:06 -0300</lastBuildDate>
 
       <item>
         <title>Unicode, UTF-8 e UTF-16</title>
@@ -264,7 +264,7 @@ public class YoutubeCounter {
 &lt;div class=&quot;sect2&quot;&gt;
 &lt;h3 id=&quot;_o_tipo_strong_char_strong&quot;&gt;O tipo &lt;strong&gt;char&lt;/strong&gt;&lt;/h3&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Embora ainda dentro do grupo dos inteiros, o &lt;code&gt;char&lt;/code&gt; difere dos demais tipos por ser o único &lt;em&gt;unsigned&lt;/em&gt;, isto é, sem sinal e, portanto, não usa sistema de complemento de dois. O motivo disso é porque este tipo é usado para representar os caracteres da codificação &lt;a href=&quot;http://stackoverflow.com/questions/2241348/what-is-unicode-utf-8-utf-16&quot;&gt;Unicode UTF-16&lt;/a&gt;, que é o padrão em Java. Coloquei o link para uma resposta bastante completa sobre o assunto no &lt;em&gt;Stackoverflow&lt;/em&gt;, para quem quiser saber mais sobre esse sistema de codificação.&lt;/p&gt;
+&lt;p&gt;Embora ainda dentro do grupo dos inteiros, o &lt;code&gt;char&lt;/code&gt; difere dos demais tipos por ser o único &lt;em&gt;unsigned&lt;/em&gt;, isto é, sem sinal e, portanto, não usa sistema de complemento de dois. O motivo disso é porque este tipo é usado para representar os caracteres da codificação &lt;a href=&quot;http://ja-gaeta.github.io/2015/unicode-utf8-utf16.html&quot;&gt;Unicode UTF-16&lt;/a&gt;, que é o padrão em Java.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;O programa abaixo serve para demonstrar as peculiaridades do tipo &lt;code&gt;char&lt;/code&gt;:&lt;/p&gt;
