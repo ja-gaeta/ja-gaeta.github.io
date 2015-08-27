@@ -6,9 +6,179 @@
     <atom:link href="http://ja-gaeta.github.io//feed.xml" rel="self" type="application/rss+xml" />
     <description>For future use?</description>
     <language>en</language>
-    <pubDate>Wed, 26 Aug 2015 20:24:37 -0300</pubDate>
-    <lastBuildDate>Wed, 26 Aug 2015 20:24:37 -0300</lastBuildDate>
+    <pubDate>Thu, 27 Aug 2015 20:38:26 -0300</pubDate>
+    <lastBuildDate>Thu, 27 Aug 2015 20:38:26 -0300</lastBuildDate>
 
+      <item>
+        <title>Unicode, UTF-8 e UTF-16</title>
+        <link>http://ja-gaeta.github.io/2015/unicode-utf8-utf16.html</link>
+        <pubDate>Thu, 27 Aug 2015 00:00:00 -0300</pubDate>
+        <guid isPermaLink="false">2015/unicode-utf8-utf16.html</guid>
+        <description>
+	        &lt;div id=&quot;preamble&quot;&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Este artigo é a tradução e adaptação de uma &lt;a href=&quot;http://stackoverflow.com/questions/2241348/what-is-unicode-utf-8-utf-16&quot;&gt;resposta dada no Stackoverflow&lt;/a&gt;, discorrendo sobre os sistemas de codificação Unicode, UTF-8 e UTF-16, cobrindo essa questão de uma forma bastante abrangente e esclarecedora. Sua publicação é feita nos termos da licença &lt;a href=&quot;http://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!--more--&gt;
+&lt;div id=&quot;toc&quot; class=&quot;toc&quot;&gt;
+&lt;div id=&quot;toctitle&quot; class=&quot;title&quot;&gt;Sumário&lt;/div&gt;
+&lt;ul class=&quot;sectlevel1&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#_por_que_precisamos_do_unicode&quot;&gt;Por que precisamos do Unicode?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#_considerações_quanto_à_memória&quot;&gt;Considerações quanto à memória&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#_fundamentos_de_codificação&quot;&gt;Fundamentos de Codificação&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#_considerações_práticas_para_programação&quot;&gt;Considerações práticas para programação&lt;/a&gt;
+&lt;ul class=&quot;sectlevel2&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#_tipos_de_dados_code_character_code_e_code_string_code&quot;&gt;Tipos de dados &lt;code&gt;Character&lt;/code&gt; e &lt;code&gt;String&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#_codificações_recomendada_padrão_dominante&quot;&gt;Codificações recomendada/padrão/dominante&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#_suporte_das_bibliotecas&quot;&gt;Suporte das bibliotecas&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#_caracteres_de_contagem&quot;&gt;Caracteres de contagem&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#_comparação_de_igualdade&quot;&gt;Comparação de igualdade&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#_pares_substitutos_surrogate_pairs&quot;&gt;Pares substitutos (Surrogate Pairs)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_por_que_precisamos_do_unicode&quot;&gt;Por que precisamos do Unicode?&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Nos (nem tão) velhos tempos, tudo que existia era o &lt;a href=&quot;https://pt.wikipedia.org/wiki/ASCII&quot;&gt;ASCII&lt;/a&gt;. Estaria tudo bem, se todo o necessário para a comunicação fossem apenas alguns caracteres de controle, pontuação, números e letras como os desta sentença. Infelizmente, o mundo estranho de hoje, da intercomunicação global e da midia social, não foi previsto, e não é incomum ver português, العربية, 汉语, עִבְרִית, ελληνικά e ភាសាខ្មែ no mesmo documento (espero não ter quebrado nenhum &lt;em&gt;browser&lt;/em&gt; antigo).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Mas apenas para argumentar, digamos que o Zé Arruela seja um desenvolvedor de &lt;em&gt;software&lt;/em&gt;. Ele insiste que não precisará nada além do português e, portanto, quer usar apenas ASCII. Isso pode estar bem para Zé, o usuário, mas não é bom para Zé, o desenvolvedor de &lt;em&gt;software&lt;/em&gt;. Aproximadamente metade do mundo usa caracteres não-latinos e o uso do ASCII iria sem dúvida nenhuma excluir essas pessoas e, acima de tudo, ele estaria fechando as portas de uma poderosa economia em crescimento para o seu &lt;em&gt;software&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Dessa forma, tornou-se necessária a criação de um conjunto mais abrangente de caracteres. Foi assim que surgiu o Unicode. Ele atribui a cada caracter um número único, denominado &lt;strong&gt;ponto de código&lt;/strong&gt; (&lt;em&gt;code point&lt;/em&gt;). Uma vantagem do Unicode sobre outros conjuntos possíveis é que os primeiros 256 pontos de código são idênticos ao padrão &lt;a href=&quot;https://pt.wikipedia.org/wiki/ISO_8859-1&quot;&gt;ISO-8859-1&lt;/a&gt; e, portanto, iguais ao ASCII. Além disso, a vasta maioria dos caracteres usados comumente são representáveis usando apenas dois bytes, numa região chamada &lt;a href=&quot;https://en.wikipedia.org/wiki/Plane_%28Unicode%29#Basic_Multilingual_Plane&quot;&gt;&lt;strong&gt;Plano Multilingual Básico&lt;/strong&gt;&lt;/a&gt; (BMP - &lt;em&gt;Basic Multilingual Plane&lt;/em&gt;). Precisamos então de uma codificação de caracteres para acessar esse conjunto. Neste artigo, vamos nos concentrar nas codificações UTF-8 e UTF-16.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_considerações_quanto_à_memória&quot;&gt;Considerações quanto à memória&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Pois bem, quantos bytes dão acesso a quais caracteres nessas codificações?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;UTF-8:&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;1 byte: ASCII padrão&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;2 bytes: árabe, hebraico, maioria da escrita europeia (excluindo principalmente o georgiano)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;3 bytes: BMP&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;4 bytes: todos os caracteres Unicode&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;UTF-16:&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;2 bytes: BMP&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;4 bytes: todos os caracteres Unicode&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;É bom observar desde já que os caracteres que não estão no BMP incluem escritas antigas, símbolos matemáticos, símbolos musicais, e caracteres raros do chinês/japonês/coreano (&lt;a href=&quot;http://www.unicode.org/faq/han_cjk.html&quot;&gt;CJK - Chinese/Japanese/Korean&lt;/a&gt;).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Se você trabalhar a maior parte do tempo com caracteres ASCII, então o UTF-8 será com certeza mais eficiente em termos de ocupação de memória. Todavia, caso trabalhe majoritariamente com escritas não-europeias, o uso do UTF-8 poderá ser cerca de 1,5 vezes menos eficiente que o UTF-16 no uso de memória. Ao lidar com grandes quantidades de texto como, por exemplo, grandes páginas da &lt;em&gt;Web&lt;/em&gt; ou documentos extensos, isto poderá impactar o desempenho.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_fundamentos_de_codificação&quot;&gt;Fundamentos de Codificação&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;UTF-8: Para os caracteres do ASCII padrão (0-127), os códigos UTF-8 são idênticos. Isso o torna ideal se for preciso compatibilidade retroativa com texto ASCII já existente. Outros caracteres vão requerer sempre de 2 a 4 bytes. Isso é feito reservando-se alguns bits em cada um desses bytes para indicar que ele faz parte de um caracter multi-byte. O primeiro bit de cada byte, em particular, é 1 para evitar conflito com os caracteres ASCII.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;UTF-16: Para caracteres BMP válidos, a representação UTF-16 é simplesmente seu ponto de código. Entretando, para os caracteres não-BMP o UTF-16 introduz os &lt;strong&gt;pares substitutos&lt;/strong&gt; (&lt;em&gt;surrogate pairs&lt;/em&gt;). Neste caso, a combinação de duas partes dos bytes-duplos mapeiam para um caracter não-BMP. Estas duas partes estão dentro do limite numérico do BMP, mas o padrão Unicode garante que sejam inválidos como caracteres BMP. Ademais, uma vez que o UTF-16 possui dois bytes como unidade básica, ele é afetado por &lt;a href=&quot;https://pt.wikipedia.org/wiki/Extremidade_(ordena%C3%A7%C3%A3o)&quot;&gt;extremidade&lt;/a&gt;. Para compensar, um byte para marca de ordenação pode ser colocado no começo do fluxo de dados indicando extremidade (&lt;em&gt;endianness&lt;/em&gt;). Assim, se estiver sendo lido UTF-16 na entrada, e nenhuma extremidade for especificada, isso deverá ser verificado.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Como pode ser observado, o UTF-8 e o UTF-16 não são de forma alguma compatíveis um com o outro. Dessa forma, se estiver sendo feita I/O, deve-se verificar qual codificação está sendo usada! Para maiores detalhes sobre essas codificações, consulte a &lt;a href=&quot;http://www.unicode.org/faq/utf_bom.html&quot;&gt;FAQ UTF&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_considerações_práticas_para_programação&quot;&gt;Considerações práticas para programação&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_tipos_de_dados_code_character_code_e_code_string_code&quot;&gt;Tipos de dados &lt;code&gt;Character&lt;/code&gt; e &lt;code&gt;String&lt;/code&gt;&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Como eles são codificados na linguagem de programação? Se não forem bytes simples, no instante em que se tentar enviar para a saída caracteres não-ASCII, pode-se encontrar alguns problemas. Além disso, mesmo que o tipo do caracter seja baseado num UTF, isso não significa que as &lt;em&gt;strings&lt;/em&gt; estejam codificadas no UTF apropriado. Elas podem permitir sequências de bytes ilegais. Geralmente, é preciso usar uma biblioteca que suporte UTF, como a &lt;a href=&quot;http://site.icu-project.org/&quot;&gt;ICU&lt;/a&gt; para C, C++ e Java. Em todo o caso, quando se pretender efetuar entrada/saída de qualquer coisa além da codificação padrão, é preciso fazer uma conversão prévia.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_codificações_recomendada_padrão_dominante&quot;&gt;Codificações recomendada/padrão/dominante&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Quando se tiver oportunidade de escolher qual UTF usar, é melhor normalmente seguir os padrões recomendados para o ambiente no qual se está trabalhando. Por exemplo, o UTF-8 é dominante na &lt;em&gt;Web&lt;/em&gt;, e desde o HTML5, tem sido a codificação recomendada.Por outro lado, tanto os ambientes .NET quanto Java são baseados no tipo de caracter UTF-16. De uma forma confusa (e incorretamente), são feitas frequentes referências à &quot;codificação Unicode&quot;, referindo-se normalmente à codificação UTF dominante num dado ambiente.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_suporte_das_bibliotecas&quot;&gt;Suporte das bibliotecas&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Quais codificações são suportadas pelas bibliotecas que estão sendo usadas? Elas suportam os casos limítrofes? Uma vez que a necessidade é a mãe da inventividade, as bibliotecas UTF-8 geralmente suportam adequadamente caracteres de 4 bytes, uma vez que caracteres de 1, 2 e 3 bytes podem ocorrer com frequência. Entretando, nem todas as bibliotecas do UTF-16 suportam pares substitutos (&lt;em&gt;surrogate pairs&lt;/em&gt;), uma vez que eles ocorrem muito raramente.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_caracteres_de_contagem&quot;&gt;Caracteres de contagem&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Existem caracteres de combinação no Unicode. Por exemplo, o ponto de código U+006E (n), e o U+0303 (um til de combinação), formam n˜, mas o ponto de código U+00F1 forma ñ. Eles deveriam parecer idênticos, mas um simples algorítimo de contagem retornará 2 no primeiro exemplo e 1 no último. Isso não está necesssariamente incorreto, mas também pode não ser o resultado esperado.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_comparação_de_igualdade&quot;&gt;Comparação de igualdade&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;A, А, e Α parecem a mesma coisa, mas são respectivamente Latino, Cirílico e Grego. Podemos ter também casos como C e Ⅽ, um é uma letra, o outro, um numeral romano. Além disso, temos que levar em consideração os caracteres de combinação. Para maiores informações, consulte &lt;a href=&quot;https://en.wikipedia.org/wiki/Duplicate_characters_in_Unicode&quot;&gt;caracteres Duplicados no Unicode&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_pares_substitutos_surrogate_pairs&quot;&gt;Pares substitutos (Surrogate Pairs)&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Essa é uma questão que também aparece com frequência, assim fornecerei apenas alguns &lt;em&gt;links&lt;/em&gt; de exemplos:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/12907022/python-getting-correct-string-length-when-it-contains-surrogate-pairs&quot;&gt;Obtenção do tamanho da string&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/12867000/how-to-remove-surrogate-characters-in-java&quot;&gt;Remoção de pares substitutos&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/12340930/string-is-palindrome-or-not/12341017#12341017&quot;&gt;Verificação de palíndromo&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+	    </description>
+      </item>
       <item>
         <title>Curso de Java - Aula 7</title>
         <link>http://ja-gaeta.github.io/2015/curso-de-java-aula-007.html</link>

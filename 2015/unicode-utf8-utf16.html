@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+    Ponto G++
+        - Unicode, UTF-8 e UTF-16
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="J.A. Gaeta Mendes">
+    <meta name="description" content="Static blog generated with JBake">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/cosmo/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/prettify-themes/github.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/asciidoctor.css">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav icon -->
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/img/favicon.png" type="image/x-icon">
+      
+    <!-- SyntaxHighlighter -->
+    <script type="text/javascript" src="/js/shCore.js"></script>
+    <script type="text/javascript" src="/js/shBrushJava.js"></script>
+    <script type="text/javascript" src="/js/shBrushCSharp.js"></script>
+    <script type="text/javascript" src="/js/shBrushCpp.js"></script>
+    <script type="text/javascript" src="/js/shBrushPython.js"></script>
+    <script type="text/javascript" src="/js/shBrushJScript.js"></script>
+    
+    <link href="/css/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+      
+  </head>
+  <body>      
+    <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Ponto G++</a>
+        </div>
+        
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="/pages/about.html">Sobre</a></li>
+          <!--  <li><a href="/pages/contact.html">Contact</a></li> -->
+          </ul>
+        
+        <!-- Right navigation -->
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/archive.html"><i class="fa fa-list"></i> Arquivo</a></li>
+          <li><a href="/feed.xml" title="Rss"><i class="fa fa-rss"></i> Feed</a></li>
+        </ul>
+        <!-- Right navigation end -->
+
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav><!-- /.navbar -->
+
+    <!-- Begin page content -->
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-md-12">
+          <article>
+            <div class="page-header"><h1>Unicode, UTF-8 e UTF-16</h1>
+              <ol class="breadcrumb tagsbar">
+                <li><a href="/tags/cursos.html">cursos</a></li>
+                <li><a href="/tags/java.html">java</a></li>
+              </ol>
+            </div>
+          <p class="post-meta">
+            <i class="fa fa-calendar"></i>&nbsp;27 August 2015&nbsp;&nbsp;
+            <i class="fa fa-user"></i>&nbsp;J.A. Gaeta Mendes&nbsp;&nbsp;
+              <i class="fa fa-comment"></i>&nbsp;<span class="badge"><a href="http://ja-gaeta.github.io/2015/unicode-utf8-utf16.html#disqus_thread"></a></span>
+          </p>
+              <p><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Este artigo é a tradução e adaptação de uma <a href="http://stackoverflow.com/questions/2241348/what-is-unicode-utf-8-utf-16">resposta dada no Stackoverflow</a>, discorrendo sobre os sistemas de codificação Unicode, UTF-8 e UTF-16, cobrindo essa questão de uma forma bastante abrangente e esclarecedora. Sua publicação é feita nos termos da licença <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>.</p>
+</div>
+<!--more-->
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Sumário</div>
+<ul class="sectlevel1">
+<li><a href="#_por_que_precisamos_do_unicode">Por que precisamos do Unicode?</a></li>
+<li><a href="#_considerações_quanto_à_memória">Considerações quanto à memória</a></li>
+<li><a href="#_fundamentos_de_codificação">Fundamentos de Codificação</a></li>
+<li><a href="#_considerações_práticas_para_programação">Considerações práticas para programação</a>
+<ul class="sectlevel2">
+<li><a href="#_tipos_de_dados_code_character_code_e_code_string_code">Tipos de dados <code>Character</code> e <code>String</code></a></li>
+<li><a href="#_codificações_recomendada_padrão_dominante">Codificações recomendada/padrão/dominante</a></li>
+<li><a href="#_suporte_das_bibliotecas">Suporte das bibliotecas</a></li>
+<li><a href="#_caracteres_de_contagem">Caracteres de contagem</a></li>
+<li><a href="#_comparação_de_igualdade">Comparação de igualdade</a></li>
+<li><a href="#_pares_substitutos_surrogate_pairs">Pares substitutos (Surrogate Pairs)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_por_que_precisamos_do_unicode">Por que precisamos do Unicode?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Nos (nem tão) velhos tempos, tudo que existia era o <a href="https://pt.wikipedia.org/wiki/ASCII">ASCII</a>. Estaria tudo bem, se todo o necessário para a comunicação fossem apenas alguns caracteres de controle, pontuação, números e letras como os desta sentença. Infelizmente, o mundo estranho de hoje, da intercomunicação global e da midia social, não foi previsto, e não é incomum ver português, العربية, 汉语, עִבְרִית, ελληνικά e ភាសាខ្មែ no mesmo documento (espero não ter quebrado nenhum <em>browser</em> antigo).</p>
+</div>
+<div class="paragraph">
+<p>Mas apenas para argumentar, digamos que o Zé Arruela seja um desenvolvedor de <em>software</em>. Ele insiste que não precisará nada além do português e, portanto, quer usar apenas ASCII. Isso pode estar bem para Zé, o usuário, mas não é bom para Zé, o desenvolvedor de <em>software</em>. Aproximadamente metade do mundo usa caracteres não-latinos e o uso do ASCII iria sem dúvida nenhuma excluir essas pessoas e, acima de tudo, ele estaria fechando as portas de uma poderosa economia em crescimento para o seu <em>software</em>.</p>
+</div>
+<div class="paragraph">
+<p>Dessa forma, tornou-se necessária a criação de um conjunto mais abrangente de caracteres. Foi assim que surgiu o Unicode. Ele atribui a cada caracter um número único, denominado <strong>ponto de código</strong> (<em>code point</em>). Uma vantagem do Unicode sobre outros conjuntos possíveis é que os primeiros 256 pontos de código são idênticos ao padrão <a href="https://pt.wikipedia.org/wiki/ISO_8859-1">ISO-8859-1</a> e, portanto, iguais ao ASCII. Além disso, a vasta maioria dos caracteres usados comumente são representáveis usando apenas dois bytes, numa região chamada <a href="https://en.wikipedia.org/wiki/Plane_%28Unicode%29#Basic_Multilingual_Plane"><strong>Plano Multilingual Básico</strong></a> (BMP - <em>Basic Multilingual Plane</em>). Precisamos então de uma codificação de caracteres para acessar esse conjunto. Neste artigo, vamos nos concentrar nas codificações UTF-8 e UTF-16.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_considerações_quanto_à_memória">Considerações quanto à memória</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Pois bem, quantos bytes dão acesso a quais caracteres nessas codificações?</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>UTF-8:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1 byte: ASCII padrão</p>
+</li>
+<li>
+<p>2 bytes: árabe, hebraico, maioria da escrita europeia (excluindo principalmente o georgiano)</p>
+</li>
+<li>
+<p>3 bytes: BMP</p>
+</li>
+<li>
+<p>4 bytes: todos os caracteres Unicode</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>UTF-16:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2 bytes: BMP</p>
+</li>
+<li>
+<p>4 bytes: todos os caracteres Unicode</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>É bom observar desde já que os caracteres que não estão no BMP incluem escritas antigas, símbolos matemáticos, símbolos musicais, e caracteres raros do chinês/japonês/coreano (<a href="http://www.unicode.org/faq/han_cjk.html">CJK - Chinese/Japanese/Korean</a>).</p>
+</div>
+<div class="paragraph">
+<p>Se você trabalhar a maior parte do tempo com caracteres ASCII, então o UTF-8 será com certeza mais eficiente em termos de ocupação de memória. Todavia, caso trabalhe majoritariamente com escritas não-europeias, o uso do UTF-8 poderá ser cerca de 1,5 vezes menos eficiente que o UTF-16 no uso de memória. Ao lidar com grandes quantidades de texto como, por exemplo, grandes páginas da <em>Web</em> ou documentos extensos, isto poderá impactar o desempenho.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_fundamentos_de_codificação">Fundamentos de Codificação</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>UTF-8: Para os caracteres do ASCII padrão (0-127), os códigos UTF-8 são idênticos. Isso o torna ideal se for preciso compatibilidade retroativa com texto ASCII já existente. Outros caracteres vão requerer sempre de 2 a 4 bytes. Isso é feito reservando-se alguns bits em cada um desses bytes para indicar que ele faz parte de um caracter multi-byte. O primeiro bit de cada byte, em particular, é 1 para evitar conflito com os caracteres ASCII.</p>
+</li>
+<li>
+<p>UTF-16: Para caracteres BMP válidos, a representação UTF-16 é simplesmente seu ponto de código. Entretando, para os caracteres não-BMP o UTF-16 introduz os <strong>pares substitutos</strong> (<em>surrogate pairs</em>). Neste caso, a combinação de duas partes dos bytes-duplos mapeiam para um caracter não-BMP. Estas duas partes estão dentro do limite numérico do BMP, mas o padrão Unicode garante que sejam inválidos como caracteres BMP. Ademais, uma vez que o UTF-16 possui dois bytes como unidade básica, ele é afetado por <a href="https://pt.wikipedia.org/wiki/Extremidade_(ordena%C3%A7%C3%A3o)">extremidade</a>. Para compensar, um byte para marca de ordenação pode ser colocado no começo do fluxo de dados indicando extremidade (<em>endianness</em>). Assim, se estiver sendo lido UTF-16 na entrada, e nenhuma extremidade for especificada, isso deverá ser verificado.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Como pode ser observado, o UTF-8 e o UTF-16 não são de forma alguma compatíveis um com o outro. Dessa forma, se estiver sendo feita I/O, deve-se verificar qual codificação está sendo usada! Para maiores detalhes sobre essas codificações, consulte a <a href="http://www.unicode.org/faq/utf_bom.html">FAQ UTF</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_considerações_práticas_para_programação">Considerações práticas para programação</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_tipos_de_dados_code_character_code_e_code_string_code">Tipos de dados <code>Character</code> e <code>String</code></h3>
+<div class="paragraph">
+<p>Como eles são codificados na linguagem de programação? Se não forem bytes simples, no instante em que se tentar enviar para a saída caracteres não-ASCII, pode-se encontrar alguns problemas. Além disso, mesmo que o tipo do caracter seja baseado num UTF, isso não significa que as <em>strings</em> estejam codificadas no UTF apropriado. Elas podem permitir sequências de bytes ilegais. Geralmente, é preciso usar uma biblioteca que suporte UTF, como a <a href="http://site.icu-project.org/">ICU</a> para C, C++ e Java. Em todo o caso, quando se pretender efetuar entrada/saída de qualquer coisa além da codificação padrão, é preciso fazer uma conversão prévia.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_codificações_recomendada_padrão_dominante">Codificações recomendada/padrão/dominante</h3>
+<div class="paragraph">
+<p>Quando se tiver oportunidade de escolher qual UTF usar, é melhor normalmente seguir os padrões recomendados para o ambiente no qual se está trabalhando. Por exemplo, o UTF-8 é dominante na <em>Web</em>, e desde o HTML5, tem sido a codificação recomendada.Por outro lado, tanto os ambientes .NET quanto Java são baseados no tipo de caracter UTF-16. De uma forma confusa (e incorretamente), são feitas frequentes referências à "codificação Unicode", referindo-se normalmente à codificação UTF dominante num dado ambiente.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_suporte_das_bibliotecas">Suporte das bibliotecas</h3>
+<div class="paragraph">
+<p>Quais codificações são suportadas pelas bibliotecas que estão sendo usadas? Elas suportam os casos limítrofes? Uma vez que a necessidade é a mãe da inventividade, as bibliotecas UTF-8 geralmente suportam adequadamente caracteres de 4 bytes, uma vez que caracteres de 1, 2 e 3 bytes podem ocorrer com frequência. Entretando, nem todas as bibliotecas do UTF-16 suportam pares substitutos (<em>surrogate pairs</em>), uma vez que eles ocorrem muito raramente.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_caracteres_de_contagem">Caracteres de contagem</h3>
+<div class="paragraph">
+<p>Existem caracteres de combinação no Unicode. Por exemplo, o ponto de código U+006E (n), e o U+0303 (um til de combinação), formam n˜, mas o ponto de código U+00F1 forma ñ. Eles deveriam parecer idênticos, mas um simples algorítimo de contagem retornará 2 no primeiro exemplo e 1 no último. Isso não está necesssariamente incorreto, mas também pode não ser o resultado esperado.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_comparação_de_igualdade">Comparação de igualdade</h3>
+<div class="paragraph">
+<p>A, А, e Α parecem a mesma coisa, mas são respectivamente Latino, Cirílico e Grego. Podemos ter também casos como C e Ⅽ, um é uma letra, o outro, um numeral romano. Além disso, temos que levar em consideração os caracteres de combinação. Para maiores informações, consulte <a href="https://en.wikipedia.org/wiki/Duplicate_characters_in_Unicode">caracteres Duplicados no Unicode</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pares_substitutos_surrogate_pairs">Pares substitutos (Surrogate Pairs)</h3>
+<div class="paragraph">
+<p>Essa é uma questão que também aparece com frequência, assim fornecerei apenas alguns <em>links</em> de exemplos:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://stackoverflow.com/questions/12907022/python-getting-correct-string-length-when-it-contains-surrogate-pairs">Obtenção do tamanho da string</a></p>
+</li>
+<li>
+<p><a href="http://stackoverflow.com/questions/12867000/how-to-remove-surrogate-characters-in-java">Remoção de pares substitutos</a></p>
+</li>
+<li>
+<p><a href="http://stackoverflow.com/questions/12340930/string-is-palindrome-or-not/12341017#12341017">Verificação de palíndromo</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div></p>
+      <div class="share">
+        <div class="social">
+  <!-- Facebook -->
+          <span class="facebook">
+            <iframe src="//www.facebook.com/plugins/like.php?href=http://http://ja-gaeta.github.io/2015/unicode-utf8-utf16.html&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+          </span>
+  <!-- Google+ -->
+          <span class="google">
+            <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+            <g:plusone size="medium" href="http://ja-gaeta.github.io/2015/unicode-utf8-utf16.html"></g:plusone>
+          </span>
+  <!-- Twitter -->
+          <span class="twitter">
+            <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ja-gaeta.github.io/2015/unicode-utf8-utf16.html">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </span>
+        </div>
+      </div>
+<hr>
+<section class="comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+  
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>            </article>
+        </div> <!-- /.col-md-12 -->
+      </div> <!-- /.row -->
+        
+      </div><!-- /.container -->
+
+    <footer>
+      <div class="container">
+        <hr>
+        <div class="row">
+          <div class="col-xs-10">
+            <p class="text-muted credit">&copy; Ponto G++ 2015 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/br/"><img src="/img/creative_commons_88x31.png"></a> | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.4.0</a> | <i title="Linux" class="fa fa-linux"></i></p>
+          </div>
+          <div class="col-xs-2 gotop">
+            <a href="#"><i class="fa fa-arrow-circle-up"> topo</i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
+    <script type="text/javascript">
+      <!-- load prettify only when needed -->
+      $(document).ready(function(){
+        var prettify = false;
+        var classToAdd = 'prettyprint snippet';
+        $("pre > code").each(function() {
+          $("pre > code").parent().addClass(classToAdd);
+          prettify = true;
+        });
+        if(prettify) {
+          prettyPrint();
+        }
+      });
+    </script>
+
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+    </script>
+
+          <script type="text/javascript">
+        SyntaxHighlighter.all()
+    </script>
+  </body>
+</html>
