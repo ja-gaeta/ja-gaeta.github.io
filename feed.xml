@@ -6,9 +6,286 @@
     <atom:link href="http://ja-gaeta.github.io//feed.xml" rel="self" type="application/rss+xml" />
     <description>For future use?</description>
     <language>en</language>
-    <pubDate>Thu, 27 Aug 2015 20:54:06 -0300</pubDate>
-    <lastBuildDate>Thu, 27 Aug 2015 20:54:06 -0300</lastBuildDate>
+    <pubDate>Thu, 8 Oct 2015 21:02:20 -0300</pubDate>
+    <lastBuildDate>Thu, 8 Oct 2015 21:02:20 -0300</lastBuildDate>
 
+      <item>
+        <title>Curso de Java - Aula 8</title>
+        <link>http://ja-gaeta.github.io/2015/curso-de-java-aula-008.html</link>
+        <pubDate>Thu, 8 Oct 2015 00:00:00 -0300</pubDate>
+        <guid isPermaLink="false">2015/curso-de-java-aula-008.html</guid>
+        <description>
+	        &lt;div id=&quot;preamble&quot;&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;p style=&quot;text-align: center;&quot;&gt;&amp;nbsp;&lt;iframe src=&quot;//www.youtube.com/embed/FwYDrjlnDYA&quot; frameborder=&quot;1&quot; width=&quot;560&quot; height=&quot;315&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/p&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Material de apoio para a vídeo-aula nº 8 do Curso de Java ministrado no Ponto G++, contendo toda a base teórica para um sólido acompanhamento da aula.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!--more--&gt;
+&lt;div id=&quot;toc&quot; class=&quot;toc&quot;&gt;
+&lt;div id=&quot;toctitle&quot; class=&quot;title&quot;&gt;Programa da aula&lt;/div&gt;
+&lt;ul class=&quot;sectlevel1&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#_java_curiosa_divertida&quot;&gt;Java Curiosa &amp;amp; Divertida&lt;/a&gt;
+&lt;ul class=&quot;sectlevel2&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#_ocorrência_de_overflow_e_underflow_em_java&quot;&gt;Ocorrência de &quot;overflow&quot; e &quot;underflow&quot; em Java&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#_testando_overflow_e_underflow&quot;&gt;Testando &quot;overflow&quot; e &quot;underflow&quot;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#_tipos_primitivos_de_ponto_flutuante&quot;&gt;Tipos primitivos de ponto flutuante&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#_links_Úteis&quot;&gt;Links Úteis&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_java_curiosa_divertida&quot;&gt;Java Curiosa &amp;amp; Divertida&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_ocorrência_de_overflow_e_underflow_em_java&quot;&gt;Ocorrência de &quot;overflow&quot; e &quot;underflow&quot; em Java&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Como já vimos quando estudamos os tipos primitivos inteiros de Java, quais sejam, o &lt;code&gt;byte&lt;/code&gt;, o &lt;code&gt;short&lt;/code&gt;, o &lt;code&gt;int&lt;/code&gt; e o &lt;code&gt;long&lt;/code&gt;, eles possuem limites fixos, para que &quot;caibam&quot; dentro da memória finita dos computadores. Quando esses limites são ultrapassados, ocorre um erro, denominado &quot;overflow&quot; quando o limite superior for ultrapassado, ou &quot;underflow&quot; quando se tratar do limite inferior.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Um sistema binário de &lt;em&gt;n&lt;/em&gt; bits permite a representação de 2&lt;sup&gt;n&lt;/sup&gt; valores possíveis. Na figura abaixo, podemos ver que num sistema de apenas 3 bits, podem ser representados 2&lt;sup&gt;3&lt;/sup&gt; valores possíveis, ou seja, 8 valores, de 0 a 7, neste sistema muito simples, de 3 bits sem sinal.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/10/limites_binarios.png&quot; alt=&quot;limites binarios&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Se quisermos um sistema que represente também números negativos, tempos que encontrar uma forma de dividir a gama de valores possíveis de serem representados em dois grupos: um para representar os números positivos, e outro para representar os negativos. O método mais simples para isso é denominado &quot;Sinal e Magnitude&quot;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Nesta metodologia, dividimos a quantidade de valores possíveis exatamente ao meio. A primeira metade, cujos valores começam com 0 (zero), serão os números positivos e a segunda metade, cujos números começam com 1 (um), serão os negativos. Vejam sua representação gráfica na próxima figura, e observem que a primeira parte do número binário representa o &lt;strong&gt;sinal&lt;/strong&gt; e a segunda parte a &lt;strong&gt;magnitude&lt;/strong&gt;, vindo daí o nome do método.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/10/sinal_magnitude.png&quot; alt=&quot;sinal magnitude&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Todavia, além da existência e um estranho &lt;strong&gt;&quot;zero negativo&quot;&lt;/strong&gt;, conceito inexistente na matemática, um sistema como este seria muito difícil de ser implementado a nível de &lt;em&gt;hardware&lt;/em&gt;. Um método mais engenhoso e adequado é o de &lt;strong&gt;complemento de dois&lt;/strong&gt;, que examinaremos a seguir.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Neste método, obtém-se um número negativo invertendo-se os bits do seu equivalente positivo e somando 1 ao resultado, o que corresponde, no sistema binário ao complemento de dois do número considerado, vindo daí a denominação deste método.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Consideremos, então, o número binário &lt;strong&gt;000&lt;/strong&gt; no nosso sistema simplificado de três bits. Seguindo a regra, primeiro invertemos os bits, obtendo &lt;strong&gt;111&lt;/strong&gt;. Em seguida, somamos &lt;strong&gt;1&lt;/strong&gt; ao resultado. Como a aritmética aqui é binária, o resultado seria &lt;strong&gt;1000&lt;/strong&gt;. Como nosso sistema numérico só possui três bits, o quarto bit é descartado e o resultado é &lt;strong&gt;000&lt;/strong&gt;. Ou seja, eliminamos o problema do &quot;zero negativo&quot;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;A representação binária &lt;strong&gt;001&lt;/strong&gt; (1 em decimal) resulta em &lt;strong&gt;110&lt;/strong&gt;, após a inversão dos bits, e em &lt;strong&gt;111&lt;/strong&gt;, depois de somar 1 ao resultado e assim sucessivamente. Podemos então montar uma tabela contendo todos os valores positivos e negativos possíveis de serem representados no nosso sisteminha numérico de três bits, conforme vemos na próxima figura.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/10/complemento_de_dois.png&quot; alt=&quot;complemento de dois&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ademais, a implementação dessa sistemática a nível de &lt;em&gt;hardware&lt;/em&gt; é extremamente simples e eficiente, pois uma das duas coisas mais fáceis do mundo para os processadores é &quot;ligar&quot; e &quot;desligar&quot; bits e, a segunda, é somar.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;É importante observar algumas situações peculiares decorrentes da aplicação desta metodologia:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;O valor de &lt;strong&gt;-1&lt;/strong&gt;, tem sempre todos os bits iguais a &lt;strong&gt;1&lt;/strong&gt;, sejam quantos forem os bits do tipo considerado. Para o tipo primitivo &lt;code&gt;int&lt;/code&gt; da linguagem Java, por exemplo, todos os seus 32 bits serão iguais a &lt;strong&gt;1&lt;/strong&gt;, para representar o &lt;strong&gt;-1&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;O menor número negativo sempre começa com &lt;strong&gt;1&lt;/strong&gt; e todos os demais bits são iguais a &lt;strong&gt;0&lt;/strong&gt;. (V. na figura acima a representação do &lt;strong&gt;-4&lt;/strong&gt;, ou &lt;strong&gt;100&lt;/strong&gt; em binário).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;O maior número positivo sempre começa com &lt;strong&gt;0&lt;/strong&gt; e todos os demais bits são iguais a &lt;strong&gt;1&lt;/strong&gt;. (V. na figura acima a representação do &lt;strong&gt;3&lt;/strong&gt;, ou &lt;strong&gt;011&lt;/strong&gt; em binário).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Outra grande vantagem do sistema de &lt;strong&gt;complemento de dois&lt;/strong&gt; é que podemos usar a operação de adição para subtrair dois valores, bastando usar o valor negativo correspondente no subtraendo. Por exemplo, para subtrair &lt;strong&gt;2&lt;/strong&gt; de &lt;strong&gt;3&lt;/strong&gt;, cujo resultado é &lt;strong&gt;1&lt;/strong&gt; temos, na representação binária no nosso sistema simplificado de três bits, &lt;strong&gt;011 + 110 = 1001&lt;/strong&gt; (lembre-se que estamos usando aritmética binária, onde &lt;strong&gt;1 + 1 = 10&lt;/strong&gt;, isto é, o mesmo conceito do &quot;vai um&quot; quando fazemos as contas no sistema decimal). Como no nosso sistema só dispomos de três bits para representação dos números, o quarto bit é descartado e o resultado é &lt;strong&gt;001&lt;/strong&gt;, equivalente a &lt;strong&gt;1&lt;/strong&gt; na base decimal, que foi o resultado da nossa subtração.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Vejamos agora o que acontece, quando ultrapassamos o limite do tipo numérico considerado. No nosso sisteminha de três bits, esse limite é &lt;strong&gt;3&lt;/strong&gt;. Se efetuarmos a adição de &lt;strong&gt;3&lt;/strong&gt; (&lt;strong&gt;011&lt;/strong&gt; em binário) com &lt;strong&gt;2&lt;/strong&gt; (&lt;strong&gt;010&lt;/strong&gt; em binário), a soma será &lt;strong&gt;5&lt;/strong&gt; e, portanto, fora do limite do sistema. O resultado da aritmética binária é: &lt;strong&gt;011 + 010 = 101&lt;/strong&gt;, ou seja, estamos somando dois números positivos (iniciam com &lt;strong&gt;0&lt;/strong&gt;) e obtemos um resultado negativo (inicia com &lt;strong&gt;1&lt;/strong&gt;). Esta é exatamente a situação chamada &quot;overflow&quot;, representada na figura a seguir.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/10/overflow.png&quot; alt=&quot;overflow&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Na situação inversa, quando adicionamos dois números negativos e obtemos um número positivo, ocorre a situação denominada &quot;underflow&quot;, muito parecida com a anterior e, portanto, dispensando maiores explicações. A próxima figura apresenta sua representação.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/10/underflow.png&quot; alt=&quot;underflow&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_testando_overflow_e_underflow&quot;&gt;Testando &quot;overflow&quot; e &quot;underflow&quot;&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Os limites dos tipos inteiros são bem definidos na linguagem Java, de forma a assegurar sua portabilidade, e podem ser vistos na próxima figura:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/10/inteiros.png&quot; alt=&quot;inteiros&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Usaremos o programa a seguir para simular uma situação de &quot;overflow&quot;, ultrapassando o limite para o tipo inteiro, ao adicionar &lt;strong&gt;20&lt;/strong&gt; a &lt;code&gt;Integer.MAX_VALUE&lt;/code&gt;, método que retorna aquele limite. O tipo &lt;code&gt;Integer&lt;/code&gt; é o que denominamos &lt;code&gt;wrapper&lt;/code&gt; e corresponde a uma classe equivalente ao tipo primitivo &lt;code&gt;int&lt;/code&gt;. É um assunto um pouco mais avançado que iremos estudar em detalhes mais adiante, mas aproveitamos para apresentá-lo agora, para que você já vá se acostumando.&lt;/p&gt;
+&lt;/div&gt;
+&lt;pre class=&quot;brush: java, toolbar: false&quot;&gt;
+
+public class Overflow {
+
+    public static void main(String[] args) {
+        int valor = 20;
+        int total = 0;
+        total = Integer.MAX_VALUE;
+        total += valor; // mesmo que total = total + valor
+        if ((valor ^ total) &lt; 0)
+            throw new ArithmeticException(&quot;integer overflow&quot;);
+        System.out.printf(&quot;Total: %d%n&quot;, total);
+    }
+}
+&lt;/pre&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ao executarmos este programa, ocorre um erro em tempo de execução ao ser ultrapassado o limite do tipo &lt;code&gt;int&lt;/code&gt; e é lançada uma &lt;strong&gt;Exceção&lt;/strong&gt; (&lt;strong&gt;Exception&lt;/strong&gt;). Este também é um assunto muito importante que iremos estudar em detalhes mais à frente. O que interessa, por ora, é observarmos que o programa identifica precisamente a ocorrência do &quot;overflow&quot;, objeto do nosso estudo. A saída será:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;Saída no Console&lt;/div&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;Exception in thread &quot;main&quot; java.lang.ArithmeticException: integer overflow
+    at Overflow.main(Overflow.java:10)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;A linha do programa que identifica a ocorrência do &quot;overflow&quot;&amp;#8201;&amp;#8212;&amp;#8201;&lt;code&gt;if ((valor ^ total) &amp;lt; 0)&lt;/code&gt; usa o operador lógico &lt;strong&gt;XOR BITWISE&lt;/strong&gt; (&lt;code&gt;^&lt;/code&gt;) e exige uma explicação mais detalhada. A operação &lt;strong&gt;Bitwise XOR&lt;/strong&gt; de dois números retorna um número em que a comparação entre dois bits diferentes resulta em &lt;strong&gt;1&lt;/strong&gt; e dos bits iguais resulta em &lt;strong&gt;0&lt;/strong&gt;. Observe na figura a seguir, no nosso sistema exemplificativo de três bits, que o &lt;code&gt;XOR&lt;/code&gt; do incremento e da soma de dois números, &lt;strong&gt;sempre&lt;/strong&gt; retornará um valor negativo, ou seja menor do que zero, satisfazendo a condição do programa para lançar a exceção.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/10/bitwise_xor.png&quot; alt=&quot;bitwise xor&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;A simulação da situação de &quot;underflow&quot; é bem parecida, mudando apenas o limite que está sendo ultrapassado para o menor valor negativo (&lt;code&gt;Integer.MIN_VALUE&lt;/code&gt;).&lt;/p&gt;
+&lt;/div&gt;
+&lt;pre class=&quot;brush: java, toolbar: false&quot;&gt;
+
+public class Underflow {
+
+    public static void main(String[] args) {
+        int valor = -20;
+        int total = 0;
+        total = Integer.MIN_VALUE;
+        total += valor;
+        if ((valor ^ total) &lt; 0)
+            throw new ArithmeticException(&quot;integer underflow&quot;);
+        System.out.printf(&quot;Total: %d%n&quot;, total);
+    }
+}
+&lt;/pre&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;Saída no Console&lt;/div&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;Exception in thread &quot;main&quot; java.lang.ArithmeticException: integer underflow
+    at Underflow.main(Underflow.java:10)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Na figura a seguir podemos ver um exemplo da ocorrência do &quot;underflow&quot; e o resultado correspondente numa operação &lt;strong&gt;Bitwise XOR&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/10/xor_underflow.png&quot; alt=&quot;xor underflow&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;A última versão do JDK (Java 8), acrescenta vários métodos para gerar exceções nos casos da ocorrência de &quot;overflow&quot; ou &quot;underflow&quot;, evitando a necessidade de implementarmos esses testes. São os seguintes:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/10/exact_math_jse8.png&quot; alt=&quot;exact math jse8&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Vejam no código abaixo como podemos detectar a condição de &quot;overflow&quot; de uma forma bem mais simples, usando o método &lt;code&gt;Math.addExact&lt;/code&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;pre class=&quot;brush: java, toolbar: false&quot;&gt;
+public class OverflowUsandoExact {
+
+    public static void main(String[] args) {
+        int valor = 20;
+          int total = 0;
+          total = Integer.MAX_VALUE;
+          total = Math.addExact(total, valor);
+          System.out.printf(&quot;Total: %d%n&quot;, total);
+    }
+}
+&lt;/pre&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Percebam que o resultado é exatamente o mesmo:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;Saída no Console&lt;/div&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;Exception in thread &quot;main&quot; java.lang.ArithmeticException: integer overflow
+    at java.lang.Math.addExact(Unknown Source)
+    at OverflowUsandoExact.main(OverflowUsandoExact.java:7)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_tipos_primitivos_de_ponto_flutuante&quot;&gt;Tipos primitivos de ponto flutuante&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Os computadores representam os números reais de uma maneira muito mais complexa e engenhosa do que o método de complemento de dois que já estudamos. Seu entendimento, contudo, é muito importante para efetuar otimizações nos aplicativos que venhamos a desenvolver.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Nas nossas primeiras aulas de matemática, aprendemos que existem seis conjuntos numéricos, representados na figura abaixo:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/10/ponto_flutuante.png&quot; alt=&quot;ponto flutuante&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Uma característica dos conjuntos numéricos é que eles são infinitos, ou seja podem representar números cada vez maiores ou cada vez menores infinitamente. Isso é uma coisa impossível de representar na memória finita dos computadores. Para contornar a questão, estabeleceram-se limites para valores positivos e negativos, como já estudamos anteriormente com relação aos tipos inteiros.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Quando falamos então no conjunto dos números reais, essa questão de infinito é ainda mais sensível, pois há infinitas representações numéricas não apenas nos extremos, mas entre cada número, com aproximações cada vez maiores, além dos números irracionais, infinitos em si mesmos, como o célebre &lt;strong&gt;π&lt;/strong&gt;, para o qual, segundo a &lt;a href=&quot;https://pt.wikipedia.org/wiki/Pi&quot;&gt;Wikipedia&lt;/a&gt;, já foi calculado, num super-computador, um número de cinco trilhões de dígitos, equivalente a 6 terabytes de dados!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Uma das formas de resolver a questão da aproximação infinita é o arredondamento. Poderíamos, por exemplo, representar o número 1,999999999999999999 por 2,0, com uma perda praticamente desprezível no arredondamento, para a maioria das aplicações.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Outro problema que precisa ser resolvido, é com relação à representação dos números fracionários. Na base 10 a que estamos habituados, usamos o ponto decimal (ou vírgula), para sua representação, sendo que os valores à esquerda do ponto são multiplicados por potências de 10 e, à direita, por frações de 10, representando décimos, centésimos, etc. Há situações, contudo, em que a fração não resulta numa divisão exata, originando as dízimas periódicas. É o caso, por exemplo, de &lt;strong&gt;⅓&lt;/strong&gt;, cujo resultado é 0.333&amp;#8230;&amp;#8203;, uma dízima periódica.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;No sistema de base dois, a representação é semelhante. A diferença é que os números à esquerda do ponto decimal são multiplicados por potências de 2 e os números à direita por frações de 2, havendo também a ocorrência de dízimas periódicas. É o caso de &lt;strong&gt;0.1&lt;/strong&gt; (um décimo), cuja representação é exata no sistema decimal, mas no sistema binário situa-se entre 1/8 e 1/16 e, assim, sem representação exata. Isso pode ser bem compreendido na próxima figura:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://pontogpp.com.br/wp-content/uploads/2015/10/dizima_binaria.png&quot; alt=&quot;dizima binaria&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_links_Úteis&quot;&gt;Links Úteis&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.informit.com/articles/article.aspx?p=2216988&amp;amp;seqNum=3&quot;&gt;Detecção de &quot;overflow&quot; e &quot;underflow&quot; em Java 8.&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+	    </description>
+      </item>
       <item>
         <title>Unicode, UTF-8 e UTF-16</title>
         <link>http://ja-gaeta.github.io/2015/unicode-utf8-utf16.html</link>

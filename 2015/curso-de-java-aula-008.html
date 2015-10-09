@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+    Ponto G++
+        - Curso de Java - Aula 8
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="J.A. Gaeta Mendes">
+    <meta name="description" content="Static blog generated with JBake">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/cosmo/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/prettify-themes/github.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/asciidoctor.css">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav icon -->
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/img/favicon.png" type="image/x-icon">
+      
+    <!-- SyntaxHighlighter -->
+    <script type="text/javascript" src="/js/shCore.js"></script>
+    <script type="text/javascript" src="/js/shBrushJava.js"></script>
+    <script type="text/javascript" src="/js/shBrushCSharp.js"></script>
+    <script type="text/javascript" src="/js/shBrushCpp.js"></script>
+    <script type="text/javascript" src="/js/shBrushPython.js"></script>
+    <script type="text/javascript" src="/js/shBrushJScript.js"></script>
+    
+    <link href="/css/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+      
+  </head>
+  <body>      
+    <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Ponto G++</a>
+        </div>
+        
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="/pages/about.html">Sobre</a></li>
+          <!--  <li><a href="/pages/contact.html">Contact</a></li> -->
+          </ul>
+        
+        <!-- Right navigation -->
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/archive.html"><i class="fa fa-list"></i> Arquivo</a></li>
+          <li><a href="/feed.xml" title="Rss"><i class="fa fa-rss"></i> Feed</a></li>
+        </ul>
+        <!-- Right navigation end -->
+
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav><!-- /.navbar -->
+
+    <!-- Begin page content -->
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-md-12">
+          <article>
+            <div class="page-header"><h1>Curso de Java - Aula 8</h1>
+              <ol class="breadcrumb tagsbar">
+                <li><a href="/tags/cursos.html">cursos</a></li>
+                <li><a href="/tags/java.html">java</a></li>
+              </ol>
+            </div>
+          <p class="post-meta">
+            <i class="fa fa-calendar"></i>&nbsp;08 October 2015&nbsp;&nbsp;
+            <i class="fa fa-user"></i>&nbsp;J.A. Gaeta Mendes&nbsp;&nbsp;
+              <i class="fa fa-comment"></i>&nbsp;<span class="badge"><a href="http://ja-gaeta.github.io/2015/curso-de-java-aula-008.html#disqus_thread"></a></span>
+          </p>
+              <p><div id="preamble">
+<div class="sectionbody">
+<p style="text-align: center;">&nbsp;<iframe src="//www.youtube.com/embed/FwYDrjlnDYA" frameborder="1" width="560" height="315" allowfullscreen></iframe></p>
+<div class="paragraph">
+<p>Material de apoio para a vídeo-aula nº 8 do Curso de Java ministrado no Ponto G++, contendo toda a base teórica para um sólido acompanhamento da aula.</p>
+</div>
+<!--more-->
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Programa da aula</div>
+<ul class="sectlevel1">
+<li><a href="#_java_curiosa_divertida">Java Curiosa &amp; Divertida</a>
+<ul class="sectlevel2">
+<li><a href="#_ocorrência_de_overflow_e_underflow_em_java">Ocorrência de "overflow" e "underflow" em Java</a></li>
+<li><a href="#_testando_overflow_e_underflow">Testando "overflow" e "underflow"</a></li>
+</ul>
+</li>
+<li><a href="#_tipos_primitivos_de_ponto_flutuante">Tipos primitivos de ponto flutuante</a></li>
+<li><a href="#_links_Úteis">Links Úteis</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_java_curiosa_divertida">Java Curiosa &amp; Divertida</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_ocorrência_de_overflow_e_underflow_em_java">Ocorrência de "overflow" e "underflow" em Java</h3>
+<div class="paragraph">
+<p>Como já vimos quando estudamos os tipos primitivos inteiros de Java, quais sejam, o <code>byte</code>, o <code>short</code>, o <code>int</code> e o <code>long</code>, eles possuem limites fixos, para que "caibam" dentro da memória finita dos computadores. Quando esses limites são ultrapassados, ocorre um erro, denominado "overflow" quando o limite superior for ultrapassado, ou "underflow" quando se tratar do limite inferior.</p>
+</div>
+<div class="paragraph">
+<p>Um sistema binário de <em>n</em> bits permite a representação de 2<sup>n</sup> valores possíveis. Na figura abaixo, podemos ver que num sistema de apenas 3 bits, podem ser representados 2<sup>3</sup> valores possíveis, ou seja, 8 valores, de 0 a 7, neste sistema muito simples, de 3 bits sem sinal.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/10/limites_binarios.png" alt="limites binarios">
+</div>
+</div>
+<div class="paragraph">
+<p>Se quisermos um sistema que represente também números negativos, tempos que encontrar uma forma de dividir a gama de valores possíveis de serem representados em dois grupos: um para representar os números positivos, e outro para representar os negativos. O método mais simples para isso é denominado "Sinal e Magnitude".</p>
+</div>
+<div class="paragraph">
+<p>Nesta metodologia, dividimos a quantidade de valores possíveis exatamente ao meio. A primeira metade, cujos valores começam com 0 (zero), serão os números positivos e a segunda metade, cujos números começam com 1 (um), serão os negativos. Vejam sua representação gráfica na próxima figura, e observem que a primeira parte do número binário representa o <strong>sinal</strong> e a segunda parte a <strong>magnitude</strong>, vindo daí o nome do método.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/10/sinal_magnitude.png" alt="sinal magnitude">
+</div>
+</div>
+<div class="paragraph">
+<p>Todavia, além da existência e um estranho <strong>"zero negativo"</strong>, conceito inexistente na matemática, um sistema como este seria muito difícil de ser implementado a nível de <em>hardware</em>. Um método mais engenhoso e adequado é o de <strong>complemento de dois</strong>, que examinaremos a seguir.</p>
+</div>
+<div class="paragraph">
+<p>Neste método, obtém-se um número negativo invertendo-se os bits do seu equivalente positivo e somando 1 ao resultado, o que corresponde, no sistema binário ao complemento de dois do número considerado, vindo daí a denominação deste método.</p>
+</div>
+<div class="paragraph">
+<p>Consideremos, então, o número binário <strong>000</strong> no nosso sistema simplificado de três bits. Seguindo a regra, primeiro invertemos os bits, obtendo <strong>111</strong>. Em seguida, somamos <strong>1</strong> ao resultado. Como a aritmética aqui é binária, o resultado seria <strong>1000</strong>. Como nosso sistema numérico só possui três bits, o quarto bit é descartado e o resultado é <strong>000</strong>. Ou seja, eliminamos o problema do "zero negativo".</p>
+</div>
+<div class="paragraph">
+<p>A representação binária <strong>001</strong> (1 em decimal) resulta em <strong>110</strong>, após a inversão dos bits, e em <strong>111</strong>, depois de somar 1 ao resultado e assim sucessivamente. Podemos então montar uma tabela contendo todos os valores positivos e negativos possíveis de serem representados no nosso sisteminha numérico de três bits, conforme vemos na próxima figura.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/10/complemento_de_dois.png" alt="complemento de dois">
+</div>
+</div>
+<div class="paragraph">
+<p>Ademais, a implementação dessa sistemática a nível de <em>hardware</em> é extremamente simples e eficiente, pois uma das duas coisas mais fáceis do mundo para os processadores é "ligar" e "desligar" bits e, a segunda, é somar.</p>
+</div>
+<div class="paragraph">
+<p>É importante observar algumas situações peculiares decorrentes da aplicação desta metodologia:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>O valor de <strong>-1</strong>, tem sempre todos os bits iguais a <strong>1</strong>, sejam quantos forem os bits do tipo considerado. Para o tipo primitivo <code>int</code> da linguagem Java, por exemplo, todos os seus 32 bits serão iguais a <strong>1</strong>, para representar o <strong>-1</strong>.</p>
+</li>
+<li>
+<p>O menor número negativo sempre começa com <strong>1</strong> e todos os demais bits são iguais a <strong>0</strong>. (V. na figura acima a representação do <strong>-4</strong>, ou <strong>100</strong> em binário).</p>
+</li>
+<li>
+<p>O maior número positivo sempre começa com <strong>0</strong> e todos os demais bits são iguais a <strong>1</strong>. (V. na figura acima a representação do <strong>3</strong>, ou <strong>011</strong> em binário).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Outra grande vantagem do sistema de <strong>complemento de dois</strong> é que podemos usar a operação de adição para subtrair dois valores, bastando usar o valor negativo correspondente no subtraendo. Por exemplo, para subtrair <strong>2</strong> de <strong>3</strong>, cujo resultado é <strong>1</strong> temos, na representação binária no nosso sistema simplificado de três bits, <strong>011 + 110 = 1001</strong> (lembre-se que estamos usando aritmética binária, onde <strong>1 + 1 = 10</strong>, isto é, o mesmo conceito do "vai um" quando fazemos as contas no sistema decimal). Como no nosso sistema só dispomos de três bits para representação dos números, o quarto bit é descartado e o resultado é <strong>001</strong>, equivalente a <strong>1</strong> na base decimal, que foi o resultado da nossa subtração.</p>
+</div>
+<div class="paragraph">
+<p>Vejamos agora o que acontece, quando ultrapassamos o limite do tipo numérico considerado. No nosso sisteminha de três bits, esse limite é <strong>3</strong>. Se efetuarmos a adição de <strong>3</strong> (<strong>011</strong> em binário) com <strong>2</strong> (<strong>010</strong> em binário), a soma será <strong>5</strong> e, portanto, fora do limite do sistema. O resultado da aritmética binária é: <strong>011 + 010 = 101</strong>, ou seja, estamos somando dois números positivos (iniciam com <strong>0</strong>) e obtemos um resultado negativo (inicia com <strong>1</strong>). Esta é exatamente a situação chamada "overflow", representada na figura a seguir.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/10/overflow.png" alt="overflow">
+</div>
+</div>
+<div class="paragraph">
+<p>Na situação inversa, quando adicionamos dois números negativos e obtemos um número positivo, ocorre a situação denominada "underflow", muito parecida com a anterior e, portanto, dispensando maiores explicações. A próxima figura apresenta sua representação.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/10/underflow.png" alt="underflow">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_testando_overflow_e_underflow">Testando "overflow" e "underflow"</h3>
+<div class="paragraph">
+<p>Os limites dos tipos inteiros são bem definidos na linguagem Java, de forma a assegurar sua portabilidade, e podem ser vistos na próxima figura:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/10/inteiros.png" alt="inteiros">
+</div>
+</div>
+<div class="paragraph">
+<p>Usaremos o programa a seguir para simular uma situação de "overflow", ultrapassando o limite para o tipo inteiro, ao adicionar <strong>20</strong> a <code>Integer.MAX_VALUE</code>, método que retorna aquele limite. O tipo <code>Integer</code> é o que denominamos <code>wrapper</code> e corresponde a uma classe equivalente ao tipo primitivo <code>int</code>. É um assunto um pouco mais avançado que iremos estudar em detalhes mais adiante, mas aproveitamos para apresentá-lo agora, para que você já vá se acostumando.</p>
+</div>
+<pre class="brush: java, toolbar: false">
+
+public class Overflow {
+
+    public static void main(String[] args) {
+        int valor = 20;
+        int total = 0;
+        total = Integer.MAX_VALUE;
+        total += valor; // mesmo que total = total + valor
+        if ((valor ^ total) < 0)
+            throw new ArithmeticException("integer overflow");
+        System.out.printf("Total: %d%n", total);
+    }
+}
+</pre>
+<div class="paragraph">
+<p>Ao executarmos este programa, ocorre um erro em tempo de execução ao ser ultrapassado o limite do tipo <code>int</code> e é lançada uma <strong>Exceção</strong> (<strong>Exception</strong>). Este também é um assunto muito importante que iremos estudar em detalhes mais à frente. O que interessa, por ora, é observarmos que o programa identifica precisamente a ocorrência do "overflow", objeto do nosso estudo. A saída será:</p>
+</div>
+<div class="listingblock">
+<div class="title">Saída no Console</div>
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">Exception in thread "main" java.lang.ArithmeticException: integer overflow
+    at Overflow.main(Overflow.java:10)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A linha do programa que identifica a ocorrência do "overflow"&#8201;&#8212;&#8201;<code>if ((valor ^ total) &lt; 0)</code> usa o operador lógico <strong>XOR BITWISE</strong> (<code>^</code>) e exige uma explicação mais detalhada. A operação <strong>Bitwise XOR</strong> de dois números retorna um número em que a comparação entre dois bits diferentes resulta em <strong>1</strong> e dos bits iguais resulta em <strong>0</strong>. Observe na figura a seguir, no nosso sistema exemplificativo de três bits, que o <code>XOR</code> do incremento e da soma de dois números, <strong>sempre</strong> retornará um valor negativo, ou seja menor do que zero, satisfazendo a condição do programa para lançar a exceção.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/10/bitwise_xor.png" alt="bitwise xor">
+</div>
+</div>
+<div class="paragraph">
+<p>A simulação da situação de "underflow" é bem parecida, mudando apenas o limite que está sendo ultrapassado para o menor valor negativo (<code>Integer.MIN_VALUE</code>).</p>
+</div>
+<pre class="brush: java, toolbar: false">
+
+public class Underflow {
+
+    public static void main(String[] args) {
+        int valor = -20;
+        int total = 0;
+        total = Integer.MIN_VALUE;
+        total += valor;
+        if ((valor ^ total) < 0)
+            throw new ArithmeticException("integer underflow");
+        System.out.printf("Total: %d%n", total);
+    }
+}
+</pre>
+<div class="listingblock">
+<div class="title">Saída no Console</div>
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">Exception in thread "main" java.lang.ArithmeticException: integer underflow
+    at Underflow.main(Underflow.java:10)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Na figura a seguir podemos ver um exemplo da ocorrência do "underflow" e o resultado correspondente numa operação <strong>Bitwise XOR</strong>:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/10/xor_underflow.png" alt="xor underflow">
+</div>
+</div>
+<div class="paragraph">
+<p>A última versão do JDK (Java 8), acrescenta vários métodos para gerar exceções nos casos da ocorrência de "overflow" ou "underflow", evitando a necessidade de implementarmos esses testes. São os seguintes:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/10/exact_math_jse8.png" alt="exact math jse8">
+</div>
+</div>
+<div class="paragraph">
+<p>Vejam no código abaixo como podemos detectar a condição de "overflow" de uma forma bem mais simples, usando o método <code>Math.addExact</code>:</p>
+</div>
+<pre class="brush: java, toolbar: false">
+public class OverflowUsandoExact {
+
+    public static void main(String[] args) {
+        int valor = 20;
+          int total = 0;
+          total = Integer.MAX_VALUE;
+          total = Math.addExact(total, valor);
+          System.out.printf("Total: %d%n", total);
+    }
+}
+</pre>
+<div class="paragraph">
+<p>Percebam que o resultado é exatamente o mesmo:</p>
+</div>
+<div class="listingblock">
+<div class="title">Saída no Console</div>
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">Exception in thread "main" java.lang.ArithmeticException: integer overflow
+    at java.lang.Math.addExact(Unknown Source)
+    at OverflowUsandoExact.main(OverflowUsandoExact.java:7)</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tipos_primitivos_de_ponto_flutuante">Tipos primitivos de ponto flutuante</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Os computadores representam os números reais de uma maneira muito mais complexa e engenhosa do que o método de complemento de dois que já estudamos. Seu entendimento, contudo, é muito importante para efetuar otimizações nos aplicativos que venhamos a desenvolver.</p>
+</div>
+<div class="paragraph">
+<p>Nas nossas primeiras aulas de matemática, aprendemos que existem seis conjuntos numéricos, representados na figura abaixo:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/10/ponto_flutuante.png" alt="ponto flutuante">
+</div>
+</div>
+<div class="paragraph">
+<p>Uma característica dos conjuntos numéricos é que eles são infinitos, ou seja podem representar números cada vez maiores ou cada vez menores infinitamente. Isso é uma coisa impossível de representar na memória finita dos computadores. Para contornar a questão, estabeleceram-se limites para valores positivos e negativos, como já estudamos anteriormente com relação aos tipos inteiros.</p>
+</div>
+<div class="paragraph">
+<p>Quando falamos então no conjunto dos números reais, essa questão de infinito é ainda mais sensível, pois há infinitas representações numéricas não apenas nos extremos, mas entre cada número, com aproximações cada vez maiores, além dos números irracionais, infinitos em si mesmos, como o célebre <strong>π</strong>, para o qual, segundo a <a href="https://pt.wikipedia.org/wiki/Pi">Wikipedia</a>, já foi calculado, num super-computador, um número de cinco trilhões de dígitos, equivalente a 6 terabytes de dados!</p>
+</div>
+<div class="paragraph">
+<p>Uma das formas de resolver a questão da aproximação infinita é o arredondamento. Poderíamos, por exemplo, representar o número 1,999999999999999999 por 2,0, com uma perda praticamente desprezível no arredondamento, para a maioria das aplicações.</p>
+</div>
+<div class="paragraph">
+<p>Outro problema que precisa ser resolvido, é com relação à representação dos números fracionários. Na base 10 a que estamos habituados, usamos o ponto decimal (ou vírgula), para sua representação, sendo que os valores à esquerda do ponto são multiplicados por potências de 10 e, à direita, por frações de 10, representando décimos, centésimos, etc. Há situações, contudo, em que a fração não resulta numa divisão exata, originando as dízimas periódicas. É o caso, por exemplo, de <strong>⅓</strong>, cujo resultado é 0.333&#8230;&#8203;, uma dízima periódica.</p>
+</div>
+<div class="paragraph">
+<p>No sistema de base dois, a representação é semelhante. A diferença é que os números à esquerda do ponto decimal são multiplicados por potências de 2 e os números à direita por frações de 2, havendo também a ocorrência de dízimas periódicas. É o caso de <strong>0.1</strong> (um décimo), cuja representação é exata no sistema decimal, mas no sistema binário situa-se entre 1/8 e 1/16 e, assim, sem representação exata. Isso pode ser bem compreendido na próxima figura:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/10/dizima_binaria.png" alt="dizima binaria">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_links_Úteis">Links Úteis</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://www.informit.com/articles/article.aspx?p=2216988&amp;seqNum=3">Detecção de "overflow" e "underflow" em Java 8.</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div></p>
+      <div class="share">
+        <div class="social">
+  <!-- Facebook -->
+          <span class="facebook">
+            <iframe src="//www.facebook.com/plugins/like.php?href=http://http://ja-gaeta.github.io/2015/curso-de-java-aula-008.html&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+          </span>
+  <!-- Google+ -->
+          <span class="google">
+            <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+            <g:plusone size="medium" href="http://ja-gaeta.github.io/2015/curso-de-java-aula-008.html"></g:plusone>
+          </span>
+  <!-- Twitter -->
+          <span class="twitter">
+            <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ja-gaeta.github.io/2015/curso-de-java-aula-008.html">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </span>
+        </div>
+      </div>
+<hr>
+<section class="comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+  
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>            </article>
+        </div> <!-- /.col-md-12 -->
+      </div> <!-- /.row -->
+        
+      </div><!-- /.container -->
+
+    <footer>
+      <div class="container">
+        <hr>
+        <div class="row">
+          <div class="col-xs-10">
+            <p class="text-muted credit">&copy; Ponto G++ 2015 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/br/"><img src="/img/creative_commons_88x31.png"></a> | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.4.0</a> | <i title="Linux" class="fa fa-linux"></i></p>
+          </div>
+          <div class="col-xs-2 gotop">
+            <a href="#"><i class="fa fa-arrow-circle-up"> topo</i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
+    <script type="text/javascript">
+      <!-- load prettify only when needed -->
+      $(document).ready(function(){
+        var prettify = false;
+        var classToAdd = 'prettyprint snippet';
+        $("pre > code").each(function() {
+          $("pre > code").parent().addClass(classToAdd);
+          prettify = true;
+        });
+        if(prettify) {
+          prettyPrint();
+        }
+      });
+    </script>
+
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+    </script>
+
+          <script type="text/javascript">
+        SyntaxHighlighter.all()
+    </script>
+  </body>
+</html>
