@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+    Ponto G++
+        - Eclipse&#8201;&#8212;&#8201;Atalhos e configurações interessantes
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="J.A. Gaeta Mendes">
+    <meta name="description" content="Static blog generated with JBake">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/cosmo/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/prettify-themes/github.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/asciidoctor.css">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav icon -->
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/img/favicon.png" type="image/x-icon">
+      
+    <!-- SyntaxHighlighter -->
+    <script type="text/javascript" src="/js/shCore.js"></script>
+    <script type="text/javascript" src="/js/shBrushJava.js"></script>
+    <script type="text/javascript" src="/js/shBrushCSharp.js"></script>
+    <script type="text/javascript" src="/js/shBrushCpp.js"></script>
+    <script type="text/javascript" src="/js/shBrushPython.js"></script>
+    <script type="text/javascript" src="/js/shBrushJScript.js"></script>
+    
+    <link href="/css/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+      
+  </head>
+  <body>      
+    <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Ponto G++</a>
+        </div>
+        
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="/pages/about.html">Sobre</a></li>
+          <!--  <li><a href="/pages/contact.html">Contact</a></li> -->
+          </ul>
+        
+        <!-- Right navigation -->
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/archive.html"><i class="fa fa-list"></i> Arquivo</a></li>
+          <li><a href="/feed.xml" title="Rss"><i class="fa fa-rss"></i> Feed</a></li>
+        </ul>
+        <!-- Right navigation end -->
+
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav><!-- /.navbar -->
+
+    <!-- Begin page content -->
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-md-12">
+          <article>
+            <div class="page-header"><h1>Eclipse&#8201;&#8212;&#8201;Atalhos e configurações interessantes</h1>
+              <ol class="breadcrumb tagsbar">
+                <li><a href="/tags/eclipse.html">eclipse</a></li>
+                <li><a href="/tags/ide.html">ide</a></li>
+                <li><a href="/tags/tutoriais.html">tutoriais</a></li>
+              </ol>
+            </div>
+          <p class="post-meta">
+            <i class="fa fa-calendar"></i>&nbsp;24 November 2015&nbsp;&nbsp;
+            <i class="fa fa-user"></i>&nbsp;J.A. Gaeta Mendes&nbsp;&nbsp;
+              <i class="fa fa-comment"></i>&nbsp;<span class="badge"><a href="http://ja-gaeta.github.io/2015/eclipse_atalhos_e_configurações_interessantes.html#disqus_thread"></a></span>
+          </p>
+              <p><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Aumente sua produtividade no IDE Eclipse com essas dicas.</p>
+</div>
+<!--more-->
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Relação dos Atalhos</div>
+<ul class="sectlevel1">
+<li><a href="#_control_space">Control + space</a>
+<ul class="sectlevel2">
+<li><a href="#_autocomplete">Autocomplete</a></li>
+</ul>
+</li>
+<li><a href="#_ctrl_cmd_n">Ctrl [Cmd] + N</a>
+<ul class="sectlevel2">
+<li><a href="#_menu_de_wizards_para_novo_arquivo">Menu de Wizards para Novo Arquivo</a></li>
+</ul>
+</li>
+<li><a href="#_ctrl_cmd_shift_f">Ctrl [Cmd] + Shift + F</a>
+<ul class="sectlevel2">
+<li><a href="#_corrige_a_indentação">Corrige a indentação</a></li>
+</ul>
+</li>
+<li><a href="#_ctrl_cmd_shift_o">Ctrl [Cmd] + Shift + O</a>
+<ul class="sectlevel2">
+<li><a href="#_atualiza_todos_os_code_imports_code">Atualiza todos os <code>imports</code></a></li>
+</ul>
+</li>
+<li><a href="#_alt_shift_r_cmd_option_r">Alt + Shift + R (Cmd + Option + R)</a>
+<ul class="sectlevel2">
+<li><a href="#_refatora_nome_em_rename_em">Refatora nome (<em>Rename</em>)</a></li>
+</ul>
+</li>
+<li><a href="#_ctrl_cmd_w">Ctrl [Cmd] + W</a>
+<ul class="sectlevel2">
+<li><a href="#_fecha_arquivo">Fecha arquivo</a></li>
+</ul>
+</li>
+<li><a href="#_ctrl_cmd_shift_w">Ctrl [Cmd] + Shift + W</a>
+<ul class="sectlevel2">
+<li><a href="#_fecha_todos_os_arquivos">Fecha todos os arquivos</a></li>
+</ul>
+</li>
+<li><a href="#_ctrl_cmd_d">Ctrl [Cmd] + D</a>
+<ul class="sectlevel2">
+<li><a href="#_apaga_linha_corrente">Apaga linha corrente</a></li>
+</ul>
+</li>
+<li><a href="#_ctrl_m">Ctrl + M</a>
+<ul class="sectlevel2">
+<li><a href="#_comuta_tela_cheia_para_editor">Comuta tela cheia para editor</a></li>
+</ul>
+</li>
+<li><a href="#_alt_option_seta_up_down">Alt [option] + Seta Up/Down</a>
+<ul class="sectlevel2">
+<li><a href="#_movimenta_linha_corrente">Movimenta linha corrente</a></li>
+</ul>
+</li>
+<li><a href="#_ctrl_cmd_1">Ctrl [Cmd] + 1</a>
+<ul class="sectlevel2">
+<li><a href="#_acerto_rápido_em_quick_fix_em">Acerto rápido (<em>Quick Fix</em>)</a></li>
+</ul>
+</li>
+<li><a href="#_ctrl_cmd_shift_t">Ctrl [Cmd] + Shift + T</a>
+<ul class="sectlevel2">
+<li><a href="#_abre_arquivo_de_tipo">Abre arquivo de tipo</a></li>
+</ul>
+</li>
+<li><a href="#_ctrl_cmd_shift_r">Ctrl [Cmd] + Shift + R</a>
+<ul class="sectlevel2">
+<li><a href="#_abre_arquivo_de_recurso">Abre arquivo de recurso</a></li>
+</ul>
+</li>
+<li><a href="#_ctrl_cmd_e">Ctrl [Cmd] + E</a>
+<ul class="sectlevel2">
+<li><a href="#_navega_entre_arquivos_abertos">Navega entre arquivos abertos</a></li>
+</ul>
+</li>
+<li><a href="#_ctrl_cmd_fn_f6">Ctrl [Cmd] + [fn] + F6</a>
+<ul class="sectlevel2">
+<li><a href="#_comuta_entre_dois_arquivos">Comuta entre dois arquivos</a></li>
+</ul>
+</li>
+<li><a href="#_alt_cmd_shift_option_x_j_t">Alt [Cmd] + Shift [option] + X, J/T&#8230;&#8203;</a>
+<ul class="sectlevel2">
+<li><a href="#_executa_arquivo_contendo_code_main_code">Executa arquivo contendo <code>main</code></a></li>
+</ul>
+</li>
+<li><a href="#_ctrl_cmd_3">Ctrl [Cmd] + 3</a>
+<ul class="sectlevel2">
+<li><a href="#_acesso_rápido_para_código_padrão">Acesso rápido para código-padrão</a></li>
+</ul>
+</li>
+<li><a href="#_ctrl_cmd_shift_l">Ctrl [Cmd] + Shift + L</a>
+<ul class="sectlevel2">
+<li><a href="#_lista_atalhos_disponíveis">Lista Atalhos Disponíveis</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_control_space">Control + space</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_autocomplete">Autocomplete</h3>
+<div class="paragraph">
+<p><strong>Sistema:</strong> Windows, Linux, OS X&#8201;&#8212;&#8201;mesma combinação.</p>
+</div>
+<div class="paragraph">
+<p><strong>Uso:</strong> Função de autocomplete, fazendo também o respectivo "import". Veja a imagem a seguir:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/11/eclipse_ctrl_space.png" alt="eclipse ctrl space">
+</div>
+</div>
+<div class="paragraph">
+<p>Podemos também usar esta combinação para completar com um nome de variável sugerido. A sugestão é baseada no tipo, iniciando com letra minúscula. Confira na próxima imagem:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/11/eclipse_ctrl_space_sugestion.png" alt="eclipse ctrl space sugestion">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ctrl_cmd_n">Ctrl [Cmd] + N</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_menu_de_wizards_para_novo_arquivo">Menu de Wizards para Novo Arquivo</h3>
+<div class="paragraph">
+<p><strong>Sistema:</strong> Windows/Linux&#8201;&#8212;&#8201;Ctrl + N; OS X&#8201;&#8212;&#8201;Cmd + N</p>
+</div>
+<div class="paragraph">
+<p><strong>Uso:</strong> atalho para criar nova classe, package, enum, etc. Abre o menu de <em>Wizards</em> para criação do novo arquivo, conforme abaixo:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/11/ctrl_cmd_N.png" alt="ctrl cmd N">
+</div>
+</div>
+<div class="paragraph">
+<p>No campo <code>filter</code>, podemos filtrar o tipo de documento desejado, <code>class</code>, por exemplo, facilitando a seleção:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/11/cmd_ctrl_N_class.png" alt="cmd ctrl N class">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ctrl_cmd_shift_f">Ctrl [Cmd] + Shift + F</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_corrige_a_indentação">Corrige a indentação</h3>
+<div class="paragraph">
+<p><strong>Sistema:</strong> Windows/Linux&#8201;&#8212;&#8201;Ctrl + Shift + F; OS X&#8201;&#8212;&#8201;Cmd + Shift + F</p>
+</div>
+<div class="paragraph">
+<p><strong>Uso:</strong> Acertar a indentação do código. Se não houver nenhum trecho selecionado, corrige todo o arquivo.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ctrl_cmd_shift_o">Ctrl [Cmd] + Shift + O</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_atualiza_todos_os_code_imports_code">Atualiza todos os <code>imports</code></h3>
+<div class="paragraph">
+<p><strong>Sistema:</strong> Windows/Linux&#8201;&#8212;&#8201;Ctrl + Shift + O; OS X&#8201;&#8212;&#8201;Cmd + Shift + O</p>
+</div>
+<div class="paragraph">
+<p><strong>Uso:</strong> Acrescentar todos os <code>imports</code> que estiverem faltando no arquivo.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_alt_shift_r_cmd_option_r">Alt + Shift + R (Cmd + Option + R)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_refatora_nome_em_rename_em">Refatora nome (<em>Rename</em>)</h3>
+<div class="paragraph">
+<p><strong>Sistema:</strong> Windows/Linux&#8201;&#8212;&#8201;Alt + Shift + R; OS X&#8201;&#8212;&#8201;Cmd + Option + R</p>
+</div>
+<div class="paragraph">
+<p><strong>Uso:</strong> Refatorar o nome da variável ou método. Veja a figura abaixo:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/11/eclipse_refactor.png" alt="eclipse refactor">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ctrl_cmd_w">Ctrl [Cmd] + W</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_fecha_arquivo">Fecha arquivo</h3>
+<div class="paragraph">
+<p><strong>Sistema:</strong> Windows/Linux&#8201;&#8212;&#8201;Ctrl + W; OS X&#8201;&#8212;&#8201;Cmd + W</p>
+</div>
+<div class="paragraph">
+<p><strong>Uso:</strong> Fechar os arquivos abertos no editor, usando apenas o teclado.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ctrl_cmd_shift_w">Ctrl [Cmd] + Shift + W</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_fecha_todos_os_arquivos">Fecha todos os arquivos</h3>
+<div class="paragraph">
+<p><strong>Sistema:</strong> Windows/Linux&#8201;&#8212;&#8201;Ctrl + Shift + W; OS X&#8201;&#8212;&#8201;Cmd + Shift + W</p>
+</div>
+<div class="paragraph">
+<p><strong>Uso:</strong> Fechar <strong>todos</strong> os arquivos abertos no editor, usando apenas o teclado.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ctrl_cmd_d">Ctrl [Cmd] + D</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_apaga_linha_corrente">Apaga linha corrente</h3>
+<div class="paragraph">
+<p><strong>Sistema:</strong> Windows/Linux&#8201;&#8212;&#8201;Ctrl + D; OS X&#8201;&#8212;&#8201;Cmd + D</p>
+</div>
+<div class="paragraph">
+<p><strong>Uso:</strong> Apagar toda a linha atual no editor.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ctrl_m">Ctrl + M</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_comuta_tela_cheia_para_editor">Comuta tela cheia para editor</h3>
+<div class="paragraph">
+<p><strong>Sistema:</strong> Windows/Linux/OS X&#8201;&#8212;&#8201;Ctrl [control] + M</p>
+</div>
+<div class="paragraph">
+<p><strong>Uso:</strong> Comutar o editor para tela cheia.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_alt_option_seta_up_down">Alt [option] + Seta Up/Down</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_movimenta_linha_corrente">Movimenta linha corrente</h3>
+<div class="paragraph">
+<p><strong>Sistema:</strong> Windows/Linux&#8201;&#8212;&#8201;Alt + Seta Up/Down; OS X&#8201;&#8212;&#8201;option + Seta Up/Down</p>
+</div>
+<div class="paragraph">
+<p><strong>Uso:</strong> Movimentar a linha corrente ou um trecho de código selecionado para cima (com Seta Up) ou para baixo (com Seta Down).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ctrl_cmd_1">Ctrl [Cmd] + 1</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_acerto_rápido_em_quick_fix_em">Acerto rápido (<em>Quick Fix</em>)</h3>
+<div class="paragraph">
+<p><strong>Sistema:</strong> Windows/Linux&#8201;&#8212;&#8201;Ctrl + 1; OS X&#8201;&#8212;&#8201;Cmd + 1</p>
+</div>
+<div class="paragraph">
+<p><strong>Uso:</strong> Criar rapidamente uma nova classe, enum, etc. Pode também ajudar a corrigir rapidamente outros problemas similares durante o desenvolvimento. Veja na figura abaixo o funcionamento desta ferramenta:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/11/eclipse_quick_fix.png" alt="eclipse quick fix">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ctrl_cmd_shift_t">Ctrl [Cmd] + Shift + T</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_abre_arquivo_de_tipo">Abre arquivo de tipo</h3>
+<div class="paragraph">
+<p><strong>Sistema:</strong> Windows/Linux&#8201;&#8212;&#8201;Ctrl + Shift + T; OS X&#8201;&#8212;&#8201;Cmd + Shift + T</p>
+</div>
+<div class="paragraph">
+<p><strong>Uso:</strong> Atalho muito útil para abrir o arquivo de um tipo qualquer (classe, enum, etc.), durante o desenvolvimento. Veja na figura abaixo seu uso, localizando, neste caso, a classe <code>Fornecedor</code>:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/11/eclipse_open_type_dlg.png" alt="eclipse open type dlg">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ctrl_cmd_shift_r">Ctrl [Cmd] + Shift + R</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_abre_arquivo_de_recurso">Abre arquivo de recurso</h3>
+<div class="paragraph">
+<p><strong>Sistema:</strong> Windows/Linux&#8201;&#8212;&#8201;Ctrl + Shift + R; OS X&#8201;&#8212;&#8201;Cmd + Shift + R</p>
+</div>
+<div class="paragraph">
+<p><strong>Uso:</strong> Semelhante ao atalho visto anteriormente (Ctrl [Cmd] + Shift + T), mas além de arquivos de tipos, abre outros arquivos de recursos, como mostra a próxima figura:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/11/eclipse_open_resource.png" alt="eclipse open resource">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ctrl_cmd_e">Ctrl [Cmd] + E</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_navega_entre_arquivos_abertos">Navega entre arquivos abertos</h3>
+<div class="paragraph">
+<p><strong>Sistema:</strong> Windows/Linux&#8201;&#8212;&#8201;Ctrl + E; OS X&#8201;&#8212;&#8201;Cmd + E</p>
+</div>
+<div class="paragraph">
+<p><strong>Uso:</strong> Abre uma lista dos arquivos abertos no editor, permitindo a navegação entre eles. É útil quando há muitos arquivos abertos, dificultando sua identificação pelas abas.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ctrl_cmd_fn_f6">Ctrl [Cmd] + [fn] + F6</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_comuta_entre_dois_arquivos">Comuta entre dois arquivos</h3>
+<div class="paragraph">
+<p><strong>Sistema:</strong> Windows/Linuxs&#8201;&#8212;&#8201;Ctrl + F6; OS X&#8201;&#8212;&#8201;Cmd + fn + F6</p>
+</div>
+<div class="paragraph">
+<p><strong>Uso:</strong> Abre uma lista e permite a comutação rápida entre dois arquivos no editor.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_alt_cmd_shift_option_x_j_t">Alt [Cmd] + Shift [option] + X, J/T&#8230;&#8203;</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_executa_arquivo_contendo_code_main_code">Executa arquivo contendo <code>main</code></h3>
+<div class="paragraph">
+<p><strong>Sistema:</strong> Windows/Linux&#8201;&#8212;&#8201;Alt + Shift + X, J/T&#8230;&#8203;; OS X&#8201;&#8212;&#8201;Cmd + option + X, J/T&#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p><strong>Uso:</strong> Este comando, na verdade, é executado em duas etapas, primeiramente pressionam-se as teclas Alt [Cmd] e Shift [option] simultaneamente, e surge uma lista de opções de execução. Solta-se então essas teclas e pressiona-se a letra da opção desejada. As opções mais comuns são a opção <code>J - Run Java Application</code> e a opção <code>T - Run JUnit Test</code>:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/11/eclipse_run_java_app.png" alt="eclipse run java app">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ctrl_cmd_3">Ctrl [Cmd] + 3</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_acesso_rápido_para_código_padrão">Acesso rápido para código-padrão</h3>
+<div class="paragraph">
+<p><strong>Sistema:</strong> Windows/Linux&#8201;&#8212;&#8201;Ctrl + 3; OS X&#8201;&#8212;&#8201;Cmd + 3</p>
+</div>
+<div class="paragraph">
+<p><strong>Uso:</strong> Bastante útil para inserir trechos de código-padrão, como <em>Getters and Setters</em>, identificado pelas letras iniciais <strong>ggas</strong>. Veja este exemplo na figura abaixo para compreender melhor o uso desta ferramenta:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="http://pontogpp.com.br/wp-content/uploads/2015/11/eclipse_ggas.png" alt="eclipse ggas">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ctrl_cmd_shift_l">Ctrl [Cmd] + Shift + L</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_lista_atalhos_disponíveis">Lista Atalhos Disponíveis</h3>
+<div class="paragraph">
+<p><strong>Sistema:</strong> Windows/Linux&#8201;&#8212;&#8201;Ctrl + Shift + L; OS X&#8201;&#8212;&#8201;Cmd + Shift + L</p>
+</div>
+<div class="paragraph">
+<p><strong>Uso:</strong> Este comando apresenta uma lista de todos os atalhos disponíveis no Eclipse, para que você possa ir memorizando aos poucos.</p>
+</div>
+</div>
+</div>
+</div></p>
+      <div class="share">
+        <div class="social">
+  <!-- Facebook -->
+          <span class="facebook">
+            <iframe src="//www.facebook.com/plugins/like.php?href=http://http://ja-gaeta.github.io/2015/eclipse_atalhos_e_configurações_interessantes.html&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+          </span>
+  <!-- Google+ -->
+          <span class="google">
+            <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+            <g:plusone size="medium" href="http://ja-gaeta.github.io/2015/eclipse_atalhos_e_configurações_interessantes.html"></g:plusone>
+          </span>
+  <!-- Twitter -->
+          <span class="twitter">
+            <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ja-gaeta.github.io/2015/eclipse_atalhos_e_configurações_interessantes.html">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </span>
+        </div>
+      </div>
+<hr>
+<section class="comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+  
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>            </article>
+        </div> <!-- /.col-md-12 -->
+      </div> <!-- /.row -->
+        
+      </div><!-- /.container -->
+
+    <footer>
+      <div class="container">
+        <hr>
+        <div class="row">
+          <div class="col-xs-10">
+            <p class="text-muted credit">&copy; Ponto G++ 2015 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/br/"><img src="/img/creative_commons_88x31.png"></a> | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.4.0</a> | <i title="Linux" class="fa fa-linux"></i></p>
+          </div>
+          <div class="col-xs-2 gotop">
+            <a href="#"><i class="fa fa-arrow-circle-up"> topo</i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
+    <script type="text/javascript">
+      <!-- load prettify only when needed -->
+      $(document).ready(function(){
+        var prettify = false;
+        var classToAdd = 'prettyprint snippet';
+        $("pre > code").each(function() {
+          $("pre > code").parent().addClass(classToAdd);
+          prettify = true;
+        });
+        if(prettify) {
+          prettyPrint();
+        }
+      });
+    </script>
+
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+    </script>
+
+          <script type="text/javascript">
+        SyntaxHighlighter.all()
+    </script>
+  </body>
+</html>
