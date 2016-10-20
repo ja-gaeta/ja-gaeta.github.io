@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+    Ponto G++
+        - A instalação do macOS Sierra bagunçou meu ambiente de desenvolvimento!
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="J.A. Gaeta Mendes">
+    <meta name="description" content="Static blog generated with JBake">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/cosmo/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/prettify-themes/github.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/asciidoctor.css">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav icon -->
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/img/favicon.png" type="image/x-icon">
+      
+    <!-- SyntaxHighlighter -->
+    <script type="text/javascript" src="/js/shCore.js"></script>
+    <script type="text/javascript" src="/js/shBrushJava.js"></script>
+    <script type="text/javascript" src="/js/shBrushCSharp.js"></script>
+    <script type="text/javascript" src="/js/shBrushCpp.js"></script>
+    <script type="text/javascript" src="/js/shBrushPython.js"></script>
+    <script type="text/javascript" src="/js/shBrushJScript.js"></script>
+    
+    <link href="/css/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+      
+  </head>
+  <body>      
+    <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Ponto G++</a>
+        </div>
+        
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="/pages/about.html">Sobre</a></li>
+          <!--  <li><a href="/pages/contact.html">Contact</a></li> -->
+          </ul>
+        
+        <!-- Right navigation -->
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/archive.html"><i class="fa fa-list"></i> Arquivo</a></li>
+          <li><a href="/feed.xml" title="Rss"><i class="fa fa-rss"></i> Feed</a></li>
+        </ul>
+        <!-- Right navigation end -->
+
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav><!-- /.navbar -->
+
+    <!-- Begin page content -->
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-md-12">
+          <article>
+            <div class="page-header"><h1>A instalação do macOS Sierra bagunçou meu ambiente de desenvolvimento!</h1>
+              <ol class="breadcrumb tagsbar">
+                <li><a href="/tags/macOS.html">macOS</a></li>
+                <li><a href="/tags/sistemas-operacionais.html">sistemas-operacionais</a></li>
+              </ol>
+            </div>
+          <p class="post-meta">
+            <i class="fa fa-calendar"></i>&nbsp;20 October 2016&nbsp;&nbsp;
+            <i class="fa fa-user"></i>&nbsp;J.A. Gaeta Mendes&nbsp;&nbsp;
+              <i class="fa fa-comment"></i>&nbsp;<span class="badge"><a href="http://ja-gaeta.github.io/2016/desenvolvimento-macOS_Sierra.html#disqus_thread"></a></span>
+          </p>
+              <p><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Dica para restaurar o ambiente de desenvolvimento depois de atualizar o sistema operacional para o macOS Sierra.</p>
+</div>
+<!--more-->
+<div class="paragraph">
+<p>Instalei ontem a nova versão do OSX, "Sierra" e infelizmente constatei que a maioria das ferramentas que utilizo no meu dia-a-dia de desenvolvedor não funcionava mais, incluindo homebrew, git e npm. Aqui estão as instruções para deixar tudo funcionando certinho novamente.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_desabilite_a_proteção_de_integridade_do_sistema">Desabilite a Proteção de Integridade do Sistema</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A Proteção de Integridade do Sistema (SIP, sigla do inglês <em>System Integrity Protection</em>) é uma nova funcionalidade do OSX, também chamado "rootless". Como o próprio nome diz, ele cria um outro nível de acesso, abaixo da conta "root". Essa conta "root" rebaixada não pode modificar nada numa grande lista de arquivos de sistema, diretórios e processos. Isso faz sentido para a maioria dos usuários, que fornecem cegamente sua senha <em>sudo</em> sempre que algum instalador a solicita. Isso, todavia, não é bom para os desenvolvedores, que acessam regularmente esses diretórios. O NPM é um dos aplicativos que precisa ter acesso ao <strong>/usr/local</strong>, um diretório protegido pelo SIP. Outros aplicativos muito usados em desenvolvimento, tais como o Homebrew e o Git, entre muitos, também precisa desse acesso. Assim sendo, o primeiro passo é desabilitar o SIP.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Reinicilize o computador no <em>Modo de Recuperação</em> (Pressione Cmd+R enquanto reinicializa).</p>
+</li>
+<li>
+<p>Acesse um Terminal, a partir dos Menus.</p>
+</li>
+<li>
+<p>Execute o comando: <code>csrutil disable</code></p>
+</li>
+<li>
+<p>Reinicialize o computador.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Parabéns! Seus "root" não está mais rebaixado.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_atualize_as_permissões_para_strong_usr_local_strong">Atualize as permissões para <strong>usr/local</strong></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Abra um terminal e execute:</p>
+</div>
+<div class="paragraph">
+<p><code>sudo chflags norestricted /usr/local &amp;&amp; sudo chown $(whoami):admin /usr/local &amp;&amp; sudo chown -R $(whoami):admin /usr/local</code></p>
+</div>
+<div class="paragraph">
+<p>Isso vai atualizar as permissões que o npm, homebrew e outros aplicativos necessitam: serão proprietários do diretório e todo o seu conteúdo. Também troca as <em>flags</em> do SIP, para permitir modificações posteriores, caso você decida reabilitá-lo.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_atualize_as_ferramentas_de_desenvolvimento">Atualize as ferramentas de desenvolvimento</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Reinstale o <em>XCode developer tools</em>, executando num terminal:</p>
+</div>
+<div class="paragraph">
+<p><code>xcode-select --install</code></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_atualize_o_em_homebrew_em">Atualize o <em>homebrew</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Num terminal, digite os comandos:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>#S brew update
+#$ brew doctor</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Siga as instruções do bom doutor e, finalmente, dê o comando:</p>
+</div>
+<div class="paragraph">
+<p><code>brew upgrade</code></p>
+</div>
+<div class="paragraph">
+<p>Isso vai atualizar todos os aplicativos instalados com o <em>brew</em>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em><strong>Crédito:</strong> Baseado no artigo <a href="https://ohthehugemanatee.org/blog/2015/10/01/how-i-got-el-capitain-working-with-my-developer-tools/">El Capitain Broke My Developer Stuff! Here&#8217;s How to Fix It</a></em></p>
+</li>
+</ul>
+</div>
+</div>
+</div></p>
+      <div class="share">
+        <div class="social">
+  <!-- Facebook -->
+          <span class="facebook">
+            <iframe src="//www.facebook.com/plugins/like.php?href=http://http://ja-gaeta.github.io/2016/desenvolvimento-macOS_Sierra.html&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+          </span>
+  <!-- Google+ -->
+          <span class="google">
+            <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+            <g:plusone size="medium" href="http://ja-gaeta.github.io/2016/desenvolvimento-macOS_Sierra.html"></g:plusone>
+          </span>
+  <!-- Twitter -->
+          <span class="twitter">
+            <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ja-gaeta.github.io/2016/desenvolvimento-macOS_Sierra.html">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </span>
+        </div>
+      </div>
+<hr>
+<section class="comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+  
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>            </article>
+        </div> <!-- /.col-md-12 -->
+      </div> <!-- /.row -->
+        
+      </div><!-- /.container -->
+
+    <footer>
+      <div class="container">
+        <hr>
+        <div class="row">
+          <div class="col-xs-10">
+            <p class="text-muted credit">&copy; Ponto G++ 2015 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/br/"><img src="/img/creative_commons_88x31.png"></a> | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.4.0</a> | <i title="Linux" class="fa fa-linux"></i></p>
+          </div>
+          <div class="col-xs-2 gotop">
+            <a href="#"><i class="fa fa-arrow-circle-up"> topo</i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
+    <script type="text/javascript">
+      <!-- load prettify only when needed -->
+      $(document).ready(function(){
+        var prettify = false;
+        var classToAdd = 'prettyprint snippet';
+        $("pre > code").each(function() {
+          $("pre > code").parent().addClass(classToAdd);
+          prettify = true;
+        });
+        if(prettify) {
+          prettyPrint();
+        }
+      });
+    </script>
+
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'pontogpp'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+    </script>
+
+          <script type="text/javascript">
+        SyntaxHighlighter.all()
+    </script>
+  </body>
+</html>

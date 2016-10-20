@@ -6,9 +6,110 @@
     <atom:link href="http://ja-gaeta.github.io//feed.xml" rel="self" type="application/rss+xml" />
     <description>For future use?</description>
     <language>en</language>
-    <pubDate>Tue, 24 Nov 2015 22:26:44 -0200</pubDate>
-    <lastBuildDate>Tue, 24 Nov 2015 22:26:44 -0200</lastBuildDate>
+    <pubDate>Thu, 20 Oct 2016 19:02:26 -0200</pubDate>
+    <lastBuildDate>Thu, 20 Oct 2016 19:02:26 -0200</lastBuildDate>
 
+      <item>
+        <title>A instalação do macOS Sierra bagunçou meu ambiente de desenvolvimento!</title>
+        <link>http://ja-gaeta.github.io/2016/desenvolvimento-macOS_Sierra.html</link>
+        <pubDate>Thu, 20 Oct 2016 00:00:00 -0200</pubDate>
+        <guid isPermaLink="false">2016/desenvolvimento-macOS_Sierra.html</guid>
+        <description>
+	        &lt;div id=&quot;preamble&quot;&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Dica para restaurar o ambiente de desenvolvimento depois de atualizar o sistema operacional para o macOS Sierra.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!--more--&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Instalei ontem a nova versão do OSX, &quot;Sierra&quot; e infelizmente constatei que a maioria das ferramentas que utilizo no meu dia-a-dia de desenvolvedor não funcionava mais, incluindo homebrew, git e npm. Aqui estão as instruções para deixar tudo funcionando certinho novamente.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_desabilite_a_proteção_de_integridade_do_sistema&quot;&gt;Desabilite a Proteção de Integridade do Sistema&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;A Proteção de Integridade do Sistema (SIP, sigla do inglês &lt;em&gt;System Integrity Protection&lt;/em&gt;) é uma nova funcionalidade do OSX, também chamado &quot;rootless&quot;. Como o próprio nome diz, ele cria um outro nível de acesso, abaixo da conta &quot;root&quot;. Essa conta &quot;root&quot; rebaixada não pode modificar nada numa grande lista de arquivos de sistema, diretórios e processos. Isso faz sentido para a maioria dos usuários, que fornecem cegamente sua senha &lt;em&gt;sudo&lt;/em&gt; sempre que algum instalador a solicita. Isso, todavia, não é bom para os desenvolvedores, que acessam regularmente esses diretórios. O NPM é um dos aplicativos que precisa ter acesso ao &lt;strong&gt;/usr/local&lt;/strong&gt;, um diretório protegido pelo SIP. Outros aplicativos muito usados em desenvolvimento, tais como o Homebrew e o Git, entre muitos, também precisa desse acesso. Assim sendo, o primeiro passo é desabilitar o SIP.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Reinicilize o computador no &lt;em&gt;Modo de Recuperação&lt;/em&gt; (Pressione Cmd+R enquanto reinicializa).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Acesse um Terminal, a partir dos Menus.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Execute o comando: &lt;code&gt;csrutil disable&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Reinicialize o computador.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Parabéns! Seus &quot;root&quot; não está mais rebaixado.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_atualize_as_permissões_para_strong_usr_local_strong&quot;&gt;Atualize as permissões para &lt;strong&gt;usr/local&lt;/strong&gt;&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Abra um terminal e execute:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;code&gt;sudo chflags norestricted /usr/local &amp;amp;&amp;amp; sudo chown $(whoami):admin /usr/local &amp;amp;&amp;amp; sudo chown -R $(whoami):admin /usr/local&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Isso vai atualizar as permissões que o npm, homebrew e outros aplicativos necessitam: serão proprietários do diretório e todo o seu conteúdo. Também troca as &lt;em&gt;flags&lt;/em&gt; do SIP, para permitir modificações posteriores, caso você decida reabilitá-lo.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_atualize_as_ferramentas_de_desenvolvimento&quot;&gt;Atualize as ferramentas de desenvolvimento&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Reinstale o &lt;em&gt;XCode developer tools&lt;/em&gt;, executando num terminal:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;code&gt;xcode-select --install&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_atualize_o_em_homebrew_em&quot;&gt;Atualize o &lt;em&gt;homebrew&lt;/em&gt;&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Num terminal, digite os comandos:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;#S brew update
+#$ brew doctor&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Siga as instruções do bom doutor e, finalmente, dê o comando:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;code&gt;brew upgrade&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Isso vai atualizar todos os aplicativos instalados com o &lt;em&gt;brew&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Crédito:&lt;/strong&gt; Baseado no artigo &lt;a href=&quot;https://ohthehugemanatee.org/blog/2015/10/01/how-i-got-el-capitain-working-with-my-developer-tools/&quot;&gt;El Capitain Broke My Developer Stuff! Here&amp;#8217;s How to Fix It&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+	    </description>
+      </item>
       <item>
         <title>Eclipse&#8201;&#8212;&#8201;Atalhos e configurações interessantes</title>
         <link>http://ja-gaeta.github.io/2015/eclipse_atalhos_e_configurações_interessantes.html</link>
