@@ -6,8 +6,8 @@
     <atom:link href="http://ja-gaeta.github.io//feed.xml" rel="self" type="application/rss+xml" />
     <description>For future use?</description>
     <language>en</language>
-    <pubDate>Thu, 20 Oct 2016 19:02:26 -0200</pubDate>
-    <lastBuildDate>Thu, 20 Oct 2016 19:02:26 -0200</lastBuildDate>
+    <pubDate>Thu, 20 Oct 2016 19:13:53 -0200</pubDate>
+    <lastBuildDate>Thu, 20 Oct 2016 19:13:53 -0200</lastBuildDate>
 
       <item>
         <title>A instalação do macOS Sierra bagunçou meu ambiente de desenvolvimento!</title>
@@ -21,6 +21,15 @@
 &lt;p&gt;Dica para restaurar o ambiente de desenvolvimento depois de atualizar o sistema operacional para o macOS Sierra.&lt;/p&gt;
 &lt;/div&gt;
 &lt;!--more--&gt;
+&lt;div id=&quot;toc&quot; class=&quot;toc&quot;&gt;
+&lt;div id=&quot;toctitle&quot; class=&quot;title&quot;&gt;Roteiro&lt;/div&gt;
+&lt;ul class=&quot;sectlevel1&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#_desabilite_a_proteção_de_integridade_do_sistema&quot;&gt;Desabilite a Proteção de Integridade do Sistema&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#_atualize_as_permissões_para_strong_usr_local_strong&quot;&gt;Atualize as permissões para &lt;strong&gt;usr/local&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#_atualize_as_ferramentas_de_desenvolvimento&quot;&gt;Atualize as ferramentas de desenvolvimento&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#_atualize_o_em_homebrew_em&quot;&gt;Atualize o &lt;em&gt;homebrew&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Instalei ontem a nova versão do OSX, &quot;Sierra&quot; e infelizmente constatei que a maioria das ferramentas que utilizo no meu dia-a-dia de desenvolvedor não funcionava mais, incluindo homebrew, git e npm. Aqui estão as instruções para deixar tudo funcionando certinho novamente.&lt;/p&gt;
 &lt;/div&gt;
