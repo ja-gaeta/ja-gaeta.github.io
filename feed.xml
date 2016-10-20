@@ -6,8 +6,8 @@
     <atom:link href="http://ja-gaeta.github.io//feed.xml" rel="self" type="application/rss+xml" />
     <description>For future use?</description>
     <language>en</language>
-    <pubDate>Thu, 20 Oct 2016 19:19:27 -0200</pubDate>
-    <lastBuildDate>Thu, 20 Oct 2016 19:19:27 -0200</lastBuildDate>
+    <pubDate>Thu, 20 Oct 2016 20:25:36 -0200</pubDate>
+    <lastBuildDate>Thu, 20 Oct 2016 20:25:36 -0200</lastBuildDate>
 
       <item>
         <title>A instalação do macOS Sierra bagunçou meu ambiente de desenvolvimento!</title>
@@ -22,7 +22,7 @@
 &lt;/div&gt;
 &lt;!--more--&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Instalei ontem a nova versão do OSX, &quot;Sierra&quot; e infelizmente constatei que a maioria das ferramentas que utilizo no meu dia-a-dia de desenvolvedor não funcionava mais, incluindo homebrew, git e npm. Aqui estão as instruções para deixar tudo funcionando certinho novamente.&lt;/p&gt;
+&lt;p&gt;Instalei ontem a nova versão do OSX, &quot;Sierra&quot; e infelizmente constatei que a maioria das ferramentas que utilizo no meu dia-a-dia de desenvolvedor não funcionava mais, incluindo &lt;em&gt;homebrew&lt;/em&gt;, &lt;em&gt;git&lt;/em&gt; e &lt;em&gt;npm&lt;/em&gt;. Aqui estão as instruções para deixar tudo funcionando certinho novamente.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&quot;toc&quot; class=&quot;toc&quot;&gt;
 &lt;div id=&quot;toctitle&quot; class=&quot;title&quot;&gt;Roteiro&lt;/div&gt;
@@ -39,7 +39,7 @@
 &lt;h2 id=&quot;_desabilite_a_proteção_de_integridade_do_sistema&quot;&gt;Desabilite a Proteção de Integridade do Sistema&lt;/h2&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;A Proteção de Integridade do Sistema (SIP, sigla do inglês &lt;em&gt;System Integrity Protection&lt;/em&gt;) é uma nova funcionalidade do OSX, também chamado &quot;rootless&quot;. Como o próprio nome diz, ele cria um outro nível de acesso, abaixo da conta &quot;root&quot;. Essa conta &quot;root&quot; rebaixada não pode modificar nada numa grande lista de arquivos de sistema, diretórios e processos. Isso faz sentido para a maioria dos usuários, que fornecem cegamente sua senha &lt;em&gt;sudo&lt;/em&gt; sempre que algum instalador a solicita. Isso, todavia, não é bom para os desenvolvedores, que acessam regularmente esses diretórios. O NPM é um dos aplicativos que precisa ter acesso ao &lt;strong&gt;/usr/local&lt;/strong&gt;, um diretório protegido pelo SIP. Outros aplicativos muito usados em desenvolvimento, tais como o Homebrew e o Git, entre muitos, também precisa desse acesso. Assim sendo, o primeiro passo é desabilitar o SIP.&lt;/p&gt;
+&lt;p&gt;A &quot;Proteção de Integridade do Sistema&quot; (SIP, sigla do inglês &lt;em&gt;System Integrity Protection&lt;/em&gt;) é uma nova funcionalidade do OSX, também chamado &quot;rootless&quot;. Como o próprio nome diz, ele cria um outro nível de acesso, abaixo da conta &quot;root&quot;. Essa conta &quot;root&quot; rebaixada não pode modificar nada numa grande lista de arquivos de sistema, diretórios e processos. Isso faz sentido para a maioria dos usuários, que fornecem cegamente sua senha &lt;em&gt;sudo&lt;/em&gt; sempre que algum instalador a solicita. Isso, todavia, não é bom para os desenvolvedores, que acessam regularmente esses diretórios. O &lt;strong&gt;npm&lt;/strong&gt; é um dos aplicativos que precisa ter acesso ao &lt;strong&gt;/usr/local&lt;/strong&gt;, um diretório protegido pelo SIP. Outros aplicativos muito usados em desenvolvimento, tais como o &lt;strong&gt;homebrew&lt;/strong&gt; e o &lt;strong&gt;git&lt;/strong&gt;, entre muitos, também precisam desse acesso. Assim sendo, o primeiro passo é desabilitar o SIP.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;ulist&quot;&gt;
 &lt;ul&gt;
@@ -58,7 +58,7 @@
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Parabéns! Seus &quot;root&quot; não está mais rebaixado.&lt;/p&gt;
+&lt;p&gt;Parabéns! Seu &quot;root&quot; não está mais rebaixado.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -72,7 +72,7 @@
 &lt;p&gt;&lt;code&gt;sudo chflags norestricted /usr/local &amp;amp;&amp;amp; sudo chown $(whoami):admin /usr/local &amp;amp;&amp;amp; sudo chown -R $(whoami):admin /usr/local&lt;/code&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Isso vai atualizar as permissões que o npm, homebrew e outros aplicativos necessitam: serão proprietários do diretório e todo o seu conteúdo. Também troca as &lt;em&gt;flags&lt;/em&gt; do SIP, para permitir modificações posteriores, caso você decida reabilitá-lo.&lt;/p&gt;
+&lt;p&gt;Isso vai atualizar as permissões que o &lt;strong&gt;npm&lt;/strong&gt;, &lt;strong&gt;homebrew&lt;/strong&gt; e outros aplicativos necessitam: eles serão proprietários do diretório e de todo o seu conteúdo. Também troca as &lt;em&gt;flags&lt;/em&gt; do SIP, para permitir modificações posteriores, caso você decida reabilitá-lo.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -95,7 +95,7 @@
 &lt;/div&gt;
 &lt;div class=&quot;listingblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;#S brew update
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;#$ brew update
 #$ brew doctor&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
