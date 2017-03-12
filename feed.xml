@@ -6,8 +6,8 @@
     <atom:link href="http://ja-gaeta.github.io//feed.xml" rel="self" type="application/rss+xml" />
     <description>For future use?</description>
     <language>en</language>
-    <pubDate>Thu, 20 Oct 2016 20:29:22 -0200</pubDate>
-    <lastBuildDate>Thu, 20 Oct 2016 20:29:22 -0200</lastBuildDate>
+    <pubDate>Sun, 12 Mar 2017 10:04:56 -0300</pubDate>
+    <lastBuildDate>Sun, 12 Mar 2017 10:04:56 -0300</lastBuildDate>
 
       <item>
         <title>A instalação do macOS Sierra bagunçou meu ambiente de desenvolvimento!</title>
@@ -39,7 +39,7 @@
 &lt;h2 id=&quot;_desabilite_a_proteção_de_integridade_do_sistema&quot;&gt;Desabilite a Proteção de Integridade do Sistema&lt;/h2&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;A &quot;Proteção de Integridade do Sistema&quot; (SIP, sigla do inglês &lt;em&gt;System Integrity Protection&lt;/em&gt;) é uma nova funcionalidade do OSX, também chamado &quot;rootless&quot;. Como o próprio nome diz, ele cria um outro nível de acesso, abaixo da conta &quot;root&quot;. Essa conta &quot;root&quot; rebaixada não pode modificar nada numa grande lista de arquivos de sistema, diretórios e processos. Isso faz sentido para a maioria dos usuários, que fornecem cegamente sua senha &lt;em&gt;sudo&lt;/em&gt; sempre que algum instalador a solicita. Isso, todavia, não é bom para os desenvolvedores, que acessam regularmente esses diretórios. O &lt;strong&gt;npm&lt;/strong&gt; é um dos aplicativos que precisa ter acesso ao &lt;strong&gt;/usr/local&lt;/strong&gt;, um diretório protegido pelo SIP. Outros aplicativos muito usados em desenvolvimento, tais como o &lt;strong&gt;homebrew&lt;/strong&gt; e o &lt;strong&gt;git&lt;/strong&gt;, entre muitos, também precisam desse acesso. Assim sendo, o primeiro passo é desabilitar o SIP.&lt;/p&gt;
+&lt;p&gt;A &quot;Proteção de Integridade do Sistema&quot; (SIP, sigla do inglês &lt;em&gt;System Integrity Protection&lt;/em&gt;) é uma nova funcionalidade do OSX, também chamado &quot;rootless&quot;. Como o próprio nome diz, ele cria um outro nível de acesso, abaixo da conta &quot;root&quot;. Essa conta &quot;root&quot; rebaixada não pode modificar nada numa grande lista de arquivos de sistema, diretórios e processos. Isso faz sentido para a maioria dos usuários, que fornecem cegamente sua senha &lt;em&gt;sudo&lt;/em&gt; sempre que algum instalador a solicita, mas não é nada bom para os desenvolvedores, que acessam regularmente esses diretórios. O &lt;strong&gt;npm&lt;/strong&gt; é um dos aplicativos que precisa ter acesso ao &lt;strong&gt;/usr/local&lt;/strong&gt;, um diretório protegido pelo SIP. Outros aplicativos muito usados em desenvolvimento, tais como o &lt;strong&gt;homebrew&lt;/strong&gt; e o &lt;strong&gt;git&lt;/strong&gt;, por exemplo, também precisam desse acesso. Assim sendo, o primeiro passo é desabilitar o SIP.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;ulist&quot;&gt;
 &lt;ul&gt;
